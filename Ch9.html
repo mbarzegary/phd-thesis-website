@@ -1,0 +1,461 @@
+<!DOCTYPE html><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>9 Bayesian parameter estimation of the computational models‣ Mathematical and computational modeling of metallic biomaterials biodegradation</title>
+<!--Generated on Sat Aug 31 17:26:45 2024 by LaTeXML (version 0.8.6) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on KU Leuven, June 2023.-->
+
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/style.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/plugin-table.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/plugin-search.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/plugin-bookdown.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/plugin-fontsettings.css" type="text/css">
+<link rel="stylesheet" href="ltx-report.css" type="text/css">
+<link rel="stylesheet" href="bookml/CSS/style.css" type="text/css">
+<link rel="stylesheet" href="bookml/CSS/style.gitbook,plain.css" type="text/css">
+<link rel="stylesheet" href="bookml/CSS/style.gitbook.css" type="text/css">
+<link rel="stylesheet" href="bmluser/colors.gitbook-thesis.css" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6"></script>
+<link rel="up" href="index.html" title="Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="start" href="index.html" title="Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="prev" href="Ch8.html" title="Chapter 8 BioDeg simulation software ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="next" href="Ch10.html" title="Chapter 10 Model applications: patient-specific porous acetabular implants ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Chx1.html" title="Abstract ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch1.html" title="Chapter 1 General introduction ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch2.html" title="Chapter 2 Aims and objectives ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch4.html" title="Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch5.html" title="Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch6.html" title="Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch7.html" title="Chapter 7 Model parallelization for high-performance computing ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch8.html" title="Chapter 8 BioDeg simulation software ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch10.html" title="Chapter 10 Model applications: patient-specific porous acetabular implants ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch11.html" title="Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch12.html" title="Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch13.html" title="Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="bibliography" href="bib.html" title="Bibliography ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="appendix" href="A1.html" title="Appendix A Mesh quality plots ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+</head>
+<body>
+<div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+<a href="#bml-main-content" tabindex="0" class="bml-skip-to-content">Skip to content.</a>
+<div class="book-summary"><nav class="ltx_page_navbar">
+<ul class="ltx_toclist summary">
+<li>
+<a href="index.html" title="Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref" rel="start">Mathematical and computational modeling of metallic biomaterials biodegradation</a>
+</li>
+<li class="divider">
+<li data-level="" data-path="Chx1.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Chx1.html" title="Abstract ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref">Abstract</a></li>
+<li data-level="1" data-path="Ch1.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch1.html" title="Chapter 1 General introduction ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">1 </span></b>General introduction</a></li>
+<li data-level="2" data-path="Ch2.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch2.html" title="Chapter 2 Aims and objectives ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">2 </span></b>Aims and objectives</a></li>
+<li data-level="3" data-path="Ch3.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">3 </span></b>Developing the core computational model</a></li>
+<li data-level="4" data-path="Ch4.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch4.html" title="Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">4 </span></b>Extending the model: adding fluid flow and convection</a></li>
+<li data-level="5" data-path="Ch5.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch5.html" title="Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">5 </span></b>Extending the model: simulating local pH evolution</a></li>
+<li data-level="6" data-path="Ch6.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch6.html" title="Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">6 </span></b>Computational modeling of the neotissue growth process</a></li>
+<li data-level="7" data-path="Ch7.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch7.html" title="Chapter 7 Model parallelization for high-performance computing ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">7 </span></b>Model parallelization for high-performance computing</a></li>
+<li data-level="8" data-path="Ch8.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch8.html" title="Chapter 8 BioDeg simulation software ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">8 </span></b>BioDeg simulation software</a></li>
+<li data-level="9" data-path="" class="ltx_tocentry ltx_tocentry_chapter ltx_ref_self  chapter active">
+<a href="" title="Chapter 9 Bayesian parameter estimation of the computational models ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">9 </span></b>Bayesian parameter estimation of the computational models</a>
+<ul class="ltx_toclist ltx_toclist_chapter">
+<li data-level="9.1" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter "><a href="#S1" title="9.1 Summary ‣ Chapter 9 Bayesian parameter estimation of the computational models ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">9.1 </span></b>Summary</a></li>
+<li data-level="9.2" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter "><a href="#S2" title="9.2 Statement of need ‣ Chapter 9 Bayesian parameter estimation of the computational models ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">9.2 </span></b>Statement of need</a></li>
+<li data-level="9.3" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter "><a href="#S3" title="9.3 Learning objectives ‣ Chapter 9 Bayesian parameter estimation of the computational models ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">9.3 </span></b>Learning objectives</a></li>
+<li data-level="9.4" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter "><a href="#S4" title="9.4 Prerequisites ‣ Chapter 9 Bayesian parameter estimation of the computational models ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">9.4 </span></b>Prerequisites</a></li>
+<li data-level="9.5" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter "><a href="#S5" title="9.5 Pedagogy and instructional design ‣ Chapter 9 Bayesian parameter estimation of the computational models ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">9.5 </span></b>Pedagogy and instructional design</a></li>
+<li data-level="9.6" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter "><a href="#S6" title="9.6 Getting started ‣ Chapter 9 Bayesian parameter estimation of the computational models ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">9.6 </span></b>Getting started</a></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li data-level="9.A" data-path="" class="ltx_tocentry ltx_tocentry_appendix  chapter ">
+<a href="#A1" title="Appendix 9.A A glimpse of the Jupyter notebook ‣ Chapter 9 Bayesian parameter estimation of the computational models ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">9.A </span></b>A glimpse of the Jupyter notebook</a>
+<ul class="ltx_toclist ltx_toclist_appendix">
+<li data-level="9.A.1" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#A1.SS1" title="9.A.1 Introduction ‣ Appendix 9.A A glimpse of the Jupyter notebook ‣ Chapter 9 Bayesian parameter estimation of the computational models ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">9.A.1 </span></b>Introduction</a></li>
+<li data-level="9.A.2" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#A1.SS2" title="9.A.2 Bayesian optimization ‣ Appendix 9.A A glimpse of the Jupyter notebook ‣ Chapter 9 Bayesian parameter estimation of the computational models ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">9.A.2 </span></b>Bayesian optimization</a></li>
+<li data-level="9.A.3" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#A1.SS3" title="9.A.3 Sample problem ‣ Appendix 9.A A glimpse of the Jupyter notebook ‣ Chapter 9 Bayesian parameter estimation of the computational models ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">9.A.3 </span></b>Sample problem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li data-level="10" data-path="Ch10.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch10.html" title="Chapter 10 Model applications: patient-specific porous acetabular implants ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">10 </span></b>Model applications: patient-specific porous acetabular implants</a></li>
+<li data-level="11" data-path="Ch11.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch11.html" title="Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">11 </span></b>Model applications: mechanical integrity of infilled structures</a></li>
+<li data-level="12" data-path="Ch12.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch12.html" title="Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">12 </span></b>Model applications: mechanical loosening of mandibular plates</a></li>
+<li data-level="13" data-path="Ch13.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch13.html" title="Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">13 </span></b>Conclusion</a></li>
+<li data-level="" data-path="bib.html" class="ltx_tocentry ltx_tocentry_bibliography  chapter "><a href="bib.html" title="Bibliography ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref">Bibliography</a></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li data-level="A" data-path="A1.html" class="ltx_tocentry ltx_tocentry_appendix  chapter "><a href="A1.html" title="Appendix A Mesh quality plots ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">A </span></b>Mesh quality plots</a></li>
+</ul>
+</nav></div>
+<div class="ltx_page_main book-body fixed">
+<div class="body-inner">
+<div class="book-header fixed" role="navigation"><h1>Bayesian parameter estimation of the computational models</h1></div>
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="ltx_page_content page-inner" id="bml-main-content">
+<section class="ltx_chapter normal">
+<div class="section level1">
+
+<h1 class="ltx_title ltx_title_chapter">
+<span class="ltx_tag ltx_tag_chapter header-section-number">Chapter 9</span> Bayesian parameter estimation of the computational models</h1>
+
+<div id="p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">
+<span class="ltx_inline-block ltx_parbox ltx_align_middle ltx_framed_rectangle" style="padding:9pt;width:433.6pt;">
+<span class="ltx_p">This chapter is based on previously published content in the <span class="ltx_text ltx_font_italic">Journal of Open Source Education</span>:</span>
+<span class="ltx_p">M. Barzegari, and L. Geris, “An open source crash course on parameter estimation of computational models using a Bayesian optimization approach
+,” <span class="ltx_text ltx_font_italic">Journal of Open Source Education</span>, vol. 4, p. 89, 2021.</span>
+<span class="ltx_p">This publication included didactical and educational materials in Jupyter Notebooks format to make it possible for readers to follow the principles interactively. The introductory part of the Jupyter Notebook file is included in this chapter as well.</span>
+</span></p>
+</div>
+<section id="S1" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">9.1</span> Summary</h2>
+
+<div id="S1.p1" class="ltx_para">
+<p class="ltx_p">Parameter estimation is a crucial aspect of computational modeling projects, especially the ones that deal with ordinary differential equations (ODE) or partial differential equation (PDE) models. Well-known examples in this regard are models derived from a basic balance or conservation law, such as mass balance or heat transfer problems. For real-world applications, these equations contain some coefficients that cannot be obtained directly from published scientific materials or experimental studies <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib121" title="An inverse problem of finding a source parameter in a semilinear parabolic equation" class="ltx_ref">66</a>]</cite>. One of the best solutions to this challenge is constructing an inverse problem.</p>
+</div>
+<div id="S1.p2" class="ltx_para">
+<p class="ltx_p">According to <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib118" title="Inverse problem theory: methods for data fitting and model parameter estimation" class="ltx_ref">253</a>]</cite>, inverse modeling is the use of the results of some measurements of observable parameters to infer the values of the model parameters. Put differently, what we want to do is estimate parameters that cannot be directly measured for our computational model. This is also called parameter estimation or model calibration <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib120" title="5 - parameter estimation" class="ltx_ref">181</a>]</cite>. Indeed, we calibrate our model to act similarly to available experimental data, and then this calibrated model can be used to simulate other scenarios that haven’t been tested yet in the experiments. This is a common process in a lot of modeling problems in science and engineering.</p>
+</div>
+<div id="S1.p3" class="ltx_para">
+<p class="ltx_p">Take a simple reaction-diffusion equation as an example, in which the change of the concentration of a sample chemical component <math id="S1.p3.m1" class="ltx_Math" alttext="C" display="inline"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math> is studied over time. By assuming that the correlated chemical reaction is <math id="S1.p3.m2" class="ltx_Math" alttext="A+2B\rightleftharpoons C" display="inline"><semantics><mrow><mrow><mi>A</mi><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><mi>B</mi></mrow></mrow><mo>⇌</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">A+2B\rightleftharpoons C</annotation></semantics></math>, occurring in a diffusible medium (such as a chemical solution), the PDE to describe the mass transfer phenomenon over time can be written as <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib40" title="The theory and applications of reaction-diffusion equations : patterns and waves" class="ltx_ref">96</a>]</cite>:</p>
+<div id="E1" class="ltx_equation ltx_eqn_div">
+<span><math id="E1.m1" class="ltx_Math" alttext="\frac{\partial[C]}{\partial t}=\nabla.\left(D_{C}\nabla[C]\right)+k_{1}[A][B]^%
+{2}-k_{2}[C]" display="block"><semantics><mrow><mrow><mfrac><mrow><mo>∂</mo><mo>⁡</mo><mrow><mo stretchy="false">[</mo><mi>C</mi><mo stretchy="false">]</mo></mrow></mrow><mrow><mo>∂</mo><mo>⁡</mo><mi>t</mi></mrow></mfrac><mo>=</mo><mo>∇</mo></mrow><mo>.</mo><mrow><mrow><mrow><mo>(</mo><mrow><msub><mi>D</mi><mi>C</mi></msub><mo>⁢</mo><mrow><mo>∇</mo><mo>⁡</mo><mrow><mo stretchy="false">[</mo><mi>C</mi><mo stretchy="false">]</mo></mrow></mrow></mrow><mo>)</mo></mrow><mo>+</mo><mrow><msub><mi>k</mi><mn>1</mn></msub><mo>⁢</mo><mrow><mo stretchy="false">[</mo><mi>A</mi><mo stretchy="false">]</mo></mrow><mo>⁢</mo><msup><mrow><mo stretchy="false">[</mo><mi>B</mi><mo stretchy="false">]</mo></mrow><mn>2</mn></msup></mrow></mrow><mo>-</mo><mrow><msub><mi>k</mi><mn>2</mn></msub><mo>⁢</mo><mrow><mo stretchy="false">[</mo><mi>C</mi><mo stretchy="false">]</mo></mrow></mrow></mrow></mrow><annotation encoding="application/x-tex">\frac{\partial[C]}{\partial t}=\nabla.\left(D_{C}\nabla[C]\right)+k_{1}[A][B]^%
+{2}-k_{2}[C]</annotation></semantics></math></span>
+            <span class="ltx_tag ltx_tag_equation ltx_align_right">(9.1)</span>
+            
+            
+          
+</div>
+<p class="ltx_p">in which <math id="S1.p3.m3" class="ltx_Math" alttext="[X]" display="inline"><semantics><mrow><mo stretchy="false">[</mo><mi>X</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[X]</annotation></semantics></math> denotes the concentration of the chemical component <math id="S1.p3.m4" class="ltx_Math" alttext="X" display="inline"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>, the <math id="S1.p3.m5" class="ltx_Math" alttext="D_{C}" display="inline"><semantics><msub><mi>D</mi><mi>C</mi></msub><annotation encoding="application/x-tex">D_{C}</annotation></semantics></math> is the diffusion coefficient of C in the medium, and <math id="S1.p3.m6" class="ltx_Math" alttext="k_{1}" display="inline"><semantics><msub><mi>k</mi><mn>1</mn></msub><annotation encoding="application/x-tex">k_{1}</annotation></semantics></math> and <math id="S1.p3.m7" class="ltx_Math" alttext="k_{2}" display="inline"><semantics><msub><mi>k</mi><mn>2</mn></msub><annotation encoding="application/x-tex">k_{2}</annotation></semantics></math> are the rates of the forward and backward reactions, respectively. To solve this PDE numerically and get quantitative data (the goal of most of the scientific computing projects), we need to know the value of <math id="S1.p3.m8" class="ltx_Math" alttext="D_{C}" display="inline"><semantics><msub><mi>D</mi><mi>C</mi></msub><annotation encoding="application/x-tex">D_{C}</annotation></semantics></math>, <math id="S1.p3.m9" class="ltx_Math" alttext="k_{1}" display="inline"><semantics><msub><mi>k</mi><mn>1</mn></msub><annotation encoding="application/x-tex">k_{1}</annotation></semantics></math>, and <math id="S1.p3.m10" class="ltx_Math" alttext="k_{2}" display="inline"><semantics><msub><mi>k</mi><mn>2</mn></msub><annotation encoding="application/x-tex">k_{2}</annotation></semantics></math>, which is usually hard-to-find in the literature.</p>
+</div>
+<div id="S1.p4" class="ltx_para">
+<p class="ltx_p">As mentioned above, one solution is to to solve the inverse problem, in which we can use optimization techniques to minimize the difference between the model output and experimental data. Bayesian optimization is one of the most efficient approaches in this regard <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib76" title="Bayesian approach to global optimization" class="ltx_ref">196</a>]</cite>. <span class="ltx_text ltx_font_typewriter">HyperOpt</span> <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib119" title="Making a science of model search: hyperparameter optimization in hundreds of dimensions for vision architectures" class="ltx_ref">34</a>]</cite> is a Python package that provides easy-to-use interfaces to implement a Bayesian optimization problem, making it a good choice for both educational and practical purposes. In our educational module, we used this package to teach the principles of an efficient parameter estimation pipeline.</p>
+</div>
+<div id="S1.p5" class="ltx_para">
+<p class="ltx_p">For demonstration purposes, an interpolation problem is solved by using the parameter estimation techniques that a computational modeling researcher employs for model calibration. Indeed, the computationally intensive code is replaced with a simple function evaluator, which helps students to learn the core concepts without waiting too much for the process to finish. Students will be guided through several steps of refining the results inside the notebook, where the interactive computing environment of Jupyter facilitates exploring the implementation more efficiently in comparison to traditional educational materials.</p>
+</div>
+</div>
+</section>
+<section id="S2" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">9.2</span> Statement of need</h2>
+
+<div id="S2.p1" class="ltx_para">
+<p class="ltx_p">Despite its simplicity, building an inverse problem is hard for many students. The problem is that, although it is relatively simple to describe the process visually, implementing it for a practical application becomes challenging in its early stages. In this educational module, a simple optimization problem is implemented in a Jupyter notebook to teach students how to construct an inverse problem and tune it to get better results in such a problem. In this way, students can work on a real-world optimization problem in an interactive environment and learn the concepts behind taking advantage of a modern optimization method (Bayesian approach) for parameter estimation of a computational model.</p>
+</div>
+<div id="S2.p2" class="ltx_para">
+<p class="ltx_p">Our notebook is a modern learning module for relatively old and frequently-used concepts (global optimization, Bayesian techniques, inverse problems). It has been designed to be useful for both teachers and students. Students can use it as a self-study guide for parameter estimation and inverse problem construction, while teachers can change the underlying problem to any other desired one easily and make the learning module compatible with their own teaching requirements.</p>
+</div>
+</div>
+</section>
+<section id="S3" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">9.3</span> Learning objectives</h2>
+
+<div id="S3.p1" class="ltx_para">
+<p class="ltx_p">Upon completion, students will be able to:</p>
+</div>
+<div id="S3.p2" class="ltx_para">
+<ul id="S3.I1" class="ltx_itemize">
+<li id="S3.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span><div id="S3.I1.i1.p1" class="ltx_para">​<p class="ltx_p">Understand the concept and necessity of parameter estimation in science and engineering</p>
+</div>
+</li>
+<li id="S3.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span><div id="S3.I1.i2.p1" class="ltx_para">​<p class="ltx_p">Describe what the whole process of Bayesian optimization is all about</p>
+</div>
+</li>
+<li id="S3.I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span><div id="S3.I1.i3.p1" class="ltx_para">​<p class="ltx_p">Define and implement a Bayesian optimization workflow for parameter estimation of common use-cases</p>
+</div>
+</li>
+<li id="S3.I1.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span><div id="S3.I1.i4.p1" class="ltx_para">​<p class="ltx_p">Critically evaluate the output of the process and fine-tune the setup of the Bayesian optimization</p>
+</div>
+</li>
+<li id="S3.I1.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span><div id="S3.I1.i5.p1" class="ltx_para">​<p class="ltx_p">Apply the obtained knowledge to any kind of models that are commonly used in science and engineering</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="S4" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">9.4</span> Prerequisites</h2>
+
+<div id="S4.p1" class="ltx_para">
+<p class="ltx_p">In order to go through the learning module, the students should have a working knowledge of programming in Python. Additionally, a basic understanding of mathematics is required to get the concept of models in science and engineering. The given example is a mathematical model derived from differential equations, so knowledge of differential equations can help to understand the importance of parameter estimation in these widely-used models. However, in case of necessity, the example can be replaced by any other relevant one for the target learners.</p>
+</div>
+</div>
+</section>
+<section id="S5" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">9.5</span> Pedagogy and instructional design</h2>
+
+<div id="S5.p1" class="ltx_para">
+<p class="ltx_p">The provided material is in the format of a crash course, which is suitable for being taught in one session of undergraduate or graduate courses for science and engineering students. Courses to which this material is relevant can be
+“optimization”, “scientific computing”, or “parametric design”. The material may also be useful for relevant educational projects for the target students, in which they can employ the learned techniques to construct efficient inverse problems for parameter estimation.</p>
+</div>
+<div id="S5.p2" class="ltx_para">
+<p class="ltx_p">The teaching strategy is based on the worked-example effect <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib122" title="The worked example effect, the generation effect, and element interactivity" class="ltx_ref">52</a>]</cite>, in which an example of parameter estimation is fully implemented to allow students to play with and modify the code to have their own reflection in class discussions. Basic prior knowledge of Python suffices as the problem doesn’t involve students with complicated programming stuff. The student-centric characteristic of this crash course helps teachers to adopt the material easily and integrate it into an existing syllabus of relevant courses in science and engineering.</p>
+</div>
+</div>
+</section>
+<section id="S6" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">9.6</span> Getting started</h2>
+
+<div id="S6.p1" class="ltx_para">
+<p class="ltx_p">The learning material is provided as a single Jupyter notebook, in which all the steps of constructing an inverse problem are described in detail with accompanying Python codes. A very simple simulation code (in the context of an interpolation problem) is also provided and can be found in the repository. The code inside the notebook calls this external program at certain points to mimic the interaction of the parameter estimation routine and the main computational code that contains the unknown parameters.</p>
+</div>
+<div id="S6.p2" class="ltx_para">
+<p class="ltx_p">To get started with the module, the user should set up the environment first. The setup instructions are provided in the <span class="ltx_text ltx_font_typewriter">README.md</span> file of the repository. After setting up the Jupyter notebook and installing the required packages, the user can navigate to the <span class="ltx_text ltx_font_typewriter">src</span> folder and run the notebook file. No further action is needed as the content of the notebook is self-explanatory and easy-to-follow.</p>
+</div>
+<div class="ltx_pagination ltx_role_newpage"></div>
+</div>
+</section>
+<section id="A1" class="ltx_appendix normal">
+<div class="section level1">
+
+<h1 class="ltx_title ltx_title_appendix">
+<span class="ltx_tag ltx_tag_appendix header-section-number">Appendix 9.A</span> A glimpse of the Jupyter notebook</h1>
+
+<section id="A1.SS1" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">9.A.1</span> Introduction</h3>
+
+<div id="A1.SS1.p1" class="ltx_para">
+<p class="ltx_p">As the name implies, the parameter estimation process deals with approximating unknown parameters, the factors that define a system or its operation. In science and engineering, this can be seen as a sub-category of optimization techniques since we seek to find the optimal state of a system. After finding the desired state, we look for the parameters contributing to such a state. It is indeed what parameter estimation is all about. Seems complex? Look at it as a calibration process, in which a machine, tool, or system is tuned to produce a correct output. Imagine you want to calibrate a machine with 3 knobs. How do you do the calibration? You compare the output with a reference, something you know the machine should produce, and then try to adjust the knobs such that the output matches the reference. It is how calibration works, no? Take a thermometer as an example. You have a reference temperature, like boiling water at 100 degrees Celsius, and 3 knobs on the device. You continue turning the knobs to see 100 appearing on the machine, and by doing that, you calibrate the thermometer. In this way, you have estimated the unknown parameters (the 3 knobs) of the device. After being calibrated, you can use the thermometer to measure any temperature.</p>
+</div>
+<div id="A1.SS1.p2" class="ltx_para">
+<p class="ltx_p">Now, instead of the machine, assume you want to perform the same process on an engineering system. Each system (or, let’s say, model) has a certain number of parameters to be tuned. After calibrating the system (model) with the reference data (a data we already know is correct), we can assure that the system’s output is more or less valid if being used for another measurement (prediction). Real-world systems in science and engineering contain some parameters that cannot be obtained directly from published scientific materials or experimental studies. Thus, we should estimate them using a calibration (optimization) strategy, a process that is generally called an inverse problem.</p>
+</div>
+<div id="A1.SS1.p3" class="ltx_para">
+<p class="ltx_p">An inverse problem in science is usually referred to the process of calculating the causal factors from a set of observations that have produced them. Inverse problems are important because they tell us about parameters that we cannot directly observe. That’s exactly what we want to do: estimating parameters that we cannot directly measure for our model. Indeed, we calibrate our model to act similarly to available experimental data, and then this calibrated model can be used to simulate other scenarios that we have not tested in experiments. This concept is similar to the training process of machine learning models. You train the model by making it fit to previously available data and asking it to predict unseen data.</p>
+</div>
+<div id="A1.SS1.p4" class="ltx_para">
+<p class="ltx_p">To construct an inverse problem for computational models, we can take advantage of conventional optimization approaches. The goal is to minimize or maximize a function, or more technically speaking, an objective function. Mathematical optimization is selecting the best element (concerning some criterion) from some set of available alternatives. In the simplest case, an optimization problem consists of maximizing or minimizing an objective function by systematically choosing input values from an allowed set and computing the output of the system. More generally, optimization is the process of finding the optimum value of an objective function given a defined domain (or input). To wrap up, the essential concepts here are the objective function (what we want to minimize) and the domain space (values of the parameters over which we minimize the objective).</p>
+</div>
+<div id="A1.SS1.p5" class="ltx_para">
+<p class="ltx_p">Back to our example problem, our objective function will be the difference between the produced output of our simulation and the experimental data of the exact condition, which is also called ”loss”. In other words, we change the coefficients such that the simulation output would be the same as (or close to) the experimental data that we already have. To this end, we can choose random values out of the domain space (the range that we search for appropriate values), evaluate the model with those values, and continue this process till we find the lowest loss possible. This can be a good approach as long as the cost function evaluation is cheap, which means the simulations run fast (because we need to run the simulation to evaluate the cost function). The problem is, for most of the real-world models, running each simulation takes quite long. As a result, each iteration of the optimization algorithm is not cheap anymore. To overcome this issue, we use a Bayesian optimization strategy, a method that is usually employed to optimize expensive-to-evaluate functions.</p>
+</div>
+</div>
+</section>
+<section id="A1.SS2" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">9.A.2</span> Bayesian optimization</h3>
+
+<div id="A1.SS2.p1" class="ltx_para">
+<p class="ltx_p">To describe how the Bayesian optimization approach helps us to overcome the problem mentioned above, I use the great description made by @WillKoehrsen<span id="footnote1" class="ltx_note ltx_role_footnote"><sup class="ltx_note_mark">1</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">1</sup>
+                <span class="ltx_tag ltx_tag_note">1</span>
+                
+                
+                
+              <a href="https://github.com/WillKoehrsen" title="" class="ltx_ref ltx_url ltx_font_typewriter">https://github.com/WillKoehrsen</a></span></span></span>. I cannot explain it better (you can find the full interactive document at
+<br class="ltx_break"><a href="https://github.com/WillKoehrsen/hyperparameter-optimization" title="" class="ltx_ref ltx_url ltx_font_typewriter">https://github.com/WillKoehrsen/hyperparameter-optimization</a>):</p>
+</div>
+<div id="A1.SS2.p2" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_italic">Evaluating the objective function is the expensive part of optimization, so ideally, we want to limit calls to this function. One way we can limit calls is by choosing the next values to try in the objective function based on the past results. Bayesian optimization differs from random or grid search by doing exactly this: rather than just selecting from a grid uninformed by past objective function evaluations, Bayesian methods take into account the previous results to try more promising values. They work by constructing a probability model of the objective function (called a surrogate function) <math id="A1.SS2.p2.m1" class="ltx_Math" alttext="p(\text{score}|\text{parameters})" display="inline"><semantics><mrow><mi>p</mi><mo mathvariant="italic">⁢</mo><mrow><mo mathvariant="normal" stretchy="false">(</mo><mrow><mtext>𝑠𝑐𝑜𝑟𝑒</mtext><mo lspace="2.5pt" mathvariant="normal" rspace="2.5pt" stretchy="false">|</mo><mtext>𝑝𝑎𝑟𝑎𝑚𝑒𝑡𝑒𝑟𝑠</mtext></mrow><mo mathvariant="normal" stretchy="false">)</mo></mrow></mrow><annotation encoding="application/x-tex">p(\text{score}|\text{parameters})</annotation></semantics></math> which is much easier to optimize than the actual objective function. <math id="A1.SS2.p2.m2" class="ltx_Math" alttext="p(A\mid B)" display="inline"><semantics><mrow><mi>p</mi><mo mathvariant="italic">⁢</mo><mrow><mo mathvariant="normal" stretchy="false">(</mo><mrow><mi>A</mi><mo lspace="2.5pt" mathvariant="normal" rspace="2.5pt">∣</mo><mi>B</mi></mrow><mo mathvariant="normal" stretchy="false">)</mo></mrow></mrow><annotation encoding="application/x-tex">p(A\mid B)</annotation></semantics></math>, the conditional probability, is the probability of A given B, i.e., A after B is observed.</span></p>
+</div>
+<div id="A1.SS2.p3" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_italic">After each evaluation of the objective function, the algorithm updates the probability model (usually given as <math id="A1.SS2.p3.m1" class="ltx_Math" alttext="p(y|x)" display="inline"><semantics><mrow><mi>p</mi><mo mathvariant="italic">⁢</mo><mrow><mo mathvariant="normal" stretchy="false">(</mo><mrow><mi>y</mi><mo lspace="2.5pt" mathvariant="normal" rspace="2.5pt" stretchy="false">|</mo><mi>x</mi></mrow><mo mathvariant="normal" stretchy="false">)</mo></mrow></mrow><annotation encoding="application/x-tex">p(y|x)</annotation></semantics></math> incorporating the new results. Sequential Model-Based Optimization (SMBO) methods are a formalization of Bayesian optimization that updates the probability model sequentially: every evaluation of the objective function with a set of values updates the model with the idea that eventually the model will come to represent the true objective function. This is an application of Bayesian Reasoning. The algorithm forms an initial idea of the objective function and updates it with each new piece of evidence.</span></p>
+</div>
+<div id="A1.SS2.p4" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_italic">The next values to try in the objective function are selected by the algorithm optimizing the probability model (surrogate function), usually with a criterion known as Expected Improvement. Finding the values that will yield the greatest expected improvement in the surrogate function is much cheaper than evaluating the objective function itself. By choosing the next values based on a model rather than randomly, we hope that the algorithm would converge to the true best values much quicker. The overall goal is to evaluate the objective function fewer times by spending a little more time choosing the next values. Overall, Bayesian Optimization and SMBO methods:</span></p>
+</div>
+<div id="A1.SS2.p5" class="ltx_para">
+<ul id="A1.I1" class="ltx_itemize">
+<li id="A1.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span><div id="A1.I1.i1.p1" class="ltx_para">​<p class="ltx_p"><span class="ltx_text ltx_font_italic">Converge to a lower score of the objective function than random search</span></p>
+</div>
+</li>
+<li id="A1.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span><div id="A1.I1.i2.p1" class="ltx_para">​<p class="ltx_p"><span class="ltx_text ltx_font_italic">Require far less time to find the optimum of the objective function</span></p>
+</div>
+</li>
+</ul>
+</div>
+<div id="A1.SS2.p6" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_italic">So, we get both a faster optimization and a better result. These are both two desirable outcomes, especially when we are working with heavy computational models!
+</span></p>
+</div>
+<div id="A1.SS2.p7" class="ltx_para">
+<p class="ltx_p">According to this simplified description, Bayesian optimization is a great candidate to perform the parameter estimation of PDE-based computational models. If you are interested to know more about the mathematical aspects of the Bayesian optimization, you may have a look at the SigOpt Bayesian Optimization Primer.</p>
+</div>
+<div id="A1.SS2.p8" class="ltx_para">
+<p class="ltx_p">In this notebook, we implement the whole process of a Bayesian optimization strategy, including constructing a cost function by calling the simulation code, performing the optimization, and postprocessing the results. To do this, we use Python and HyperOpt, an open-source Python library for Bayesian optimization that implements SMBO using the Tree-structured Parzen Estimator (TPE). TPE, along with Gaussian Processes and Random Forest Regression, are the algorithms that can be used in the SMBO method to construct the probability model (surrogate function). We don’t need to worry about implementing the algorithm because Hyperopt takes care of that for us. We have to make sure we have correctly defined the objective function and the domain of values to search over.</p>
+</div>
+</div>
+</section>
+<section id="A1.SS3" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">9.A.3</span> Sample problem</h3>
+
+<div id="A1.SS3.p1" class="ltx_para">
+<p class="ltx_p">Instead of a PDE model, we use a more straightforward problem to focus more on the optimization rather than the numerical simulation of the PDE. The problem with which the optimization algorithm interact is fitting a 4th-order polynomial equation on some experimental data. You should notice that the optimization algorithm is entirely unaware of the fitting problem behind the objective function.</p>
+</div>
+<div id="A1.SS3.p2" class="ltx_para">
+<p class="ltx_p">The objective function is implemented in a general way: calling the external simulation code, gathering produced output, and computing the loss. To make this as real-world as possible, I implemented an external Python code that takes polynomial coefficients and computes the function values on desired points. This data is saved on the disk and then retrieved by the objective function of the main optimization code to calculate the loss. In a real-world application, the external simulation code takes the coefficients (such as the reaction rates in the above PDE example), performs the simulation, and writes the output to the disk. The rest of the process is the same. In the next step, the optimization algorithm changes the parameters and calls the external simulation code again to see the loss of the new parameters. This process continues iteratively to a certain number of iterations.</p>
+</div>
+<div id="A1.SS3.p3" class="ltx_para">
+<p class="ltx_p">The experimental data, which are indeed 21 points of a 4th-order polynomial function in the range <math id="A1.SS3.p3.m1" class="ltx_Math" alttext="[0,5]" display="inline"><semantics><mrow><mo stretchy="false">[</mo><mn>0</mn><mo>,</mo><mn>5</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[0,5]</annotation></semantics></math>, are stored in a CSV file. Each line contains one point, better to say a pair of two values defining a point, and this exactly what it can be in a real scenario. For example, it can contain the value of a chemical component concentration over time, in which the first and second values of each line would be time and concentration, respectively.</p>
+</div>
+<div id="A1.SS3.p4" class="ltx_para">
+<p class="ltx_p">The optimization output of this sample problem will be similar to Fig. <a href="#F1" title="Figure 9.1 ‣ 9.A.3 Sample problem ‣ Appendix 9.A A glimpse of the Jupyter notebook ‣ Chapter 9 Bayesian parameter estimation of the computational models ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">9.1</span></a>.</p>
+</div>
+<figure id="F1" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/bayesian/image/pair_grid.png" id="F1.g1" class="ltx_graphics ltx_centering" width="541" height="534" alt="A typical output of the parameter estimation process, plotted using the Seaborn Python package, which shows how the optimization algorithm has chosen the values of different parameters in different iterations by comparing the distribution of points 2 by 2 for 4 unknown parameters of the polynomial model."></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 9.1: </span>A typical output of the parameter estimation process, plotted using the Seaborn Python package, which shows how the optimization algorithm has chosen the values of different parameters in different iterations by comparing the distribution of points 2 by 2 for 4 unknown parameters of the polynomial model.</figcaption>
+</figure>
+</div>
+</section>
+</div>
+</section>
+<div class="ltx_pagination ltx_role_newpage"></div>
+</div>
+</section>
+</div>
+</div>
+</div>
+<a href="Ch8.html" class="navigation navigation-prev" aria-label="Previous page"><i class="fa fa-angle-left"></i></a><a href="Ch10.html" class="navigation navigation-next" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+</div>
+</div>
+<script src="bookml/gitbook/js/app.min.js"></script>
+<script src="bookml/gitbook/js/jquery.highlight.js"></script>
+<script src="bookml/gitbook/js/plugin-search.js"></script>
+<script src="bookml/gitbook/js/plugin-fontsettings.js"></script>
+<script src="bookml/gitbook/js/plugin-bookdown.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script>
+        MathJax = {
+          startup: {
+            ready() {
+              // do not process equations disabled with \bmlDisableMathJax (code suggested by Davide P. Cervone)
+              class bmlFindMathML extends MathJax._.input.mathml.FindMathML.FindMathML {
+                processMath(set) {
+                  const adaptor = this.adaptor;
+                  for (const node of set.values()) {
+                    if (adaptor.hasClass(node, 'bml_disable_mathjax')) {
+                      set.delete(node);
+                    }
+                  }
+                  return super.processMath(set);
+                }
+              }
+
+              MathJax._.components.global.combineDefaults(MathJax.config, 'mml', {FindMathML: new bmlFindMathML()});
+
+              MathJax.startup.defaultReady();
+
+              // preproces MathML to make MathJax aware of certain LaTeXML and BookML additional info
+              const mmlFilters = MathJax.startup.input[0].mmlFilters;
+
+              // convert the LaTeXML calligraphic (chancery) annotation to a form MathJax understands
+              // since the corresponding Unicode characters render as script (rounded)
+              const script2latin = {
+                '𝒜': 'A', 'ℬ': 'B', '𝒞': 'C', '𝒟': 'D', 'ℰ': 'E', 'ℱ': 'F', '𝒢': 'G',
+                'ℋ': 'H', 'ℐ': 'I', '𝒥': 'J', '𝒦': 'K', 'ℒ': 'L', 'ℳ': 'M', '𝒩': 'N',
+                '𝒪': 'O', '𝒫': 'P', '𝒬': 'Q', 'ℛ': 'R', '𝒮': 'S', '𝒯': 'T', '𝒰': 'U',
+                '𝒱': 'V', '𝒲': 'W', '𝒳': 'X', '𝒴': 'Y', '𝒵': 'Z',
+              };
+
+              mmlFilters.add((args) => {
+                for (const n of args.data.getElementsByClassName('ltx_font_mathcaligraphic')) {
+                  n.classList.add('MJX-tex-calligraphic');
+                  const letter = script2latin[n.textContent];
+                  if (letter !== undefined) { n.textContent = letter; }
+                }
+              });
+
+              // adjust characters based on Unicode variation sequences
+              const replacements = {
+                // MathJax renders the empty set as the U+FE00 variant, so the plain character needs adjusting
+                '∅': { variant: 'variant' },
+                // MathJax renders script characters in rounded style, which is fine for no variation and U+FE00
+                '𝒜\xFE00': { text: 'A', variant: 'tex-calligraphic' },
+                'ℬ\xFE00': { text: 'B', variant: 'tex-calligraphic' },
+                '𝒞\xFE00': { text: 'C', variant: 'tex-calligraphic' },
+                '𝒟\xFE00': { text: 'D', variant: 'tex-calligraphic' },
+                'ℰ\xFE00': { text: 'E', variant: 'tex-calligraphic' },
+                'ℱ\xFE00': { text: 'F', variant: 'tex-calligraphic' },
+                '𝒢\xFE00': { text: 'G', variant: 'tex-calligraphic' },
+                'ℋ\xFE00': { text: 'H', variant: 'tex-calligraphic' },
+                'ℐ\xFE00': { text: 'I', variant: 'tex-calligraphic' },
+                '𝒥\xFE00': { text: 'J', variant: 'tex-calligraphic' },
+                '𝒦\xFE00': { text: 'K', variant: 'tex-calligraphic' },
+                'ℒ\xFE00': { text: 'L', variant: 'tex-calligraphic' },
+                'ℳ\xFE00': { text: 'M', variant: 'tex-calligraphic' },
+                '𝒩\xFE00': { text: 'N', variant: 'tex-calligraphic' },
+                '𝒪\xFE00': { text: 'O', variant: 'tex-calligraphic' },
+                '𝒫\xFE00': { text: 'P', variant: 'tex-calligraphic' },
+                '𝒬\xFE00': { text: 'Q', variant: 'tex-calligraphic' },
+                'ℛ\xFE00': { text: 'R', variant: 'tex-calligraphic' },
+                '𝒮\xFE00': { text: 'S', variant: 'tex-calligraphic' },
+                '𝒯\xFE00': { text: 'T', variant: 'tex-calligraphic' },
+                '𝒰\xFE00': { text: 'U', variant: 'tex-calligraphic' },
+                '𝒱\xFE00': { text: 'V', variant: 'tex-calligraphic' },
+                '𝒲\xFE00': { text: 'W', variant: 'tex-calligraphic' },
+                '𝒳\xFE00': { text: 'X', variant: 'tex-calligraphic' },
+                '𝒴\xFE00': { text: 'Y', variant: 'tex-calligraphic' },
+                '𝒵\xFE00': { text: 'Z', variant: 'tex-calligraphic' }
+              };
+
+              mmlFilters.add((args) => {
+                let nodes = document.evaluate('.//m:mi | .//m:mn | .//m:mo | .//m:ms', args.data,
+                  () => 'http://www.w3.org/1998/Math/MathML', XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE);
+                for (let i = 0; i < nodes.snapshotLength; i++) {
+                  const n = nodes.snapshotItem(i);
+                  const repl = replacements[n.innerHTML];
+                  if (repl !== undefined) {
+                    const variant = repl['variant'];
+                    const text = repl['text'];
+                    if (variant !== undefined) { n.classList.add('MJX-' + variant); n.removeAttribute('mathvariant'); }
+                    if (text !== undefined) { n.innerHTML = text; }
+                  }
+                }
+              });
+            }
+          }
+        };
+      </script>
+<script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js"></script>
+<script type="text/javascript">
+                gitbook.require(["gitbook"], function(gitbook) {
+                gitbook.start({
+                  "fontsettings": {
+                    "theme": "white",
+                    "family": "sans",
+                    "size": 2
+                  },
+                  "download": [ [ "thesis.pdf", "PDF" ], ],
+                  "search": {
+                    "engine": "fuse"
+                  },
+                  "toc": {
+                    "collapse": "none"
+                  }
+                });
+              });
+            </script>
+</body>
+
+</html>

@@ -1,0 +1,881 @@
+<!DOCTYPE html><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>12 Model applications: mechanical loosening of mandibular plates‣ Mathematical and computational modeling of metallic biomaterials biodegradation</title>
+<!--Generated on Sat Aug 31 17:26:45 2024 by LaTeXML (version 0.8.6) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on KU Leuven, June 2023.-->
+
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/style.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/plugin-table.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/plugin-search.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/plugin-bookdown.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/plugin-fontsettings.css" type="text/css">
+<link rel="stylesheet" href="ltx-report.css" type="text/css">
+<link rel="stylesheet" href="bookml/CSS/style.css" type="text/css">
+<link rel="stylesheet" href="bookml/CSS/style.gitbook,plain.css" type="text/css">
+<link rel="stylesheet" href="bookml/CSS/style.gitbook.css" type="text/css">
+<link rel="stylesheet" href="bmluser/colors.gitbook-thesis.css" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6"></script>
+<link rel="up" href="index.html" title="Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="start" href="index.html" title="Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="prev" href="Ch11.html" title="Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="next" href="Ch13.html" title="Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Chx1.html" title="Abstract ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch1.html" title="Chapter 1 General introduction ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch2.html" title="Chapter 2 Aims and objectives ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch4.html" title="Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch5.html" title="Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch6.html" title="Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch7.html" title="Chapter 7 Model parallelization for high-performance computing ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch8.html" title="Chapter 8 BioDeg simulation software ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch9.html" title="Chapter 9 Bayesian parameter estimation of the computational models ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch10.html" title="Chapter 10 Model applications: patient-specific porous acetabular implants ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch11.html" title="Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch13.html" title="Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="bibliography" href="bib.html" title="Bibliography ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="appendix" href="A1.html" title="Appendix A Mesh quality plots ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+</head>
+<body>
+<div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+<a href="#bml-main-content" tabindex="0" class="bml-skip-to-content">Skip to content.</a>
+<div class="book-summary"><nav class="ltx_page_navbar">
+<ul class="ltx_toclist summary">
+<li>
+<a href="index.html" title="Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref" rel="start">Mathematical and computational modeling of metallic biomaterials biodegradation</a>
+</li>
+<li class="divider">
+<li data-level="" data-path="Chx1.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Chx1.html" title="Abstract ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref">Abstract</a></li>
+<li data-level="1" data-path="Ch1.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch1.html" title="Chapter 1 General introduction ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">1 </span></b>General introduction</a></li>
+<li data-level="2" data-path="Ch2.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch2.html" title="Chapter 2 Aims and objectives ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">2 </span></b>Aims and objectives</a></li>
+<li data-level="3" data-path="Ch3.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">3 </span></b>Developing the core computational model</a></li>
+<li data-level="4" data-path="Ch4.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch4.html" title="Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">4 </span></b>Extending the model: adding fluid flow and convection</a></li>
+<li data-level="5" data-path="Ch5.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch5.html" title="Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">5 </span></b>Extending the model: simulating local pH evolution</a></li>
+<li data-level="6" data-path="Ch6.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch6.html" title="Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">6 </span></b>Computational modeling of the neotissue growth process</a></li>
+<li data-level="7" data-path="Ch7.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch7.html" title="Chapter 7 Model parallelization for high-performance computing ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">7 </span></b>Model parallelization for high-performance computing</a></li>
+<li data-level="8" data-path="Ch8.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch8.html" title="Chapter 8 BioDeg simulation software ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">8 </span></b>BioDeg simulation software</a></li>
+<li data-level="9" data-path="Ch9.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch9.html" title="Chapter 9 Bayesian parameter estimation of the computational models ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">9 </span></b>Bayesian parameter estimation of the computational models</a></li>
+<li data-level="10" data-path="Ch10.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch10.html" title="Chapter 10 Model applications: patient-specific porous acetabular implants ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">10 </span></b>Model applications: patient-specific porous acetabular implants</a></li>
+<li data-level="11" data-path="Ch11.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch11.html" title="Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">11 </span></b>Model applications: mechanical integrity of infilled structures</a></li>
+<li data-level="12" data-path="" class="ltx_tocentry ltx_tocentry_chapter ltx_ref_self  chapter active">
+<a href="" title="Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">12 </span></b>Model applications: mechanical loosening of mandibular plates</a>
+<ul class="ltx_toclist ltx_toclist_chapter">
+<li data-level="12.1" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter "><a href="#S1" title="12.1 Introduction ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">12.1 </span></b>Introduction</a></li>
+<li data-level="12.2" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter ">
+<a href="#S2" title="12.2 Materials and methods ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">12.2 </span></b>Materials and methods</a>
+<ul class="ltx_toclist ltx_toclist_section">
+<li data-level="12.2.1" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S2.SS1" title="12.2.1 Mandibular plate and fixation ‣ 12.2 Materials and methods ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">12.2.1 </span></b>Mandibular plate and fixation</a></li>
+<li data-level="12.2.2" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S2.SS2" title="12.2.2 Biodegradation simulation ‣ 12.2 Materials and methods ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">12.2.2 </span></b>Biodegradation simulation</a></li>
+<li data-level="12.2.3" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S2.SS3" title="12.2.3 Mechanical behavior simulations ‣ 12.2 Materials and methods ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">12.2.3 </span></b>Mechanical behavior simulations</a></li>
+<li data-level="12.2.4" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S2.SS4" title="12.2.4 Bone healing and implant load models ‣ 12.2 Materials and methods ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">12.2.4 </span></b>Bone healing and implant load models</a></li>
+<li data-level="12.2.5" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S2.SS5" title="12.2.5 Coupling of the models ‣ 12.2 Materials and methods ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">12.2.5 </span></b>Coupling of the models</a></li>
+</ul>
+</li>
+<li data-level="12.3" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter ">
+<a href="#S3" title="12.3 Results ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">12.3 </span></b>Results</a>
+<ul class="ltx_toclist ltx_toclist_section">
+<li data-level="12.3.1" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S3.SS1" title="12.3.1 Biodegradation results ‣ 12.3 Results ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">12.3.1 </span></b>Biodegradation results</a></li>
+<li data-level="12.3.2" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S3.SS2" title="12.3.2 Sensitivity analyses ‣ 12.3 Results ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">12.3.2 </span></b>Sensitivity analyses</a></li>
+<li data-level="12.3.3" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S3.SS3" title="12.3.3 Coupled models results ‣ 12.3 Results ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">12.3.3 </span></b>Coupled models results</a></li>
+</ul>
+</li>
+<li data-level="12.4" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter "><a href="#S4" title="12.4 Discussion ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">12.4 </span></b>Discussion</a></li>
+<li data-level="12.5" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter "><a href="#S5" title="12.5 Conclusion ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">12.5 </span></b>Conclusion</a></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li data-level="12.A" data-path="" class="ltx_tocentry ltx_tocentry_appendix  chapter "><a href="#A1" title="Appendix 12.A Converting mass loss to jaw plate dimensions ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">12.A </span></b>Converting mass loss to jaw plate dimensions</a></li>
+<li data-level="12.B" data-path="" class="ltx_tocentry ltx_tocentry_appendix  chapter ">
+<a href="#A2" title="Appendix 12.B Beam theory equations ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">12.B </span></b>Beam theory equations</a>
+<ul class="ltx_toclist ltx_toclist_appendix">
+<li data-level="12.B.1" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#A2.SS1" title="12.B.1 Neutral axis ‣ Appendix 12.B Beam theory equations ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">12.B.1 </span></b>Neutral axis</a></li>
+<li data-level="12.B.2" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#A2.SS2" title="12.B.2 Area moment of inertia ‣ Appendix 12.B Beam theory equations ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">12.B.2 </span></b>Area moment of inertia</a></li>
+<li data-level="12.B.3" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#A2.SS3" title="12.B.3 Stress, strain and force ‣ Appendix 12.B Beam theory equations ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">12.B.3 </span></b>Stress, strain and force</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li data-level="13" data-path="Ch13.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch13.html" title="Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">13 </span></b>Conclusion</a></li>
+<li data-level="" data-path="bib.html" class="ltx_tocentry ltx_tocentry_bibliography  chapter "><a href="bib.html" title="Bibliography ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref">Bibliography</a></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li data-level="A" data-path="A1.html" class="ltx_tocentry ltx_tocentry_appendix  chapter "><a href="A1.html" title="Appendix A Mesh quality plots ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">A </span></b>Mesh quality plots</a></li>
+</ul>
+</nav></div>
+<div class="ltx_page_main book-body fixed">
+<div class="body-inner">
+<div class="book-header fixed" role="navigation"><h1>Model applications: mechanical loosening of mandibular plates</h1></div>
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="ltx_page_content page-inner" id="bml-main-content">
+<section class="ltx_chapter normal">
+<div class="section level1">
+
+<h1 class="ltx_title ltx_title_chapter">
+<span class="ltx_tag ltx_tag_chapter header-section-number">Chapter 12</span> Model applications: mechanical loosening of mandibular plates</h1>
+
+<div id="p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">
+<span class="ltx_inline-block ltx_parbox ltx_align_middle ltx_framed_rectangle" style="padding:9pt;width:433.6pt;">
+<span class="ltx_p">This chapter is based on a manuscript prepared to be submitted:</span>
+<span class="ltx_p">P. Ansoms, M. Barzegari, J. Vander Sloten, and L. Geris, “Coupling biomechanical models of implants with biodegradation models: a case study for biodegradable mandibular bone fixation plates.”</span>
+</span></p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">In fracture fixation, biodegradable implant materials are an interesting alternative to conventional non-biodegradable materials as the latter require a second implant removal surgery to avoid long-term complications. In this study, we present an <span class="ltx_text ltx_font_italic">in silico</span> strategy to biodegradable metal implants focusing on mandibular fracture fixation plates of WE43 (Mg-alloy). The <span class="ltx_text ltx_font_italic">in silico</span> strategy is composed of an orchestrated interaction between three separate computational models. The first model simulated the mass loss of the degradable implant based on the chemistry of Mg biodegradation. A second model estimated the loading on the jaw plate in the physiological environment incorporating a phenomenological dynamic bone regeneration process. The third model characterized the mechanical behavior of the jaw plate and the influence of material degradation on the mechanical behavior. Multiple sensitivity analyses were performed on parameters related to choices regarding numerical implementation and parameter dependencies were implemented to guarantee robust and correct results. Different clinical scenarios were tested, related to the amount of screws used to fix the plate. The results showed a lower initial strength when more holes were left open, as well as a faster decrease over time in strength due to the increased area available for surface degradation. The combination of these three models facilitates the iterative design of patient-specific biodegradable fixation implants able to deliver the desired mechanical behavior tuned to the bone regeneration process.</p>
+</div>
+<section id="S1" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">12.1</span> Introduction</h2>
+
+<div id="S1.p1" class="ltx_para">
+<p class="ltx_p">In clinical bone regeneration applications, biodegradable implants have gained in popularity over recent years. The main advantage of biodegradable implants over non-biodegradable implants is that no second surgery is needed to remove the implant after successful healing of the bone <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib1" title="Biodegradable metals" class="ltx_ref">299</a>]</cite>. The removal of a non-biodegradable implant brings along an additional cost and risk of infection but might be necessary to avoid complications associated in the long term such as late thrombosis and chronic inflammation <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib132" title="Effect of strain on degradation behaviors of we43, fe and zn wires" class="ltx_ref">49</a>]</cite>. Late thrombosis is the formation of blood cloths due to the presence of the metallic implant <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib133" title="Stent thrombosis" class="ltx_ref">141</a>]</cite>. Chronic inflammation is induced by the persistence of inflammatory stimuli, being the physical presence of the implanted biomaterial or the ability of the implant to slightly move at the implant site <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib134" title="Chapter 2 - biomaterials: design, development and biomedical applications" class="ltx_ref">211</a>]</cite>. Permanent metallic implants also distort diagnostic images of the body <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib135" title="Current status and outlook on the clinical translation of biodegradable metals" class="ltx_ref">109</a>]</cite>. Both in the short and long term, a biodegradable implant reduces stress shielding, which is the resorption of bone as a result of a reduction in perceived load. The reduction of stress shielding in the long term is obvious since the implant has disappeared in case of a biodegradable implant. Besides obvious reduction of long-term stress shielding due to the disappearance of the implant, there is also a reduction of stress shielding in the short term resulting from the fact that biodegradable metals often have a Young’s modulus that is considerably lower than that of inert metals (e.g., 44.2 GPa for WE43 vs. 118 GPa for Ti6Al4V). The stress shielding effect is directly proportional to the E-modulus of the implant material.</p>
+</div>
+<div id="S1.p2" class="ltx_para">
+<p class="ltx_p">The use of biodegradable metals to support tissue regeneration is mentioned in various sources, describing different materials and applications <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib132" title="Effect of strain on degradation behaviors of we43, fe and zn wires" class="ltx_ref">49</a>, <a href="bib.html#bib136" title="Mechanical properties of magnesium alloys for medical application: a review" class="ltx_ref">48</a>, <a href="bib.html#bib137" title="Mg bone implant: features, developments and perspectives" class="ltx_ref">289</a>]</cite>. The material of the implant determines the rate of degradation. The goal is to provide stable mechanical support at the early stage of the tissue healing process and then have the material gradually degrade with the restoration of the defect tissue <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib137" title="Mg bone implant: features, developments and perspectives" class="ltx_ref">289</a>]</cite>. Fig. <a href="#F1" title="Figure 12.1 ‣ 12.1 Introduction ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12.1</span></a> qualitatively shows the degradation rate of three common biomaterials (magnesium, zinc and iron) along with the healing rate of different tissues (hard, soft and vascular) as an illustration. By matching a material’s degradation rate and a tissue’s healing rate, a suitable material can be found for a specific application. Studying the change of mechanical support of implants due to biodegradation has certain complexities. This case-study aimed to gain insight into the change in mechanical behavior of a biodegradable mandibular fixation plate. In order to do this, three different models were combined: a biodegradation model to characterize the geometry change as a result of biodegradation, a model to characterize the loading on the jaw plate by considering the bone healing and a model to predict the mechanical behavior of the plate. These are schematically shown in Fig. <a href="#F2" title="Figure 12.2 ‣ 12.1 Introduction ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12.2</span></a>.</p>
+</div>
+<figure id="F1" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/mandible/image/MechanicalIntegrityTissueStrength.png" id="F1.g1" class="ltx_graphics ltx_centering" width="465" height="303" alt="The change in mechanical integrity of the implant and tissue strength over time (adapted from "></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 12.1: </span>The change in mechanical integrity of the implant and tissue strength over time (adapted from <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib132" title="Effect of strain on degradation behaviors of we43, fe and zn wires" class="ltx_ref">49</a>]</cite>).</figcaption>
+</figure>
+<figure id="F2" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/mandible/image/ModelCoupling.png" id="F2.g1" class="ltx_graphics ltx_centering" width="432" height="371" alt="Coupling of the models and indication of software used."></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 12.2: </span>Coupling of the models and indication of software used.</figcaption>
+</figure>
+<div id="S1.p3" class="ltx_para">
+<p class="ltx_p">The mandible is the second most frequently fractured bone of the face and the tenth most frequently fractured bone of the body <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib131" title="Mandible fractures" class="ltx_ref">128</a>]</cite>. Common causes for a mandible fracture are violence, car crashes and sports. It occurs more frequently in males than females and most often between the ages of 16 and 30. The weakest section of the mandible is the angle because there is an abrupt change in direction between the mandibular body and the ascending ramus, both in the sagittal and transverse planes, resulting in the involvement of the mandibular angle in up to 28.5% of jaw fractures <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib123" title="Monocortical Miniplate Fixation of Mandibular Angle Fractures" class="ltx_ref">161</a>]</cite>. The most common treatment of mandible fractures is with a mandibular fixation plate (further referred to as jaw plate) to stabilize the fracture and allow the healing process to take place. Though the plate is traditionally made of an inert implant material (e.g., titanium), biodegradable materials are explored to take advantage of the aforementioned benefits.</p>
+</div>
+<div id="S1.p4" class="ltx_para">
+<p class="ltx_p">Computational models provide useful tools for designing plates and studying the implant-bone complex given their ability to simultaneously capture the mechanics and mechanisms of both the plate degradation and bone regeneration. Multiple studies reported in the literature focus on the biological processes after mandibular surgery, the design of the implant or its degradation separately and we refer to the reader to <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib124" title="Time-dependent in silico modelling of orthognathic surgery to support the design of biodegradable bone plates" class="ltx_ref">258</a>]</cite>, <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib125" title="Investigation on masticatory muscular functionality following oral reconstruction – an inverse identification approach" class="ltx_ref">298</a>]</cite>, <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib126" title="Time-dependent topology optimization of bone plates considering bone remodeling" class="ltx_ref">280</a>]</cite>, <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib127" title="Tissue differentiation and bone regeneration in an osteotomized mandible: a computational analysis of the latency period" class="ltx_ref">39</a>]</cite> and references within for an overview of those models. The combination of concurrent implant biodegradation and bone regeneration has been developed for long bones by Mehboob et al. <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib128" title="Optimal design of a functionally graded biodegradable composite bone plate by using the taguchi method and finite element analysis" class="ltx_ref">189</a>]</cite> and by Ma et al. <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib129" title="Numerical simulation of the tissue differentiation and corrosion process of biodegradable magnesium implants during bone fracture healing" class="ltx_ref">179</a>]</cite> while Vautrin et al. developed a combined biodegradation and tissue regeneration model in the context of orthognatic surgery <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib124" title="Time-dependent in silico modelling of orthognathic surgery to support the design of biodegradable bone plates" class="ltx_ref">258</a>]</cite>. The bone healing algorithm of the latter was based on the model that Alierta et al. developed, but was generalized to be applicable to a larger fracture gap <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib130" title="An interface finite element model can be used to predict healing outcome of bone fractures" class="ltx_ref">12</a>]</cite>. It modeled the growth of the contribution of cartilage and bone to the mechanical properties of each element within the fracture gap based on the principal element strains under physiological loading. The biodegradation algorithm was limited to being phenomenological to reduce the computational cost. It included only localized corrosion by incorporating a random pitting corrosion algorithm.</p>
+</div>
+<div id="S1.p5" class="ltx_para">
+<p class="ltx_p">In this study, we started from an in-house developed biodegradation algorithm based on the chemistry of biodegradation of WE43 and combined it with a phenomenological bone regeneration algorithm. We used this combination of models to investigate the impact of biodegradation on the strength of the jaw plate. Additionally, we looked into the effect of the number of plate holes left unscrewed on the overall mechanics.</p>
+</div>
+</div>
+</section>
+<section id="S2" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">12.2</span> Materials and methods</h2>
+
+<section id="S2.SS1" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">12.2.1</span> Mandibular plate and fixation</h3>
+
+<div id="S2.SS1.p1" class="ltx_para">
+<p class="ltx_p">The implant simulated in this study was a jaw plate, shown in Fig. <a href="#F3" title="Figure 12.3 ‣ 12.2.1 Mandibular plate and fixation ‣ 12.2 Materials and methods ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12.3</span></a>b (geometrical details discussed in section <a href="#S2.SS3" title="12.2.3 Mechanical behavior simulations ‣ 12.2 Materials and methods ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12.2.3</span></a>). This jaw plate is placed on top of the manddibular body as shown in Fig. <a href="#F4" title="Figure 12.4 ‣ 12.2.1 Mandibular plate and fixation ‣ 12.2 Materials and methods ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12.4</span></a>. This technique of mandibular fracture fixation is called the “miniplate fixation technique”, also known as “semi-rigid” or “functionally adequate fixation”. The loading on the plate in this situation is purely tensile when a mastication load is applied. Different scenarios for its fixation used in clinical practice (different amounts of screws) were studied. Leaving holes open is a common occurrence due to proximity of the screw to the fracture line or it being located in a section of the bone that is simply too weak to carry the screw. Open holes are exposed to body fluids and hence might undergo a different degradation dynamic in that part of the plate.</p>
+</div>
+<figure id="F3" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/mandible/image/jawPlateDim.png" id="F3.g1" class="ltx_graphics ltx_centering" width="541" height="350" alt="Jaw plate. a) Indication of inner (screw hole) radius "></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 12.3: </span>Jaw plate. a) Indication of inner (screw hole) radius <math id="F3.m1" class="ltx_Math" alttext="R_{i}" display="inline"><semantics><msub><mi>R</mi><mi>i</mi></msub><annotation encoding="application/x-tex">R_{i}</annotation></semantics></math>, outer radius <math id="F3.m2" class="ltx_Math" alttext="R_{o}" display="inline"><semantics><msub><mi>R</mi><mi>o</mi></msub><annotation encoding="application/x-tex">R_{o}</annotation></semantics></math>, height <math id="F3.m3" class="ltx_Math" alttext="H" display="inline"><semantics><mi>H</mi><annotation encoding="application/x-tex">H</annotation></semantics></math> and length <math id="F3.m4" class="ltx_Math" alttext="L" display="inline"><semantics><mi>L</mi><annotation encoding="application/x-tex">L</annotation></semantics></math> and boundary conditions for the five-screw case (red indicates the region where a fixed boundary condition is applied, blue indicates the region where a displacement boundary condition is applied, accompanied by arrows for direction). b) Different angle showing the depth of the jaw plate. c) Indication of screw placement in the three different cases.</figcaption>
+</figure>
+<figure id="F4" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/mandible/image/MandibleForceLeverArm.png" id="F4.g1" class="ltx_graphics ltx_centering" width="379" height="316" alt="Mandible with indication of fracture line, jaw plate, lever arm and load"></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 12.4: </span>Mandible with indication of fracture line, jaw plate, lever arm and load</figcaption>
+</figure>
+</div>
+</section>
+<section id="S2.SS2" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">12.2.2</span> Biodegradation simulation</h3>
+
+<div id="S2.SS2.p1" class="ltx_para">
+<p class="ltx_p">The biodegradation process was modeled as a set of partial differential equations (PDEs), formulating the mass transfer phenomena as well as tracking the location of the surface of the implant during degradation as described in <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib109" title="Computational modeling of degradation process of biodegradable magnesium biomaterials" class="ltx_ref">31</a>]</cite> (Chapter <a href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3</span></a>) and summarized below. For the mass transfer model, a system of time-dependent reaction-diffusion PDEs was derived from the underlying oxidation-reduction reactions in simulated body fluid (SBF) solutions. This includes the oxidation of the metallic part, reduction of water and oxygen, changes in pH, the effect of different ions in the medium, and formation of a protective film on the surface of the scaffold, slowing down the rate of degradation. Additionally, investigating the structural changes of implants requires monitoring the morphological changes, which was achieved by tracking the movement of the corrosion front. This was done by constructing an equation based on the Level Set formalism, capturing the movement of the environment-implant interface by defining an implicit surface. So, the zero-iso contour of this implicit Level Set function determines the surface of the implant. The derived equations were coupled and solved implicitly using the finite element method, implemented in FreeFEM <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib44" title="New development in freefem++" class="ltx_ref">112</a>]</cite>. Experimental data to validate the developed biodegradation model were collected from immersion tests of simple blocks. Details on model implementation and validation can be found in <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib109" title="Computational modeling of degradation process of biodegradable magnesium biomaterials" class="ltx_ref">31</a>]</cite>.</p>
+</div>
+<div id="S2.SS2.p2" class="ltx_para">
+<p class="ltx_p">The material properties, including the diffusion coefficient of various contributing ions and reaction rates were set to mimic the degradation condition in SBF solutions, which are buffered solutions designed to mimic the <span class="ltx_text ltx_font_italic">in vivo</span> environment of implants and medical devices <span class="ltx_text ltx_font_italic">in vitro</span>. The preferred values for SBF solutions as well as the process for obtaining them is described in detail in our previous work <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib109" title="Computational modeling of degradation process of biodegradable magnesium biomaterials" class="ltx_ref">31</a>]</cite> (Chapter <a href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3</span></a>).</p>
+</div>
+<div id="S2.SS2.p3" class="ltx_para">
+<p class="ltx_p">The mesh was refined adaptively on the corrosion front to increase the numerical accuracy of the interface tracking equation, leading to a computational-intensive model. So, in order to increase performance and reduce the simulation time, the code was parallelized in a way that the computation could be distributed across several computing nodes. This was mainly achieved using domain decomposition techniques and high-performance solvers. More information about this efficient implementation as well as a performance analysis of the model is presented in previous work <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib110" title="Highly scalable numerical simulation of coupled reaction–diffusion systems with moving interfaces" class="ltx_ref">30</a>]</cite> (Chapter <a href="Ch7.html" title="Chapter 7 Model parallelization for high-performance computing ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">7</span></a>). For the biodegradation simulation in this study, the jaw plate was embedded into a cubic container acting as the surrounding environment. The mesh refinement on the metal bulk interface lead to a mesh comprising of 19,924,153 elements and 3,316,135 degrees of freedom (DOF) for each PDE. The biodegradation simulation was carried out using 170 computing cores on the Flemish Supercomputer VSC.</p>
+</div>
+</div>
+</section>
+<section id="S2.SS3" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">12.2.3</span> Mechanical behavior simulations</h3>
+
+<div id="S2.SS3.p1" class="ltx_para">
+<p class="ltx_p">The finite element method was used to implement the equations characterizing the mechanical behavior of the degrading jaw plate. The simulations reflected tensile tests on plates with different amounts of degradation, corresponding to different points in time in the biodegradation process. Force-displacement curves were recorded during the analysis, from which the maximum bearable force was extracted to characterize the mechanical behavior. The analyses were performed in Abaqus/CAE v6.11 (Dassault Systèmes, USA). The explicit dynamic (forward Euler) integration method was used to integrate the equations of motion through time, calculating motion iteratively. In this method, the next state of the system is based on the previous state. As a result, the system is not unconditionally stable, in contrast to a standard analysis, requiring sufficiently small time steps to ensure a stable calculation. Explicit dynamic analyses are useful in problems with high-speed dynamics, but also in quasi-static problems with large non-linear deformations and in highly discontinuous post-buckling and collapse simulations <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib140" title="ABAQUS/explicit: advanced topics" class="ltx_ref">129</a>]</cite>. So, this is an ideal type of analysis for the simulation of tensile tests, in which failure of the material occurs. The simulations were performed on a machine with a 32-core AMD EPYC 7551 processor @2.00GHz and 64GB of RAM.</p>
+</div>
+<div id="S2.SS3.p2" class="ltx_para">
+<p class="ltx_p">The material model for the simulations was based on WE43, which is a magnesium alloy with yttrium, zirconium, and rare earth elements added. A density of 1800 <math id="S2.SS3.p2.m1" class="ltx_Math" alttext="kg/m^{3}" display="inline"><semantics><mrow><mrow><mi>k</mi><mo>⁢</mo><mi>g</mi></mrow><mo>/</mo><msup><mi>m</mi><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">kg/m^{3}</annotation></semantics></math>, E-modulus of 44.2 <math id="S2.SS3.p2.m2" class="ltx_Math" alttext="GPa" display="inline"><semantics><mrow><mi>G</mi><mo>⁢</mo><mi>P</mi><mo>⁢</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">GPa</annotation></semantics></math> and Poisson’s ratio of 0.27 were used <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib206" title="Biodegradable magnesium alloys for orthopaedic applications: a review on corrosion, biocompatibility and surface modifications" class="ltx_ref">5</a>]</cite>. In order to simulate yielding behavior and material failure, a fracture strain of 0.04 and yield stress of 160 <math id="S2.SS3.p2.m3" class="ltx_Math" alttext="MPa" display="inline"><semantics><mrow><mi>M</mi><mo>⁢</mo><mi>P</mi><mo>⁢</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">MPa</annotation></semantics></math> were used. The true stress-strain relationship in the plastic region was specified based on <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib142" title="Ductilization of high-strength magnesium alloys" class="ltx_ref">202</a>]</cite>.</p>
+</div>
+<div id="S2.SS3.p3" class="ltx_para">
+<p class="ltx_p">Sensitivity analyses were performed on various parameters of the explicit dynamic analysis as well as on the mesh density. The first parameter was the maximum degradation, corresponding to the point at which an element is removed from the analysis as its load-bearing capacities have diminished due to plastic deformation. The second was mass scaling, being the artificial increases of the mass of the system in order to increase its predictability. As a result of mass scaling, the time steps (size of the increments in the loading/displacement step) can be increased without divergence of the solution (the non-linear solution path can be traced) and the computation time is decreased. Since the simulation was quasi-static, the behavior of the material could be considered as rate-independent, so the real time scale was not important. The third parameter was the number of processors used for calculation (parallel computing). The final parameter investigated was the displacement at failure (DAF), which is a material parameter that specifies the evolution of damage with relative plastic displacement after one or more of the damage initiation criteria (fracture strain, stress triaxiality, or strain rate) are met <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib141" title="Damage evolution and element removal for ductile metals (documentation)" class="ltx_ref">1</a>, <a href="bib.html#bib143" title="How to perform element deletion in abaqus using ductile damage criteria?" class="ltx_ref">133</a>]</cite>. The global mesh size was chosen to result in four elements spanning the thickness of the plate with adjusted values of the displacement at failure. Table <a href="#T1" title="Table 12.1 ‣ 12.2.3 Mechanical behavior simulations ‣ 12.2 Materials and methods ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag"><span class="ltx_text" style="font-size:91%;">12.1</span></span></a> contains the exact dimensions of the models of the jaw plate at five different time points during the biodegradation process. Fig. <a href="#F3" title="Figure 12.3 ‣ 12.2.1 Mandibular plate and fixation ‣ 12.2 Materials and methods ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12.3</span></a>a shows how the dimensions were measured. Further degradation after the 120th day was calculated by assuming a linear degradation rate. Equations for the conversion of mass loss to dimensional changes can be found in the appendix. Linear (4-node) tetrehadral elements were used. Mass scaling was set to 1000, distortion control was enabled with a length ratio of 0.1 and the maximum degradation for element deletion (Abaqus setting, not related to the degradation simulation as discussed in section <a href="#S2.SS2" title="12.2.2 Biodegradation simulation ‣ 12.2 Materials and methods ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12.2.2</span></a>) was set to 0.95.</p>
+</div>
+<figure id="T1" class="ltx_table"><div class="bml-overflow-wrapper">
+<table class="ltx_tabular ltx_centering ltx_align_middle">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_border_l ltx_border_r ltx_border_t"></td>
+<td class="ltx_td ltx_align_right ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_bold" style="font-size:91%;">Time after im-</span></td>
+<td class="ltx_td ltx_border_t"></td>
+<td class="ltx_td ltx_border_t"></td>
+<td class="ltx_td ltx_border_t"></td>
+<td class="ltx_td ltx_border_t"></td>
+<td class="ltx_td ltx_border_r ltx_border_t"></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_border_l ltx_border_r"></td>
+<td class="ltx_td ltx_align_right ltx_border_r"><span class="ltx_text ltx_font_bold" style="font-size:91%;">plantation[days]</span></td>
+<td class="ltx_td ltx_align_center"><span class="ltx_text ltx_font_bold" style="font-size:91%;">0</span></td>
+<td class="ltx_td ltx_align_center"><span class="ltx_text ltx_font_bold" style="font-size:91%;">28</span></td>
+<td class="ltx_td ltx_align_center"><span class="ltx_text ltx_font_bold" style="font-size:91%;">77</span></td>
+<td class="ltx_td ltx_align_center"><span class="ltx_text ltx_font_bold" style="font-size:91%;">124</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r"><span class="ltx_text ltx_font_bold" style="font-size:91%;">170</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_text" style="font-size:91%;">Geometrical para-</span></td>
+<td class="ltx_td ltx_align_right ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_bold" style="font-size:91%;">Depth[mm]</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t"><span class="ltx_text" style="font-size:91%;">1</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t"><span class="ltx_text" style="font-size:91%;">0.95</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t"><span class="ltx_text" style="font-size:91%;">0.9</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t"><span class="ltx_text" style="font-size:91%;">0.85</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t"><span class="ltx_text" style="font-size:91%;">0.8</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r"><span class="ltx_text" style="font-size:91%;">meters obtained</span></td>
+<td class="ltx_td ltx_align_right ltx_border_r"><span class="ltx_text ltx_font_bold" style="font-size:91%;">H[mm]</span></td>
+<td class="ltx_td ltx_align_center"><span class="ltx_text" style="font-size:91%;">4</span></td>
+<td class="ltx_td ltx_align_center"><span class="ltx_text" style="font-size:91%;">3.95</span></td>
+<td class="ltx_td ltx_align_center"><span class="ltx_text" style="font-size:91%;">3.9</span></td>
+<td class="ltx_td ltx_align_center"><span class="ltx_text" style="font-size:91%;">3.85</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r"><span class="ltx_text" style="font-size:91%;">3.8</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r"><span class="ltx_text" style="font-size:91%;">from the degra-</span></td>
+<td class="ltx_td ltx_align_right ltx_border_r"><span class="ltx_text ltx_font_bold" style="font-size:91%;">R<math id="T1.m1" class="ltx_Math" alttext="{}_{i}" display="inline"><semantics><msub><mi></mi><mi>i</mi></msub><annotation encoding="application/x-tex">{}_{i}</annotation></semantics></math>(screw)[mm]</span></td>
+<td class="ltx_td ltx_align_center"><span class="ltx_text" style="font-size:91%;">1</span></td>
+<td class="ltx_td ltx_align_center"><span class="ltx_text" style="font-size:91%;">1</span></td>
+<td class="ltx_td ltx_align_center"><span class="ltx_text" style="font-size:91%;">1</span></td>
+<td class="ltx_td ltx_align_center"><span class="ltx_text" style="font-size:91%;">1</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r"><span class="ltx_text" style="font-size:91%;">1</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r"><span class="ltx_text" style="font-size:91%;">dation simulation</span></td>
+<td class="ltx_td ltx_align_right ltx_border_r"><span class="ltx_text ltx_font_bold" style="font-size:91%;">R<math id="T1.m2" class="ltx_Math" alttext="{}_{i}" display="inline"><semantics><msub><mi></mi><mi>i</mi></msub><annotation encoding="application/x-tex">{}_{i}</annotation></semantics></math>(no screw)[mm]</span></td>
+<td class="ltx_td ltx_align_center"><span class="ltx_text" style="font-size:91%;">1</span></td>
+<td class="ltx_td ltx_align_center"><span class="ltx_text" style="font-size:91%;">1.025</span></td>
+<td class="ltx_td ltx_align_center"><span class="ltx_text" style="font-size:91%;">1.05</span></td>
+<td class="ltx_td ltx_align_center"><span class="ltx_text" style="font-size:91%;">1.075</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r"><span class="ltx_text" style="font-size:91%;">1.1</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r ltx_border_t"><span class="ltx_text" style="font-size:91%;">Parameters related</span></td>
+<td class="ltx_td ltx_align_right ltx_border_r ltx_border_t"><span class="ltx_text ltx_font_bold" style="font-size:91%;">Mass loss[%]</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t"><span class="ltx_text" style="font-size:91%;">0</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t"><span class="ltx_text" style="font-size:91%;">6.63</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t"><span class="ltx_text" style="font-size:91%;">13.0</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t"><span class="ltx_text" style="font-size:91%;">19.2</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t"><span class="ltx_text" style="font-size:91%;">25.2</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_r"><span class="ltx_text" style="font-size:91%;">to the explicit</span></td>
+<td class="ltx_td ltx_align_right ltx_border_r"><span class="ltx_text ltx_font_bold" style="font-size:91%;">Mesh size[mm]</span></td>
+<td class="ltx_td ltx_align_center"><span class="ltx_text" style="font-size:91%;">0.25</span></td>
+<td class="ltx_td ltx_align_center"><span class="ltx_text" style="font-size:91%;">0.238</span></td>
+<td class="ltx_td ltx_align_center"><span class="ltx_text" style="font-size:91%;">0.225</span></td>
+<td class="ltx_td ltx_align_center"><span class="ltx_text" style="font-size:91%;">0.213</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r"><span class="ltx_text" style="font-size:91%;">0.2</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_l ltx_border_r"><span class="ltx_text" style="font-size:91%;">dynamic analysis</span></td>
+<td class="ltx_td ltx_align_right ltx_border_b ltx_border_r"><span class="ltx_text ltx_font_bold" style="font-size:91%;">DAF[<math id="T1.m3" class="ltx_Math" alttext="\mu" display="inline"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math>m]</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b"><span class="ltx_text" style="font-size:91%;">10</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b"><span class="ltx_text" style="font-size:91%;">9.63</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b"><span class="ltx_text" style="font-size:91%;">9.25</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b"><span class="ltx_text" style="font-size:91%;">8.87</span></td>
+<td class="ltx_td ltx_align_center ltx_border_b ltx_border_r"><span class="ltx_text" style="font-size:91%;">8.48</span></td>
+</tr>
+</table>
+</div>
+<figcaption class="ltx_caption ltx_centering" style="font-size:91%;"><span class="ltx_tag ltx_tag_table">Table 12.1: </span>Dimensions of the jaw plate (five-screw case) at different time points during the biodegradation process. <math id="T1.m4" class="ltx_Math" alttext="R_{o}" display="inline"><semantics><msub><mi>R</mi><mi>o</mi></msub><annotation encoding="application/x-tex">R_{o}</annotation></semantics></math> evolves as <math id="T1.m5" class="ltx_Math" alttext="H/2" display="inline"><semantics><mrow><mi>H</mi><mo>/</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">H/2</annotation></semantics></math>. Parameters related to the explicit dynamic analysis (subjected to sensitivity analysis): mass loss, mesh size and displacement at failure (DAF).</figcaption>
+</figure>
+</div>
+</section>
+<section id="S2.SS4" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">12.2.4</span> Bone healing and implant load models</h3>
+
+<div id="S2.SS4.p1" class="ltx_para">
+<p class="ltx_p">According to Reina et al., the body of the mandible behaves like a long bone <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib144" title="Numerical estimation of bone density and elastic constants distribution in a human mandible" class="ltx_ref">214</a>]</cite>. Also, Korioth et al. mentioned that the jaw behaves as a beam, with the corpus (body) behaving as a hollow beam <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib145" title="Three-dimensional finite element stress analysis of the dentate human mandible." class="ltx_ref">150</a>]</cite>. The simulated loading case is the physiological loading of the mandible when eating, with a maximal biting force of 209 N applied at the central incisors <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib146" title="A comparison of orthodontic elastic forces: focus on reduced inventory" class="ltx_ref">184</a>]</cite> in a vertical manner <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib144" title="Numerical estimation of bone density and elastic constants distribution in a human mandible" class="ltx_ref">214</a>]</cite>. More specifically, in this case study, the force exerted between the incisors was placed such as to generate a large moment in the vicinity of the fracture (Fig. <a href="#F4" title="Figure 12.4 ‣ 12.2.1 Mandibular plate and fixation ‣ 12.2 Materials and methods ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12.4</span></a>). With the fracture being just posterior to the third molar, the lever arm is the distance between the central incisors and the back of the third molar, projected onto the sagittal plane. The value of 50 mm was used for this analysis, based on average values found in literature <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib305" title="Assessment and determination of human mandibular and dental arch profiles in subjects with lower third molar impaction in port harcourt, nigeria" class="ltx_ref">9</a>]</cite>.</p>
+</div>
+<div id="S2.SS4.p2" class="ltx_para">
+<p class="ltx_p">Fig. <a href="#F5" title="Figure 12.5 ‣ 12.2.4 Bone healing and implant load models ‣ 12.2 Materials and methods ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12.5</span></a>a shows a cross-section of the jaw plate at the location of a hole, which is the weakest region of the jaw plate. It does not lie in the same plane as the fracture, but, since failure occurred at the location of one of the holes, this cross-section was considered to be the bottleneck in terms of strength and therefore the focus point of this study. Fig. <a href="#F5" title="Figure 12.5 ‣ 12.2.4 Bone healing and implant load models ‣ 12.2 Materials and methods ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12.5</span></a>b shows the cross-section of the mandibular body, consisting of an outer layer of cortical bone and an inner core of trabecular bone. An approximation of this cross-section using only rectangular shapes was used to ease the calculation of the area moment of inertia of the cross-section. The relevant dimensions for the calculation, the height and width of the outer (cortical) layer of bone as well as the thickness of this layer, were selected from literature based on average values for males, as they are more common to have mandible fractures <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib131" title="Mandible fractures" class="ltx_ref">128</a>]</cite>. The height and width of the mandibular body were taken to be 24.7 mm and 15.9 mm, respectively, based on average values <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib149" title="Assessment of the integrity of adult human mandibular angle" class="ltx_ref">241</a>, <a href="bib.html#bib150" title="Study of mandibular thickness in dentulous and edentulous mandibles" class="ltx_ref">197</a>]</cite> with an average cortical bone thickness of 2.06 mm, assumed to be equal all around the perimeter of the cross-section <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib151" title="Cortical bone thickness in dentate and edentulous human cadavers" class="ltx_ref">145</a>]</cite>. In this study, the location of the jaw plate was simulated to be on top of the mandibular body to keep the neutral axis horizontal and to limit the complexity of the approximation.</p>
+</div>
+<figure id="F5" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/mandible/image/MandibleCrossSec.png" id="F5.g1" class="ltx_graphics ltx_centering" width="379" height="377" alt="Cross-sections as used for the beam theory analysis. a) Cross-section of the jaw plate (indicated with JP in the figure) around the third hole (arbitrary, break does not always occur around this hole) with indication of height ("></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 12.5: </span>Cross-sections as used for the beam theory analysis. a) Cross-section of the jaw plate (indicated with JP in the figure) around the third hole (arbitrary, break does not always occur around this hole) with indication of height (<math id="F5.m1" class="ltx_Math" alttext="h_{JP}" display="inline"><semantics><msub><mi>h</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub><annotation encoding="application/x-tex">h_{JP}</annotation></semantics></math>) and width (<math id="F5.m2" class="ltx_Math" alttext="w_{JP}" display="inline"><semantics><msub><mi>w</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub><annotation encoding="application/x-tex">w_{JP}</annotation></semantics></math>) as they are used in the beam theory equations (merged to one rectangle with height <math id="F5.m3" class="ltx_Math" alttext="h_{JP}" display="inline"><semantics><msub><mi>h</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub><annotation encoding="application/x-tex">h_{JP}</annotation></semantics></math> and width <math id="F5.m4" class="ltx_Math" alttext="w_{JP}" display="inline"><semantics><msub><mi>w</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub><annotation encoding="application/x-tex">w_{JP}</annotation></semantics></math>). b) Cross-section of the mandibular body and approximation of this cross-section with simple geometries. <math id="F5.m5" class="ltx_Math" alttext="w_{o,bone}" display="inline"><semantics><msub><mi>w</mi><mrow><mi>o</mi><mo>,</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><annotation encoding="application/x-tex">w_{o,bone}</annotation></semantics></math> and <math id="F5.m6" class="ltx_Math" alttext="h_{o,bone}" display="inline"><semantics><msub><mi>h</mi><mrow><mi>o</mi><mo>,</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><annotation encoding="application/x-tex">h_{o,bone}</annotation></semantics></math> are the outer width and height of the cross-section, respectively. <math id="F5.m7" class="ltx_Math" alttext="t_{cortical}" display="inline"><semantics><msub><mi>t</mi><mrow><mi>c</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>t</mi><mo>⁢</mo><mi>i</mi><mo>⁢</mo><mi>c</mi><mo>⁢</mo><mi>a</mi><mo>⁢</mo><mi>l</mi></mrow></msub><annotation encoding="application/x-tex">t_{cortical}</annotation></semantics></math> is the thickness of the cortical bone.</figcaption>
+</figure>
+<div id="S2.SS4.p3" class="ltx_para">
+<p class="ltx_p">The stiffness of the cortical and trabecular bone in the fracture area changed over time to capture the bone healing process <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib153" title="13 - fractures" class="ltx_ref">261</a>]</cite>. Two scenarios are possible for cortical bone healing: one with direct contact between the broken bone ends and one without <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib154" title="The biology of fracture healing" class="ltx_ref">186</a>]</cite>. If the broken ends are pressed against each other and are rigidly fixed in place, direct bone healing occurs. This requires the gap between the bone ends to be smaller than 0.001 mm and the interfragmentary strain to be less than 2%. Cutting cones, consisting of osteoclasts, cross the fracture line and leave behind cavities, which are later filled by osteoblasts. In this way, the continuity of the bone is restored, along with the Haversian systems in the axial direction. If the gap between the bone ends is larger and relative motion is possible between the bone ends, indirect healing occurs. In this scenario, a number of different tissues (including fibrous tissue and cartilage) are formed between the bone ends over time and the stability of the fracture region is gradually enhanced. In the trabecular bone, osteoblasts deposit new bone in the fracture gap by laying it on the existing bone trabeculae and along the fibers of the fibrous tissue that forms prior to bone formation <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib153" title="13 - fractures" class="ltx_ref">261</a>]</cite>.</p>
+</div>
+<div id="S2.SS4.p4" class="ltx_para">
+<p class="ltx_p">In this study, the jaw plate was assumed to be able to sufficiently restrict the relative movement of the bone ends of the mandible with respect to one another for direct bone healing to be the most likely scenario to occur.</p>
+</div>
+<div id="S2.SS4.p5" class="ltx_para">
+<p class="ltx_p">Lakatos et al. found the modulus of the trabecular bone in the mandible to range from 6.9 MPa to 199.5 MPa <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib155" title="Material properties of the mandibular trabecular bone" class="ltx_ref">152</a>]</cite>. The modulus of the trabecular bone after fracture started from 0 MPa and rose linearly, for the sake of simplicity, to a value of 100 MPa over the course of 168 days. The cortical bone around the fracture site was initially immature and had a modulus of around 1 GPa <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib157" title="Sensitivity of tissue differentiation and bone healing predictions to tissue properties" class="ltx_ref">132</a>]</cite>. This immature bone was replaced by stronger, mature bone with a modulus of around 6 GPa and later by compact bone <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib156" title="Part b types of bone" class="ltx_ref">118</a>]</cite>. Because the precise rate of stiffening was not reported, a rough estimation was made here increasing the bone modulus to 1.3 GPa over the same time period of 168 days as reported for trabecular bone.</p>
+</div>
+<div id="S2.SS4.p6" class="ltx_para">
+<p class="ltx_p">To implement the bone regeneration on the simplified geometry shown in Fig. <a href="#F5" title="Figure 12.5 ‣ 12.2.4 Bone healing and implant load models ‣ 12.2 Materials and methods ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12.5</span></a>b, beam theory equations were used. Details about these can be found in the appendix. The neutral axis was first calculated with a transformed-section method to take the different materials into account. Then, the area moments of inertia of the different sections were calculated. Finally, the stress in the section that corresponds to the jaw plate was calculated and was converted to a force with the use of integral expressions <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib158" title="Advanced mechanics of materials and applied elasticity" class="ltx_ref">79</a>]</cite>. For this, the moment in the mandibular body as a result of the biting force was used. The equations were implemented in MATLAB (MathWorks, USA) and automated to loop over different geometries of the cross-section of the plate and material properties of the bone corresponding to the degradation of the plate and the healing of the bone tissue, respectively.</p>
+</div>
+<div id="S2.SS4.p7" class="ltx_para">
+<p class="ltx_p">Computing the force in the jaw plate as an integral of the stress over the area of the jaw plate relies on stress being a linear function of <math id="S2.SS4.p7.m1" class="ltx_Math" alttext="y" display="inline"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math> (the vertical distance between a point in the cross-section and the neutral axis), meaning that if the neutral axis is within the jaw plate or very close to it, the force may not be very high, while the maximal stress occurring is actually very high. If this stress is higher than ultimate tensile strength (UTS), it causes problems that might not necessarily be reflected in the total force. What this also reflects is a situation in which the loading of the jaw plate is not predominantly tensile, but rather bending. Using the force in the jaw plate, as computed by the integral in Eq. <a href="#E1" title="(12.1) ‣ 12.2.4 Bone healing and implant load models ‣ 12.2 Materials and methods ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12.1</span></a>, is only valid if the neutral axis is sufficiently far away from the jaw plate. To check this, the stress variation in the jaw plate and the location of the neutral axis were studied in a sensitivity analysis. The derivation of Eq. <a href="#E1" title="(12.1) ‣ 12.2.4 Bone healing and implant load models ‣ 12.2 Materials and methods ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12.1</span></a> can be found in the appendix. <math id="S2.SS4.p7.m2" class="ltx_Math" alttext="h_{JP}" display="inline"><semantics><msub><mi>h</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub><annotation encoding="application/x-tex">h_{JP}</annotation></semantics></math> and <math id="S2.SS4.p7.m3" class="ltx_Math" alttext="w_{JP}" display="inline"><semantics><msub><mi>w</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub><annotation encoding="application/x-tex">w_{JP}</annotation></semantics></math> are the height and the width of the cross-section of the jaw plate, respectively, and <math id="S2.SS4.p7.m4" class="ltx_Math" alttext="h_{o,bone}" display="inline"><semantics><msub><mi>h</mi><mrow><mi>o</mi><mo>,</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><annotation encoding="application/x-tex">h_{o,bone}</annotation></semantics></math> is the height of the cross-section of the outer (cortical) bone. <math id="S2.SS4.p7.m5" class="ltx_Math" alttext="E_{JP}" display="inline"><semantics><msub><mi>E</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub><annotation encoding="application/x-tex">E_{JP}</annotation></semantics></math> and <math id="S2.SS4.p7.m6" class="ltx_Math" alttext="E_{cort.bone}" display="inline"><semantics><msub><mi>E</mi><mrow><mrow><mi>c</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>t</mi></mrow><mo>.</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><annotation encoding="application/x-tex">E_{cort.bone}</annotation></semantics></math> are the E-modulus of the jaw plate and the cortical bone, respectively. <math id="S2.SS4.p7.m7" class="ltx_Math" alttext="E_{trab.bone}" display="inline"><semantics><msub><mi>E</mi><mrow><mrow><mi>t</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>a</mi><mo>⁢</mo><mi>b</mi></mrow><mo>.</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><annotation encoding="application/x-tex">E_{trab.bone}</annotation></semantics></math> is implicitly present in this equation due to use the transformed-section method as discussed in section <a href="#S2.SS4" title="12.2.4 Bone healing and implant load models ‣ 12.2 Materials and methods ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12.2.4</span></a>. <math id="S2.SS4.p7.m8" class="ltx_Math" alttext="I_{cort.bone}" display="inline"><semantics><msub><mi>I</mi><mrow><mrow><mi>c</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>t</mi></mrow><mo>.</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><annotation encoding="application/x-tex">I_{cort.bone}</annotation></semantics></math>, <math id="S2.SS4.p7.m9" class="ltx_Math" alttext="I_{trab.bone}" display="inline"><semantics><msub><mi>I</mi><mrow><mrow><mi>t</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>a</mi><mo>⁢</mo><mi>b</mi></mrow><mo>.</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><annotation encoding="application/x-tex">I_{trab.bone}</annotation></semantics></math> and <math id="S2.SS4.p7.m10" class="ltx_Math" alttext="I_{JP}" display="inline"><semantics><msub><mi>I</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub><annotation encoding="application/x-tex">I_{JP}</annotation></semantics></math> are the area moment of inertia of the cortical bone, trabecular bone and jaw plate, respectively. The formulas for these can also be found in the appendix. <math id="S2.SS4.p7.m11" class="ltx_Math" alttext="M" display="inline"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math> is the moment as a result of the loading and y is the vertical distance from a point in the cross-section to the neutral axis.</p>
+</div>
+<div id="S2.SS4.p8" class="ltx_para">
+<div id="E1" class="ltx_equation ltx_eqn_div">
+<span><math id="E1.m1" class="ltx_Math" alttext="F_{JP}=\int_{h_{o,bone}}^{h_{o,bone}+h_{JP}}\frac{y\cdot M\cdot E_{JP}\cdot w_%
+{JP}}{E_{cort.bone}\cdot(I_{cort.bone}+I_{trab.bone}+I_{JP})}\,dy" display="block"><semantics><mrow><msub><mi>F</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub><mo>=</mo><mrow><msubsup><mo largeop="true" symmetric="true">∫</mo><msub><mi>h</mi><mrow><mi>o</mi><mo>,</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><mrow><msub><mi>h</mi><mrow><mi>o</mi><mo>,</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><mo>+</mo><msub><mi>h</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub></mrow></msubsup><mrow><mpadded width="+1.7pt"><mfrac><mrow><mi>y</mi><mo>⋅</mo><mi>M</mi><mo>⋅</mo><msub><mi>E</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub><mo>⋅</mo><msub><mi>w</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub></mrow><mrow><msub><mi>E</mi><mrow><mrow><mi>c</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>t</mi></mrow><mo>.</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><mo>⋅</mo><mrow><mo stretchy="false">(</mo><mrow><msub><mi>I</mi><mrow><mrow><mi>c</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>t</mi></mrow><mo>.</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><mo>+</mo><msub><mi>I</mi><mrow><mrow><mi>t</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>a</mi><mo>⁢</mo><mi>b</mi></mrow><mo>.</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><mo>+</mo><msub><mi>I</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub></mrow><mo stretchy="false">)</mo></mrow></mrow></mfrac></mpadded><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>y</mi></mrow></mrow></mrow></mrow><annotation encoding="application/x-tex">F_{JP}=\int_{h_{o,bone}}^{h_{o,bone}+h_{JP}}\frac{y\cdot M\cdot E_{JP}\cdot w_%
+{JP}}{E_{cort.bone}\cdot(I_{cort.bone}+I_{trab.bone}+I_{JP})}\,dy</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(12.1)</span>
+              
+              
+            
+</div>
+</div>
+</div>
+</section>
+<section id="S2.SS5" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">12.2.5</span> Coupling of the models</h3>
+
+<div id="S2.SS5.p1" class="ltx_para">
+<p class="ltx_p">The biodegradation simulation results were used to derive the changes in geometry on which both the mechanical characterization and the bone regeneration analyses relied. The output from the mechanical analysis delivered the maximum force that the jaw plate could withstand while the output from the beam theory calculations delivered the actual force occurring in the jaw plate, both as a function of time. The comparison between both values allowed to assess the mechanical behavior of the degrading plate during bone regeneration.</p>
+</div>
+</div>
+</section>
+</div>
+</section>
+<section id="S3" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">12.3</span> Results</h2>
+
+<section id="S3.SS1" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">12.3.1</span> Biodegradation results</h3>
+
+<div id="S3.SS1.p1" class="ltx_para">
+<p class="ltx_p">The simulation of 120 days of the degradation of the jaw bone plate took 18 hours to run using 170 computing cores. Fig. <a href="#F6" title="Figure 12.6 ‣ 12.3.1 Biodegradation results ‣ 12.3 Results ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12.6</span></a> shows the visualized interface and magnesium ions release during the corrosion process. It also depicts the mass loss of the bone plate in the SBF solution over time as well as the geometries used to perform the mechanical analysis at predefined time points.</p>
+</div>
+<figure id="F6" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/mandible/image/results_degradation.jpg" id="F6.g1" class="ltx_graphics ltx_centering" width="541" height="210" alt="Simulation results. (a) A cross-section of the computational mesh and simulation results of the degradation model of the jaw bone plate in Simlated Body Fluid solution as well as (b) the mass loss graph over time. (c) Degradation of the plate over time. The contours display the concentration of magnesium ions on a cross-section view of the medium beside the moving surface of the bone plate at days 1, 40, 80 and 120. The gray surface is the zero iso-contour of the Level Set function, which corresponds to the surface of the bone plate."></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 12.6: </span>Simulation results. (a) A cross-section of the computational mesh and simulation results of the degradation model of the jaw bone plate in Simlated Body Fluid solution as well as (b) the mass loss graph over time. (c) Degradation of the plate over time. The contours display the concentration of magnesium ions on a cross-section view of the medium beside the moving surface of the bone plate at days 1, 40, 80 and 120. The gray surface is the zero iso-contour of the Level Set function, which corresponds to the surface of the bone plate.</figcaption>
+</figure>
+</div>
+</section>
+<section id="S3.SS2" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">12.3.2</span> Sensitivity analyses</h3>
+
+<div id="S3.SS2.p1" class="ltx_para">
+<p class="ltx_p">All models for the tensile tests had a mesh size chosen to ensure presence of four elements fitting into the depth of the plate. The relative difference between the maximal force for four elements compared to five elements fitting into the plate’s depth was only 3.4%. The computation time for four elements scenario was over 4 hours already and further refining the mesh increased the computation time to over 7 hours. So, in this study, the accuracy gained by refining the mesh did not justify the increase in computation time.</p>
+</div>
+<div id="S3.SS2.p2" class="ltx_para">
+<p class="ltx_p">The results from the sensitivity analyses showed that the mass scaling and the use of multiple processors for computation had no impact on the force-displacement curves. The maximum degradation (the point at which an element is removed from the analysis as its load-bearing capacities have diminished due to plastic deformation) only caused changes in the force-displacement curve after the maximum force had been reached, and hence did not impact the maximum bearable force. The displacement at failure and the mesh size, however, did have a strong impact on the resulting force-displacement curves. The maximum bearable force was drastically increased with an increased value of the displacement at failure. Changing the mesh size (i.e. size of the mesh elements) led to the opposite behavior: the maximum force was lower with a larger value of the mesh size. The relationship between both was identified and the numerical misbehavior could be eliminated by adjusting the displacement at failure to the mesh size according to the following general relationship:</p>
+</div>
+<div id="S3.SS2.p3" class="ltx_para">
+<div id="E2" class="ltx_equation ltx_eqn_div">
+<span><math id="E2.m1" class="ltx_Math" alttext="X_{DAF}=0.6^{log_{0.5}(X_{mesh})}" display="block"><semantics><mrow><msub><mi>X</mi><mrow><mi>D</mi><mo>⁢</mo><mi>A</mi><mo>⁢</mo><mi>F</mi></mrow></msub><mo>=</mo><msup><mn>0.6</mn><mrow><mi>l</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><msub><mi>g</mi><mn>0.5</mn></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>X</mi><mrow><mi>m</mi><mo>⁢</mo><mi>e</mi><mo>⁢</mo><mi>s</mi><mo>⁢</mo><mi>h</mi></mrow></msub><mo stretchy="false">)</mo></mrow></mrow></msup></mrow><annotation encoding="application/x-tex">X_{DAF}=0.6^{log_{0.5}(X_{mesh})}</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(12.2)</span>
+              
+              
+            
+</div>
+</div>
+<div id="S3.SS2.p4" class="ltx_para ltx_noindent">
+<p class="ltx_p"><math id="S3.SS2.p4.m1" class="ltx_Math" alttext="X_{DAF}" display="inline"><semantics><msub><mi>X</mi><mrow><mi>D</mi><mo>⁢</mo><mi>A</mi><mo>⁢</mo><mi>F</mi></mrow></msub><annotation encoding="application/x-tex">X_{DAF}</annotation></semantics></math> is the factor with which the DAF value should be multiplied when the global mesh size is multiplied with <math id="S3.SS2.p4.m2" class="ltx_Math" alttext="X_{mesh}" display="inline"><semantics><msub><mi>X</mi><mrow><mi>m</mi><mo>⁢</mo><mi>e</mi><mo>⁢</mo><mi>s</mi><mo>⁢</mo><mi>h</mi></mrow></msub><annotation encoding="application/x-tex">X_{mesh}</annotation></semantics></math>.</p>
+</div>
+<div id="S3.SS2.p5" class="ltx_para">
+<p class="ltx_p">The location of the neutral axis was analyzed for the base-line set-up (five-screws) as a representative model for all simulated set-ups in this study. The difference in stress between the top and bottom of the jaw plate was the largest at day 0 and had a value 22.4 MPa at most, which is only 11.6% of the maximal stress value in the jaw plate and therefore the presence of bending can be disregarded.</p>
+</div>
+</div>
+</section>
+<section id="S3.SS3" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">12.3.3</span> Coupled models results</h3>
+
+<figure id="F7" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/mandible/image/force_displacement.png" id="F7.g1" class="ltx_graphics ltx_centering" width="432" height="288" alt="Results of tensile test on jaw plate with five screws with different amounts of corrosion"></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 12.7: </span>Results of tensile test on jaw plate with five screws with different amounts of corrosion</figcaption>
+</figure>
+<figure id="F8" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/mandible/image/force_time.png" id="F8.g1" class="ltx_graphics ltx_centering" width="432" height="288" alt="Estimation of load occurrence as a function of time after implantation (days) for five-screw set-up. Maximal force that can be carried by the jaw plate in the different set-ups modeled in this study (same plate, fixed with 5, 4 or 2 screws) calculated at days 28, 77, 124 and 170."></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 12.8: </span>Estimation of load occurrence as a function of time after implantation (days) for five-screw set-up. Maximal force that can be carried by the jaw plate in the different set-ups modeled in this study (same plate, fixed with 5, 4 or 2 screws) calculated at days 28, 77, 124 and 170.</figcaption>
+</figure>
+<div id="S3.SS3.p1" class="ltx_para">
+<p class="ltx_p">The force-displacement curves for the plate with five screws are shown in Fig. <a href="#F7" title="Figure 12.7 ‣ 12.3.3 Coupled models results ‣ 12.3 Results ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12.7</span></a>, with the cases with four and two screws giving similar force-displacement curves. The strength of the jaw plates was characterized by the maximal values from the force-displacement curves. In Fig. <a href="#F8" title="Figure 12.8 ‣ 12.3.3 Coupled models results ‣ 12.3 Results ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12.8</span></a>, the strength-curves of the jaw plate for the three cases are shown and compared to the loading on the jaw plate, as calculated with beam theory. Comparing the three strength-curves, it could be concluded that leaving more holes open led to a weaker part initially and a faster deterioration of the strength over time as a result of corrosion. In the five-screw case, the strength remained higher than the loading for the simulated time period and hence no failure occurred. In the four- and two-screw cases, failure did occur after about 170 and 20 days respectively.</p>
+</div>
+</div>
+</section>
+</div>
+</section>
+<section id="S4" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">12.4</span> Discussion</h2>
+
+<div id="S4.p1" class="ltx_para">
+<p class="ltx_p">In this work, a coupled mechanical-degradation model was presented to study the effect of biodegradation on the mechanical stability of implants for biodegradable mandibular plates. Three different cases were considered, with each a different number of implant holes left unscrewed. One aspect of the difference between the three cases is the surface that was exposed to body fluids as in the cases with fewer screws the open screw holes were also exposed to body fluids. The corrosion inside the open screw holes had an impact on the overall implant strength, as shown in Fig. <a href="#F8" title="Figure 12.8 ‣ 12.3.3 Coupled models results ‣ 12.3 Results ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12.8</span></a>. Additionally, the boundary conditions representing the screws pulling on the jaw plate are responsible for the differences in the maximal force observed at day 0 since the jaw plate geometry was the same at this point in time for all three cases.</p>
+</div>
+<div id="S4.p2" class="ltx_para">
+<p class="ltx_p">The use of a “universal” jaw plate with multiple holes allows the jaw plate to be used in various situations involving mandible fractures. Depending on the exact location of fracture lines and the presence of stronger and weaker sections of bone, the amount and placement of screws can be decided upon by the surgeon. The downside to this is that the differences in mechanical behavior and the change thereof as a result of corrosion between the different cases (5/4/2 screws) can lead to unexpected results if not anticipated correctly by the jaw plate designer and the surgeon. The insertion of screws close to the fracture line was found to be an independent predictive risk factor for implant breakage <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib306" title="Are there too many screw holes in plates for fracture fixation?" class="ltx_ref">178</a>]</cite>. Plates with additional (unused) holes were also found to have an increased risk of breakage. A patient-specific jaw plate can be designed to meet a specific mechanical behavior. As proposed by Lv et al. <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib306" title="Are there too many screw holes in plates for fracture fixation?" class="ltx_ref">178</a>]</cite>, plates should be designed without holes close to the fracture line. The placement of holes can then be a design element for obtaining the desired mechanical behavior of the jaw plate (over time).</p>
+</div>
+<div id="S4.p3" class="ltx_para">
+<p class="ltx_p">The results of the strength simulations provided useful knowledge about the limits in terms of the mechanical strength of the jaw plate and how that evolved during the biodegradation process. Matched with an accurate characterization of the loading, the point at which the jaw plate fails could be predicted. The loading on the jaw plate was derived from the maximal biting force during eating with plate failure occurring if this maximal biting force would be exerted after the point at which the strength curve falls below the loading curve. In practice, the strength of the jaw plate and the way in which this evolves during the biodegradation process are influenced by a range of parameters. Most of these are related to the situation/patient: mandible dimensions, bone properties, fracture line geometry, etc. Others are, however, free to be chosen by the implant designer: the jaw plate material and geometry, the location, the number of screws, etc. Certain restrictions on what food may be eaten by the patient for a certain time period can be given to reduce the maximal biting force and preventive measures should be implemented to avoid bruxism during this period.</p>
+</div>
+<div id="S4.p4" class="ltx_para">
+<p class="ltx_p">While looking at the relative change in force values led to interesting conclusions, the absolute values of the results obtained in this study were not validated. Manufacturing real samples, immersing them in SBF, and subjecting them to a tensile test would give <span class="ltx_text ltx_font_italic">in vitro</span> results that can be compared to the simulation predictions. However, the obtained results can be effectively compared with similar studies in this regard. An example of such a study is the Imwinkelried et al. work <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib313" title="Pre-clinical testing of human size magnesium implants in miniature pigs: implant degradation and bone fracture healing at multiple implantation sites" class="ltx_ref">127</a>]</cite>, in which they investigated the biodegradation behavior of various designs of mandibular plates <span class="ltx_text ltx_font_italic">in vivo</span>, implanted in miniature pig models in multiple implantation sites. Although the design dimensions and number of screws were slightly different from the ones in the current study, the results and conclusion are comparable. In the performed <span class="ltx_text ltx_font_italic">in vivo</span> investigations for a rectangular plate inside a tissue pocket in the absence of mechanical load, an estimated total amount of 15% mass loss was observed within 24 weeks, the value of which is 25% in the current study (Table <a href="#T1" title="Table 12.1 ‣ 12.2.3 Mechanical behavior simulations ‣ 12.2 Materials and methods ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag"><span class="ltx_text" style="font-size:91%;">12.1</span></span></a>). This difference is still reasonable due to the presence of a coating layer and alloying elements in the mentioned study. Moreover, the reported reduction in the bending strength for the mandibular plates is 20% after 12 weeks, which is in good agreement with the obtained tensile strength in the current study, being 16% and 19% for the 5-screw and 4-screw cases, respectively (Fig. <a href="#F8" title="Figure 12.8 ‣ 12.3.3 Coupled models results ‣ 12.3 Results ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12.8</span></a>).</p>
+</div>
+<div id="S4.p5" class="ltx_para">
+<p class="ltx_p">Another interesting finding of the study performed by Imwinkelried et al. <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib313" title="Pre-clinical testing of human size magnesium implants in miniature pigs: implant degradation and bone fracture healing at multiple implantation sites" class="ltx_ref">127</a>]</cite> is related to the uniformity of biodegradation. According to their findings, in animal studies, the biodegradation of WE43 implants occurred uniformly in the majority of cases, and the implantation site appeared to have little effect on the process based on the selected model. The results indicated that neither the contact between the plate and screw nor the plastic deformation during the implantation process caused localized corrosion of the tested alloy. Moreover, although the presence of a coating layer delayed degradation, it did not significantly alter the underlying behavior of the alloy during degradation. This shows the applicability of the employed computational biodegradation model in the current study, where the effect of non-uniform corrosion was not taken into account for the sake of the mathematical model. However, the effect of the alloying elements and the coating can be represented by tuning the effective parameters of the model elaborated in <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib109" title="Computational modeling of degradation process of biodegradable magnesium biomaterials" class="ltx_ref">31</a>]</cite> and Chapter <a href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3</span></a>.</p>
+</div>
+<div id="S4.p6" class="ltx_para">
+<p class="ltx_p">This study has some limitations. First of, the separate analysis of mechanical behavior of and loading on the implant are simplified compared to a structural mechanics model of the entire mandible with jaw plate. This would more accurately capture the loading on the bone-implant complex, including loading modes that deviate from the purely tensile loading as assumed in this study. Second, the results from the biodegradation simulation were simplified to geometry changes based on mass loss data, instead of on its direct output. Finally, the bone healing algorithm was also simplified to linear increases in E-modulus of the bone in the fracture area, which can be developed further to include more sophisticated tissue growth behavior.</p>
+</div>
+</div>
+</section>
+<section id="S5" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">12.5</span> Conclusion</h2>
+
+<div id="S5.p1" class="ltx_para">
+<p class="ltx_p">In this chapter, the simulation results of the biodegradation model developed in Chapter <a href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3</span></a> were used in a structural analysis model to predict the mechanical loosening of biodegradable mandibular implants. The models were combined with a simplified tissue growth model to predict the change in the load exerted on the implant due to bone regeneration. The simulation results showed the evolution of the mechanical strength of the studied jaw plate during the biodegradation process, which was similar to findings of <span class="ltx_text ltx_font_italic">in vivo</span> studies performed on animal models.</p>
+</div>
+</div>
+</section>
+<section id="A1" class="ltx_appendix normal">
+<div class="section level1">
+
+<h1 class="ltx_title ltx_title_appendix">
+<span class="ltx_tag ltx_tag_appendix header-section-number">Appendix 12.A</span> Converting mass loss to jaw plate dimensions</h1>
+
+<div id="A1.p1" class="ltx_para">
+<p class="ltx_p">The changes in dimensions were assumed to be determined by a ’thickness’ of the entire outer surface that was removed as a result of corrosion. If this ’thickness’ is represented by <math id="A1.p1.m1" class="ltx_Math" alttext="x" display="inline"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>, the dimensions of the jaw plate are written as:</p>
+</div>
+<div id="A1.p2" class="ltx_para">
+<div id="E3" class="ltx_equation ltx_eqn_div">
+<span><math id="E3.m1" class="ltx_Math" alttext="depth=0.001-2x" display="block"><semantics><mrow><mrow><mi>d</mi><mo>⁢</mo><mi>e</mi><mo>⁢</mo><mi>p</mi><mo>⁢</mo><mi>t</mi><mo>⁢</mo><mi>h</mi></mrow><mo>=</mo><mrow><mn>0.001</mn><mo>-</mo><mrow><mn>2</mn><mo>⁢</mo><mi>x</mi></mrow></mrow></mrow><annotation encoding="application/x-tex">depth=0.001-2x</annotation></semantics></math></span>
+            <span class="ltx_tag ltx_tag_equation ltx_align_right">(12.3)</span>
+            
+            
+          
+</div>
+<div id="E4" class="ltx_equation ltx_eqn_div">
+<span><math id="E4.m1" class="ltx_Math" alttext="H=0.004-2x" display="block"><semantics><mrow><mi>H</mi><mo>=</mo><mrow><mn>0.004</mn><mo>-</mo><mrow><mn>2</mn><mo>⁢</mo><mi>x</mi></mrow></mrow></mrow><annotation encoding="application/x-tex">H=0.004-2x</annotation></semantics></math></span>
+            <span class="ltx_tag ltx_tag_equation ltx_align_right">(12.4)</span>
+            
+            
+          
+</div>
+<div id="E5" class="ltx_equation ltx_eqn_div">
+<span><math id="E5.m1" class="ltx_Math" alttext="R_{i}=0.001" display="block"><semantics><mrow><msub><mi>R</mi><mi>i</mi></msub><mo>=</mo><mn>0.001</mn></mrow><annotation encoding="application/x-tex">R_{i}=0.001</annotation></semantics></math></span>
+            <span class="ltx_tag ltx_tag_equation ltx_align_right">(12.5)</span>
+            
+            
+          
+</div>
+<div id="E6" class="ltx_equation ltx_eqn_div">
+<span><math id="E6.m1" class="ltx_Math" alttext="R_{o}=0.002-x" display="block"><semantics><mrow><msub><mi>R</mi><mi>o</mi></msub><mo>=</mo><mrow><mn>0.002</mn><mo>-</mo><mi>x</mi></mrow></mrow><annotation encoding="application/x-tex">R_{o}=0.002-x</annotation></semantics></math></span>
+            <span class="ltx_tag ltx_tag_equation ltx_align_right">(12.6)</span>
+            
+            
+          
+</div>
+</div>
+<div id="A1.p3" class="ltx_para ltx_noindent">
+<p class="ltx_p">Note that <math id="A1.p3.m1" class="ltx_Math" alttext="R_{i}" display="inline"><semantics><msub><mi>R</mi><mi>i</mi></msub><annotation encoding="application/x-tex">R_{i}</annotation></semantics></math> was constant, which means that these equations were for the five-screw case. The five-screw case was the reference for the mass loss data from the degradation simulation. So, the change in geometry was calculated for the five-screw case, but could then be applied to all three cases. The volume of the jaw plate was calculated as:</p>
+</div>
+<div id="A1.p4" class="ltx_para">
+<div id="E7" class="ltx_equation ltx_eqn_div">
+<span><math id="E7.m1" class="ltx_Math" alttext="Volume=(TH-5\pi R_{i}^{2}+\pi R_{o}^{2})\cdot depth" display="block"><semantics><mrow><mrow><mi>V</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>l</mi><mo>⁢</mo><mi>u</mi><mo>⁢</mo><mi>m</mi><mo>⁢</mo><mi>e</mi></mrow><mo>=</mo><mrow><mrow><mrow><mo stretchy="false">(</mo><mrow><mrow><mrow><mi>T</mi><mo>⁢</mo><mi>H</mi></mrow><mo>-</mo><mrow><mn>5</mn><mo>⁢</mo><mi>π</mi><mo>⁢</mo><msubsup><mi>R</mi><mi>i</mi><mn>2</mn></msubsup></mrow></mrow><mo>+</mo><mrow><mi>π</mi><mo>⁢</mo><msubsup><mi>R</mi><mi>o</mi><mn>2</mn></msubsup></mrow></mrow><mo stretchy="false">)</mo></mrow><mo>⋅</mo><mi>d</mi></mrow><mo>⁢</mo><mi>e</mi><mo>⁢</mo><mi>p</mi><mo>⁢</mo><mi>t</mi><mo>⁢</mo><mi>h</mi></mrow></mrow><annotation encoding="application/x-tex">Volume=(TH-5\pi R_{i}^{2}+\pi R_{o}^{2})\cdot depth</annotation></semantics></math></span>
+            <span class="ltx_tag ltx_tag_equation ltx_align_right">(12.7)</span>
+            
+            
+          
+</div>
+</div>
+<div id="A1.p5" class="ltx_para ltx_noindent">
+<p class="ltx_p">with <math id="A1.p5.m1" class="ltx_Math" alttext="T" display="inline"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math> the length of the straight edge of the jaw plate (<math id="A1.p5.m2" class="ltx_Math" alttext="T=L-2R_{o}" display="inline"><semantics><mrow><mi>T</mi><mo>=</mo><mrow><mi>L</mi><mo>-</mo><mrow><mn>2</mn><mo>⁢</mo><msub><mi>R</mi><mi>o</mi></msub></mrow></mrow></mrow><annotation encoding="application/x-tex">T=L-2R_{o}</annotation></semantics></math>). The value of the mass loss was converted to a volume with the formula:</p>
+</div>
+<div id="A1.p6" class="ltx_para">
+<div id="E8" class="ltx_equation ltx_eqn_div">
+<span><math id="E8.m1" class="ltx_Math" alttext="Volume=InitialVolume\cdot\frac{100-MassLoss(\%)}{100}" display="block"><semantics><mrow><mrow><mi>V</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>l</mi><mo>⁢</mo><mi>u</mi><mo>⁢</mo><mi>m</mi><mo>⁢</mo><mi>e</mi></mrow><mo>=</mo><mrow><mrow><mi>I</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>i</mi><mo>⁢</mo><mi>t</mi><mo>⁢</mo><mi>i</mi><mo>⁢</mo><mi>a</mi><mo>⁢</mo><mi>l</mi><mo>⁢</mo><mi>V</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>l</mi><mo>⁢</mo><mi>u</mi><mo>⁢</mo><mi>m</mi><mo>⁢</mo><mi>e</mi></mrow><mo>⋅</mo><mfrac><mrow><mn>100</mn><mo>-</mo><mi>M</mi><mi>a</mi><mi>s</mi><mi>s</mi><mi>L</mi><mi>o</mi><mi>s</mi><mi>s</mi><mrow><mo stretchy="false">(</mo><mo>%</mo><mo stretchy="false">)</mo></mrow></mrow><mn>100</mn></mfrac></mrow></mrow><annotation encoding="application/x-tex">Volume=InitialVolume\cdot\frac{100-MassLoss(\%)}{100}</annotation></semantics></math></span>
+            <span class="ltx_tag ltx_tag_equation ltx_align_right">(12.8)</span>
+            
+            
+          
+</div>
+</div>
+<div id="A1.p7" class="ltx_para ltx_noindent">
+<p class="ltx_p">with <math id="A1.p7.m1" class="ltx_Math" alttext="InitialVolume" display="inline"><semantics><mrow><mi>I</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>i</mi><mo>⁢</mo><mi>t</mi><mo>⁢</mo><mi>i</mi><mo>⁢</mo><mi>a</mi><mo>⁢</mo><mi>l</mi><mo>⁢</mo><mi>V</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>l</mi><mo>⁢</mo><mi>u</mi><mo>⁢</mo><mi>m</mi><mo>⁢</mo><mi>e</mi></mrow><annotation encoding="application/x-tex">InitialVolume</annotation></semantics></math> being the volume for <math id="A1.p7.m2" class="ltx_Math" alttext="x=0" display="inline"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x=0</annotation></semantics></math>. The combination of equations <a href="#E3" title="(12.3) ‣ Appendix 12.A Converting mass loss to jaw plate dimensions ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12.3</span></a> to <a href="#E8" title="(12.8) ‣ Appendix 12.A Converting mass loss to jaw plate dimensions ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12.8</span></a> lead to an equation with two unknowns, being <math id="A1.p7.m3" class="ltx_Math" alttext="x" display="inline"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math> and <math id="A1.p7.m4" class="ltx_Math" alttext="MassLoss" display="inline"><semantics><mrow><mi>M</mi><mo>⁢</mo><mi>a</mi><mo>⁢</mo><mi>s</mi><mo>⁢</mo><mi>s</mi><mo>⁢</mo><mi>L</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>s</mi><mo>⁢</mo><mi>s</mi></mrow><annotation encoding="application/x-tex">MassLoss</annotation></semantics></math>. By solving this equation to <math id="A1.p7.m5" class="ltx_Math" alttext="x" display="inline"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math> and filling in values of the mass loss, the corresponding values of <math id="A1.p7.m6" class="ltx_Math" alttext="x" display="inline"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math> were calculated.</p>
+</div>
+</div>
+</section>
+<section id="A2" class="ltx_appendix normal">
+<div class="section level1">
+
+<h1 class="ltx_title ltx_title_appendix">
+<span class="ltx_tag ltx_tag_appendix header-section-number">Appendix 12.B</span> Beam theory equations</h1>
+
+<div id="A2.p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">The formulas in this appendix were based on the book ’Advanced Mechanics of Materials and Applied Elasticity’ by Ugural and Fenster <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib158" title="Advanced mechanics of materials and applied elasticity" class="ltx_ref">79</a>]</cite>. The mandibular body behaved as a beam and as a result the moment <math id="A2.p1.m1" class="ltx_Math" alttext="M" display="inline"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math> in the fracture as a result of the load was given by:</p>
+</div>
+<div id="A2.p2" class="ltx_para">
+<div id="E9" class="ltx_equation ltx_eqn_div">
+<span><math id="E9.m1" class="ltx_Math" alttext="M=leverarm\cdot load" display="block"><semantics><mrow><mi>M</mi><mo>=</mo><mrow><mrow><mrow><mi>l</mi><mo>⁢</mo><mi>e</mi><mo>⁢</mo><mi>v</mi><mo>⁢</mo><mi>e</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>a</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>m</mi></mrow><mo>⋅</mo><mi>l</mi></mrow><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>a</mi><mo>⁢</mo><mi>d</mi></mrow></mrow><annotation encoding="application/x-tex">M=leverarm\cdot load</annotation></semantics></math></span>
+            <span class="ltx_tag ltx_tag_equation ltx_align_right">(12.9)</span>
+            
+            
+          
+</div>
+</div>
+<section id="A2.SS1" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">12.B.1</span> Neutral axis</h3>
+
+<div id="A2.SS1.p1" class="ltx_para">
+<p class="ltx_p">The neutral axis is an axis in the cross-section where the stress is zero. Taking the loading situation into account, everything above the neutral axis is under positive (tensile) stress and everything below the neutral axis is under negative (compressive) stress. Since the approximation of the cross-section was symmetrical with respect to the vertical line through the center of the cross-section, the neutral axis was horizontal. Because different materials were used, with different E-moduli, an extra step was taken before calculating the neutral axis. The width of the cross-sections of different materials was multiplied with a factor that took the E-modulus of the material into account. The E-modulus of the cortical bone was taken as a reference here. This method is called the transformed-section method. <math id="A2.SS1.p1.m1" class="ltx_Math" alttext="h_{o,bone}" display="inline"><semantics><msub><mi>h</mi><mrow><mi>o</mi><mo>,</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><annotation encoding="application/x-tex">h_{o,bone}</annotation></semantics></math> and <math id="A2.SS1.p1.m2" class="ltx_Math" alttext="w_{o,bone}" display="inline"><semantics><msub><mi>w</mi><mrow><mi>o</mi><mo>,</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><annotation encoding="application/x-tex">w_{o,bone}</annotation></semantics></math> indicated the height and width of the cortical (outer) bone and <math id="A2.SS1.p1.m3" class="ltx_Math" alttext="t_{cortical}" display="inline"><semantics><msub><mi>t</mi><mrow><mi>c</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>t</mi><mo>⁢</mo><mi>i</mi><mo>⁢</mo><mi>c</mi><mo>⁢</mo><mi>a</mi><mo>⁢</mo><mi>l</mi></mrow></msub><annotation encoding="application/x-tex">t_{cortical}</annotation></semantics></math> indicated the thickness of the cortical bone layer. <math id="A2.SS1.p1.m4" class="ltx_Math" alttext="h_{i,bone}" display="inline"><semantics><msub><mi>h</mi><mrow><mi>i</mi><mo>,</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><annotation encoding="application/x-tex">h_{i,bone}</annotation></semantics></math> and <math id="A2.SS1.p1.m5" class="ltx_Math" alttext="w_{i,bone}" display="inline"><semantics><msub><mi>w</mi><mrow><mi>i</mi><mo>,</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><annotation encoding="application/x-tex">w_{i,bone}</annotation></semantics></math> indicated the height and width of the trabecular (inner) bone and are calculated based on the outer dimensions of the bone and the thickness of the cortical bone layer:</p>
+</div>
+<div id="A2.SS1.p2" class="ltx_para">
+<div id="E10" class="ltx_equation ltx_eqn_div">
+<span><math id="E10.m1" class="ltx_Math" alttext="h_{i,bone}=h_{o,bone}-2t_{cortical}" display="block"><semantics><mrow><msub><mi>h</mi><mrow><mi>i</mi><mo>,</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><mo>=</mo><mrow><msub><mi>h</mi><mrow><mi>o</mi><mo>,</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><mo>-</mo><mrow><mn>2</mn><mo>⁢</mo><msub><mi>t</mi><mrow><mi>c</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>t</mi><mo>⁢</mo><mi>i</mi><mo>⁢</mo><mi>c</mi><mo>⁢</mo><mi>a</mi><mo>⁢</mo><mi>l</mi></mrow></msub></mrow></mrow></mrow><annotation encoding="application/x-tex">h_{i,bone}=h_{o,bone}-2t_{cortical}</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(12.10)</span>
+              
+              
+            
+</div>
+<div id="E11" class="ltx_equation ltx_eqn_div">
+<span><math id="E11.m1" class="ltx_Math" alttext="w_{i,bone}=w_{o,bone}-2t_{cortical}" display="block"><semantics><mrow><msub><mi>w</mi><mrow><mi>i</mi><mo>,</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><mo>=</mo><mrow><msub><mi>w</mi><mrow><mi>o</mi><mo>,</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><mo>-</mo><mrow><mn>2</mn><mo>⁢</mo><msub><mi>t</mi><mrow><mi>c</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>t</mi><mo>⁢</mo><mi>i</mi><mo>⁢</mo><mi>c</mi><mo>⁢</mo><mi>a</mi><mo>⁢</mo><mi>l</mi></mrow></msub></mrow></mrow></mrow><annotation encoding="application/x-tex">w_{i,bone}=w_{o,bone}-2t_{cortical}</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(12.11)</span>
+              
+              
+            
+</div>
+</div>
+<div id="A2.SS1.p3" class="ltx_para ltx_noindent">
+<p class="ltx_p">The relevant dimensions of the jaw plate (abbreviated as JP) cross-section were the height (<math id="A2.SS1.p3.m1" class="ltx_Math" alttext="h_{JP}" display="inline"><semantics><msub><mi>h</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub><annotation encoding="application/x-tex">h_{JP}</annotation></semantics></math>) and the width (<math id="A2.SS1.p3.m2" class="ltx_Math" alttext="h_{JP}" display="inline"><semantics><msub><mi>h</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub><annotation encoding="application/x-tex">h_{JP}</annotation></semantics></math>). The two individual rectangles were treated as one, since this made no difference in the calculations. As mentioned above, the widths of the trabecular bone and the jaw plate were adjusted:</p>
+</div>
+<div id="A2.SS1.p4" class="ltx_para">
+<div id="E12" class="ltx_equation ltx_eqn_div">
+<span><math id="E12.m1" class="ltx_Math" alttext="w^{\prime}_{i,bone}=w_{i,bone}\cdot\frac{E_{trab.bone}}{E_{cort.bone}}" display="block"><semantics><mrow><msubsup><mi>w</mi><mrow><mi>i</mi><mo>,</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow><mo>′</mo></msubsup><mo>=</mo><mrow><msub><mi>w</mi><mrow><mi>i</mi><mo>,</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><mo>⋅</mo><mfrac><msub><mi>E</mi><mrow><mrow><mi>t</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>a</mi><mo>⁢</mo><mi>b</mi></mrow><mo>.</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><msub><mi>E</mi><mrow><mrow><mi>c</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>t</mi></mrow><mo>.</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub></mfrac></mrow></mrow><annotation encoding="application/x-tex">w^{\prime}_{i,bone}=w_{i,bone}\cdot\frac{E_{trab.bone}}{E_{cort.bone}}</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(12.12)</span>
+              
+              
+            
+</div>
+<div id="E13" class="ltx_equation ltx_eqn_div">
+<span><math id="E13.m1" class="ltx_Math" alttext="w^{\prime}_{JP}=w_{JP}\cdot\frac{E_{JP}}{E_{cort.bone}}" display="block"><semantics><mrow><msubsup><mi>w</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow><mo>′</mo></msubsup><mo>=</mo><mrow><msub><mi>w</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub><mo>⋅</mo><mfrac><msub><mi>E</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub><msub><mi>E</mi><mrow><mrow><mi>c</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>t</mi></mrow><mo>.</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub></mfrac></mrow></mrow><annotation encoding="application/x-tex">w^{\prime}_{JP}=w_{JP}\cdot\frac{E_{JP}}{E_{cort.bone}}</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(12.13)</span>
+              
+              
+            
+</div>
+</div>
+<div id="A2.SS1.p5" class="ltx_para ltx_noindent">
+<p class="ltx_p">The areas of the trabecular bone, cortical bone and jaw plate, as used for the calculation of the neutral axis, were:</p>
+</div>
+<div id="A2.SS1.p6" class="ltx_para">
+<div id="E14" class="ltx_equation ltx_eqn_div">
+<span><math id="E14.m1" class="ltx_Math" alttext="A_{cort.bone}=h_{o,bone}w_{o,bone}-h_{i,bone}w_{i,bone}" display="block"><semantics><mrow><msub><mi>A</mi><mrow><mrow><mi>c</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>t</mi></mrow><mo>.</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><mo>=</mo><mrow><mrow><msub><mi>h</mi><mrow><mi>o</mi><mo>,</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><mo>⁢</mo><msub><mi>w</mi><mrow><mi>o</mi><mo>,</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub></mrow><mo>-</mo><mrow><msub><mi>h</mi><mrow><mi>i</mi><mo>,</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><mo>⁢</mo><msub><mi>w</mi><mrow><mi>i</mi><mo>,</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub></mrow></mrow></mrow><annotation encoding="application/x-tex">A_{cort.bone}=h_{o,bone}w_{o,bone}-h_{i,bone}w_{i,bone}</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(12.14)</span>
+              
+              
+            
+</div>
+<div id="E15" class="ltx_equation ltx_eqn_div">
+<span><math id="E15.m1" class="ltx_Math" alttext="A_{trab.bone}=h_{i,bone}w^{\prime}_{i,bone}" display="block"><semantics><mrow><msub><mi>A</mi><mrow><mrow><mi>t</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>a</mi><mo>⁢</mo><mi>b</mi></mrow><mo>.</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><mo>=</mo><mrow><msub><mi>h</mi><mrow><mi>i</mi><mo>,</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><mo>⁢</mo><msubsup><mi>w</mi><mrow><mi>i</mi><mo>,</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow><mo>′</mo></msubsup></mrow></mrow><annotation encoding="application/x-tex">A_{trab.bone}=h_{i,bone}w^{\prime}_{i,bone}</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(12.15)</span>
+              
+              
+            
+</div>
+<div id="E16" class="ltx_equation ltx_eqn_div">
+<span><math id="E16.m1" class="ltx_Math" alttext="A_{JP}=h_{JP}w^{\prime}_{JP}" display="block"><semantics><mrow><msub><mi>A</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub><mo>=</mo><mrow><msub><mi>h</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub><mo>⁢</mo><msubsup><mi>w</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow><mo>′</mo></msubsup></mrow></mrow><annotation encoding="application/x-tex">A_{JP}=h_{JP}w^{\prime}_{JP}</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(12.16)</span>
+              
+              
+            
+</div>
+</div>
+<div id="A2.SS1.p7" class="ltx_para ltx_noindent">
+<p class="ltx_p">The accented widths were the E-modulus-adjusted widths. The height of the neutral axis with respect to the lowest point of the bone cross-section was calculated as:</p>
+</div>
+<div id="A2.SS1.p8" class="ltx_para">
+<div id="E17" class="ltx_equation ltx_eqn_div">
+<span><math id="E17.m1" class="ltx_Math" alttext="y_{mid}=\frac{A_{trab.bone}y_{trab.bone}+A_{cort.bone}y_{cort.bone}+A_{JP}y_{%
+JP}}{A_{trab.bone}+A_{cort.bone}+A_{JP}}" display="block"><semantics><mrow><msub><mi>y</mi><mrow><mi>m</mi><mo>⁢</mo><mi>i</mi><mo>⁢</mo><mi>d</mi></mrow></msub><mo>=</mo><mfrac><mrow><mrow><msub><mi>A</mi><mrow><mrow><mi>t</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>a</mi><mo>⁢</mo><mi>b</mi></mrow><mo>.</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><mo>⁢</mo><msub><mi>y</mi><mrow><mrow><mi>t</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>a</mi><mo>⁢</mo><mi>b</mi></mrow><mo>.</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub></mrow><mo>+</mo><mrow><msub><mi>A</mi><mrow><mrow><mi>c</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>t</mi></mrow><mo>.</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><mo>⁢</mo><msub><mi>y</mi><mrow><mrow><mi>c</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>t</mi></mrow><mo>.</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub></mrow><mo>+</mo><mrow><msub><mi>A</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub><mo>⁢</mo><msub><mi>y</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub></mrow></mrow><mrow><msub><mi>A</mi><mrow><mrow><mi>t</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>a</mi><mo>⁢</mo><mi>b</mi></mrow><mo>.</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><mo>+</mo><msub><mi>A</mi><mrow><mrow><mi>c</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>t</mi></mrow><mo>.</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><mo>+</mo><msub><mi>A</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">y_{mid}=\frac{A_{trab.bone}y_{trab.bone}+A_{cort.bone}y_{cort.bone}+A_{JP}y_{%
+JP}}{A_{trab.bone}+A_{cort.bone}+A_{JP}}</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(12.17)</span>
+              
+              
+            
+</div>
+</div>
+<div id="A2.SS1.p9" class="ltx_para ltx_noindent">
+<p class="ltx_p">with <math id="A2.SS1.p9.m1" class="ltx_Math" alttext="y_{trab.bone}" display="inline"><semantics><msub><mi>y</mi><mrow><mrow><mi>t</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>a</mi><mo>⁢</mo><mi>b</mi></mrow><mo>.</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><annotation encoding="application/x-tex">y_{trab.bone}</annotation></semantics></math>,<math id="A2.SS1.p9.m2" class="ltx_Math" alttext="y_{cort.bone}" display="inline"><semantics><msub><mi>y</mi><mrow><mrow><mi>c</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>t</mi></mrow><mo>.</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><annotation encoding="application/x-tex">y_{cort.bone}</annotation></semantics></math> and <math id="A2.SS1.p9.m3" class="ltx_Math" alttext="y_{JP}" display="inline"><semantics><msub><mi>y</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub><annotation encoding="application/x-tex">y_{JP}</annotation></semantics></math> the height of the center of mass of the different sections, which were (relative to the lowest point of the bone cross-section):</p>
+</div>
+<div id="A2.SS1.p10" class="ltx_para">
+<div id="E18" class="ltx_equation ltx_eqn_div">
+<span><math id="E18.m1" class="ltx_Math" alttext="y_{cort.bone}=y_{trab.bone}=h_{o,bone}/2" display="block"><semantics><mrow><msub><mi>y</mi><mrow><mrow><mi>c</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>t</mi></mrow><mo>.</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><mo>=</mo><msub><mi>y</mi><mrow><mrow><mi>t</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>a</mi><mo>⁢</mo><mi>b</mi></mrow><mo>.</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><mo>=</mo><mrow><msub><mi>h</mi><mrow><mi>o</mi><mo>,</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><mo>/</mo><mn>2</mn></mrow></mrow><annotation encoding="application/x-tex">y_{cort.bone}=y_{trab.bone}=h_{o,bone}/2</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(12.18)</span>
+              
+              
+            
+</div>
+<div id="E19" class="ltx_equation ltx_eqn_div">
+<span><math id="E19.m1" class="ltx_Math" alttext="y_{JP}=h_{o,bone}+h_{JP}/2" display="block"><semantics><mrow><msub><mi>y</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub><mo>=</mo><mrow><msub><mi>h</mi><mrow><mi>o</mi><mo>,</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><mo>+</mo><mrow><msub><mi>h</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub><mo>/</mo><mn>2</mn></mrow></mrow></mrow><annotation encoding="application/x-tex">y_{JP}=h_{o,bone}+h_{JP}/2</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(12.19)</span>
+              
+              
+            
+</div>
+</div>
+</div>
+</section>
+<section id="A2.SS2" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">12.B.2</span> Area moment of inertia</h3>
+
+<div id="A2.SS2.p1" class="ltx_para">
+<p class="ltx_p">The area moment of inertia of the different materials in the cross-section were calculated with equations <a href="#E20" title="(12.20) ‣ 12.B.2 Area moment of inertia ‣ Appendix 12.B Beam theory equations ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12.20</span></a> to <a href="#E22" title="(12.22) ‣ 12.B.2 Area moment of inertia ‣ Appendix 12.B Beam theory equations ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12.22</span></a>. The total area moment of inertia was the sum of those (equation <a href="#E23" title="(12.23) ‣ 12.B.2 Area moment of inertia ‣ Appendix 12.B Beam theory equations ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12.23</span></a>).</p>
+</div>
+<div id="A2.SS2.p2" class="ltx_para">
+<div id="E20" class="ltx_equation ltx_eqn_div">
+<span><math id="E20.m1" class="ltx_Math" alttext="I_{cort.bone}=\frac{w_{o,bone}h_{o,bone}^{3}}{12}-\frac{w_{i,bone}h_{i,bone}^{%
+3}}{12}+(y_{mid}-y_{cort.bone})^{2}\cdot A_{cort.bone}" display="block"><semantics><mrow><msub><mi>I</mi><mrow><mrow><mi>c</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>t</mi></mrow><mo>.</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><mo>=</mo><mrow><mrow><mfrac><mrow><msub><mi>w</mi><mrow><mi>o</mi><mo>,</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><mo>⁢</mo><msubsup><mi>h</mi><mrow><mi>o</mi><mo>,</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow><mn>3</mn></msubsup></mrow><mn>12</mn></mfrac><mo>-</mo><mfrac><mrow><msub><mi>w</mi><mrow><mi>i</mi><mo>,</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><mo>⁢</mo><msubsup><mi>h</mi><mrow><mi>i</mi><mo>,</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow><mn>3</mn></msubsup></mrow><mn>12</mn></mfrac></mrow><mo>+</mo><mrow><msup><mrow><mo stretchy="false">(</mo><mrow><msub><mi>y</mi><mrow><mi>m</mi><mo>⁢</mo><mi>i</mi><mo>⁢</mo><mi>d</mi></mrow></msub><mo>-</mo><msub><mi>y</mi><mrow><mrow><mi>c</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>t</mi></mrow><mo>.</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub></mrow><mo stretchy="false">)</mo></mrow><mn>2</mn></msup><mo>⋅</mo><msub><mi>A</mi><mrow><mrow><mi>c</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>t</mi></mrow><mo>.</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub></mrow></mrow></mrow><annotation encoding="application/x-tex">I_{cort.bone}=\frac{w_{o,bone}h_{o,bone}^{3}}{12}-\frac{w_{i,bone}h_{i,bone}^{%
+3}}{12}+(y_{mid}-y_{cort.bone})^{2}\cdot A_{cort.bone}</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(12.20)</span>
+              
+              
+            
+</div>
+<div id="E21" class="ltx_equation ltx_eqn_div">
+<span><math id="E21.m1" class="ltx_Math" alttext="I_{trab.bone}=\frac{w^{\prime}_{i,bone}h_{i,bone}^{3}}{12}+(y_{mid}-y_{trab.%
+bone})^{2}\cdot A_{trab.bone}" display="block"><semantics><mrow><msub><mi>I</mi><mrow><mrow><mi>t</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>a</mi><mo>⁢</mo><mi>b</mi></mrow><mo>.</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><mo>=</mo><mrow><mfrac><mrow><msubsup><mi>w</mi><mrow><mi>i</mi><mo>,</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow><mo>′</mo></msubsup><mo>⁢</mo><msubsup><mi>h</mi><mrow><mi>i</mi><mo>,</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow><mn>3</mn></msubsup></mrow><mn>12</mn></mfrac><mo>+</mo><mrow><msup><mrow><mo stretchy="false">(</mo><mrow><msub><mi>y</mi><mrow><mi>m</mi><mo>⁢</mo><mi>i</mi><mo>⁢</mo><mi>d</mi></mrow></msub><mo>-</mo><msub><mi>y</mi><mrow><mrow><mi>t</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>a</mi><mo>⁢</mo><mi>b</mi></mrow><mo>.</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub></mrow><mo stretchy="false">)</mo></mrow><mn>2</mn></msup><mo>⋅</mo><msub><mi>A</mi><mrow><mrow><mi>t</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>a</mi><mo>⁢</mo><mi>b</mi></mrow><mo>.</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub></mrow></mrow></mrow><annotation encoding="application/x-tex">I_{trab.bone}=\frac{w^{\prime}_{i,bone}h_{i,bone}^{3}}{12}+(y_{mid}-y_{trab.%
+bone})^{2}\cdot A_{trab.bone}</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(12.21)</span>
+              
+              
+            
+</div>
+<div id="E22" class="ltx_equation ltx_eqn_div">
+<span><math id="E22.m1" class="ltx_Math" alttext="I_{JP}=\frac{w^{\prime}_{JP}h_{JP}^{3}}{12}+(y_{mid}-y_{JP})^{2}\cdot A_{JP}" display="block"><semantics><mrow><msub><mi>I</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub><mo>=</mo><mrow><mfrac><mrow><msubsup><mi>w</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow><mo>′</mo></msubsup><mo>⁢</mo><msubsup><mi>h</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow><mn>3</mn></msubsup></mrow><mn>12</mn></mfrac><mo>+</mo><mrow><msup><mrow><mo stretchy="false">(</mo><mrow><msub><mi>y</mi><mrow><mi>m</mi><mo>⁢</mo><mi>i</mi><mo>⁢</mo><mi>d</mi></mrow></msub><mo>-</mo><msub><mi>y</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub></mrow><mo stretchy="false">)</mo></mrow><mn>2</mn></msup><mo>⋅</mo><msub><mi>A</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub></mrow></mrow></mrow><annotation encoding="application/x-tex">I_{JP}=\frac{w^{\prime}_{JP}h_{JP}^{3}}{12}+(y_{mid}-y_{JP})^{2}\cdot A_{JP}</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(12.22)</span>
+              
+              
+            
+</div>
+</div>
+<div id="A2.SS2.p3" class="ltx_para">
+<div id="E23" class="ltx_equation ltx_eqn_div">
+<span><math id="E23.m1" class="ltx_Math" alttext="I=I_{cort.bone}+I_{trab.bone}+I_{JP}" display="block"><semantics><mrow><mi>I</mi><mo>=</mo><mrow><msub><mi>I</mi><mrow><mrow><mi>c</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>t</mi></mrow><mo>.</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><mo>+</mo><msub><mi>I</mi><mrow><mrow><mi>t</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>a</mi><mo>⁢</mo><mi>b</mi></mrow><mo>.</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><mo>+</mo><msub><mi>I</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub></mrow></mrow><annotation encoding="application/x-tex">I=I_{cort.bone}+I_{trab.bone}+I_{JP}</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(12.23)</span>
+              
+              
+            
+</div>
+</div>
+</div>
+</section>
+<section id="A2.SS3" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">12.B.3</span> Stress, strain and force</h3>
+
+<div id="A2.SS3.p1" class="ltx_para">
+<p class="ltx_p">The moment that was created by the load caused the beam to bend and this induced stresses in the cross-section. The radius of curvature <math id="A2.SS3.p1.m1" class="ltx_Math" alttext="\rho" display="inline"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math> was first calculated and used to calculate the strain <math id="A2.SS3.p1.m2" class="ltx_Math" alttext="\epsilon" display="inline"><semantics><mi>ϵ</mi><annotation encoding="application/x-tex">\epsilon</annotation></semantics></math>. For that, the distance with respect to the neutral axis <math id="A2.SS3.p1.m3" class="ltx_Math" alttext="y" display="inline"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math> was also used.</p>
+<div id="E24" class="ltx_equation ltx_eqn_div">
+<span><math id="E24.m1" class="ltx_Math" alttext="\rho=-\frac{E_{cort.bone}I}{M}" display="block"><semantics><mrow><mi>ρ</mi><mo>=</mo><mrow><mo>-</mo><mfrac><mrow><msub><mi>E</mi><mrow><mrow><mi>c</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>t</mi></mrow><mo>.</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><mo>⁢</mo><mi>I</mi></mrow><mi>M</mi></mfrac></mrow></mrow><annotation encoding="application/x-tex">\rho=-\frac{E_{cort.bone}I}{M}</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(12.24)</span>
+              
+              
+            
+</div>
+</div>
+<div id="A2.SS3.p2" class="ltx_para">
+<div id="E25" class="ltx_equation ltx_eqn_div">
+<span><math id="E25.m1" class="ltx_Math" alttext="\epsilon=-\frac{y}{\rho}" display="block"><semantics><mrow><mi>ϵ</mi><mo>=</mo><mrow><mo>-</mo><mfrac><mi>y</mi><mi>ρ</mi></mfrac></mrow></mrow><annotation encoding="application/x-tex">\epsilon=-\frac{y}{\rho}</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(12.25)</span>
+              
+              
+            
+</div>
+</div>
+<div id="A2.SS3.p3" class="ltx_para ltx_noindent">
+<p class="ltx_p">The strain depended on <math id="A2.SS3.p3.m1" class="ltx_Math" alttext="y" display="inline"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>, but there is no difference between different materials. When calculating the stress <math id="A2.SS3.p3.m2" class="ltx_Math" alttext="\sigma" display="inline"><semantics><mi>σ</mi><annotation encoding="application/x-tex">\sigma</annotation></semantics></math>, however, the incorporation of the E-modulus did make a distinction between the different materials. The stress in the jaw plate was:</p>
+</div>
+<div id="A2.SS3.p4" class="ltx_para">
+<div id="E26" class="ltx_equation ltx_eqn_div">
+<span><math id="E26.m1" class="ltx_Math" alttext="\sigma_{JP}=\epsilon\cdot E_{JP}" display="block"><semantics><mrow><msub><mi>σ</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub><mo>=</mo><mrow><mi>ϵ</mi><mo>⋅</mo><msub><mi>E</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub></mrow></mrow><annotation encoding="application/x-tex">\sigma_{JP}=\epsilon\cdot E_{JP}</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(12.26)</span>
+              
+              
+            
+</div>
+</div>
+<div id="A2.SS3.p5" class="ltx_para ltx_noindent">
+<p class="ltx_p">Finally, the stress in the jaw plate was integrated over the area of the jaw plate to find the total force in the jaw plate:</p>
+</div>
+<div id="A2.SS3.p6" class="ltx_para">
+<div id="E27" class="ltx_equation ltx_eqn_div">
+<span><math id="E27.m1" class="ltx_Math" alttext="F_{JP}=\int_{h_{o,bone}}^{h_{o,bone}+h_{JP}}\sigma_{JP}\cdot w_{JP}\,dy" display="block"><semantics><mrow><msub><mi>F</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub><mo>=</mo><mrow><msubsup><mo largeop="true" symmetric="true">∫</mo><msub><mi>h</mi><mrow><mi>o</mi><mo>,</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><mrow><msub><mi>h</mi><mrow><mi>o</mi><mo>,</mo><mrow><mi>b</mi><mo>⁢</mo><mi>o</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mi>e</mi></mrow></mrow></msub><mo>+</mo><msub><mi>h</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub></mrow></msubsup><mrow><mrow><msub><mi>σ</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub><mo>⋅</mo><mpadded width="+1.7pt"><msub><mi>w</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub></mpadded></mrow><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>y</mi></mrow></mrow></mrow></mrow><annotation encoding="application/x-tex">F_{JP}=\int_{h_{o,bone}}^{h_{o,bone}+h_{JP}}\sigma_{JP}\cdot w_{JP}\,dy</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(12.27)</span>
+              
+              
+            
+</div>
+</div>
+<div id="A2.SS3.p7" class="ltx_para ltx_noindent">
+<p class="ltx_p">It was important to use <math id="A2.SS3.p7.m1" class="ltx_Math" alttext="w_{JP}" display="inline"><semantics><msub><mi>w</mi><mrow><mi>J</mi><mo>⁢</mo><mi>P</mi></mrow></msub><annotation encoding="application/x-tex">w_{JP}</annotation></semantics></math> here, which represented the non-adjusted width of the jaw plate, since the calculation of the stress in equation <a href="#E26" title="(12.26) ‣ 12.B.3 Stress, strain and force ‣ Appendix 12.B Beam theory equations ‣ Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12.26</span></a> used the E-modulus of the jaw plate.</p>
+</div>
+</div>
+</section>
+</div>
+</section>
+<div class="ltx_pagination ltx_role_newpage"></div>
+</div>
+</section>
+</div>
+</div>
+</div>
+<a href="Ch11.html" class="navigation navigation-prev" aria-label="Previous page"><i class="fa fa-angle-left"></i></a><a href="Ch13.html" class="navigation navigation-next" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+</div>
+</div>
+<script src="bookml/gitbook/js/app.min.js"></script>
+<script src="bookml/gitbook/js/jquery.highlight.js"></script>
+<script src="bookml/gitbook/js/plugin-search.js"></script>
+<script src="bookml/gitbook/js/plugin-fontsettings.js"></script>
+<script src="bookml/gitbook/js/plugin-bookdown.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script>
+        MathJax = {
+          startup: {
+            ready() {
+              // do not process equations disabled with \bmlDisableMathJax (code suggested by Davide P. Cervone)
+              class bmlFindMathML extends MathJax._.input.mathml.FindMathML.FindMathML {
+                processMath(set) {
+                  const adaptor = this.adaptor;
+                  for (const node of set.values()) {
+                    if (adaptor.hasClass(node, 'bml_disable_mathjax')) {
+                      set.delete(node);
+                    }
+                  }
+                  return super.processMath(set);
+                }
+              }
+
+              MathJax._.components.global.combineDefaults(MathJax.config, 'mml', {FindMathML: new bmlFindMathML()});
+
+              MathJax.startup.defaultReady();
+
+              // preproces MathML to make MathJax aware of certain LaTeXML and BookML additional info
+              const mmlFilters = MathJax.startup.input[0].mmlFilters;
+
+              // convert the LaTeXML calligraphic (chancery) annotation to a form MathJax understands
+              // since the corresponding Unicode characters render as script (rounded)
+              const script2latin = {
+                '𝒜': 'A', 'ℬ': 'B', '𝒞': 'C', '𝒟': 'D', 'ℰ': 'E', 'ℱ': 'F', '𝒢': 'G',
+                'ℋ': 'H', 'ℐ': 'I', '𝒥': 'J', '𝒦': 'K', 'ℒ': 'L', 'ℳ': 'M', '𝒩': 'N',
+                '𝒪': 'O', '𝒫': 'P', '𝒬': 'Q', 'ℛ': 'R', '𝒮': 'S', '𝒯': 'T', '𝒰': 'U',
+                '𝒱': 'V', '𝒲': 'W', '𝒳': 'X', '𝒴': 'Y', '𝒵': 'Z',
+              };
+
+              mmlFilters.add((args) => {
+                for (const n of args.data.getElementsByClassName('ltx_font_mathcaligraphic')) {
+                  n.classList.add('MJX-tex-calligraphic');
+                  const letter = script2latin[n.textContent];
+                  if (letter !== undefined) { n.textContent = letter; }
+                }
+              });
+
+              // adjust characters based on Unicode variation sequences
+              const replacements = {
+                // MathJax renders the empty set as the U+FE00 variant, so the plain character needs adjusting
+                '∅': { variant: 'variant' },
+                // MathJax renders script characters in rounded style, which is fine for no variation and U+FE00
+                '𝒜\xFE00': { text: 'A', variant: 'tex-calligraphic' },
+                'ℬ\xFE00': { text: 'B', variant: 'tex-calligraphic' },
+                '𝒞\xFE00': { text: 'C', variant: 'tex-calligraphic' },
+                '𝒟\xFE00': { text: 'D', variant: 'tex-calligraphic' },
+                'ℰ\xFE00': { text: 'E', variant: 'tex-calligraphic' },
+                'ℱ\xFE00': { text: 'F', variant: 'tex-calligraphic' },
+                '𝒢\xFE00': { text: 'G', variant: 'tex-calligraphic' },
+                'ℋ\xFE00': { text: 'H', variant: 'tex-calligraphic' },
+                'ℐ\xFE00': { text: 'I', variant: 'tex-calligraphic' },
+                '𝒥\xFE00': { text: 'J', variant: 'tex-calligraphic' },
+                '𝒦\xFE00': { text: 'K', variant: 'tex-calligraphic' },
+                'ℒ\xFE00': { text: 'L', variant: 'tex-calligraphic' },
+                'ℳ\xFE00': { text: 'M', variant: 'tex-calligraphic' },
+                '𝒩\xFE00': { text: 'N', variant: 'tex-calligraphic' },
+                '𝒪\xFE00': { text: 'O', variant: 'tex-calligraphic' },
+                '𝒫\xFE00': { text: 'P', variant: 'tex-calligraphic' },
+                '𝒬\xFE00': { text: 'Q', variant: 'tex-calligraphic' },
+                'ℛ\xFE00': { text: 'R', variant: 'tex-calligraphic' },
+                '𝒮\xFE00': { text: 'S', variant: 'tex-calligraphic' },
+                '𝒯\xFE00': { text: 'T', variant: 'tex-calligraphic' },
+                '𝒰\xFE00': { text: 'U', variant: 'tex-calligraphic' },
+                '𝒱\xFE00': { text: 'V', variant: 'tex-calligraphic' },
+                '𝒲\xFE00': { text: 'W', variant: 'tex-calligraphic' },
+                '𝒳\xFE00': { text: 'X', variant: 'tex-calligraphic' },
+                '𝒴\xFE00': { text: 'Y', variant: 'tex-calligraphic' },
+                '𝒵\xFE00': { text: 'Z', variant: 'tex-calligraphic' }
+              };
+
+              mmlFilters.add((args) => {
+                let nodes = document.evaluate('.//m:mi | .//m:mn | .//m:mo | .//m:ms', args.data,
+                  () => 'http://www.w3.org/1998/Math/MathML', XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE);
+                for (let i = 0; i < nodes.snapshotLength; i++) {
+                  const n = nodes.snapshotItem(i);
+                  const repl = replacements[n.innerHTML];
+                  if (repl !== undefined) {
+                    const variant = repl['variant'];
+                    const text = repl['text'];
+                    if (variant !== undefined) { n.classList.add('MJX-' + variant); n.removeAttribute('mathvariant'); }
+                    if (text !== undefined) { n.innerHTML = text; }
+                  }
+                }
+              });
+            }
+          }
+        };
+      </script>
+<script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js"></script>
+<script type="text/javascript">
+                gitbook.require(["gitbook"], function(gitbook) {
+                gitbook.start({
+                  "fontsettings": {
+                    "theme": "white",
+                    "family": "sans",
+                    "size": 2
+                  },
+                  "download": [ [ "thesis.pdf", "PDF" ], ],
+                  "search": {
+                    "engine": "fuse"
+                  },
+                  "toc": {
+                    "collapse": "none"
+                  }
+                });
+              });
+            </script>
+</body>
+
+</html>

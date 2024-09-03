@@ -1,0 +1,898 @@
+<!DOCTYPE html><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>5 Extending the model: simulating local pH evolution‣ Mathematical and computational modeling of metallic biomaterials biodegradation</title>
+<!--Generated on Sat Aug 31 17:26:45 2024 by LaTeXML (version 0.8.6) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on KU Leuven, June 2023.-->
+
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/style.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/plugin-table.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/plugin-search.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/plugin-bookdown.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/plugin-fontsettings.css" type="text/css">
+<link rel="stylesheet" href="ltx-report.css" type="text/css">
+<link rel="stylesheet" href="bookml/CSS/style.css" type="text/css">
+<link rel="stylesheet" href="bookml/CSS/style.gitbook,plain.css" type="text/css">
+<link rel="stylesheet" href="bookml/CSS/style.gitbook.css" type="text/css">
+<link rel="stylesheet" href="bmluser/colors.gitbook-thesis.css" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6"></script>
+<link rel="up" href="index.html" title="Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="start" href="index.html" title="Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="prev" href="Ch4.html" title="Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="next" href="Ch6.html" title="Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Chx1.html" title="Abstract ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch1.html" title="Chapter 1 General introduction ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch2.html" title="Chapter 2 Aims and objectives ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch4.html" title="Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch6.html" title="Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch7.html" title="Chapter 7 Model parallelization for high-performance computing ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch8.html" title="Chapter 8 BioDeg simulation software ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch9.html" title="Chapter 9 Bayesian parameter estimation of the computational models ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch10.html" title="Chapter 10 Model applications: patient-specific porous acetabular implants ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch11.html" title="Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch12.html" title="Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch13.html" title="Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="bibliography" href="bib.html" title="Bibliography ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="appendix" href="A1.html" title="Appendix A Mesh quality plots ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+</head>
+<body>
+<div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+<a href="#bml-main-content" tabindex="0" class="bml-skip-to-content">Skip to content.</a>
+<div class="book-summary"><nav class="ltx_page_navbar">
+<ul class="ltx_toclist summary">
+<li>
+<a href="index.html" title="Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref" rel="start">Mathematical and computational modeling of metallic biomaterials biodegradation</a>
+</li>
+<li class="divider">
+<li data-level="" data-path="Chx1.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Chx1.html" title="Abstract ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref">Abstract</a></li>
+<li data-level="1" data-path="Ch1.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch1.html" title="Chapter 1 General introduction ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">1 </span></b>General introduction</a></li>
+<li data-level="2" data-path="Ch2.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch2.html" title="Chapter 2 Aims and objectives ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">2 </span></b>Aims and objectives</a></li>
+<li data-level="3" data-path="Ch3.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">3 </span></b>Developing the core computational model</a></li>
+<li data-level="4" data-path="Ch4.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch4.html" title="Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">4 </span></b>Extending the model: adding fluid flow and convection</a></li>
+<li data-level="5" data-path="" class="ltx_tocentry ltx_tocentry_chapter ltx_ref_self  chapter active">
+<a href="" title="Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">5 </span></b>Extending the model: simulating local pH evolution</a>
+<ul class="ltx_toclist ltx_toclist_chapter">
+<li data-level="5.1" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter "><a href="#S1" title="5.1 Introduction ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">5.1 </span></b>Introduction</a></li>
+<li data-level="5.2" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter ">
+<a href="#S2" title="5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">5.2 </span></b>Methods</a>
+<ul class="ltx_toclist ltx_toclist_section">
+<li data-level="5.2.1" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S2.SS1" title="5.2.1 Experimental setup ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">5.2.1 </span></b>Experimental setup</a></li>
+<li data-level="5.2.2" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S2.SS2" title="5.2.2 Computational model construction ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">5.2.2 </span></b>Computational model construction</a></li>
+<li data-level="5.2.3" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S2.SS3" title="5.2.3 Simulation setup ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">5.2.3 </span></b>Simulation setup</a></li>
+</ul>
+</li>
+<li data-level="5.3" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter ">
+<a href="#S3" title="5.3 Results ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">5.3 </span></b>Results</a>
+<ul class="ltx_toclist ltx_toclist_section">
+<li data-level="5.3.1" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S3.SS1" title="5.3.1 Thermodynamics-based simulation ‣ 5.3 Results ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">5.3.1 </span></b>Thermodynamics-based simulation</a></li>
+<li data-level="5.3.2" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S3.SS2" title="5.3.2 Biodegradation simulations ‣ 5.3 Results ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">5.3.2 </span></b>Biodegradation simulations</a></li>
+</ul>
+</li>
+<li data-level="5.4" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter "><a href="#S4" title="5.4 Discussion ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">5.4 </span></b>Discussion</a></li>
+<li data-level="5.5" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter "><a href="#S5" title="5.5 Conclusion ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">5.5 </span></b>Conclusion</a></li>
+</ul>
+</li>
+<li data-level="6" data-path="Ch6.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch6.html" title="Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">6 </span></b>Computational modeling of the neotissue growth process</a></li>
+<li data-level="7" data-path="Ch7.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch7.html" title="Chapter 7 Model parallelization for high-performance computing ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">7 </span></b>Model parallelization for high-performance computing</a></li>
+<li data-level="8" data-path="Ch8.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch8.html" title="Chapter 8 BioDeg simulation software ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">8 </span></b>BioDeg simulation software</a></li>
+<li data-level="9" data-path="Ch9.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch9.html" title="Chapter 9 Bayesian parameter estimation of the computational models ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">9 </span></b>Bayesian parameter estimation of the computational models</a></li>
+<li data-level="10" data-path="Ch10.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch10.html" title="Chapter 10 Model applications: patient-specific porous acetabular implants ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">10 </span></b>Model applications: patient-specific porous acetabular implants</a></li>
+<li data-level="11" data-path="Ch11.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch11.html" title="Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">11 </span></b>Model applications: mechanical integrity of infilled structures</a></li>
+<li data-level="12" data-path="Ch12.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch12.html" title="Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">12 </span></b>Model applications: mechanical loosening of mandibular plates</a></li>
+<li data-level="13" data-path="Ch13.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch13.html" title="Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">13 </span></b>Conclusion</a></li>
+<li data-level="" data-path="bib.html" class="ltx_tocentry ltx_tocentry_bibliography  chapter "><a href="bib.html" title="Bibliography ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref">Bibliography</a></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li data-level="A" data-path="A1.html" class="ltx_tocentry ltx_tocentry_appendix  chapter "><a href="A1.html" title="Appendix A Mesh quality plots ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">A </span></b>Mesh quality plots</a></li>
+</ul>
+</nav></div>
+<div class="ltx_page_main book-body fixed">
+<div class="body-inner">
+<div class="book-header fixed" role="navigation"><h1>Extending the model: simulating local pH evolution</h1></div>
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="ltx_page_content page-inner" id="bml-main-content">
+<section class="ltx_chapter normal">
+<div class="section level1">
+
+<h1 class="ltx_title ltx_title_chapter">
+<span class="ltx_tag ltx_tag_chapter header-section-number">Chapter 5</span> Extending the model: simulating local pH evolution</h1>
+
+<div id="p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">
+<span class="ltx_inline-block ltx_parbox ltx_align_middle ltx_framed_rectangle" style="padding:9pt;width:433.6pt;">
+<span class="ltx_p">This chapter is based on a manuscript prepared to be submitted:</span>
+<span class="ltx_p">M. Barzegari, C. Wang, S.V. Lamaka, G. Zavodszky, and L. Geris, “Interface-coupled multiphysics computational modeling of local pH changes during the biodegradation of magnesium biomaterials.”</span>
+</span></p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">This chapter is partially based on a manuscript prepared to be submitted:
+<br class="ltx_break">M. Barzegari, C. Wang, S.V. Lamaka, G. Zavodszky, and L. Geris, “Interface-coupled multiphysics computational modeling of local pH changes during the biodegradation of magnesium biomaterials.”</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">In this chapter, the basic biodegradation model developed in Chapter <a href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3</span></a> is further developed to capture more advanced chemistry occurring at the corrosion interface in HBSS solutions, making it possible to simulate more complex environments and local pH changes during the biodegradation process.</p>
+</div>
+<section id="S1" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">5.1</span> Introduction</h2>
+
+<div id="S1.p1" class="ltx_para">
+<p class="ltx_p">Mg is the most studied biodegradable metal <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib2" title="Fundamental theory of biodegradable metals—definition, criteria, and design" class="ltx_ref">172</a>, <a href="bib.html#bib1" title="Biodegradable metals" class="ltx_ref">299</a>, <a href="bib.html#bib39" title="Recent advances on the development of magnesium alloys for biodegradable implants" class="ltx_ref">55</a>, <a href="bib.html#bib236" title="The effect of selected alloying element additions on properties of mg-based alloy as bioimplants: a literature review" class="ltx_ref">295</a>]</cite>, on which many research groups have performed valuable biodegradation studies <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib5" title="Fundamentals and advances in magnesium alloy corrosion" class="ltx_ref">77</a>, <a href="bib.html#bib238" title="Design of magnesium alloys with controllable degradation for biomedical implants: from bulk to surface" class="ltx_ref">166</a>, <a href="bib.html#bib237" title="Review of mg alloy corrosion rates" class="ltx_ref">19</a>, <a href="bib.html#bib239" title="Assessing the corrosion of biodegradable magnesium implants: a critical review of current methodologies and their limitations" class="ltx_ref">148</a>]</cite>. The biodegradation behavior of Mg is investigated in <span class="ltx_text ltx_font_italic">in vitro</span> corrosion tests, in which the selection of the corrosive media plays an important role since it affects the underlying chemical reactions <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib11" title="Selecting medium for corrosion testing of bioabsorbable magnesium and other metals – a critical review" class="ltx_ref">193</a>]</cite>. By considering the main application of the biomaterial, which can be tissue engineering scaffolds, vascular stents, or orthopedic fixation implants, the corrosive media can be selected to be a representative of the service environment. The most basic form of the medium is a saline (NaCl) solution, in which the degradation rate is the highest possible <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib11" title="Selecting medium for corrosion testing of bioabsorbable magnesium and other metals – a critical review" class="ltx_ref">193</a>]</cite>. More complex solutions can be used to mimic the behavior of the body environment by taking into account additional body fluid components, the most popular of which are Ringer’s solution, PBS (phosphate buffered saline), SBFs (simulated body fluids), HBSS (Hank’s balanced salt solution), and Earle’s balanced salt solution (EBSS) <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib11" title="Selecting medium for corrosion testing of bioabsorbable magnesium and other metals – a critical review" class="ltx_ref">193</a>]</cite>. Adding more organic components to the solution will make it ready to simulate cell culture conditions. The common media for this purpose are MEM (Minimum Essential medium) and DMEM (Dulbecco’s modified Eagle’s medium) <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib11" title="Selecting medium for corrosion testing of bioabsorbable magnesium and other metals – a critical review" class="ltx_ref">193</a>]</cite>.</p>
+</div>
+<div id="S1.p2" class="ltx_para">
+<p class="ltx_p">Various studies have already investigated the effect of different components in the aforementioned corrosive media on the degradation behavior of Mg materials <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib12" title="The role of individual components of simulated body fluid on the corrosion behavior of commercially pure mg" class="ltx_ref">192</a>, <a href="bib.html#bib13" title="Corrosion of magnesium alloy AZ31: the influence of bicarbonate, sulphate, hydrogen phosphate and dihydrogen phosphate ions in saline solution" class="ltx_ref">292</a>, <a href="bib.html#bib14" title="Building towards a standardised approach to biocorrosion studies: a review of factors influencing mg corrosion in vitro pertinent to in vivo corrosion" class="ltx_ref">137</a>, <a href="bib.html#bib15" title="Local pH and its evolution near mg alloy surfaces exposed to simulated body fluids" class="ltx_ref">154</a>, <a href="bib.html#bib16" title="The effect of small-molecule bio-relevant organic components at low concentration on the corrosion of commercially pure mg and mg-0.8ca alloy: an overall perspective" class="ltx_ref">191</a>]</cite>. A typical composition of ”simulated body fluid” solutions (such as SBF, HBSS, and EBSS) is chloride, carbonate, phosphates, sulfate, and calcium. The individual effect of these components on the rate of degradation of Mg has been extensively studied, in which it has been observed that carbonate and phosphate slow down the rate while the effect of sulfate is negligible <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib14" title="Building towards a standardised approach to biocorrosion studies: a review of factors influencing mg corrosion in vitro pertinent to in vivo corrosion" class="ltx_ref">137</a>, <a href="bib.html#bib16" title="The effect of small-molecule bio-relevant organic components at low concentration on the corrosion of commercially pure mg and mg-0.8ca alloy: an overall perspective" class="ltx_ref">191</a>]</cite>. The concentration of <math id="S1.p2.m1" class="ltx_Math" alttext="\mathrm{HCO}_{3}^{-}" display="inline"><semantics><msubsup><mi>HCO</mi><mn>3</mn><mo>-</mo></msubsup><annotation encoding="application/x-tex">\mathrm{HCO}_{3}^{-}</annotation></semantics></math> affects the pH buffering capacity and the degradation rate of Mg simultaneously <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib23" title="Degradation behaviour of pure magnesium in simulated body fluids with different concentrations of hco3" class="ltx_ref">282</a>]</cite>.</p>
+</div>
+<div id="S1.p3" class="ltx_para">
+<p class="ltx_p">The effect of calcium ions is more complex because it has been found that <math id="S1.p3.m1" class="ltx_Math" alttext="\mathrm{Ca}^{2+}" display="inline"><semantics><msup><mi>Ca</mi><mrow><mn>2</mn><mo>+</mo></mrow></msup><annotation encoding="application/x-tex">\mathrm{Ca}^{2+}</annotation></semantics></math> doesn’t contribute to the Mg corrosion directly <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib6" title="The interface between degradable mg and tissue" class="ltx_ref">276</a>]</cite>, but a mixed effect of <math id="S1.p3.m2" class="ltx_Math" alttext="\mathrm{Ca}^{2+}" display="inline"><semantics><msup><mi>Ca</mi><mrow><mn>2</mn><mo>+</mo></mrow></msup><annotation encoding="application/x-tex">\mathrm{Ca}^{2+}</annotation></semantics></math>, <math id="S1.p3.m3" class="ltx_Math" alttext="\mathrm{Mg}^{2+}" display="inline"><semantics><msup><mi>Mg</mi><mrow><mn>2</mn><mo>+</mo></mrow></msup><annotation encoding="application/x-tex">\mathrm{Mg}^{2+}</annotation></semantics></math>, <math id="S1.p3.m4" class="ltx_Math" alttext="\mathrm{HCO}_{3}^{-}" display="inline"><semantics><msubsup><mi>HCO</mi><mn>3</mn><mo>-</mo></msubsup><annotation encoding="application/x-tex">\mathrm{HCO}_{3}^{-}</annotation></semantics></math>, and <math id="S1.p3.m5" class="ltx_Math" alttext="\mathrm{H}_{2}\mathrm{PO}_{4}^{-}/\mathrm{HPO}_{4}^{2-}" display="inline"><semantics><mrow><mrow><msub><mi mathvariant="normal">H</mi><mn>2</mn></msub><mo>⁢</mo><msubsup><mi>PO</mi><mn>4</mn><mo>-</mo></msubsup></mrow><mo>/</mo><msubsup><mi>HPO</mi><mn>4</mn><mrow><mn>2</mn><mo>-</mo></mrow></msubsup></mrow><annotation encoding="application/x-tex">\mathrm{H}_{2}\mathrm{PO}_{4}^{-}/\mathrm{HPO}_{4}^{2-}</annotation></semantics></math> forms a co-precipitation layer on the corroded surface of Mg, slowing down the corrosion rate of commercially pure Mg as well as of some Mg alloys <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib12" title="The role of individual components of simulated body fluid on the corrosion behavior of commercially pure mg" class="ltx_ref">192</a>, <a href="bib.html#bib15" title="Local pH and its evolution near mg alloy surfaces exposed to simulated body fluids" class="ltx_ref">154</a>]</cite>. It has also been reported that although various Mg alloys show different intrinsic degradation behavior in NaCl solution, they possibly behave similarly in simulated body fluids <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib24" title="Magnesium degradation influenced by buffering salts in concentrations typical of in vitro and in vivo models" class="ltx_ref">6</a>, <a href="bib.html#bib16" title="The effect of small-molecule bio-relevant organic components at low concentration on the corrosion of commercially pure mg and mg-0.8ca alloy: an overall perspective" class="ltx_ref">191</a>]</cite>. Since the humoral regulations inside the human body control the changes in pH of body fluids, it is common to use pH buffers to mimic a similar condition, but it should be taken into account that buffering solutions may affect the degradation rate of Mg <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib25" title="New insights into the effect of tris-HCl and tris on corrosion of magnesium alloy in presence of bicarbonate, sulfate, hydrogen phosphate and dihydrogen phosphate ions" class="ltx_ref">61</a>, <a href="bib.html#bib26" title="Understanding the influence of HEPES buffer concentration on the biodegradation of pure magnesium: an electrochemical study" class="ltx_ref">142</a>]</cite> and may also delay the formation of the precipitate layer <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib15" title="Local pH and its evolution near mg alloy surfaces exposed to simulated body fluids" class="ltx_ref">154</a>]</cite>. An alternative solution to address this issue is to use natural pH buffers such as <math id="S1.p3.m6" class="ltx_Math" alttext="\mathrm{HCO}_{3}^{-}/\mathrm{CO}_{2}" display="inline"><semantics><mrow><msubsup><mi>HCO</mi><mn>3</mn><mo>-</mo></msubsup><mo>/</mo><msub><mi>CO</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">\mathrm{HCO}_{3}^{-}/\mathrm{CO}_{2}</annotation></semantics></math>, an option that is commonly used for immersion tests under cell culture conditions. In this situation, an equilibrium between <math id="S1.p3.m7" class="ltx_Math" alttext="\mathrm{H}_{2}\mathrm{CO}_{3}\left(\mathrm{CO}_{2}\right)" display="inline"><semantics><mrow><msub><mi mathvariant="normal">H</mi><mn>2</mn></msub><mo>⁢</mo><msub><mi>CO</mi><mn>3</mn></msub><mo>⁢</mo><mrow><mo>(</mo><msub><mi>CO</mi><mn>2</mn></msub><mo>)</mo></mrow></mrow><annotation encoding="application/x-tex">\mathrm{H}_{2}\mathrm{CO}_{3}\left(\mathrm{CO}_{2}\right)</annotation></semantics></math>, <math id="S1.p3.m8" class="ltx_Math" alttext="\mathrm{HCO}_{3}{}^{-}" display="inline"><semantics><mrow><msub><mi>HCO</mi><mn>3</mn></msub><msup><mi></mi><mo>-</mo></msup></mrow><annotation encoding="application/x-tex">\mathrm{HCO}_{3}{}^{-}</annotation></semantics></math>, and <math id="S1.p3.m9" class="ltx_Math" alttext="\mathrm{CO}_{3}{}^{2-}" display="inline"><semantics><mrow><msub><mi>CO</mi><mn>3</mn></msub><msup><mi></mi><mrow><mn>2</mn><mo>-</mo></mrow></msup></mrow><annotation encoding="application/x-tex">\mathrm{CO}_{3}{}^{2-}</annotation></semantics></math> keeps the pH constant. As a result, using simulated body fluids for corrosion tests without additional synthetic pH buffers is still acceptable <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib15" title="Local pH and its evolution near mg alloy surfaces exposed to simulated body fluids" class="ltx_ref">154</a>, <a href="bib.html#bib16" title="The effect of small-molecule bio-relevant organic components at low concentration on the corrosion of commercially pure mg and mg-0.8ca alloy: an overall perspective" class="ltx_ref">191</a>]</cite>.</p>
+</div>
+<div id="S1.p4" class="ltx_para">
+<p class="ltx_p">The major reactions occurring in simulated body fluids can be written as:</p>
+<div id="E1" class="ltx_equation ltx_eqn_div">
+<span><math id="E1.m1" class="ltx_Math" alttext="\mathrm{Mg}+2\mathrm{H}_{2}\mathrm{O}\rightarrow\mathrm{Mg}(\mathrm{OH})_{2}+%
+\mathrm{H}_{2}" display="block"><semantics><mrow><mrow><mi>Mg</mi><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><msub><mi mathvariant="normal">H</mi><mn>2</mn></msub><mo>⁢</mo><mi mathvariant="normal">O</mi></mrow></mrow><mo>→</mo><mrow><mrow><mi>Mg</mi><mo>⁢</mo><msub><mrow><mo stretchy="false">(</mo><mi>OH</mi><mo stretchy="false">)</mo></mrow><mn>2</mn></msub></mrow><mo>+</mo><msub><mi mathvariant="normal">H</mi><mn>2</mn></msub></mrow></mrow><annotation encoding="application/x-tex">\mathrm{Mg}+2\mathrm{H}_{2}\mathrm{O}\rightarrow\mathrm{Mg}(\mathrm{OH})_{2}+%
+\mathrm{H}_{2}</annotation></semantics></math></span>
+            <span class="ltx_tag ltx_tag_equation ltx_align_right">(5.1)</span>
+            
+            
+          
+</div>
+<div id="E2" class="ltx_equation ltx_eqn_div">
+<span><math id="E2.m1" class="ltx_Math" alttext="2\mathrm{Mg}+2\mathrm{H}_{2}\mathrm{O}+\mathrm{O}_{2}\rightarrow 2\mathrm{Mg}(%
+\mathrm{OH})_{2}" display="block"><semantics><mrow><mrow><mrow><mn>2</mn><mo>⁢</mo><mi mathvariant="normal">M</mi><mo>⁢</mo><mi mathvariant="normal">g</mi></mrow><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><msub><mi mathvariant="normal">H</mi><mn>2</mn></msub><mo>⁢</mo><mi mathvariant="normal">O</mi></mrow><mo>+</mo><msub><mi mathvariant="normal">O</mi><mn>2</mn></msub></mrow><mo>→</mo><mrow><mn>2</mn><mo>⁢</mo><mi mathvariant="normal">M</mi><mo>⁢</mo><mi mathvariant="normal">g</mi><mo>⁢</mo><msub><mrow><mo stretchy="false">(</mo><mi>OH</mi><mo stretchy="false">)</mo></mrow><mn>2</mn></msub></mrow></mrow><annotation encoding="application/x-tex">2\mathrm{Mg}+2\mathrm{H}_{2}\mathrm{O}+\mathrm{O}_{2}\rightarrow 2\mathrm{Mg}(%
+\mathrm{OH})_{2}</annotation></semantics></math></span>
+            <span class="ltx_tag ltx_tag_equation ltx_align_right">(5.2)</span>
+            
+            
+          
+</div>
+<div id="E3" class="ltx_equation ltx_eqn_div">
+<span><math id="E3.m1" class="ltx_Math" alttext="5\mathrm{Ca}^{2+}+3\mathrm{PO}_{4}^{3-}+\mathrm{OH}^{-}\rightarrow\mathrm{Ca}_%
+{5}\left(\mathrm{PO}_{4}\right)_{3}\mathrm{OH}" display="block"><semantics><mrow><mrow><mrow><mn>5</mn><mo>⁢</mo><mi mathvariant="normal">C</mi><mo>⁢</mo><msup><mi mathvariant="normal">a</mi><mrow><mn>2</mn><mo>+</mo></mrow></msup></mrow><mo>+</mo><mrow><mn>3</mn><mo>⁢</mo><mi mathvariant="normal">P</mi><mo>⁢</mo><msubsup><mi mathvariant="normal">O</mi><mn>4</mn><mrow><mn>3</mn><mo>-</mo></mrow></msubsup></mrow><mo>+</mo><msup><mi>OH</mi><mo>-</mo></msup></mrow><mo>→</mo><mrow><msub><mi>Ca</mi><mn>5</mn></msub><mo>⁢</mo><msub><mrow><mo>(</mo><msub><mi>PO</mi><mn>4</mn></msub><mo>)</mo></mrow><mn>3</mn></msub><mo>⁢</mo><mi>OH</mi></mrow></mrow><annotation encoding="application/x-tex">5\mathrm{Ca}^{2+}+3\mathrm{PO}_{4}^{3-}+\mathrm{OH}^{-}\rightarrow\mathrm{Ca}_%
+{5}\left(\mathrm{PO}_{4}\right)_{3}\mathrm{OH}</annotation></semantics></math></span>
+            <span class="ltx_tag ltx_tag_equation ltx_align_right">(5.3)</span>
+            
+            
+          
+</div>
+<div id="E4" class="ltx_equation ltx_eqn_div">
+<span><math id="E4.m1" class="ltx_Math" alttext="\mathrm{Ca}^{2+}+2\mathrm{OH}^{-}\rightarrow\mathrm{Ca}(\mathrm{OH})_{2}" display="block"><semantics><mrow><mrow><msup><mi>Ca</mi><mrow><mn>2</mn><mo>+</mo></mrow></msup><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><mi mathvariant="normal">O</mi><mo>⁢</mo><msup><mi mathvariant="normal">H</mi><mo>-</mo></msup></mrow></mrow><mo>→</mo><mrow><mi>Ca</mi><mo>⁢</mo><msub><mrow><mo stretchy="false">(</mo><mi>OH</mi><mo stretchy="false">)</mo></mrow><mn>2</mn></msub></mrow></mrow><annotation encoding="application/x-tex">\mathrm{Ca}^{2+}+2\mathrm{OH}^{-}\rightarrow\mathrm{Ca}(\mathrm{OH})_{2}</annotation></semantics></math></span>
+            <span class="ltx_tag ltx_tag_equation ltx_align_right">(5.4)</span>
+            
+            
+          
+</div>
+<div id="E5" class="ltx_equation ltx_eqn_div">
+<span><math id="E5.m1" class="ltx_Math" alttext="\mathrm{Mg}^{2+}+\mathrm{CO}_{3}^{2-}\rightarrow\mathrm{MgCO}_{3}" display="block"><semantics><mrow><mrow><msup><mi>Mg</mi><mrow><mn>2</mn><mo>+</mo></mrow></msup><mo>+</mo><msubsup><mi>CO</mi><mn>3</mn><mrow><mn>2</mn><mo>-</mo></mrow></msubsup></mrow><mo>→</mo><msub><mi>MgCO</mi><mn>3</mn></msub></mrow><annotation encoding="application/x-tex">\mathrm{Mg}^{2+}+\mathrm{CO}_{3}^{2-}\rightarrow\mathrm{MgCO}_{3}</annotation></semantics></math></span>
+            <span class="ltx_tag ltx_tag_equation ltx_align_right">(5.5)</span>
+            
+            
+          
+</div>
+<div id="E6" class="ltx_equation ltx_eqn_div">
+<span><math id="E6.m1" class="ltx_Math" alttext="\mathrm{Ca}^{2+}+\mathrm{CO}_{3}^{2-}\rightarrow\mathrm{CaCO}_{3}" display="block"><semantics><mrow><mrow><msup><mi>Ca</mi><mrow><mn>2</mn><mo>+</mo></mrow></msup><mo>+</mo><msubsup><mi>CO</mi><mn>3</mn><mrow><mn>2</mn><mo>-</mo></mrow></msubsup></mrow><mo>→</mo><msub><mi>CaCO</mi><mn>3</mn></msub></mrow><annotation encoding="application/x-tex">\mathrm{Ca}^{2+}+\mathrm{CO}_{3}^{2-}\rightarrow\mathrm{CaCO}_{3}</annotation></semantics></math></span>
+            <span class="ltx_tag ltx_tag_equation ltx_align_right">(5.6)</span>
+            
+            
+          
+</div>
+<div id="E7" class="ltx_equation ltx_eqn_div">
+<span><math id="E7.m1" class="ltx_Math" alttext="3\mathrm{Mg}^{2+}+2\mathrm{PO}_{4}^{3-}\rightarrow\mathrm{Mg}_{3}\left(\mathrm%
+{PO}_{4}\right)_{2}" display="block"><semantics><mrow><mrow><mrow><mn>3</mn><mo>⁢</mo><mi mathvariant="normal">M</mi><mo>⁢</mo><msup><mi mathvariant="normal">g</mi><mrow><mn>2</mn><mo>+</mo></mrow></msup></mrow><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><mi mathvariant="normal">P</mi><mo>⁢</mo><msubsup><mi mathvariant="normal">O</mi><mn>4</mn><mrow><mn>3</mn><mo>-</mo></mrow></msubsup></mrow></mrow><mo>→</mo><mrow><msub><mi>Mg</mi><mn>3</mn></msub><mo>⁢</mo><msub><mrow><mo>(</mo><msub><mi>PO</mi><mn>4</mn></msub><mo>)</mo></mrow><mn>2</mn></msub></mrow></mrow><annotation encoding="application/x-tex">3\mathrm{Mg}^{2+}+2\mathrm{PO}_{4}^{3-}\rightarrow\mathrm{Mg}_{3}\left(\mathrm%
+{PO}_{4}\right)_{2}</annotation></semantics></math></span>
+            <span class="ltx_tag ltx_tag_equation ltx_align_right">(5.7)</span>
+            
+            
+          
+</div>
+<div id="E8" class="ltx_equation ltx_eqn_div">
+<span><math id="E8.m1" class="ltx_Math" alttext="\mathrm{CO}_{3}^{2-}(aq)+H^{+}(aq)\rightarrow\mathrm{HCO}_{3}^{-}(aq)" display="block"><semantics><mrow><mrow><mrow><msubsup><mi>CO</mi><mn>3</mn><mrow><mn>2</mn><mo>-</mo></mrow></msubsup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>⁢</mo><mi>q</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>+</mo><mrow><msup><mi>H</mi><mo>+</mo></msup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>⁢</mo><mi>q</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>→</mo><mrow><msubsup><mi>HCO</mi><mn>3</mn><mo>-</mo></msubsup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>⁢</mo><mi>q</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow><annotation encoding="application/x-tex">\mathrm{CO}_{3}^{2-}(aq)+H^{+}(aq)\rightarrow\mathrm{HCO}_{3}^{-}(aq)</annotation></semantics></math></span>
+            <span class="ltx_tag ltx_tag_equation ltx_align_right">(5.8)</span>
+            
+            
+          
+</div>
+<div id="E9" class="ltx_equation ltx_eqn_div">
+<span><math id="E9.m1" class="ltx_Math" alttext="PO_{4}^{3-}(aq)+H^{+}(aq)\rightarrow\mathrm{HPO}_{4}^{2-}(aq)" display="block"><semantics><mrow><mrow><mrow><mi>P</mi><mo>⁢</mo><msubsup><mi>O</mi><mn>4</mn><mrow><mn>3</mn><mo>-</mo></mrow></msubsup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>⁢</mo><mi>q</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>+</mo><mrow><msup><mi>H</mi><mo>+</mo></msup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>⁢</mo><mi>q</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>→</mo><mrow><msubsup><mi>HPO</mi><mn>4</mn><mrow><mn>2</mn><mo>-</mo></mrow></msubsup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>⁢</mo><mi>q</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow><annotation encoding="application/x-tex">PO_{4}^{3-}(aq)+H^{+}(aq)\rightarrow\mathrm{HPO}_{4}^{2-}(aq)</annotation></semantics></math></span>
+            <span class="ltx_tag ltx_tag_equation ltx_align_right">(5.9)</span>
+            
+            
+          
+</div>
+</div>
+<div id="S1.p5" class="ltx_para">
+<p class="ltx_p">The protection layer is formed on the corroded surface as a hydroxyapatite-like precipitation according to the following reaction <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib20" title="Review of recent developments in the field of magnesium corrosion" class="ltx_ref">20</a>, <a href="bib.html#bib27" title="Biodegradable behaviors of AZ31 magnesium alloy in simulated body fluid" class="ltx_ref">243</a>, <a href="bib.html#bib28" title="The reduction of dissolved oxygen during magnesium corrosion" class="ltx_ref">240</a>, <a href="bib.html#bib29" title="Influence of water purity on the corrosion behavior of mg0.5znx (x=ca, ge) alloys" class="ltx_ref">136</a>]</cite>:</p>
+<div class="bml-overflow-wrapper">
+<table id="E10" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="E10X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="E10X.m2" class="ltx_Math" alttext="\displaystyle m\mathrm{Mg}^{2+}+n\mathrm{Ca}^{2+}" display="inline"><semantics><mrow><mrow><mi>m</mi><mo>⁢</mo><msup><mi>Mg</mi><mrow><mn>2</mn><mo>+</mo></mrow></msup></mrow><mo>+</mo><mrow><mi>n</mi><mo>⁢</mo><msup><mi>Ca</mi><mrow><mn>2</mn><mo>+</mo></mrow></msup></mrow></mrow><annotation encoding="application/x-tex">\displaystyle m\mathrm{Mg}^{2+}+n\mathrm{Ca}^{2+}</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="E10X.m3" class="ltx_Math" alttext="\displaystyle+x\mathrm{H}_{2}\mathrm{PO}_{4}^{-}/\mathrm{HPO}_{4}^{2-}+y%
+\mathrm{HCO}_{3}^{-}+z\mathrm{OH}^{-}" display="inline"><semantics><mrow><mrow><mo>+</mo><mrow><mrow><mi>x</mi><mo>⁢</mo><msub><mi mathvariant="normal">H</mi><mn>2</mn></msub><mo>⁢</mo><msubsup><mi>PO</mi><mn>4</mn><mo>-</mo></msubsup></mrow><mo>/</mo><msubsup><mi>HPO</mi><mn>4</mn><mrow><mn>2</mn><mo>-</mo></mrow></msubsup></mrow></mrow><mo>+</mo><mrow><mi>y</mi><mo>⁢</mo><msubsup><mi>HCO</mi><mn>3</mn><mo>-</mo></msubsup></mrow><mo>+</mo><mrow><mi>z</mi><mo>⁢</mo><msup><mi>OH</mi><mo>-</mo></msup></mrow></mrow><annotation encoding="application/x-tex">\displaystyle+x\mathrm{H}_{2}\mathrm{PO}_{4}^{-}/\mathrm{HPO}_{4}^{2-}+y%
+\mathrm{HCO}_{3}^{-}+z\mathrm{OH}^{-}</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td rowspan="2" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equationgroup ltx_align_right">(5.10)</span></td>
+</tr>
+<tr id="E10Xa" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="E10Xa.m2" class="ltx_Math" alttext="\displaystyle\rightarrow\mathrm{Mg}_{m}\mathrm{Ca}_{n}\left(\mathrm{PO}_{4}%
+\right)_{x}\left(\mathrm{CO}_{3}\right)_{y}\left(\mathrm{OH}^{-}\right)_{z}" display="inline"><semantics><mrow><mi></mi><mo>→</mo><mrow><msub><mi>Mg</mi><mi>m</mi></msub><mo>⁢</mo><msub><mi>Ca</mi><mi>n</mi></msub><mo>⁢</mo><msub><mrow><mo>(</mo><msub><mi>PO</mi><mn>4</mn></msub><mo>)</mo></mrow><mi>x</mi></msub><mo>⁢</mo><msub><mrow><mo>(</mo><msub><mi>CO</mi><mn>3</mn></msub><mo>)</mo></mrow><mi>y</mi></msub><mo>⁢</mo><msub><mrow><mo>(</mo><msup><mi>OH</mi><mo>-</mo></msup><mo>)</mo></mrow><mi>z</mi></msub></mrow></mrow><annotation encoding="application/x-tex">\displaystyle\rightarrow\mathrm{Mg}_{m}\mathrm{Ca}_{n}\left(\mathrm{PO}_{4}%
+\right)_{x}\left(\mathrm{CO}_{3}\right)_{y}\left(\mathrm{OH}^{-}\right)_{z}</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+</div>
+<div id="S1.p6" class="ltx_para">
+<p class="ltx_p">In fact, the similarity in corrosion behavior of various Mg alloys in SBF solutions is due to the similar composition of this quasi-protective layer, a mechanism that doesn’t occur in NaCl solution, leading to a more apparent difference in degradation rate between Mg alloys. The composition of the formed hydroxyapatite-like precipitation layer is close to the ones found <span class="ltx_text ltx_font_italic">in vivo</span> <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib11" title="Selecting medium for corrosion testing of bioabsorbable magnesium and other metals – a critical review" class="ltx_ref">193</a>]</cite>. Additionally, local pH measurements in HBSS and SBF show that, in contrast to saline solutions, the local pH value is not alkaline <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib15" title="Local pH and its evolution near mg alloy surfaces exposed to simulated body fluids" class="ltx_ref">154</a>, <a href="bib.html#bib30" title="Clarifying the influence of albumin on the initial stages of magnesium corrosion in hank’s balanced salt solution" class="ltx_ref">194</a>]</cite>. This has been reported for hydrodynamics situations, under which the medium composition is kept constant by replacing the consumed ions by means of fluid flow.</p>
+</div>
+<div id="S1.p7" class="ltx_para">
+<p class="ltx_p">Building mathematical and computational models of the biodegradation process in complex buffered solutions can help save the resources required to perform <span class="ltx_text ltx_font_italic">in vitro</span> tests, but the details of the aforementioned chemistry are challenging to capture in a mechanistic model. Few attempts have been made to model the underlying chemical reactions in SBF solutions <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib114" title="Simulation of corrosion product deposit layer growth on bare magnesium galvanically coupled to aluminum" class="ltx_ref">119</a>, <a href="bib.html#bib92" title="Corrosion protection of steel cut-edges by hot-dip galvanized al(zn,mg) coatings in 1 wt% NaCl: part II. numerical simulations" class="ltx_ref">69</a>, <a href="bib.html#bib241" title="Computational modelling of magnesium degradation in simulated body fluid under physiological conditions" class="ltx_ref">290</a>]</cite>, but due to the complexity of the resulting mathematical models, it is not feasible to extend them to 3D and real-world cases, like for simulation of the degradation of biomedical implants. In the case of data-driven approaches <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib240" title="Exploring key ionic interactions for magnesium degradation in simulated body fluid – a data-driven approach" class="ltx_ref">291</a>]</cite>, the applicability is limited to the studied conditions, making it difficult for developed models to achieve high extensibility and generalizability.</p>
+</div>
+<div id="S1.p8" class="ltx_para">
+<p class="ltx_p">In this chapter, a detailed mathematical model is presented to extend the work discussed in Chapter <a href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3</span></a> and <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib109" title="Computational modeling of degradation process of biodegradable magnesium biomaterials" class="ltx_ref">31</a>]</cite>, in which a mechanistic model of the biodegradation process is coupled with a thermodynamics-based code to predict local interfacial biodegradation of Mg in HBSS solutions. The local pH changes are the validation criterion to compare the simulation results with experimental ones. Besides other parameters affecting the Mg biodegradation mechanism, monitoring the pH changes at the degradation interface has proved to be significant due to its direct effect on the formation and stability of the degradation products layer <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib194" title="Mg biodegradation mechanism deduced from the local surface environment under simulated physiological conditions" class="ltx_ref">92</a>]</cite>.</p>
+</div>
+</div>
+</section>
+<section id="S2" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">5.2</span> Methods</h2>
+
+<section id="S2.SS1" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">5.2.1</span> Experimental setup</h3>
+
+<div id="S2.SS1.p1" class="ltx_para">
+<p class="ltx_p">In this study, the corrosion tests were performed on ultra-high pure (UHP) and commercially pure (CP) Mg in hydrodynamics conditions. The elemental composition of the used materials is shown in Table <a href="#T1" title="Table 5.1 ‣ 5.2.1 Experimental setup ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.1</span></a>, measured by Atomic Absorption Spectrometer (AAS). The samples were prepared as rod shapes with a diameter of <math id="S2.SS1.p1.m1" class="ltx_Math" alttext="2\text{mm}" display="inline"><semantics><mrow><mn>2</mn><mo>⁢</mo><mtext>mm</mtext></mrow><annotation encoding="application/x-tex">2\text{mm}</annotation></semantics></math> mounted in epoxy resin with a disc shape. The electrolyte used for corrosion tests was commercial HBSS (ThermoFisher Scientific, no. 14025100), the composition of which is presented in Table <a href="#T2" title="Table 5.2 ‣ 5.2.1 Experimental setup ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.2</span></a>.</p>
+</div>
+<figure id="T1" class="ltx_table">
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table">Table 5.1: </span>The elemental composition of ultra-high pure and commercial pure Mg used for performing corrosion experiments (percentages)</figcaption><div class="bml-overflow-wrapper">
+<table class="ltx_tabular ltx_centering ltx_align_middle">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_border_t"></td>
+<td class="ltx_td ltx_align_center ltx_border_t">Fe</td>
+<td class="ltx_td ltx_align_center ltx_border_t">Si</td>
+<td class="ltx_td ltx_align_center ltx_border_t">Mn</td>
+<td class="ltx_td ltx_align_center ltx_border_t">Al</td>
+<td class="ltx_td ltx_align_center ltx_border_t">Cu</td>
+<td class="ltx_td ltx_align_center ltx_border_t">Ni</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_t">CP-Mg</td>
+<td class="ltx_td ltx_align_center ltx_border_t">0.03420</td>
+<td class="ltx_td ltx_align_center ltx_border_t">0.0001</td>
+<td class="ltx_td ltx_align_center ltx_border_t">0.00237</td>
+<td class="ltx_td ltx_align_center ltx_border_t">0.00402</td>
+<td class="ltx_td ltx_align_center ltx_border_t">0.00037</td>
+<td class="ltx_td ltx_align_center ltx_border_t">¡0.0002</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left">UHP-Mg</td>
+<td class="ltx_td ltx_align_center">0.0012</td>
+<td class="ltx_td ltx_align_center">¡0.0001</td>
+<td class="ltx_td ltx_align_center">0.00037</td>
+<td class="ltx_td ltx_align_center">0.00291</td>
+<td class="ltx_td ltx_align_center">¡0.0001</td>
+<td class="ltx_td ltx_align_center">¡0.0002</td>
+</tr>
+</table>
+</div>
+</figure>
+<figure id="T2" class="ltx_table">
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table">Table 5.2: </span>Chemical composition of the HBSS electrolytes used to perform corrosion tests for local pH measurements.</figcaption><div class="bml-overflow-wrapper">
+<table class="ltx_tabular ltx_centering ltx_align_middle">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_t">Components</td>
+<td class="ltx_td ltx_align_center ltx_border_t">mM</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_t"><math id="T2.m1" class="ltx_Math" alttext="\mathrm{KCl}" display="inline"><semantics><mi>KCl</mi><annotation encoding="application/x-tex">\mathrm{KCl}</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_t">5.33</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center"><math id="T2.m2" class="ltx_Math" alttext="\mathrm{KH}_{2}\mathrm{PO}_{4}" display="inline"><semantics><mrow><msub><mi>KH</mi><mn>2</mn></msub><mo>⁢</mo><msub><mi>PO</mi><mn>4</mn></msub></mrow><annotation encoding="application/x-tex">\mathrm{KH}_{2}\mathrm{PO}_{4}</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center">0.44</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center"><math id="T2.m3" class="ltx_Math" alttext="\mathrm{NaHCO}_{3}" display="inline"><semantics><msub><mi>NaHCO</mi><mn>3</mn></msub><annotation encoding="application/x-tex">\mathrm{NaHCO}_{3}</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center">4.17</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center"><math id="T2.m4" class="ltx_Math" alttext="\mathrm{NaCl}" display="inline"><semantics><mi>NaCl</mi><annotation encoding="application/x-tex">\mathrm{NaCl}</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center">137.9</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center"><math id="T2.m5" class="ltx_Math" alttext="\mathrm{Na}_{2}\mathrm{HPO}_{4}" display="inline"><semantics><mrow><msub><mi>Na</mi><mn>2</mn></msub><mo>⁢</mo><msub><mi>HPO</mi><mn>4</mn></msub></mrow><annotation encoding="application/x-tex">\mathrm{Na}_{2}\mathrm{HPO}_{4}</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center">0.34</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center"><math id="T2.m6" class="ltx_Math" alttext="\mathrm{CaCl}_{2}" display="inline"><semantics><msub><mi>CaCl</mi><mn>2</mn></msub><annotation encoding="application/x-tex">\mathrm{CaCl}_{2}</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center">1.26</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center"><math id="T2.m7" class="ltx_Math" alttext="\mathrm{MgCl}_{2}\cdot 6\mathrm{H}_{2}\mathrm{O}" display="inline"><semantics><mrow><mrow><msub><mi>MgCl</mi><mn>2</mn></msub><mo>⋅</mo><mn>6</mn></mrow><mo>⁢</mo><msub><mi mathvariant="normal">H</mi><mn>2</mn></msub><mo>⁢</mo><mi mathvariant="normal">O</mi></mrow><annotation encoding="application/x-tex">\mathrm{MgCl}_{2}\cdot 6\mathrm{H}_{2}\mathrm{O}</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center">0.49</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center"><math id="T2.m8" class="ltx_Math" alttext="\mathrm{MgSO}_{4}\cdot 7\mathrm{H}_{2}\mathrm{O}" display="inline"><semantics><mrow><mrow><msub><mi>MgSO</mi><mn>4</mn></msub><mo>⋅</mo><mn>7</mn></mrow><mo>⁢</mo><msub><mi mathvariant="normal">H</mi><mn>2</mn></msub><mo>⁢</mo><mi mathvariant="normal">O</mi></mrow><annotation encoding="application/x-tex">\mathrm{MgSO}_{4}\cdot 7\mathrm{H}_{2}\mathrm{O}</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center">0.41</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_b"><math id="T2.m9" class="ltx_Math" alttext="\mathrm{D}-\mathrm{Glucose}" display="inline"><semantics><mrow><mi mathvariant="normal">D</mi><mo>-</mo><mi>Glucose</mi></mrow><annotation encoding="application/x-tex">\mathrm{D}-\mathrm{Glucose}</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_b">5.56</td>
+</tr>
+</table>
+</div>
+</figure>
+<div id="S2.SS1.p2" class="ltx_para">
+<p class="ltx_p">Local pH measurements were performed using a glass-type pH microelectrode with a tip diameter of <math id="S2.SS1.p2.m1" class="ltx_Math" alttext="10\mu\text{m}" display="inline"><semantics><mrow><mn>10</mn><mo>⁢</mo><mi>μ</mi><mo>⁢</mo><mtext>m</mtext></mrow><annotation encoding="application/x-tex">10\mu\text{m}</annotation></semantics></math> (Unisense, pH-10). The electrode was positioned above the sample at a distance of <math id="S2.SS1.p2.m2" class="ltx_Math" alttext="50\pm 3\mu\text{m}" display="inline"><semantics><mrow><mn>50</mn><mo>±</mo><mrow><mn>3</mn><mo>⁢</mo><mi>μ</mi><mo>⁢</mo><mtext>m</mtext></mrow></mrow><annotation encoding="application/x-tex">50\pm 3\mu\text{m}</annotation></semantics></math>. At this distance, a line scan mapping routine was performed to obtain the horizontal pH profiles, in which a specimen-centered area (<math id="S2.SS1.p2.m3" class="ltx_Math" alttext="3000\times 3000\mu\text{m}" display="inline"><semantics><mrow><mrow><mn>3000</mn><mo>×</mo><mn>3000</mn></mrow><mo>⁢</mo><mi>μ</mi><mo>⁢</mo><mtext>m</mtext></mrow><annotation encoding="application/x-tex">3000\times 3000\mu\text{m}</annotation></semantics></math>, which was used as the simulation domain as well) was mapped with the step length of <math id="S2.SS1.p2.m4" class="ltx_Math" alttext="100\mu\text{m}" display="inline"><semantics><mrow><mn>100</mn><mo>⁢</mo><mi>μ</mi><mo>⁢</mo><mtext>m</mtext></mrow><annotation encoding="application/x-tex">100\mu\text{m}</annotation></semantics></math>. The sampling interval was 3 s, the result of which was a total duration of approximately 1 hour to scan the area. Similarly, the vertical pH profiles were scanned starting at the height of <math id="S2.SS1.p2.m5" class="ltx_Math" alttext="50\mu\text{m}" display="inline"><semantics><mrow><mn>50</mn><mo>⁢</mo><mi>μ</mi><mo>⁢</mo><mtext>m</mtext></mrow><annotation encoding="application/x-tex">50\mu\text{m}</annotation></semantics></math> above the midpoint of the specimen up to <math id="S2.SS1.p2.m6" class="ltx_Math" alttext="500\mu\text{m}" display="inline"><semantics><mrow><mn>500</mn><mo>⁢</mo><mi>μ</mi><mo>⁢</mo><mtext>m</mtext></mrow><annotation encoding="application/x-tex">500\mu\text{m}</annotation></semantics></math> in the bulk medium. Fig. <a href="#F1" title="Figure 5.1 ‣ 5.2.1 Experimental setup ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.1</span></a> demonstrates the setup of the experiment schematically, in which the flow enters the chamber from the left with a rate of <math id="S2.SS1.p2.m7" class="ltx_Math" alttext="1.0\text{mL.min}^{-1}" display="inline"><semantics><mrow><mn>1.0</mn><mo>⁢</mo><msup><mtext>mL.min</mtext><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">1.0\text{mL.min}^{-1}</annotation></semantics></math> (Medorex TL15E peristaltic pump) and leaves it to the right. The tests were performed independently at room temperature (RT, <math id="S2.SS1.p2.m8" class="ltx_Math" alttext="22\pm 2" display="inline"><semantics><mrow><mn>22</mn><mo>±</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">22\pm 2</annotation></semantics></math> in an air-conditioned lab) and <math id="S2.SS1.p2.m9" class="ltx_Math" alttext="37^{\circ}\text{C}" display="inline"><semantics><mrow><msup><mn>37</mn><mo>∘</mo></msup><mo>⁢</mo><mtext>C</mtext></mrow><annotation encoding="application/x-tex">37^{\circ}\text{C}</annotation></semantics></math> (Thermo Scientific SAHARA S13).</p>
+</div>
+<figure id="F1" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/fluid/image/setup.jpg" id="F1.g1" class="ltx_graphics ltx_centering" width="486" height="188" alt="Experimental setup for validating the coupled biodegradation model"></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 5.1: </span>Experimental setup for validating the coupled biodegradation model</figcaption>
+</figure>
+<div id="S2.SS1.p3" class="ltx_para">
+<p class="ltx_p">The <span class="ltx_text ltx_font_italic">in vitro</span> cross-section morphology of the specimens was characterized using a dual beam FIB/SEM platform (LYRA3 TESCAN) equipped with an EDX system (Oxford Inca with a silicon drift detector), the result of which was used to compare qualitatively with the simulation predictions.</p>
+</div>
+</div>
+</section>
+<section id="S2.SS2" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">5.2.2</span> Computational model construction</h3>
+
+<div id="S2.SS2.p1" class="ltx_para">
+<p class="ltx_p">The computational model in the current study comprises three coupled modules:</p>
+<ol id="S2.I1" class="ltx_enumerate">
+<li id="S2.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span><div id="S2.I1.i1.p1" class="ltx_para">​<p class="ltx_p">An extended version of the mechanistic biodegradation model based on our previous work <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib109" title="Computational modeling of degradation process of biodegradable magnesium biomaterials" class="ltx_ref">31</a>]</cite> (Chapter <a href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3</span></a>) to obtain Mg and hydroxide ions distributions and the initial formation of the protective layer based on the modeling hypotheses.</p>
+</div>
+</li>
+<li id="S2.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span><div id="S2.I1.i2.p1" class="ltx_para">​<p class="ltx_p">A thermodynamics-based simulation to estimate the concentration of various components of the electrolyte in regions close to the surface of the sample based on the calculated pH of module 1.</p>
+</div>
+</li>
+<li id="S2.I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">3.</span><div id="S2.I1.i3.p1" class="ltx_para">​<p class="ltx_p">A module to link the former two, calculating the hydroxyapatite-like precipitation concentration, in which calculated pH values were transferred from module 1 to module 2 for each node of the computational mesh to calculate the concentration of ions depending on the computed local pH and transfer back the calculated precipitation concentration to module 1.</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="S2.SS2.p2" class="ltx_para">
+<p class="ltx_p">Fig. <a href="#F2" title="Figure 5.2 ‣ 5.2.2 Computational model construction ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.2</span></a> shows a schematic representation of the coupled modules and the way that simulation data are being transferred between them. It should be noted that the results obtained from module 2 are calculated in an equilibrium state as it is a thermodynamics-based code, but module 1 works based on kinetics equations and calculations. As a result, it is assumed that the kinetics of the reactions is affected by the equilibrium state of involved chemical components in each time step, which can be considered as a small time window in which the chemical species are in equilibrium. This fact should be seen as an assumption made for simplifying the calculation of the stoichiometry of the protective layer (Eq. <a href="#E10" title="(5.10) ‣ 5.1 Introduction ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.10</span></a>), in which the effect of the underlying kinetics on the change of pH is neglected.</p>
+</div>
+<figure id="F2" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/kinetics/image/modules.jpg" id="F2.g1" class="ltx_graphics ltx_centering" width="541" height="272" alt="Schematic representation of the coupled modules for modeling of local pH changes, showing how they are connected as well as the programming languages and tools used for the implementation."></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 5.2: </span>Schematic representation of the coupled modules for modeling of local pH changes, showing how they are connected as well as the programming languages and tools used for the implementation.</figcaption>
+</figure>
+<div id="S2.SS2.p3" class="ltx_para">
+<p class="ltx_p">The computational biodegradation model (module 1) was developed by deriving a set of reaction-diffusion-advection equations from the chemistry of the corrosion of Mg in hydrodynamics conditions. The following basic reactions are captured by this model, which is an extension of our previous contribution <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib109" title="Computational modeling of degradation process of biodegradable magnesium biomaterials" class="ltx_ref">31</a>]</cite> (Chapter <a href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3</span></a>) as the overall process is described in more detailed equations:</p>
+<div id="E11" class="ltx_equation ltx_eqn_div">
+<span><math id="E11.m1" class="ltx_Math" alttext="\mathrm{Mg}+2\mathrm{H}_{2}\mathrm{O}\stackrel{{\scriptstyle k_{0}}}{{%
+\rightarrow}}\mathrm{Mg}^{2+}+\mathrm{H}_{2}+2\mathrm{OH}^{-}" display="block"><semantics><mrow><mrow><mi>Mg</mi><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><msub><mi mathvariant="normal">H</mi><mn>2</mn></msub><mo>⁢</mo><mi mathvariant="normal">O</mi></mrow></mrow><mover><mo movablelimits="false">→</mo><msub><mi>k</mi><mn>0</mn></msub></mover><mrow><msup><mi>Mg</mi><mrow><mn>2</mn><mo>+</mo></mrow></msup><mo>+</mo><msub><mi mathvariant="normal">H</mi><mn>2</mn></msub><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><mi mathvariant="normal">O</mi><mo>⁢</mo><msup><mi mathvariant="normal">H</mi><mo>-</mo></msup></mrow></mrow></mrow><annotation encoding="application/x-tex">\mathrm{Mg}+2\mathrm{H}_{2}\mathrm{O}\stackrel{{\scriptstyle k_{0}}}{{%
+\rightarrow}}\mathrm{Mg}^{2+}+\mathrm{H}_{2}+2\mathrm{OH}^{-}</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(5.11)</span>
+              
+              
+            
+</div>
+<div id="E12" class="ltx_equation ltx_eqn_div">
+<span><math id="E12.m1" class="ltx_Math" alttext="\mathrm{Mg}^{2+}+2\mathrm{OH}^{-}\stackrel{{\scriptstyle k_{1}}}{{\rightarrow}%
+}\mathrm{Mg}(\mathrm{OH})_{2}+\mathrm{H}_{2}" display="block"><semantics><mrow><mrow><msup><mi>Mg</mi><mrow><mn>2</mn><mo>+</mo></mrow></msup><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><mi mathvariant="normal">O</mi><mo>⁢</mo><msup><mi mathvariant="normal">H</mi><mo>-</mo></msup></mrow></mrow><mover><mo movablelimits="false">→</mo><msub><mi>k</mi><mn>1</mn></msub></mover><mrow><mrow><mi>Mg</mi><mo>⁢</mo><msub><mrow><mo stretchy="false">(</mo><mi>OH</mi><mo stretchy="false">)</mo></mrow><mn>2</mn></msub></mrow><mo>+</mo><msub><mi mathvariant="normal">H</mi><mn>2</mn></msub></mrow></mrow><annotation encoding="application/x-tex">\mathrm{Mg}^{2+}+2\mathrm{OH}^{-}\stackrel{{\scriptstyle k_{1}}}{{\rightarrow}%
+}\mathrm{Mg}(\mathrm{OH})_{2}+\mathrm{H}_{2}</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(5.12)</span>
+              
+              
+            
+</div>
+<div id="E13" class="ltx_equation ltx_eqn_div">
+<span><math id="E13.m1" class="ltx_Math" alttext="\mathrm{Mg}(\mathrm{OH})_{2}+2\mathrm{Cl}^{-}\stackrel{{\scriptstyle k_{2}}}{{%
+\rightarrow}}\mathrm{Mg}^{2+}+2\mathrm{Cl}^{-}+2\mathrm{OH}^{-}" display="block"><semantics><mrow><mrow><mrow><mi>Mg</mi><mo>⁢</mo><msub><mrow><mo stretchy="false">(</mo><mi>OH</mi><mo stretchy="false">)</mo></mrow><mn>2</mn></msub></mrow><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><mi mathvariant="normal">C</mi><mo>⁢</mo><msup><mi mathvariant="normal">l</mi><mo>-</mo></msup></mrow></mrow><mover><mo movablelimits="false">→</mo><msub><mi>k</mi><mn>2</mn></msub></mover><mrow><msup><mi>Mg</mi><mrow><mn>2</mn><mo>+</mo></mrow></msup><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><mi mathvariant="normal">C</mi><mo>⁢</mo><msup><mi mathvariant="normal">l</mi><mo>-</mo></msup></mrow><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><mi mathvariant="normal">O</mi><mo>⁢</mo><msup><mi mathvariant="normal">H</mi><mo>-</mo></msup></mrow></mrow></mrow><annotation encoding="application/x-tex">\mathrm{Mg}(\mathrm{OH})_{2}+2\mathrm{Cl}^{-}\stackrel{{\scriptstyle k_{2}}}{{%
+\rightarrow}}\mathrm{Mg}^{2+}+2\mathrm{Cl}^{-}+2\mathrm{OH}^{-}</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(5.13)</span>
+              
+              
+            
+</div>
+<div id="E14" class="ltx_equation ltx_eqn_div">
+<span><math id="E14.m1" class="ltx_Math" alttext="\mathrm{MgO}+\mathrm{Cl}^{-}+\mathrm{H}_{2}\mathrm{O}\stackrel{{\scriptstyle k%
+_{2}}}{{\rightarrow}}\mathrm{Mg}^{2+}+\mathrm{Cl}^{-}+2\mathrm{OH}^{-}" display="block"><semantics><mrow><mrow><mi>MgO</mi><mo>+</mo><msup><mi>Cl</mi><mo>-</mo></msup><mo>+</mo><mrow><msub><mi mathvariant="normal">H</mi><mn>2</mn></msub><mo>⁢</mo><mi mathvariant="normal">O</mi></mrow></mrow><mover><mo movablelimits="false">→</mo><msub><mi>k</mi><mn>2</mn></msub></mover><mrow><msup><mi>Mg</mi><mrow><mn>2</mn><mo>+</mo></mrow></msup><mo>+</mo><msup><mi>Cl</mi><mo>-</mo></msup><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><mi mathvariant="normal">O</mi><mo>⁢</mo><msup><mi mathvariant="normal">H</mi><mo>-</mo></msup></mrow></mrow></mrow><annotation encoding="application/x-tex">\mathrm{MgO}+\mathrm{Cl}^{-}+\mathrm{H}_{2}\mathrm{O}\stackrel{{\scriptstyle k%
+_{2}}}{{\rightarrow}}\mathrm{Mg}^{2+}+\mathrm{Cl}^{-}+2\mathrm{OH}^{-}</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(5.14)</span>
+              
+              
+            
+</div>
+</div>
+<div id="S2.SS2.p4" class="ltx_para">
+<p class="ltx_p">The following state variables hold the concentration of various basic ions involved in reactions described by Eqs. <a href="#E11" title="(5.11) ‣ 5.2.2 Computational model construction ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.11</span></a>, <a href="#E12" title="(5.12) ‣ 5.2.2 Computational model construction ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.12</span></a>, <a href="#E13" title="(5.13) ‣ 5.2.2 Computational model construction ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.13</span></a>, and <a href="#E14" title="(5.14) ‣ 5.2.2 Computational model construction ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.14</span></a>:</p>
+<div id="E15" class="ltx_equation ltx_eqn_div">
+<span><math id="E15.m1" class="ltx_Math" alttext="\begin{aligned} &amp;C_{\mathrm{Mg}}=C_{\mathrm{Mg}}(\mathbf{x},t),\quad C_{%
+\mathrm{Mg}_{\mathrm{[s]}}}=C_{\mathrm{Mg}_{\mathrm{[s]}}}(\mathbf{x},t),\quad
+C%
+_{\mathrm{Mg}(\mathrm{OH})_{2}}=C_{\mathrm{Mg}(\mathrm{OH})_{2}}(\mathbf{x},t)%
+\\
+&amp;C_{\mathrm{Cl}}=C_{\mathrm{Cl}}(\mathbf{x},t),\quad C_{\mathrm{OH}}=C_{%
+\mathrm{OH}}(\mathbf{x},t)\quad\mathbf{x}\in\Omega\subset\mathbb{R}^{3}\end{%
+aligned}," display="block"><semantics><mrow><mtable columnspacing="0pt" displaystyle="true" rowspacing="0pt"><mtr><mtd></mtd><mtd columnalign="left"><mrow><mrow><msub><mi>C</mi><mi>Mg</mi></msub><mo>=</mo><mrow><msub><mi>C</mi><mi>Mg</mi></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>𝐱</mi><mo>,</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo rspace="12.5pt">,</mo><mrow><mrow><msub><mi>C</mi><msub><mi>Mg</mi><mrow><mo stretchy="false">[</mo><mi mathvariant="normal">s</mi><mo stretchy="false">]</mo></mrow></msub></msub><mo>=</mo><mrow><msub><mi>C</mi><msub><mi>Mg</mi><mrow><mo stretchy="false">[</mo><mi mathvariant="normal">s</mi><mo stretchy="false">]</mo></mrow></msub></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>𝐱</mi><mo>,</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo rspace="12.5pt">,</mo><mrow><msub><mi>C</mi><mrow><mi>Mg</mi><mo>⁢</mo><msub><mrow><mo stretchy="false">(</mo><mi>OH</mi><mo stretchy="false">)</mo></mrow><mn>2</mn></msub></mrow></msub><mo>=</mo><mrow><msub><mi>C</mi><mrow><mi>Mg</mi><mo>⁢</mo><msub><mrow><mo stretchy="false">(</mo><mi>OH</mi><mo stretchy="false">)</mo></mrow><mn>2</mn></msub></mrow></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>𝐱</mi><mo>,</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow></mrow></mtd></mtr><mtr><mtd></mtd><mtd columnalign="left"><mrow><mrow><msub><mi>C</mi><mi>Cl</mi></msub><mo>=</mo><mrow><msub><mi>C</mi><mi>Cl</mi></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>𝐱</mi><mo>,</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo rspace="12.5pt">,</mo><mrow><mrow><msub><mi>C</mi><mi>OH</mi></msub><mo>=</mo><mrow><msub><mi>C</mi><mi>OH</mi></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>𝐱</mi><mo>,</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo mathsize="70%" mathvariant="italic" separator="true" stretchy="false"> </mo><mrow><mi>𝐱</mi><mo>∈</mo><mi mathvariant="normal">Ω</mi><mo>⊂</mo><msup><mi>ℝ</mi><mn>3</mn></msup></mrow></mrow></mrow></mtd></mtr></mtable><mo>,</mo></mrow><annotation encoding="application/x-tex">\begin{aligned} &amp;C_{\mathrm{Mg}}=C_{\mathrm{Mg}}(\mathbf{x},t),\quad C_{%
+\mathrm{Mg}_{\mathrm{[s]}}}=C_{\mathrm{Mg}_{\mathrm{[s]}}}(\mathbf{x},t),\quad
+C%
+_{\mathrm{Mg}(\mathrm{OH})_{2}}=C_{\mathrm{Mg}(\mathrm{OH})_{2}}(\mathbf{x},t)%
+\\
+&amp;C_{\mathrm{Cl}}=C_{\mathrm{Cl}}(\mathbf{x},t),\quad C_{\mathrm{OH}}=C_{%
+\mathrm{OH}}(\mathbf{x},t)\quad\mathbf{x}\in\Omega\subset\mathbb{R}^{3}\end{%
+aligned},</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(5.15)</span>
+              
+              
+            
+</div>
+</div>
+<div id="S2.SS2.p5" class="ltx_para">
+<p class="ltx_p">Additionally, two more state variables are needed to couple the models, representing the calculated concentration of the hydroxyapatite-like precipitation as well as the cumulative layer concentration:</p>
+<div id="E16" class="ltx_equation ltx_eqn_div">
+<span><math id="E16.m1" class="ltx_Math" alttext="C_{\mathrm{Hydrox}}=C_{\mathrm{Hydrox}}(\mathbf{x},t),\quad C_{\mathrm{Film}}=%
+C_{\mathrm{Film}}(\mathbf{x},t)\quad\mathbf{x}\in\Omega\subset\mathbb{R}^{3}," display="block"><semantics><mrow><mrow><mrow><msub><mi>C</mi><mi>Hydrox</mi></msub><mo>=</mo><mrow><msub><mi>C</mi><mi>Hydrox</mi></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>𝐱</mi><mo>,</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo rspace="12.5pt">,</mo><mrow><mrow><msub><mi>C</mi><mi>Film</mi></msub><mo>=</mo><mrow><msub><mi>C</mi><mi>Film</mi></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>𝐱</mi><mo>,</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo mathvariant="italic" separator="true"> </mo><mrow><mi>𝐱</mi><mo>∈</mo><mi mathvariant="normal">Ω</mi><mo>⊂</mo><msup><mi>ℝ</mi><mn>3</mn></msup></mrow></mrow></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">C_{\mathrm{Hydrox}}=C_{\mathrm{Hydrox}}(\mathbf{x},t),\quad C_{\mathrm{Film}}=%
+C_{\mathrm{Film}}(\mathbf{x},t)\quad\mathbf{x}\in\Omega\subset\mathbb{R}^{3},</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(5.16)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">where the total film concentration can be calculated as:</p>
+<div id="E17" class="ltx_equation ltx_eqn_div">
+<span><math id="E17.m1" class="ltx_Math" alttext="C_{\mathrm{Film}}=C_{\mathrm{Hydrox}}+C_{\mathrm{\mathrm{Mg}(\mathrm{OH})_{2}}}." display="block"><semantics><mrow><mrow><msub><mi>C</mi><mi>Film</mi></msub><mo>=</mo><mrow><msub><mi>C</mi><mi>Hydrox</mi></msub><mo>+</mo><msub><mi>C</mi><mrow><mi>Mg</mi><mo>⁢</mo><msub><mrow><mo stretchy="false">(</mo><mi>OH</mi><mo stretchy="false">)</mo></mrow><mn>2</mn></msub></mrow></msub></mrow></mrow><mo>.</mo></mrow><annotation encoding="application/x-tex">C_{\mathrm{Film}}=C_{\mathrm{Hydrox}}+C_{\mathrm{\mathrm{Mg}(\mathrm{OH})_{2}}}.</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(5.17)</span>
+              
+              
+            
+</div>
+</div>
+<div id="S2.SS2.p6" class="ltx_para">
+<p class="ltx_p">With the above state variables defined, the biodegradation model can be constructed by implementing the following PDEs:</p>
+<div id="E18" class="ltx_equation ltx_eqn_div">
+<span><math id="E18.m1" class="ltx_Math" alttext="\frac{\partial C_{\mathrm{Mg}_{\mathrm{[s]}}}}{\partial t}=-k_{0}C_{\mathrm{Mg%
+}_{\mathrm{[s]}}}" display="block"><semantics><mrow><mfrac><mrow><mo>∂</mo><mo>⁡</mo><msub><mi>C</mi><msub><mi>Mg</mi><mrow><mo stretchy="false">[</mo><mi mathvariant="normal">s</mi><mo stretchy="false">]</mo></mrow></msub></msub></mrow><mrow><mo>∂</mo><mo>⁡</mo><mi>t</mi></mrow></mfrac><mo>=</mo><mrow><mo>-</mo><mrow><msub><mi>k</mi><mn>0</mn></msub><mo>⁢</mo><msub><mi>C</mi><msub><mi>Mg</mi><mrow><mo stretchy="false">[</mo><mi mathvariant="normal">s</mi><mo stretchy="false">]</mo></mrow></msub></msub></mrow></mrow></mrow><annotation encoding="application/x-tex">\frac{\partial C_{\mathrm{Mg}_{\mathrm{[s]}}}}{\partial t}=-k_{0}C_{\mathrm{Mg%
+}_{\mathrm{[s]}}}</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(5.18)</span>
+              
+              
+            
+</div>
+<div id="E19" class="ltx_equation ltx_eqn_div">
+<span><math id="E19.m1" class="ltx_Math" alttext="\frac{\partial C_{\mathrm{Mg}}}{\partial t}=\nabla\cdot\left(D_{\mathrm{Mg}}^{%
+e}\nabla C_{\mathrm{Mg}}\right)-\nabla\cdot\left({\mathbf{u}}C_{\mathrm{Mg}}%
+\right)+k_{0}C_{\mathrm{Mg}_{\mathrm{[s]}}}-k_{1}\alpha C_{\mathrm{Mg}}C_{%
+\mathrm{OH}}^{2}+k_{2}C_{\mathrm{Film}}{C_{\mathrm{Cl}}}^{2}" display="block"><semantics><mrow><mfrac><mrow><mo>∂</mo><mo>⁡</mo><msub><mi>C</mi><mi>Mg</mi></msub></mrow><mrow><mo>∂</mo><mo>⁡</mo><mi>t</mi></mrow></mfrac><mo>=</mo><mrow><mrow><mrow><mrow><mrow><mo>∇</mo><mo>⋅</mo><mrow><mo>(</mo><mrow><msubsup><mi>D</mi><mi>Mg</mi><mi>e</mi></msubsup><mo>⁢</mo><mrow><mo>∇</mo><mo>⁡</mo><msub><mi>C</mi><mi>Mg</mi></msub></mrow></mrow><mo>)</mo></mrow></mrow><mo>-</mo><mrow><mo>∇</mo><mo>⋅</mo><mrow><mo>(</mo><mrow><mi>𝐮</mi><mo>⁢</mo><msub><mi>C</mi><mi>Mg</mi></msub></mrow><mo>)</mo></mrow></mrow></mrow><mo>+</mo><mrow><msub><mi>k</mi><mn>0</mn></msub><mo>⁢</mo><msub><mi>C</mi><msub><mi>Mg</mi><mrow><mo stretchy="false">[</mo><mi mathvariant="normal">s</mi><mo stretchy="false">]</mo></mrow></msub></msub></mrow></mrow><mo>-</mo><mrow><msub><mi>k</mi><mn>1</mn></msub><mo>⁢</mo><mi>α</mi><mo>⁢</mo><msub><mi>C</mi><mi>Mg</mi></msub><mo>⁢</mo><msubsup><mi>C</mi><mi>OH</mi><mn>2</mn></msubsup></mrow></mrow><mo>+</mo><mrow><msub><mi>k</mi><mn>2</mn></msub><mo>⁢</mo><msub><mi>C</mi><mi>Film</mi></msub><mo>⁢</mo><mmultiscripts><mi>C</mi><mi>Cl</mi><none></none><none></none><mn>2</mn></mmultiscripts></mrow></mrow></mrow><annotation encoding="application/x-tex">\frac{\partial C_{\mathrm{Mg}}}{\partial t}=\nabla\cdot\left(D_{\mathrm{Mg}}^{%
+e}\nabla C_{\mathrm{Mg}}\right)-\nabla\cdot\left({\mathbf{u}}C_{\mathrm{Mg}}%
+\right)+k_{0}C_{\mathrm{Mg}_{\mathrm{[s]}}}-k_{1}\alpha C_{\mathrm{Mg}}C_{%
+\mathrm{OH}}^{2}+k_{2}C_{\mathrm{Film}}{C_{\mathrm{Cl}}}^{2}</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(5.19)</span>
+              
+              
+            
+</div>
+<div id="E20" class="ltx_equation ltx_eqn_div">
+<span><math id="E20.m1" class="ltx_Math" alttext="\frac{\partial C_{\mathrm{Mg}(\mathrm{OH})_{2}}}{\partial t}=k_{1}\alpha C_{%
+\mathrm{Mg}}C_{\mathrm{OH}}^{2}-k_{2}C_{\mathrm{Film}}{C_{\mathrm{Cl}}}^{2}" display="block"><semantics><mrow><mfrac><mrow><mo>∂</mo><mo>⁡</mo><msub><mi>C</mi><mrow><mi>Mg</mi><mo>⁢</mo><msub><mrow><mo stretchy="false">(</mo><mi>OH</mi><mo stretchy="false">)</mo></mrow><mn>2</mn></msub></mrow></msub></mrow><mrow><mo>∂</mo><mo>⁡</mo><mi>t</mi></mrow></mfrac><mo>=</mo><mrow><mrow><msub><mi>k</mi><mn>1</mn></msub><mo>⁢</mo><mi>α</mi><mo>⁢</mo><msub><mi>C</mi><mi>Mg</mi></msub><mo>⁢</mo><msubsup><mi>C</mi><mi>OH</mi><mn>2</mn></msubsup></mrow><mo>-</mo><mrow><msub><mi>k</mi><mn>2</mn></msub><mo>⁢</mo><msub><mi>C</mi><mi>Film</mi></msub><mo>⁢</mo><mmultiscripts><mi>C</mi><mi>Cl</mi><none></none><none></none><mn>2</mn></mmultiscripts></mrow></mrow></mrow><annotation encoding="application/x-tex">\frac{\partial C_{\mathrm{Mg}(\mathrm{OH})_{2}}}{\partial t}=k_{1}\alpha C_{%
+\mathrm{Mg}}C_{\mathrm{OH}}^{2}-k_{2}C_{\mathrm{Film}}{C_{\mathrm{Cl}}}^{2}</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(5.20)</span>
+              
+              
+            
+</div>
+<div id="E21" class="ltx_equation ltx_eqn_div">
+<span><math id="E21.m1" class="ltx_Math" alttext="\frac{\partial C_{\mathrm{Cl}}}{\partial t}=\nabla\cdot\left(D_{\mathrm{Cl}}^{%
+e}\nabla C_{\mathrm{Cl}}\right)-\nabla\cdot\left({\mathbf{u}}C_{\mathrm{Cl}}\right)" display="block"><semantics><mrow><mfrac><mrow><mo>∂</mo><mo>⁡</mo><msub><mi>C</mi><mi>Cl</mi></msub></mrow><mrow><mo>∂</mo><mo>⁡</mo><mi>t</mi></mrow></mfrac><mo>=</mo><mrow><mrow><mo>∇</mo><mo>⋅</mo><mrow><mo>(</mo><mrow><msubsup><mi>D</mi><mi>Cl</mi><mi>e</mi></msubsup><mo>⁢</mo><mrow><mo>∇</mo><mo>⁡</mo><msub><mi>C</mi><mi>Cl</mi></msub></mrow></mrow><mo>)</mo></mrow></mrow><mo>-</mo><mrow><mo>∇</mo><mo>⋅</mo><mrow><mo>(</mo><mrow><mi>𝐮</mi><mo>⁢</mo><msub><mi>C</mi><mi>Cl</mi></msub></mrow><mo>)</mo></mrow></mrow></mrow></mrow><annotation encoding="application/x-tex">\frac{\partial C_{\mathrm{Cl}}}{\partial t}=\nabla\cdot\left(D_{\mathrm{Cl}}^{%
+e}\nabla C_{\mathrm{Cl}}\right)-\nabla\cdot\left({\mathbf{u}}C_{\mathrm{Cl}}\right)</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(5.21)</span>
+              
+              
+            
+</div>
+<div id="E22" class="ltx_equation ltx_eqn_div">
+<span><math id="E22.m1" class="ltx_Math" alttext="\frac{\partial C_{\mathrm{OH}}}{\partial t}=\nabla\cdot\left(D_{\mathrm{OH}}^{%
+e}\nabla C_{\mathrm{OH}}\right)-\nabla\cdot\left({\mathbf{u}}C_{\mathrm{OH}}%
+\right)+k_{0}C_{\mathrm{Mg}_{\mathrm{[s]}}}-k_{1}\alpha C_{\mathrm{Mg}}C_{%
+\mathrm{OH}}^{2}+k_{2}C_{\mathrm{Film}}{C_{\mathrm{Cl}}}^{2}" display="block"><semantics><mrow><mfrac><mrow><mo>∂</mo><mo>⁡</mo><msub><mi>C</mi><mi>OH</mi></msub></mrow><mrow><mo>∂</mo><mo>⁡</mo><mi>t</mi></mrow></mfrac><mo>=</mo><mrow><mrow><mrow><mrow><mrow><mo>∇</mo><mo>⋅</mo><mrow><mo>(</mo><mrow><msubsup><mi>D</mi><mi>OH</mi><mi>e</mi></msubsup><mo>⁢</mo><mrow><mo>∇</mo><mo>⁡</mo><msub><mi>C</mi><mi>OH</mi></msub></mrow></mrow><mo>)</mo></mrow></mrow><mo>-</mo><mrow><mo>∇</mo><mo>⋅</mo><mrow><mo>(</mo><mrow><mi>𝐮</mi><mo>⁢</mo><msub><mi>C</mi><mi>OH</mi></msub></mrow><mo>)</mo></mrow></mrow></mrow><mo>+</mo><mrow><msub><mi>k</mi><mn>0</mn></msub><mo>⁢</mo><msub><mi>C</mi><msub><mi>Mg</mi><mrow><mo stretchy="false">[</mo><mi mathvariant="normal">s</mi><mo stretchy="false">]</mo></mrow></msub></msub></mrow></mrow><mo>-</mo><mrow><msub><mi>k</mi><mn>1</mn></msub><mo>⁢</mo><mi>α</mi><mo>⁢</mo><msub><mi>C</mi><mi>Mg</mi></msub><mo>⁢</mo><msubsup><mi>C</mi><mi>OH</mi><mn>2</mn></msubsup></mrow></mrow><mo>+</mo><mrow><msub><mi>k</mi><mn>2</mn></msub><mo>⁢</mo><msub><mi>C</mi><mi>Film</mi></msub><mo>⁢</mo><mmultiscripts><mi>C</mi><mi>Cl</mi><none></none><none></none><mn>2</mn></mmultiscripts></mrow></mrow></mrow><annotation encoding="application/x-tex">\frac{\partial C_{\mathrm{OH}}}{\partial t}=\nabla\cdot\left(D_{\mathrm{OH}}^{%
+e}\nabla C_{\mathrm{OH}}\right)-\nabla\cdot\left({\mathbf{u}}C_{\mathrm{OH}}%
+\right)+k_{0}C_{\mathrm{Mg}_{\mathrm{[s]}}}-k_{1}\alpha C_{\mathrm{Mg}}C_{%
+\mathrm{OH}}^{2}+k_{2}C_{\mathrm{Film}}{C_{\mathrm{Cl}}}^{2}</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(5.22)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">showing the mathematical representation of reactions <a href="#E11" title="(5.11) ‣ 5.2.2 Computational model construction ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.11</span></a>, <a href="#E12" title="(5.12) ‣ 5.2.2 Computational model construction ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.12</span></a>, <a href="#E13" title="(5.13) ‣ 5.2.2 Computational model construction ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.13</span></a>, and <a href="#E14" title="(5.14) ‣ 5.2.2 Computational model construction ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.14</span></a> in hydrodynamics condition in the form of a set of reaction-diffusion-advection equations. <math id="S2.SS2.p6.m1" class="ltx_Math" alttext="k_{0}" display="inline"><semantics><msub><mi>k</mi><mn>0</mn></msub><annotation encoding="application/x-tex">k_{0}</annotation></semantics></math>, <math id="S2.SS2.p6.m2" class="ltx_Math" alttext="k_{1}" display="inline"><semantics><msub><mi>k</mi><mn>1</mn></msub><annotation encoding="application/x-tex">k_{1}</annotation></semantics></math>, and <math id="S2.SS2.p6.m3" class="ltx_Math" alttext="k_{2}" display="inline"><semantics><msub><mi>k</mi><mn>2</mn></msub><annotation encoding="application/x-tex">k_{2}</annotation></semantics></math> are reaction rate constants corresponding to the Mg oxidation, film formation, and film elimination reactions, respectively. In Eqs. <a href="#E19" title="(5.19) ‣ 5.2.2 Computational model construction ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.19</span></a>, <a href="#E20" title="(5.20) ‣ 5.2.2 Computational model construction ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.20</span></a>, and <a href="#E22" title="(5.22) ‣ 5.2.2 Computational model construction ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.22</span></a>, <math id="S2.SS2.p6.m4" class="ltx_Math" alttext="\alpha" display="inline"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math> is defined as:</p>
+<div id="E23" class="ltx_equation ltx_eqn_div">
+<span><math id="E23.m1" class="ltx_Math" alttext="\alpha=\left(1-\beta\frac{C_{\mathrm{Film}}}{[\mathrm{Film}]_{\max}}\right)," display="block"><semantics><mrow><mrow><mi>α</mi><mo>=</mo><mrow><mo>(</mo><mrow><mn>1</mn><mo>-</mo><mrow><mi>β</mi><mo>⁢</mo><mfrac><msub><mi>C</mi><mi>Film</mi></msub><msub><mrow><mo stretchy="false">[</mo><mi>Film</mi><mo stretchy="false">]</mo></mrow><mi>max</mi></msub></mfrac></mrow></mrow><mo>)</mo></mrow></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\alpha=\left(1-\beta\frac{C_{\mathrm{Film}}}{[\mathrm{Film}]_{\max}}\right),</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(5.23)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">in which the protective film maximum concentration is calculated using its porosity (<math id="S2.SS2.p6.m5" class="ltx_Math" alttext="\epsilon" display="inline"><semantics><mi>ϵ</mi><annotation encoding="application/x-tex">\epsilon</annotation></semantics></math>) <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib53" title="Mathematical modelling of the degradation behaviour of biodegradable metals" class="ltx_ref">23</a>]</cite>:</p>
+<div id="E24" class="ltx_equation ltx_eqn_div">
+<span><math id="E24.m1" class="ltx_Math" alttext="[\mathrm{Film}]_{\max}=\rho_{\mathrm{Film}}\times(1-\epsilon)." display="block"><semantics><mrow><mrow><msub><mrow><mo stretchy="false">[</mo><mi>Film</mi><mo stretchy="false">]</mo></mrow><mi>max</mi></msub><mo>=</mo><mrow><msub><mi>ρ</mi><mi>Film</mi></msub><mo>×</mo><mrow><mo stretchy="false">(</mo><mrow><mn>1</mn><mo>-</mo><mi>ϵ</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>.</mo></mrow><annotation encoding="application/x-tex">[\mathrm{Film}]_{\max}=\rho_{\mathrm{Film}}\times(1-\epsilon).</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(5.24)</span>
+              
+              
+            
+</div>
+</div>
+<div id="S2.SS2.p7" class="ltx_para">
+<p class="ltx_p">In Eqs. <a href="#E19" title="(5.19) ‣ 5.2.2 Computational model construction ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.19</span></a>, <a href="#E21" title="(5.21) ‣ 5.2.2 Computational model construction ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.21</span></a>, and <a href="#E22" title="(5.22) ‣ 5.2.2 Computational model construction ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.22</span></a>, <math id="S2.SS2.p7.m1" class="ltx_Math" alttext="\mathbf{u}" display="inline"><semantics><mi>𝐮</mi><annotation encoding="application/x-tex">\mathbf{u}</annotation></semantics></math> is the velocity field from the surrounding fluid flow governed by the Stokes equation:</p>
+<div id="E25" class="ltx_equation ltx_eqn_div">
+<span><math id="E25.m1" class="ltx_Math" alttext="\left\{{\begin{array}[]{*{20}{l}}\displaystyle{-\nu\Delta\mathbf{u}+\nabla p+%
+\frac{\nu}{K}\mathbf{u}=0}\\
+\displaystyle{\nabla\cdot\mathbf{u}+\varepsilon p=0.}\end{array}}\right." display="block"><semantics><mrow><mo>{</mo><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="left"><mrow><mrow><mrow><mo>-</mo><mrow><mi>ν</mi><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>𝐮</mi></mrow></mrow><mo>+</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>p</mi></mrow><mo>+</mo><mrow><mfrac><mi>ν</mi><mi>K</mi></mfrac><mo>⁢</mo><mi>𝐮</mi></mrow></mrow><mo>=</mo><mn>0</mn></mrow></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd></mtr><mtr><mtd columnalign="left"><mrow><mrow><mrow><mrow><mo>∇</mo><mo>⋅</mo><mi>𝐮</mi></mrow><mo>+</mo><mrow><mi>ε</mi><mo>⁢</mo><mi>p</mi></mrow></mrow><mo>=</mo><mn>0</mn></mrow><mo>.</mo></mrow></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd></mtr></mtable><mi></mi></mrow><annotation encoding="application/x-tex">\left\{{\begin{array}[]{*{20}{l}}\displaystyle{-\nu\Delta\mathbf{u}+\nabla p+%
+\frac{\nu}{K}\mathbf{u}=0}\\
+\displaystyle{\nabla\cdot\mathbf{u}+\varepsilon p=0.}\end{array}}\right.</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(5.25)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">in which <math id="S2.SS2.p7.m2" class="ltx_Math" alttext="\mathbf{u}" display="inline"><semantics><mi>𝐮</mi><annotation encoding="application/x-tex">\mathbf{u}</annotation></semantics></math> is the fluid velocity, <math id="S2.SS2.p7.m3" class="ltx_Math" alttext="p" display="inline"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math> is the pressure (which is actually pressure divided by the density), <math id="S2.SS2.p7.m4" class="ltx_Math" alttext="\nu=\frac{\mu}{\rho}" display="inline"><semantics><mrow><mi>ν</mi><mo>=</mo><mfrac><mi>μ</mi><mi>ρ</mi></mfrac></mrow><annotation encoding="application/x-tex">\nu=\frac{\mu}{\rho}</annotation></semantics></math> is the kinematic viscosity (with <math id="S2.SS2.p7.m5" class="ltx_Math" alttext="\mu" display="inline"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math> being the dynamic viscosity), and <math id="S2.SS2.p7.m6" class="ltx_Math" alttext="K" display="inline"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> is the permeability function.</p>
+</div>
+<div id="S2.SS2.p8" class="ltx_para">
+<p class="ltx_p">The local pH can be calculated using the simulated concentration of hydroxide (Eq. <a href="#E22" title="(5.22) ‣ 5.2.2 Computational model construction ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.22</span></a>):</p>
+<div id="E26" class="ltx_equation ltx_eqn_div">
+<span><math id="E26.m1" class="ltx_Math" alttext="\mathrm{pH}=14+\log_{10}\left(C_{\mathrm{OH}}/\mathrm{MW}_{\mathrm{OH}}\times 1%
+0^{6}\right)," display="block"><semantics><mrow><mrow><mi>pH</mi><mo>=</mo><mrow><mn>14</mn><mo>+</mo><mrow><msub><mi>log</mi><mn>10</mn></msub><mo>⁡</mo><mrow><mo>(</mo><mrow><mrow><msub><mi>C</mi><mi>OH</mi></msub><mo>/</mo><msub><mi>MW</mi><mi>OH</mi></msub></mrow><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup></mrow><mo>)</mo></mrow></mrow></mrow></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\mathrm{pH}=14+\log_{10}\left(C_{\mathrm{OH}}/\mathrm{MW}_{\mathrm{OH}}\times 1%
+0^{6}\right),</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(5.26)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">with <math id="S2.SS2.p8.m1" class="ltx_Math" alttext="\mathrm{MW}_{\mathrm{OH}}=17.01" display="inline"><semantics><mrow><msub><mi>MW</mi><mi>OH</mi></msub><mo>=</mo><mn>17.01</mn></mrow><annotation encoding="application/x-tex">\mathrm{MW}_{\mathrm{OH}}=17.01</annotation></semantics></math> being the molecular weight (MW) of the hydroxide ions.</p>
+</div>
+<div id="S2.SS2.p9" class="ltx_para">
+<p class="ltx_p">The concentration of the hydroxyapatite-like precipitation (<math id="S2.SS2.p9.m1" class="ltx_Math" alttext="C_{\mathrm{Hydrox}}" display="inline"><semantics><msub><mi>C</mi><mi>Hydrox</mi></msub><annotation encoding="application/x-tex">C_{\mathrm{Hydrox}}</annotation></semantics></math> in Eqs. <a href="#E15" title="(5.15) ‣ 5.2.2 Computational model construction ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.15</span></a> and <a href="#E17" title="(5.17) ‣ 5.2.2 Computational model construction ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.17</span></a>) is calculated using the thermodynamics-based simulations (module 2) based on calculated local pH (Eq. <a href="#E26" title="(5.26) ‣ 5.2.2 Computational model construction ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.26</span></a>) for each node of the desired domain. After solving the derived equations in each time step, the linking module passes the obtained local pH to the thermodynamics module to calculate the individual concentration of involved chemical components. Then, the individual concentrations are converted to the concentration of the hydroxyapatite-like precipitation by taking into account the stoichiometry of the formation reaction (Eq. <a href="#E10" title="(5.10) ‣ 5.1 Introduction ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.10</span></a>), leading to the calculation of <math id="S2.SS2.p9.m2" class="ltx_Math" alttext="C_{\mathrm{Hydrox}}" display="inline"><semantics><msub><mi>C</mi><mi>Hydrox</mi></msub><annotation encoding="application/x-tex">C_{\mathrm{Hydrox}}</annotation></semantics></math> for each node. After this, the total concentration of the film can be calculated according to Eq. <a href="#E17" title="(5.17) ‣ 5.2.2 Computational model construction ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.17</span></a> by passing back the calculated value to module 1.</p>
+</div>
+<div id="S2.SS2.p10" class="ltx_para">
+<p class="ltx_p">The thermodynamics-based simulations were conducted using the Hydra-Medusa code <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib195" title="High-speed computers as a supplement to graphical methods—v1haltafall, a general program for calculating the composition of equilibrium mixtures" class="ltx_ref">130</a>, <a href="bib.html#bib196" title="The HALTAFALL program-some corrections, and comments on recent experience" class="ltx_ref">271</a>, <a href="bib.html#bib197" title="An algorithm for the computation of aqueous multi-component, multiphase equilibria" class="ltx_ref">76</a>]</cite>, in which the input data of chemical equilibrium constants, solubility products, temperature, and involved chemical components are used to generate a set of equilibrium diagrams correlating pH to concentration or fraction of desired chemical components. The experimental conditions, including the initial composition of the electrolyte (Table <a href="#T2" title="Table 5.2 ‣ 5.2.1 Experimental setup ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.2</span></a>) and evaluated temperatures (<math id="S2.SS2.p10.m1" class="ltx_Math" alttext="25^{\circ}C" display="inline"><semantics><mrow><msup><mn>25</mn><mo>∘</mo></msup><mo>⁢</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">25^{\circ}C</annotation></semantics></math> and <math id="S2.SS2.p10.m2" class="ltx_Math" alttext="37^{\circ}C" display="inline"><semantics><mrow><msup><mn>37</mn><mo>∘</mo></msup><mo>⁢</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">37^{\circ}C</annotation></semantics></math>), were given as input, and contributing components and solubility products were selected as represented in Table <a href="#T3" title="Table 5.3 ‣ 5.2.2 Computational model construction ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.3</span></a>.</p>
+</div>
+<figure id="T3" class="ltx_table">
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table">Table 5.3: </span>Solubility products of related chemical reactions at <math id="T3.m1" class="ltx_Math" alttext="25^{\circ}C" display="inline"><semantics><mrow><msup><mn>25</mn><mo>∘</mo></msup><mo>⁢</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">25^{\circ}C</annotation></semantics></math> (RT) and <math id="T3.m2" class="ltx_Math" alttext="37^{\circ}C" display="inline"><semantics><mrow><msup><mn>37</mn><mo>∘</mo></msup><mo>⁢</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">37^{\circ}C</annotation></semantics></math> <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib193" title="Low interfacial pH discloses the favorable biodegradability of several mg alloys" class="ltx_ref">266</a>]</cite></figcaption><div class="bml-overflow-wrapper">
+<table class="ltx_tabular ltx_centering ltx_align_middle">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_t">Chemical reaction</td>
+<td class="ltx_td ltx_align_center ltx_border_t"><math id="T3.m3" class="ltx_Math" alttext="pK_{sp}25^{\circ}C" display="inline"><semantics><mrow><mi>p</mi><mo>⁢</mo><msub><mi>K</mi><mrow><mi>s</mi><mo>⁢</mo><mi>p</mi></mrow></msub><mo>⁢</mo><msup><mn>25</mn><mo>∘</mo></msup><mo>⁢</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">pK_{sp}25^{\circ}C</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_t"><math id="T3.m4" class="ltx_Math" alttext="pK_{sp}37^{\circ}C" display="inline"><semantics><mrow><mi>p</mi><mo>⁢</mo><msub><mi>K</mi><mrow><mi>s</mi><mo>⁢</mo><mi>p</mi></mrow></msub><mo>⁢</mo><msup><mn>37</mn><mo>∘</mo></msup><mo>⁢</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">pK_{sp}37^{\circ}C</annotation></semantics></math></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_t"><math id="T3.m5" class="ltx_Math" alttext="\mathrm{Ca}_{5}\left(\mathrm{PO}_{4}\right)_{3}\mathrm{OH}\rightarrow 5\mathrm%
+{Ca}^{2+}+3\mathrm{PO}_{4}^{3-}+\mathrm{OH}^{-}" display="inline"><semantics><mrow><mrow><msub><mi>Ca</mi><mn>5</mn></msub><mo>⁢</mo><msub><mrow><mo>(</mo><msub><mi>PO</mi><mn>4</mn></msub><mo>)</mo></mrow><mn>3</mn></msub><mo>⁢</mo><mi>OH</mi></mrow><mo>→</mo><mrow><mrow><mn>5</mn><mo>⁢</mo><mi mathvariant="normal">C</mi><mo>⁢</mo><msup><mi mathvariant="normal">a</mi><mrow><mn>2</mn><mo>+</mo></mrow></msup></mrow><mo>+</mo><mrow><mn>3</mn><mo>⁢</mo><mi mathvariant="normal">P</mi><mo>⁢</mo><msubsup><mi mathvariant="normal">O</mi><mn>4</mn><mrow><mn>3</mn><mo>-</mo></mrow></msubsup></mrow><mo>+</mo><msup><mi>OH</mi><mo>-</mo></msup></mrow></mrow><annotation encoding="application/x-tex">\mathrm{Ca}_{5}\left(\mathrm{PO}_{4}\right)_{3}\mathrm{OH}\rightarrow 5\mathrm%
+{Ca}^{2+}+3\mathrm{PO}_{4}^{3-}+\mathrm{OH}^{-}</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_t">54.46</td>
+<td class="ltx_td ltx_align_center ltx_border_t">58.77</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center"><math id="T3.m6" class="ltx_Math" alttext="\mathrm{Mg}(\mathrm{OH})_{2}\rightarrow\mathrm{Mg}^{2}+2\mathrm{OH}^{-}" display="inline"><semantics><mrow><mrow><mi>Mg</mi><mo>⁢</mo><msub><mrow><mo stretchy="false">(</mo><mi>OH</mi><mo stretchy="false">)</mo></mrow><mn>2</mn></msub></mrow><mo>→</mo><mrow><msup><mi>Mg</mi><mn>2</mn></msup><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><mi mathvariant="normal">O</mi><mo>⁢</mo><msup><mi mathvariant="normal">H</mi><mo>-</mo></msup></mrow></mrow></mrow><annotation encoding="application/x-tex">\mathrm{Mg}(\mathrm{OH})_{2}\rightarrow\mathrm{Mg}^{2}+2\mathrm{OH}^{-}</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center">11.25</td>
+<td class="ltx_td ltx_align_center">11.25</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center"><math id="T3.m7" class="ltx_Math" alttext="\mathrm{Ca}(\mathrm{OH})_{2}\rightarrow\mathrm{Ca}^{2+}+2\mathrm{OH}^{-}" display="inline"><semantics><mrow><mrow><mi>Ca</mi><mo>⁢</mo><msub><mrow><mo stretchy="false">(</mo><mi>OH</mi><mo stretchy="false">)</mo></mrow><mn>2</mn></msub></mrow><mo>→</mo><mrow><msup><mi>Ca</mi><mrow><mn>2</mn><mo>+</mo></mrow></msup><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><mi mathvariant="normal">O</mi><mo>⁢</mo><msup><mi mathvariant="normal">H</mi><mo>-</mo></msup></mrow></mrow></mrow><annotation encoding="application/x-tex">\mathrm{Ca}(\mathrm{OH})_{2}\rightarrow\mathrm{Ca}^{2+}+2\mathrm{OH}^{-}</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center">5.20</td>
+<td class="ltx_td ltx_align_center">5.38</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center"><math id="T3.m8" class="ltx_Math" alttext="\mathrm{MgCO}_{3}\rightarrow\mathrm{Mg}^{2+}+\mathrm{CO}_{3}^{2-}" display="inline"><semantics><mrow><msub><mi>MgCO</mi><mn>3</mn></msub><mo>→</mo><mrow><msup><mi>Mg</mi><mrow><mn>2</mn><mo>+</mo></mrow></msup><mo>+</mo><msubsup><mi>CO</mi><mn>3</mn><mrow><mn>2</mn><mo>-</mo></mrow></msubsup></mrow></mrow><annotation encoding="application/x-tex">\mathrm{MgCO}_{3}\rightarrow\mathrm{Mg}^{2+}+\mathrm{CO}_{3}^{2-}</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center">8.03</td>
+<td class="ltx_td ltx_align_center">5.51</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center"><math id="T3.m9" class="ltx_Math" alttext="\mathrm{CaCO}_{3}\rightarrow\mathrm{Ca}^{2+}+\mathrm{CO}_{3}^{2-}" display="inline"><semantics><mrow><msub><mi>CaCO</mi><mn>3</mn></msub><mo>→</mo><mrow><msup><mi>Ca</mi><mrow><mn>2</mn><mo>+</mo></mrow></msup><mo>+</mo><msubsup><mi>CO</mi><mn>3</mn><mrow><mn>2</mn><mo>-</mo></mrow></msubsup></mrow></mrow><annotation encoding="application/x-tex">\mathrm{CaCO}_{3}\rightarrow\mathrm{Ca}^{2+}+\mathrm{CO}_{3}^{2-}</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center">8.48</td>
+<td class="ltx_td ltx_align_center">8.44</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center"><math id="T3.m10" class="ltx_Math" alttext="\mathrm{Mg}_{3}\left(\mathrm{PO}_{4}\right)_{2}\rightarrow 3\mathrm{Mg}^{2+}+2%
+\mathrm{PO}_{4}^{3-}" display="inline"><semantics><mrow><mrow><msub><mi>Mg</mi><mn>3</mn></msub><mo>⁢</mo><msub><mrow><mo>(</mo><msub><mi>PO</mi><mn>4</mn></msub><mo>)</mo></mrow><mn>2</mn></msub></mrow><mo>→</mo><mrow><mrow><mn>3</mn><mo>⁢</mo><mi mathvariant="normal">M</mi><mo>⁢</mo><msup><mi mathvariant="normal">g</mi><mrow><mn>2</mn><mo>+</mo></mrow></msup></mrow><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><mi mathvariant="normal">P</mi><mo>⁢</mo><msubsup><mi mathvariant="normal">O</mi><mn>4</mn><mrow><mn>3</mn><mo>-</mo></mrow></msubsup></mrow></mrow></mrow><annotation encoding="application/x-tex">\mathrm{Mg}_{3}\left(\mathrm{PO}_{4}\right)_{2}\rightarrow 3\mathrm{Mg}^{2+}+2%
+\mathrm{PO}_{4}^{3-}</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center">23.28</td>
+<td class="ltx_td ltx_align_center">27.62</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center"><math id="T3.m11" class="ltx_Math" alttext="\mathrm{H}_{2}\mathrm{O}(\mathrm{l})\rightarrow\mathrm{H}^{+}(aq)+\mathrm{OH}^%
+{-}(aq)" display="inline"><semantics><mrow><mrow><msub><mi mathvariant="normal">H</mi><mn>2</mn></msub><mo>⁢</mo><mi mathvariant="normal">O</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi mathvariant="normal">l</mi><mo stretchy="false">)</mo></mrow></mrow><mo>→</mo><mrow><mrow><msup><mi mathvariant="normal">H</mi><mo>+</mo></msup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>⁢</mo><mi>q</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>+</mo><mrow><msup><mi>OH</mi><mo>-</mo></msup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>⁢</mo><mi>q</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow><annotation encoding="application/x-tex">\mathrm{H}_{2}\mathrm{O}(\mathrm{l})\rightarrow\mathrm{H}^{+}(aq)+\mathrm{OH}^%
+{-}(aq)</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center">14.00</td>
+<td class="ltx_td ltx_align_center">13.61</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center"><math id="T3.m12" class="ltx_Math" alttext="\mathrm{HCO}^{3-}(aq)\rightarrow\mathrm{CO}_{3}^{2-}(aq)+H^{+}(aq)" display="inline"><semantics><mrow><mrow><msup><mi>HCO</mi><mrow><mn>3</mn><mo>-</mo></mrow></msup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>⁢</mo><mi>q</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>→</mo><mrow><mrow><msubsup><mi>CO</mi><mn>3</mn><mrow><mn>2</mn><mo>-</mo></mrow></msubsup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>⁢</mo><mi>q</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>+</mo><mrow><msup><mi>H</mi><mo>+</mo></msup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>⁢</mo><mi>q</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow><annotation encoding="application/x-tex">\mathrm{HCO}^{3-}(aq)\rightarrow\mathrm{CO}_{3}^{2-}(aq)+H^{+}(aq)</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center">10.33</td>
+<td class="ltx_td ltx_align_center">10.24</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_center ltx_border_b"><math id="T3.m13" class="ltx_Math" alttext="\mathrm{HPO}_{4}^{2-}(aq)\rightarrow\mathrm{PO}_{4}^{3-}(aq)+H^{+}(aq)" display="inline"><semantics><mrow><mrow><msubsup><mi>HPO</mi><mn>4</mn><mrow><mn>2</mn><mo>-</mo></mrow></msubsup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>⁢</mo><mi>q</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>→</mo><mrow><mrow><msubsup><mi>PO</mi><mn>4</mn><mrow><mn>3</mn><mo>-</mo></mrow></msubsup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>⁢</mo><mi>q</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>+</mo><mrow><msup><mi>H</mi><mo>+</mo></msup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>⁢</mo><mi>q</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow><annotation encoding="application/x-tex">\mathrm{HPO}_{4}^{2-}(aq)\rightarrow\mathrm{PO}_{4}^{3-}(aq)+H^{+}(aq)</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_b">12.35</td>
+<td class="ltx_td ltx_align_center ltx_border_b">12.32</td>
+</tr>
+</table>
+</div>
+</figure>
+<div id="S2.SS2.p11" class="ltx_para">
+<p class="ltx_p">The derived PDEs for the mechanistic model (Eqs. <a href="#E19" title="(5.19) ‣ 5.2.2 Computational model construction ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.19</span></a>, <a href="#E20" title="(5.20) ‣ 5.2.2 Computational model construction ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.20</span></a>, <a href="#E21" title="(5.21) ‣ 5.2.2 Computational model construction ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.21</span></a>, and <a href="#E22" title="(5.22) ‣ 5.2.2 Computational model construction ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.22</span></a>) were solved using a standard first-order finite element scheme. The open-source PDE solver FreeFEM <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib44" title="New development in freefem++" class="ltx_ref">112</a>]</cite> was used to implement the finite element model, resulting in a linear system of equations. The obtained equations were solved in parallel using efficient preconditioners and iterative solvers available in the open-source high-performance computing (HPC) toolkit PETSc <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib61" title="PETSc Web page" class="ltx_ref">25</a>]</cite>. The HYPRE BoomerAMG <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib69" title="Hypre: a library of high performance preconditioners" class="ltx_ref">78</a>]</cite> and FieldSplit preconditioners were applied to the reaction-diffusion PDEs and the Stokes equations, respectively, and the GMRES solver <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib66" title="GMRES: a generalized minimal residual algorithm for solving nonsymmetric linear systems" class="ltx_ref">223</a>]</cite> was used to solve the linear systems. Moreover, the computational mesh was partitioned and distributed among available computing resources using the HPDDM preconditioner <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib64" title="Scalable domain decomposition preconditioners for heterogeneous elliptic problems" class="ltx_ref">140</a>]</cite>. Additionally, a Level-Set-based approach was employed to track the change of morphology of the degrading part, on the solution of which appropriate boundary conditions for the PDEs were applied via the penalization method. The details of this implementation are presented in our published works <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib109" title="Computational modeling of degradation process of biodegradable magnesium biomaterials" class="ltx_ref">31</a>, <a href="bib.html#bib110" title="Highly scalable numerical simulation of coupled reaction–diffusion systems with moving interfaces" class="ltx_ref">30</a>]</cite> and Chapters <a href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3</span></a> and <a href="Ch7.html" title="Chapter 7 Model parallelization for high-performance computing ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">7</span></a>. Since Eq. <a href="#E22" title="(5.22) ‣ 5.2.2 Computational model construction ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.22</span></a> is a non-linear PDE, a Picard-relaxation approach was followed to linearize this equation. The linking module (module 3) was implemented as a FreeFEM plugin in C++.</p>
+</div>
+</div>
+</section>
+<section id="S2.SS3" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">5.2.3</span> Simulation setup</h3>
+
+<div id="S2.SS3.p1" class="ltx_para">
+<p class="ltx_p">Since the objective of the current study is to investigate local pH changes in regions close to the degrading metal, the computational domain was selected to include only a small portion of the chamber used in the experimental setup (Fig. <a href="#F1" title="Figure 5.1 ‣ 5.2.1 Experimental setup ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.1</span></a>). The domain was a <math id="S2.SS3.p1.m1" class="ltx_Math" alttext="3\times 3\times 3\text{mm}" display="inline"><semantics><mrow><mrow><mn>3</mn><mo>×</mo><mn>3</mn><mo>×</mo><mn>3</mn></mrow><mo>⁢</mo><mtext>mm</mtext></mrow><annotation encoding="application/x-tex">3\times 3\times 3\text{mm}</annotation></semantics></math> cube on top of the degrading object, and the degrading block, represented as a disc with a diameter of <math id="S2.SS3.p1.m2" class="ltx_Math" alttext="2\text{mm}" display="inline"><semantics><mrow><mn>2</mn><mo>⁢</mo><mtext>mm</mtext></mrow><annotation encoding="application/x-tex">2\text{mm}</annotation></semantics></math> and height of <math id="S2.SS3.p1.m3" class="ltx_Math" alttext="0.3\text{mm}" display="inline"><semantics><mrow><mn>0.3</mn><mo>⁢</mo><mtext>mm</mtext></mrow><annotation encoding="application/x-tex">0.3\text{mm}</annotation></semantics></math>, was attached to the outside of the cube. The cube size was selected such that it represents the sample-centered area used in the experimental setup for line scan mapping. This setup is depicted in Fig. <a href="#F3" title="Figure 5.3 ‣ 5.2.3 Simulation setup ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.3</span></a>. The computational mesh was generated using a set of first-order tetrahedral elements, which was adaptively refined on the interface of the degrading sample to increase the numerical accuracy of the employed interface capturing technique. The Netgen mesh engine <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib47" title="NETGEN an advancing front 2d/3d-mesh generator based on abstract rules" class="ltx_ref">233</a>]</cite> in the SALOME platform <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib48" title="Salome platform component model for numerical simulation" class="ltx_ref">217</a>]</cite> was used to generate the mesh. The generated mesh contained <math id="S2.SS3.p1.m4" class="ltx_Math" alttext="{290997}" display="inline"><semantics><mn>290997</mn><annotation encoding="application/x-tex">{290997}</annotation></semantics></math> elements with <math id="S2.SS3.p1.m5" class="ltx_Math" alttext="{51757}" display="inline"><semantics><mn>51757</mn><annotation encoding="application/x-tex">{51757}</annotation></semantics></math> degrees of freedom (DOF) for each equation.</p>
+</div>
+<figure id="F3" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/kinetics/image/model_setup.jpg" id="F3.g1" class="ltx_graphics ltx_centering" width="541" height="446" alt="Computational model setup for local pH simulations: a) the geometry of the desired domain, being a small portion of the full chamber on top of the disc-like sample, b) the dimensions of the domain and applied boundary conditions for the fluid flow simulation, c) the generated computational mesh, depicting the flow region in green and the biodegradable sample in yellow, d) a cross-section of the mesh showing the refined meshing on the interface of the degradable metal."></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 5.3: </span>Computational model setup for local pH simulations: a) the geometry of the desired domain, being a small portion of the full chamber on top of the disc-like sample, b) the dimensions of the domain and applied boundary conditions for the fluid flow simulation, c) the generated computational mesh, depicting the flow region in green and the biodegradable sample in yellow, d) a cross-section of the mesh showing the refined meshing on the interface of the degradable metal.</figcaption>
+</figure>
+<div id="S2.SS3.p2" class="ltx_para">
+<p class="ltx_p">The boundary conditions include an inlet on the left of the box, an outlet on the right, a wall on the bottom except where the degrading part exists, and a free slip on top. The inlet velocity was selected to be a linear profile ranging from zero on the bottom to <math id="S2.SS3.p2.m1" class="ltx_Math" alttext="0.01\text{mm.s}^{-1}" display="inline"><semantics><mrow><mn>0.01</mn><mo>⁢</mo><msup><mtext>mm.s</mtext><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">0.01\text{mm.s}^{-1}</annotation></semantics></math> on the top, a value coming from solving the Navier-Stokes equations in the full chamber model (described in Chapter <a href="Ch4.html" title="Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4</span></a>).</p>
+</div>
+<div id="S2.SS3.p3" class="ltx_para">
+<p class="ltx_p">The values of model parameters were set based on our previous work <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib109" title="Computational modeling of degradation process of biodegradable magnesium biomaterials" class="ltx_ref">31</a>]</cite> (Chapter <a href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3</span></a>), but the following assumptions were also applied for selecting the proper parameters of the coupled computational model:</p>
+<ol id="S2.I2" class="ltx_enumerate">
+<li id="S2.I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span><div id="S2.I2.i1.p1" class="ltx_para">​<p class="ltx_p">Diffusion rate of hydroxide ions is 5-10 times more than the rate of Mg ions, so <math id="S2.I2.i1.p1.m1" class="ltx_Math" alttext="D_{\mathrm{OH}}" display="inline"><semantics><msub><mi>D</mi><mi>OH</mi></msub><annotation encoding="application/x-tex">D_{\mathrm{OH}}</annotation></semantics></math> was set as <math id="S2.I2.i1.p1.m2" class="ltx_Math" alttext="D_{\mathrm{OH}}=7.5D_{\mathrm{Mg}}" display="inline"><semantics><mrow><msub><mi>D</mi><mi>OH</mi></msub><mo>=</mo><mrow><mn>7.5</mn><mo>⁢</mo><msub><mi>D</mi><mi>Mg</mi></msub></mrow></mrow><annotation encoding="application/x-tex">D_{\mathrm{OH}}=7.5D_{\mathrm{Mg}}</annotation></semantics></math> <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib194" title="Mg biodegradation mechanism deduced from the local surface environment under simulated physiological conditions" class="ltx_ref">92</a>]</cite>.</p>
+</div>
+</li>
+<li id="S2.I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span><div id="S2.I2.i2.p1" class="ltx_para">​<p class="ltx_p">The hydroxyapatite-like precipitation does not form immediately at the beginning and emerges later <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib194" title="Mg biodegradation mechanism deduced from the local surface environment under simulated physiological conditions" class="ltx_ref">92</a>, <a href="bib.html#bib193" title="Low interfacial pH discloses the favorable biodegradability of several mg alloys" class="ltx_ref">266</a>]</cite>. In the current model, it is set to start forming after the first hour of simulation time.</p>
+</div>
+</li>
+<li id="S2.I2.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">3.</span><div id="S2.I2.i3.p1" class="ltx_para">​<p class="ltx_p">The magnesium hydroxide layer is ticker at <math id="S2.I2.i3.p1.m1" class="ltx_Math" alttext="37^{\circ}C" display="inline"><semantics><mrow><msup><mn>37</mn><mo>∘</mo></msup><mo>⁢</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">37^{\circ}C</annotation></semantics></math> <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib193" title="Low interfacial pH discloses the favorable biodegradability of several mg alloys" class="ltx_ref">266</a>]</cite>, so the film elimination parameter (<math id="S2.I2.i3.p1.m2" class="ltx_Math" alttext="k_{2}" display="inline"><semantics><msub><mi>k</mi><mn>2</mn></msub><annotation encoding="application/x-tex">k_{2}</annotation></semantics></math>) was set to be 50 times lower in this temperature in comparison to the room temperate.</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="S2.SS3.p4" class="ltx_para">
+<p class="ltx_p">The density of the electrolyte was selected to be <math id="S2.SS3.p4.m1" class="ltx_Math" alttext="1.085\times 10^{-3}\text{g.mm}^{-3}" display="inline"><semantics><mrow><mrow><mn>1.085</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>3</mn></mrow></msup></mrow><mo>⁢</mo><msup><mtext>g.mm</mtext><mrow><mo>-</mo><mn>3</mn></mrow></msup></mrow><annotation encoding="application/x-tex">1.085\times 10^{-3}\text{g.mm}^{-3}</annotation></semantics></math>, and the dynamic viscosity was set to <math id="S2.SS3.p4.m2" class="ltx_Math" alttext="1.28\times 10^{-3}\text{g.mm}^{-1}\text{s}^{-1}" display="inline"><semantics><mrow><mrow><mn>1.28</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>3</mn></mrow></msup></mrow><mo>⁢</mo><msup><mtext>g.mm</mtext><mrow><mo>-</mo><mn>1</mn></mrow></msup><mo>⁢</mo><msup><mtext>s</mtext><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">1.28\times 10^{-3}\text{g.mm}^{-1}\text{s}^{-1}</annotation></semantics></math>. The simulations were carried out on the Snellius supercomputer using 100 CPU cores on a thin node with 256 GB of total memory.</p>
+</div>
+</div>
+</section>
+</div>
+</section>
+<section id="S3" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">5.3</span> Results</h2>
+
+<section id="S3.SS1" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">5.3.1</span> Thermodynamics-based simulation</h3>
+
+<div id="S3.SS1.p1" class="ltx_para">
+<p class="ltx_p">Inputting the experimental conditions in the Hydra-Medusa software, including the initial composition of the electrolyte, temperature and the contributing chemical components, results in a big and complex output containing all the possible occurring chemical reactions. From this output, relevant reactions for the current biodegradation systems were filtered out, and the filtered reactions were converted to desired concentration units. Fig. <a href="#F4" title="Figure 5.4 ‣ 5.3.1 Thermodynamics-based simulation ‣ 5.3 Results ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.4</span></a> depicts the output of this process separately for simulations performed at <math id="S3.SS1.p1.m1" class="ltx_Math" alttext="25^{\circ}C" display="inline"><semantics><mrow><msup><mn>25</mn><mo>∘</mo></msup><mo>⁢</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">25^{\circ}C</annotation></semantics></math> (RT) and <math id="S3.SS1.p1.m2" class="ltx_Math" alttext="37^{\circ}C" display="inline"><semantics><mrow><msup><mn>37</mn><mo>∘</mo></msup><mo>⁢</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">37^{\circ}C</annotation></semantics></math>, showing how the concentration of relevant components varies with changing the environment pH. The solubility products of these simulations were taken from Table <a href="#T3" title="Table 5.3 ‣ 5.2.2 Computational model construction ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.3</span></a>, and equilibrium concentrations were set to be equal to the electrolyte composition, listed in Table <a href="#T2" title="Table 5.2 ‣ 5.2.1 Experimental setup ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.2</span></a>. These results (module 2) were used by the linking module (module 3) to provide equilibrium information for the mechanistic model (module 1).</p>
+</div>
+<figure id="F4" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/kinetics/image/medusa_profiles.png" id="F4.g1" class="ltx_graphics ltx_centering" width="541" height="208" alt="Selected relevant components from the Hydra-Medusa software output for given experimental conditions, showing how the concentration of various components vary with changing local pH"></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 5.4: </span>Selected relevant components from the Hydra-Medusa software output for given experimental conditions, showing how the concentration of various components vary with changing local pH</figcaption>
+</figure>
+</div>
+</section>
+<section id="S3.SS2" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">5.3.2</span> Biodegradation simulations</h3>
+
+<div id="S3.SS2.p1" class="ltx_para">
+<p class="ltx_p">In the current study, the local pH profiles, i.e., the pattern of pH changes in the region close to the degradation surface, were used to validate the developed coupled computational model. The comparison between computational predictions and experimental results was made in 3 different ways: 1) qualitative comparison of pH distribution above the degradable metal in a sample-centered square with an edge size of <math id="S3.SS2.p1.m1" class="ltx_Math" alttext="3\text{mm}" display="inline"><semantics><mrow><mn>3</mn><mo>⁢</mo><mtext>mm</mtext></mrow><annotation encoding="application/x-tex">3\text{mm}</annotation></semantics></math>, 2) comparing the horizontal pH profiles, where the pH was measured over a line parallel to the sample, and 3) comparing vertical pH profiles, in which the pH was measured over a distance from the surface of the sample to the bulk of the electrolyte.</p>
+</div>
+<div id="S3.SS2.p2" class="ltx_para">
+<p class="ltx_p">Fig. <a href="#F5" title="Figure 5.5 ‣ 5.3.2 Biodegradation simulations ‣ 5.3 Results ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.5</span></a> shows a visualization of the local pH profiles from the top and side views for simulations performed at <math id="S3.SS2.p2.m1" class="ltx_Math" alttext="25^{\circ}C" display="inline"><semantics><mrow><msup><mn>25</mn><mo>∘</mo></msup><mo>⁢</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">25^{\circ}C</annotation></semantics></math> (RT) and <math id="S3.SS2.p2.m2" class="ltx_Math" alttext="37^{\circ}C" display="inline"><semantics><mrow><msup><mn>37</mn><mo>∘</mo></msup><mo>⁢</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">37^{\circ}C</annotation></semantics></math> after 12 hours. These patterns are comparable with the local pH distribution measured in the experiments, as shown in Fig. <a href="#F6" title="Figure 5.6 ‣ 5.3.2 Biodegradation simulations ‣ 5.3 Results ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.6</span></a>. In these figures, the flow is from left to right, advecting the released ions in the flow direction.</p>
+</div>
+<figure id="F5" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/kinetics/image/local_ph_visual.jpg" id="F5.g1" class="ltx_graphics ltx_centering" width="541" height="571" alt="Simulation results for local pH predictions, depicting the local pH in a) top view from a horizontal cross-section, b) side view from a vertical cross-section, and c) perspective view with both the top and side cross sections, for simulations performed at "></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 5.5: </span>Simulation results for local pH predictions, depicting the local pH in a) top view from a horizontal cross-section, b) side view from a vertical cross-section, and c) perspective view with both the top and side cross sections, for simulations performed at <math id="F5.m1" class="ltx_Math" alttext="25^{\circ}C" display="inline"><semantics><mrow><msup><mn>25</mn><mo>∘</mo></msup><mo>⁢</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">25^{\circ}C</annotation></semantics></math> (RT) and <math id="F5.m2" class="ltx_Math" alttext="37^{\circ}C" display="inline"><semantics><mrow><msup><mn>37</mn><mo>∘</mo></msup><mo>⁢</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">37^{\circ}C</annotation></semantics></math>.</figcaption>
+</figure>
+<figure id="F6" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/kinetics/image/local_ph_experimental.jpg" id="F6.g1" class="ltx_graphics ltx_centering" width="541" height="397" alt="Experimental results for the distribution of local pH above the surface of the sample, measured after 12 hours of degradation."></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 5.6: </span>Experimental results for the distribution of local pH above the surface of the sample, measured after 12 hours of degradation.</figcaption>
+</figure>
+<div id="S3.SS2.p3" class="ltx_para">
+<p class="ltx_p">Quantitative profiles provide a more accurate comparison between the computational predictions and experimentally-obtained values. The horizontal profiles, also called line scans, are depicted in Fig. <a href="#F8" title="Figure 5.8 ‣ 5.3.2 Biodegradation simulations ‣ 5.3 Results ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.8</span></a>, in which the local pH changes are plotted over a horizontal line located <math id="S3.SS2.p3.m1" class="ltx_Math" alttext="50\mu\mathrm{m}" display="inline"><semantics><mrow><mn>50</mn><mo>⁢</mo><mi>μ</mi><mo>⁢</mo><mi mathvariant="normal">m</mi></mrow><annotation encoding="application/x-tex">50\mu\mathrm{m}</annotation></semantics></math> above the surface of the sample. The profiles are shown separately for the experiments performed with CP and UHP Mg and the computational model. The results were recorded after 3, 6, and 12 hours of immersion.</p>
+</div>
+<figure id="F7" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/kinetics/image/line_scans.png" id="F7.g1" class="ltx_graphics ltx_centering" width="541" height="217" alt="Comparing computational predictions and experimentally-obtained horizontal line scans of local pH changes, measured "></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 5.7: </span>Comparing computational predictions and experimentally-obtained horizontal line scans of local pH changes, measured <math id="F7.m1" class="ltx_Math" alttext="50\mu\mathrm{m}" display="inline"><semantics><mrow><mn>50</mn><mo>⁢</mo><mi>μ</mi><mo>⁢</mo><mi mathvariant="normal">m</mi></mrow><annotation encoding="application/x-tex">50\mu\mathrm{m}</annotation></semantics></math> above the surface of the sample after 3, 6, and 12 hours of degradation.</figcaption>
+</figure>
+<div id="S3.SS2.p4" class="ltx_para">
+<p class="ltx_p">Similarly, Fig. <a href="#F8" title="Figure 5.8 ‣ 5.3.2 Biodegradation simulations ‣ 5.3 Results ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.8</span></a> shows the vertical pH profile after 12 hours of degradation, which was the final time of the simulation. The local pH is measured over a distance of <math id="S3.SS2.p4.m1" class="ltx_Math" alttext="0.5\mathrm{mm}" display="inline"><semantics><mrow><mn>0.5</mn><mo>⁢</mo><mi>mm</mi></mrow><annotation encoding="application/x-tex">0.5\mathrm{mm}</annotation></semantics></math> vertically, starting from <math id="S3.SS2.p4.m2" class="ltx_Math" alttext="50\mu\mathrm{m}" display="inline"><semantics><mrow><mn>50</mn><mo>⁢</mo><mi>μ</mi><mo>⁢</mo><mi mathvariant="normal">m</mi></mrow><annotation encoding="application/x-tex">50\mu\mathrm{m}</annotation></semantics></math> above the sample.</p>
+</div>
+<figure id="F8" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/kinetics/image/vertical_profile.png" id="F8.g1" class="ltx_graphics ltx_centering" width="541" height="217" alt="Comparing computational and experimental results for the local pH profiles, measured over a vertical line above the center of the sample after 12 hours of immersion."></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 5.8: </span>Comparing computational and experimental results for the local pH profiles, measured over a vertical line above the center of the sample after 12 hours of immersion.</figcaption>
+</figure>
+</div>
+</section>
+</div>
+</section>
+<section id="S4" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">5.4</span> Discussion</h2>
+
+<div id="S4.p1" class="ltx_para">
+<p class="ltx_p">In this study, an interface-coupled multiphysics biodegradation model was developed in order to predict the corrosion behavior in simulated body fluids in the presence of various chemical components. The quantity to compare with the experimental results was the predicted local pH, which reflects the capabilities of the model to capture the complex chemistry occurring near the biodegradation interface. For this end, our previous biodegradation model <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib109" title="Computational modeling of degradation process of biodegradable magnesium biomaterials" class="ltx_ref">31</a>]</cite> (Chapter <a href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3</span></a>) was extended and coupled with a fluid flow model capturing the hydrodynamics condition. Then, the coupled model was linked to a thermodynamics-based code for computing the concentration of involved chemical components, the results of which were provided back to the biodegradation model via a linking module to compute the concentration of the precipitation layer.</p>
+</div>
+<div id="S4.p2" class="ltx_para">
+<p class="ltx_p">It has been shown that the local pH changes can be a reflective characteristic of the biodegradation process in SBF-like solutions <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib194" title="Mg biodegradation mechanism deduced from the local surface environment under simulated physiological conditions" class="ltx_ref">92</a>, <a href="bib.html#bib193" title="Low interfacial pH discloses the favorable biodegradability of several mg alloys" class="ltx_ref">266</a>]</cite>. Consequently, the vertical and horizontal local pH profiles can be reasonably used for the validation of the computational models of the biodegradation process. Capturing the complex interaction of various chemical components on the biodegradation interface in a mechanistic model can be a big challenge, especially for 3D cases with any arbitrary shape. That’s why several modules were coupled in the current study to deliver such a model.</p>
+</div>
+<div id="S4.p3" class="ltx_para">
+<p class="ltx_p">In this work, while the experiments were performed using CP and UHP Mg, the computational model does not take into account the difference in the elemental composition of these materials. Instead, the biodegradation model was developed by ignoring the effect of alloying elements and impurities. There are noticeable quantitative and qualitative variations in the obtained experimental results, such as different behavior of CP and UHP for horizontal pH profiles in line scan mappings (Fig. <a href="#F7" title="Figure 5.7 ‣ 5.3.2 Biodegradation simulations ‣ 5.3 Results ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.7</span></a>) and distribution of local pH above the sample (Fig. <a href="#F6" title="Figure 5.6 ‣ 5.3.2 Biodegradation simulations ‣ 5.3 Results ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.6</span></a>). However, these differences are still roughly the same behavior and quantity, which support the performed assumption and simplification of ignoring the dissimilarity of elemental composition. As a consequence, the computational results, including the pH profiles (Fig. <a href="#F8" title="Figure 5.8 ‣ 5.3.2 Biodegradation simulations ‣ 5.3 Results ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.8</span></a>), line scans (Fig. <a href="#F7" title="Figure 5.7 ‣ 5.3.2 Biodegradation simulations ‣ 5.3 Results ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.7</span></a>), and local pH distributions (Fig. <a href="#F5" title="Figure 5.5 ‣ 5.3.2 Biodegradation simulations ‣ 5.3 Results ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.5</span></a>), lies between the values and profiles obtained for CP and UHP Mg.</p>
+</div>
+<div id="S4.p4" class="ltx_para">
+<p class="ltx_p">Recent studies on measuring local pH changes on the biodegradation surface of Mg alloys show that the local values are different from the pH within the bulk of the electrolyte <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib194" title="Mg biodegradation mechanism deduced from the local surface environment under simulated physiological conditions" class="ltx_ref">92</a>]</cite>. For example, in the tests performed by Mareci et al. <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib245" title="Electrochemical characteristics of bioresorbable binary MgCa alloys in ringer's solution: revealing the impact of local pH distributions during in-vitro dissolution" class="ltx_ref">185</a>]</cite>, such observation was made when the vertical pH profiles were compared to the global pH values. Similar behavior was observed in the Wang et al. work <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib193" title="Low interfacial pH discloses the favorable biodegradability of several mg alloys" class="ltx_ref">266</a>]</cite>. Reproducing this behavior is problematic in mechanistic computational models due to the uniformity of the diffusion of hydroxide ions that change the pH. In other words, a uniform diffusion with a relatively high diffusion coefficient leads to the same local and global pH values. In the model presented here however, spatially dependent behavior was successfully reproduced <span class="ltx_text ltx_font_italic">in silico</span> by letting a narrow film form at the beginning of the mechanistic biodegradation simulation and then computing the interaction of various ions in this narrow region by using the coupled thermodynamics-based code. Comparing the results of the predicted vertical pH profiles with the experimentally obtained curves (Fig. <a href="#F8" title="Figure 5.8 ‣ 5.3.2 Biodegradation simulations ‣ 5.3 Results ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.8</span></a>) shows good agreement, implying that the employed approach was able to mimic the complex chemistry on the biodegradation surface from a quantitative point of view. Yet, a different behavior can be observed further away from the surface where the local pH approaches the global value. In experimental results, this happens at a shorter distance from the implant compared to the computational predictions (Fig. <a href="#F8" title="Figure 5.8 ‣ 5.3.2 Biodegradation simulations ‣ 5.3 Results ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.8</span></a>) where yielding to the global pH seems to occur at longer distances from the biodegradation surface. This behavior can be confirmed by the visualization of computed pH (Fig. <a href="#F5" title="Figure 5.5 ‣ 5.3.2 Biodegradation simulations ‣ 5.3 Results ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.5</span></a>) and is due to the uniform diffusion mechanism of ions in the computational model, causing a gradient in the bulk part outside of the narrow formed region.</p>
+</div>
+<div id="S4.p5" class="ltx_para">
+<p class="ltx_p">The results of horizontal line scan mapping on the surface of the sample and local pH distribution (Figs. <a href="#F7" title="Figure 5.7 ‣ 5.3.2 Biodegradation simulations ‣ 5.3 Results ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.7</span></a> and <a href="#F6" title="Figure 5.6 ‣ 5.3.2 Biodegradation simulations ‣ 5.3 Results ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.6</span></a>) show that the pH starts to change in regions above the sample. In the computational predictions depicted in Fig. <a href="#F7" title="Figure 5.7 ‣ 5.3.2 Biodegradation simulations ‣ 5.3 Results ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.7</span></a>, the change of pH starts sharply when the line scan reaches the sample, a behavior rooted in the presence of the fluid flow model, which prevents ions from being diffused to the left, as shown in Fig. <a href="#F5" title="Figure 5.5 ‣ 5.3.2 Biodegradation simulations ‣ 5.3 Results ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.5</span></a>. Similarly, the advected ions in the direction of fluid flow (to the right in Fig. <a href="#F5" title="Figure 5.5 ‣ 5.3.2 Biodegradation simulations ‣ 5.3 Results ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.5</span></a>) prevent the pH value from decreasing dramatically where the sample ends in the line scan mapping. Moreover, the line scans show different behavior for experiments performed at room temperature compared to <math id="S4.p5.m1" class="ltx_Math" alttext="37^{\circ}\text{C}" display="inline"><semantics><mrow><msup><mn>37</mn><mo>∘</mo></msup><mo>⁢</mo><mtext>C</mtext></mrow><annotation encoding="application/x-tex">37^{\circ}\text{C}</annotation></semantics></math>, especially for CP Mg samples. At RT, the horizontal pH profile tends to descend slightly over time, meaning that the profile measured after 3 hours of degradation is placed above the one measured after 12 hours. This behavior occurs oppositely for the measurement done at <math id="S4.p5.m2" class="ltx_Math" alttext="37^{\circ}\text{C}" display="inline"><semantics><mrow><msup><mn>37</mn><mo>∘</mo></msup><mo>⁢</mo><mtext>C</mtext></mrow><annotation encoding="application/x-tex">37^{\circ}\text{C}</annotation></semantics></math>. The computational predictions of line scan profiles follow the same pattern, which could be due to how the coupled model computed the change of concentration of various chemical components and their contribution to the change of local pH.</p>
+</div>
+<div id="S4.p6" class="ltx_para">
+<p class="ltx_p">Regarding the horizontal line scan results, a slight increase in the local pH values can be observed in the computational results in the region where the sample ends (Fig. <a href="#F7" title="Figure 5.7 ‣ 5.3.2 Biodegradation simulations ‣ 5.3 Results ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.7</span></a>). Although a similar behavior can be seen in the experimentally-obtained line scans (Fig. <a href="#F6" title="Figure 5.6 ‣ 5.3.2 Biodegradation simulations ‣ 5.3 Results ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.6</span></a>), it should be further investigated from the numerical implementation perspective to make sure that numerical artifacts do not contribute to it. One possible approach that may help remove numerical artifacts in this regard is to make the type of employed boundary conditions consistent in the employed fluid flow model. In the current model, a velocity condition was used for the inlet while the outlet condition was fixed pressure. Using the same type of boundary conditions for both inlet and outlet, meaning either assigning pressure conditions to the inlet or velocity to the outlet, can be considered in further extensions of the model to check their effect on the obtained local pH results.</p>
+</div>
+<div id="S4.p7" class="ltx_para">
+<p class="ltx_p">As mentioned before, various chemical components of the electrolyte contribute differently to the change of pH, among which <math id="S4.p7.m1" class="ltx_Math" alttext="\mathrm{Ca}^{2+}" display="inline"><semantics><msup><mi>Ca</mi><mrow><mn>2</mn><mo>+</mo></mrow></msup><annotation encoding="application/x-tex">\mathrm{Ca}^{2+}</annotation></semantics></math> seems to have the most intricate effect <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib6" title="The interface between degradable mg and tissue" class="ltx_ref">276</a>]</cite>. It has been reported that in the absence of <math id="S4.p7.m2" class="ltx_Math" alttext="\mathrm{Ca}^{2+}" display="inline"><semantics><msup><mi>Ca</mi><mrow><mn>2</mn><mo>+</mo></mrow></msup><annotation encoding="application/x-tex">\mathrm{Ca}^{2+}</annotation></semantics></math> ions, the surface pH tends to be between 10 and 11, the typical range for pH value in biodegradation tests performed in saline solution <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib194" title="Mg biodegradation mechanism deduced from the local surface environment under simulated physiological conditions" class="ltx_ref">92</a>]</cite>. This value is in line with the computational predictions of our previous study <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib109" title="Computational modeling of degradation process of biodegradable magnesium biomaterials" class="ltx_ref">31</a>]</cite> (Chapter <a href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3</span></a>). However, in presence of <math id="S4.p7.m3" class="ltx_Math" alttext="\mathrm{Ca}^{2+}" display="inline"><semantics><msup><mi>Ca</mi><mrow><mn>2</mn><mo>+</mo></mrow></msup><annotation encoding="application/x-tex">\mathrm{Ca}^{2+}</annotation></semantics></math> cations, local pH between 7.8 and 8.5 and significantly lower degradation rates are reported <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib12" title="The role of individual components of simulated body fluid on the corrosion behavior of commercially pure mg" class="ltx_ref">192</a>, <a href="bib.html#bib246" title="Magnesium fabricated using additive technology: specificity of corrosion and protection" class="ltx_ref">90</a>, <a href="bib.html#bib247" title="Localized corrosion behavior of AZ31b magnesium alloy with an electrodeposited poly(3,4-ethylenedioxythiophene) coating" class="ltx_ref">254</a>, <a href="bib.html#bib248" title="Complex anticorrosion coating for ZK30 magnesium alloy" class="ltx_ref">153</a>]</cite>. These findings are in line with the predictions made by the model presented in this chapter, obtained by coupling a mechanistic modeling approach and chemical equilibrium modeling, the latter of which considers the presence of <math id="S4.p7.m4" class="ltx_Math" alttext="\mathrm{Ca}^{2+}" display="inline"><semantics><msup><mi>Ca</mi><mrow><mn>2</mn><mo>+</mo></mrow></msup><annotation encoding="application/x-tex">\mathrm{Ca}^{2+}</annotation></semantics></math>.</p>
+</div>
+<div id="S4.p8" class="ltx_para">
+<p class="ltx_p">The simplification assumptions made for developing the computational model, including the correlation between the diffusion rates of hydroxide and Mg ions, higher film elimination rate at room temperature, and the time at which the precipitation layer starts to form, can be seen as the limitations of the developed model. Regarding the latter mentioned assumption, the time was hard-coded into the model due to limitations of implementing the actual mechanisms of inducing the precipitation in the model. This can be improved in further developments of the model by incorporating a kinetics-based description of the precipitation layer formation, similar to the formation of magnesium hydroxide layer defined using a PDE (Eq. <a href="#E20" title="(5.20) ‣ 5.2.2 Computational model construction ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.20</span></a>). This improvement will remove the necessity of the assumption made for linking the results obtained in equilibrium using the thermodynamics-based code (module 2) with the kinetics-based model (module 1), which was elaborated in section <a href="#S2.SS2" title="5.2.2 Computational model construction ‣ 5.2 Methods ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.2.2</span></a>.</p>
+</div>
+<div id="S4.p9" class="ltx_para">
+<p class="ltx_p">Knowing the mechanism of ionic activities at regions close to the biodegradation interface is crucial for comprehending the chemical process of Mg in complex solutions such as simulated physiological conditions. The developed computational model can be seen as an a facilitating tool for moving towards understanding these mechanisms by making it possible to virtually investigate the effective parameters such as the flow rate and environment composition. This knowledge will be helpful for biomedical applications where new coating and stabilization systems can be developed for different implantation environments.</p>
+</div>
+</div>
+</section>
+<section id="S5" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">5.5</span> Conclusion</h2>
+
+<div id="S5.p1" class="ltx_para">
+<p class="ltx_p">In this chapter, the model developed in Chapter <a href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3</span></a> was extended and combined with the fluid flow model developed in Chapter <a href="Ch4.html" title="Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4</span></a> to deliver a computational model of the biodegradation process in hydrodynamics conditions capable of predicting local pH changes close to the corrosion surface. In order to simulate local pH evolution in simulated body fluids, the precipitation of the hydroxyapatite-like protective model should be modeled. This was done by coupling the mentioned model with a thermodynamics-based code to compute the concentration of active chemical components contributing to the formation of the protective layer on the degradation interface. Results obtained from the coupled model show a good agreement with experimentally-obtained local pH measurements, demonstrating the effectiveness of the developed simulation workflow.</p>
+</div>
+<div class="ltx_pagination ltx_role_newpage"></div>
+</div>
+</section>
+</div>
+</section>
+</div>
+</div>
+</div>
+<a href="Ch4.html" class="navigation navigation-prev" aria-label="Previous page"><i class="fa fa-angle-left"></i></a><a href="Ch6.html" class="navigation navigation-next" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+</div>
+</div>
+<script src="bookml/gitbook/js/app.min.js"></script>
+<script src="bookml/gitbook/js/jquery.highlight.js"></script>
+<script src="bookml/gitbook/js/plugin-search.js"></script>
+<script src="bookml/gitbook/js/plugin-fontsettings.js"></script>
+<script src="bookml/gitbook/js/plugin-bookdown.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script>
+        MathJax = {
+          startup: {
+            ready() {
+              // do not process equations disabled with \bmlDisableMathJax (code suggested by Davide P. Cervone)
+              class bmlFindMathML extends MathJax._.input.mathml.FindMathML.FindMathML {
+                processMath(set) {
+                  const adaptor = this.adaptor;
+                  for (const node of set.values()) {
+                    if (adaptor.hasClass(node, 'bml_disable_mathjax')) {
+                      set.delete(node);
+                    }
+                  }
+                  return super.processMath(set);
+                }
+              }
+
+              MathJax._.components.global.combineDefaults(MathJax.config, 'mml', {FindMathML: new bmlFindMathML()});
+
+              MathJax.startup.defaultReady();
+
+              // preproces MathML to make MathJax aware of certain LaTeXML and BookML additional info
+              const mmlFilters = MathJax.startup.input[0].mmlFilters;
+
+              // convert the LaTeXML calligraphic (chancery) annotation to a form MathJax understands
+              // since the corresponding Unicode characters render as script (rounded)
+              const script2latin = {
+                '𝒜': 'A', 'ℬ': 'B', '𝒞': 'C', '𝒟': 'D', 'ℰ': 'E', 'ℱ': 'F', '𝒢': 'G',
+                'ℋ': 'H', 'ℐ': 'I', '𝒥': 'J', '𝒦': 'K', 'ℒ': 'L', 'ℳ': 'M', '𝒩': 'N',
+                '𝒪': 'O', '𝒫': 'P', '𝒬': 'Q', 'ℛ': 'R', '𝒮': 'S', '𝒯': 'T', '𝒰': 'U',
+                '𝒱': 'V', '𝒲': 'W', '𝒳': 'X', '𝒴': 'Y', '𝒵': 'Z',
+              };
+
+              mmlFilters.add((args) => {
+                for (const n of args.data.getElementsByClassName('ltx_font_mathcaligraphic')) {
+                  n.classList.add('MJX-tex-calligraphic');
+                  const letter = script2latin[n.textContent];
+                  if (letter !== undefined) { n.textContent = letter; }
+                }
+              });
+
+              // adjust characters based on Unicode variation sequences
+              const replacements = {
+                // MathJax renders the empty set as the U+FE00 variant, so the plain character needs adjusting
+                '∅': { variant: 'variant' },
+                // MathJax renders script characters in rounded style, which is fine for no variation and U+FE00
+                '𝒜\xFE00': { text: 'A', variant: 'tex-calligraphic' },
+                'ℬ\xFE00': { text: 'B', variant: 'tex-calligraphic' },
+                '𝒞\xFE00': { text: 'C', variant: 'tex-calligraphic' },
+                '𝒟\xFE00': { text: 'D', variant: 'tex-calligraphic' },
+                'ℰ\xFE00': { text: 'E', variant: 'tex-calligraphic' },
+                'ℱ\xFE00': { text: 'F', variant: 'tex-calligraphic' },
+                '𝒢\xFE00': { text: 'G', variant: 'tex-calligraphic' },
+                'ℋ\xFE00': { text: 'H', variant: 'tex-calligraphic' },
+                'ℐ\xFE00': { text: 'I', variant: 'tex-calligraphic' },
+                '𝒥\xFE00': { text: 'J', variant: 'tex-calligraphic' },
+                '𝒦\xFE00': { text: 'K', variant: 'tex-calligraphic' },
+                'ℒ\xFE00': { text: 'L', variant: 'tex-calligraphic' },
+                'ℳ\xFE00': { text: 'M', variant: 'tex-calligraphic' },
+                '𝒩\xFE00': { text: 'N', variant: 'tex-calligraphic' },
+                '𝒪\xFE00': { text: 'O', variant: 'tex-calligraphic' },
+                '𝒫\xFE00': { text: 'P', variant: 'tex-calligraphic' },
+                '𝒬\xFE00': { text: 'Q', variant: 'tex-calligraphic' },
+                'ℛ\xFE00': { text: 'R', variant: 'tex-calligraphic' },
+                '𝒮\xFE00': { text: 'S', variant: 'tex-calligraphic' },
+                '𝒯\xFE00': { text: 'T', variant: 'tex-calligraphic' },
+                '𝒰\xFE00': { text: 'U', variant: 'tex-calligraphic' },
+                '𝒱\xFE00': { text: 'V', variant: 'tex-calligraphic' },
+                '𝒲\xFE00': { text: 'W', variant: 'tex-calligraphic' },
+                '𝒳\xFE00': { text: 'X', variant: 'tex-calligraphic' },
+                '𝒴\xFE00': { text: 'Y', variant: 'tex-calligraphic' },
+                '𝒵\xFE00': { text: 'Z', variant: 'tex-calligraphic' }
+              };
+
+              mmlFilters.add((args) => {
+                let nodes = document.evaluate('.//m:mi | .//m:mn | .//m:mo | .//m:ms', args.data,
+                  () => 'http://www.w3.org/1998/Math/MathML', XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE);
+                for (let i = 0; i < nodes.snapshotLength; i++) {
+                  const n = nodes.snapshotItem(i);
+                  const repl = replacements[n.innerHTML];
+                  if (repl !== undefined) {
+                    const variant = repl['variant'];
+                    const text = repl['text'];
+                    if (variant !== undefined) { n.classList.add('MJX-' + variant); n.removeAttribute('mathvariant'); }
+                    if (text !== undefined) { n.innerHTML = text; }
+                  }
+                }
+              });
+            }
+          }
+        };
+      </script>
+<script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js"></script>
+<script type="text/javascript">
+                gitbook.require(["gitbook"], function(gitbook) {
+                gitbook.start({
+                  "fontsettings": {
+                    "theme": "white",
+                    "family": "sans",
+                    "size": 2
+                  },
+                  "download": [ [ "thesis.pdf", "PDF" ], ],
+                  "search": {
+                    "engine": "fuse"
+                  },
+                  "toc": {
+                    "collapse": "none"
+                  }
+                });
+              });
+            </script>
+</body>
+
+</html>

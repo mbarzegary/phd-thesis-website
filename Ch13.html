@@ -1,0 +1,501 @@
+<!DOCTYPE html><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>13 Conclusion‣ Mathematical and computational modeling of metallic biomaterials biodegradation</title>
+<!--Generated on Sat Aug 31 17:26:45 2024 by LaTeXML (version 0.8.6) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on KU Leuven, June 2023.-->
+
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/style.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/plugin-table.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/plugin-search.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/plugin-bookdown.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/plugin-fontsettings.css" type="text/css">
+<link rel="stylesheet" href="ltx-report.css" type="text/css">
+<link rel="stylesheet" href="bookml/CSS/style.css" type="text/css">
+<link rel="stylesheet" href="bookml/CSS/style.gitbook,plain.css" type="text/css">
+<link rel="stylesheet" href="bookml/CSS/style.gitbook.css" type="text/css">
+<link rel="stylesheet" href="bmluser/colors.gitbook-thesis.css" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6"></script>
+<link rel="up" href="index.html" title="Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="start" href="index.html" title="Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="prev" href="Ch12.html" title="Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="next" href="bib.html" title="Bibliography ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Chx1.html" title="Abstract ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch1.html" title="Chapter 1 General introduction ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch2.html" title="Chapter 2 Aims and objectives ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch4.html" title="Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch5.html" title="Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch6.html" title="Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch7.html" title="Chapter 7 Model parallelization for high-performance computing ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch8.html" title="Chapter 8 BioDeg simulation software ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch9.html" title="Chapter 9 Bayesian parameter estimation of the computational models ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch10.html" title="Chapter 10 Model applications: patient-specific porous acetabular implants ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch11.html" title="Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch12.html" title="Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="bibliography" href="bib.html" title="Bibliography ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="appendix" href="A1.html" title="Appendix A Mesh quality plots ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+</head>
+<body>
+<div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+<a href="#bml-main-content" tabindex="0" class="bml-skip-to-content">Skip to content.</a>
+<div class="book-summary"><nav class="ltx_page_navbar">
+<ul class="ltx_toclist summary">
+<li>
+<a href="index.html" title="Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref" rel="start">Mathematical and computational modeling of metallic biomaterials biodegradation</a>
+</li>
+<li class="divider">
+<li data-level="" data-path="Chx1.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Chx1.html" title="Abstract ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref">Abstract</a></li>
+<li data-level="1" data-path="Ch1.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch1.html" title="Chapter 1 General introduction ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">1 </span></b>General introduction</a></li>
+<li data-level="2" data-path="Ch2.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch2.html" title="Chapter 2 Aims and objectives ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">2 </span></b>Aims and objectives</a></li>
+<li data-level="3" data-path="Ch3.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">3 </span></b>Developing the core computational model</a></li>
+<li data-level="4" data-path="Ch4.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch4.html" title="Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">4 </span></b>Extending the model: adding fluid flow and convection</a></li>
+<li data-level="5" data-path="Ch5.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch5.html" title="Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">5 </span></b>Extending the model: simulating local pH evolution</a></li>
+<li data-level="6" data-path="Ch6.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch6.html" title="Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">6 </span></b>Computational modeling of the neotissue growth process</a></li>
+<li data-level="7" data-path="Ch7.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch7.html" title="Chapter 7 Model parallelization for high-performance computing ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">7 </span></b>Model parallelization for high-performance computing</a></li>
+<li data-level="8" data-path="Ch8.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch8.html" title="Chapter 8 BioDeg simulation software ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">8 </span></b>BioDeg simulation software</a></li>
+<li data-level="9" data-path="Ch9.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch9.html" title="Chapter 9 Bayesian parameter estimation of the computational models ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">9 </span></b>Bayesian parameter estimation of the computational models</a></li>
+<li data-level="10" data-path="Ch10.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch10.html" title="Chapter 10 Model applications: patient-specific porous acetabular implants ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">10 </span></b>Model applications: patient-specific porous acetabular implants</a></li>
+<li data-level="11" data-path="Ch11.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch11.html" title="Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">11 </span></b>Model applications: mechanical integrity of infilled structures</a></li>
+<li data-level="12" data-path="Ch12.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch12.html" title="Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">12 </span></b>Model applications: mechanical loosening of mandibular plates</a></li>
+<li data-level="13" data-path="" class="ltx_tocentry ltx_tocentry_chapter ltx_ref_self  chapter active">
+<a href="" title="Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">13 </span></b>Conclusion</a>
+<ul class="ltx_toclist ltx_toclist_chapter">
+<li data-level="13.1" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter "><a href="#S1" title="13.1 Thesis summary ‣ Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">13.1 </span></b>Thesis summary</a></li>
+<li data-level="13.2" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter ">
+<a href="#S2" title="13.2 General discussion, challenges and limitations ‣ Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">13.2 </span></b>General discussion, challenges and limitations</a>
+<ul class="ltx_toclist ltx_toclist_section">
+<li data-level="13.2.1" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S2.SS1" title="13.2.1 Representing the chemistry in mechanistic models ‣ 13.2 General discussion, challenges and limitations ‣ Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">13.2.1 </span></b>Representing the chemistry in mechanistic models</a></li>
+<li data-level="13.2.2" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S2.SS2" title="13.2.2 Moving interface problems ‣ 13.2 General discussion, challenges and limitations ‣ Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">13.2.2 </span></b>Moving interface problems</a></li>
+<li data-level="13.2.3" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S2.SS3" title="13.2.3 Role of open-source tools and open science ‣ 13.2 General discussion, challenges and limitations ‣ Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">13.2.3 </span></b>Role of open-source tools and open science</a></li>
+<li data-level="13.2.4" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S2.SS4" title="13.2.4 High-performance computing and scaling ‣ 13.2 General discussion, challenges and limitations ‣ Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">13.2.4 </span></b>High-performance computing and scaling</a></li>
+</ul>
+</li>
+<li data-level="13.3" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter ">
+<a href="#S3" title="13.3 Future perspectives ‣ Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">13.3 </span></b>Future perspectives</a>
+<ul class="ltx_toclist ltx_toclist_section">
+<li data-level="13.3.1" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S3.SS1" title="13.3.1 Other materials and effect of alloying elements ‣ 13.3 Future perspectives ‣ Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">13.3.1 </span></b>Other materials and effect of alloying elements</a></li>
+<li data-level="13.3.2" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S3.SS2" title="13.3.2 Biodegradation in complex electrolytes and environments ‣ 13.3 Future perspectives ‣ Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">13.3.2 </span></b>Biodegradation in complex electrolytes and environments</a></li>
+<li data-level="13.3.3" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S3.SS3" title="13.3.3 Uncertainty quantification and model credibility ‣ 13.3 Future perspectives ‣ Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">13.3.3 </span></b>Uncertainty quantification and model credibility</a></li>
+<li data-level="13.3.4" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S3.SS4" title="13.3.4 Coupled models for a wide range of applications ‣ 13.3 Future perspectives ‣ Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">13.3.4 </span></b>Coupled models for a wide range of applications</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li data-level="" data-path="bib.html" class="ltx_tocentry ltx_tocentry_bibliography  chapter "><a href="bib.html" title="Bibliography ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref">Bibliography</a></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li data-level="A" data-path="A1.html" class="ltx_tocentry ltx_tocentry_appendix  chapter "><a href="A1.html" title="Appendix A Mesh quality plots ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">A </span></b>Mesh quality plots</a></li>
+</ul>
+</nav></div>
+<div class="ltx_page_main book-body fixed">
+<div class="body-inner">
+<div class="book-header fixed" role="navigation"><h1>Conclusion</h1></div>
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="ltx_page_content page-inner" id="bml-main-content">
+<section class="ltx_chapter normal">
+<div class="section level1">
+
+<h1 class="ltx_title ltx_title_chapter">
+<span class="ltx_tag ltx_tag_chapter header-section-number">Chapter 13</span> Conclusion</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">Each chapter of this thesis consists of an independent scientific study and includes its own discussion. Consequently, this chapter provides a general summary and overall conclusions of the PhD research. Moreover, it includes an overview of the limitations and challenges we needed to tackle during the project, as well as suggested future directions and contributions to continue this line of research.</p>
+</div>
+<section id="S1" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">13.1</span> Thesis summary</h2>
+
+<div id="S1.p1" class="ltx_para">
+<p class="ltx_p">This PhD thesis presented a mechanistic model of the biodegradation process of metallic biomaterials, focusing on the <span class="ltx_text ltx_font_italic">in vitro</span> Mg biodegradation. To achieve this goal, the PhD project was divided into several objectives, each containing a specific goal, as described in Chapter <a href="Ch2.html" title="Chapter 2 Aims and objectives ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">2</span></a>. The research carried out in this PhD thesis lies at the interface of biomedical engineering, chemistry, materials science, mathematics, and computational sciences. The relevant elements of these disciplines were employed in a multidisciplinary manner to deliver a multiphysics model of the chemistry of biodegradation by considering the effect of the environment determined by the final application. After developing the model, it has been used in multiple case studies to demonstrate its integration and application capabilities, which was one of the project’s initial goals.</p>
+</div>
+<div id="S1.p2" class="ltx_para">
+<p class="ltx_p">As stated in Chapter <a href="Ch1.html" title="Chapter 1 General introduction ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">1</span></a>, building a mechanistic model of the biomaterials biodegradation for any arbitrary shape in 3D can be challenging. Despite the technical challenges, such a model can provide more accurate predictions of the underlying processes in comparison to data-driven and stochastic models. In order to build the core computational model, the chemical reactions occurring at the interface of Mg during the biodegradation were converted to a set of reaction-diffusion PDEs. Since studying the change in the morphology of the implants and medical devices can be beneficial for the design optimization processes, it was essential for the model to capture the morphological changes in the shape of the simulated 3D objects. To do this, an interface tracking technique, formulated using the level-set method, was integrated into the biodegradation model, enabling to capture the movement of the corrosion front due to the loss of material. This model was capable of reproducing the basic biodegradation behavior of commercially-pure Mg in saline and buffered solutions, typical test environments to evaluate the corrosion behavior of metallic materials.</p>
+</div>
+<div id="S1.p3" class="ltx_para">
+<p class="ltx_p">Due to the complexity of the derived mathematical model, it was most convenient to implement it in an in-house code with full control of the details of the numerical solution and computational implementation. More elaboration on this choice will be discussed in section <a href="#S2.SS3" title="13.2.3 Role of open-source tools and open science ‣ 13.2 General discussion, challenges and limitations ‣ Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">13.2.3</span></a>. The resulting coupled equations were solved using the finite element method implemented in the open-source domain-specific language FreeFEM, in which a wide range of relevant scientific computing libraries was employed to perform sub-tasks such as mesh generation, mesh refinement, iterative solution of linear systems of equations, and preconditioning the models. The implementation and validation details of the basic biodegradation model are elaborated in Chapter <a href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3</span></a>, where the evolved hydrogen gas during the corrosion process was used to calibrate the model, and global pH measured in immersion tests was used for validating it, for which a good agreement between the experimental and computational results was observed.</p>
+</div>
+<div id="S1.p4" class="ltx_para">
+<p class="ltx_p">Various options were considered to extend the model in order to capture more complex forms of the biodegradation phenomenon, like adding the effect of alloying elements or modeling other types of localized corrosion, such as pitting. However, instead of doing this, we decided to further develop the model’s capacity to deal with more complex chemistry of the surrounding environments, such as electrolytes containing more chemical components. Doing this required having two extensions on the model: 1) adding the physics of fluid flow to make it possible to model more advanced experimental setups such as hydrodynamics and perfusion conditions, and 2) adding more contributing chemical components to the core computational model. For the former, efficient CFD codes for simulating the behavior of the circulating fluid flow were developed and coupled with the core biodegradation model, the details of which are discussed in Chapter <a href="Ch4.html" title="Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4</span></a>. For the latter extension, a thermodynamics-based code was coupled with the biodegradation model to predict the concentration of contributing chemical species according to the computed pH on the corrosion interface. Such coupling resulted in accurate predictions of local pH changes, which is elaborated in Chapter <a href="Ch5.html" title="Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5</span></a>. Although the developed biodegradation model predicts uniform corrosion for pure Mg only, the elaborated 3D model and various developed coupling workflow make it easy to extend the models to consider alloying elements and more complex forms of corrosion.</p>
+</div>
+<div id="S1.p5" class="ltx_para">
+<p class="ltx_p">For increasing the accuracy of the employed level-set formalism, correlating the rate of material loss to the biodegradation velocity at which the interface shrinks, the generated mesh used for simulations has been adaptively refined on the corrosion front, resulting in computationally intensive models usually comprising of <math id="S1.p5.m1" class="ltx_Math" alttext="\sim 10-20\text{M}" display="inline"><semantics><mrow><mi></mi><mo>∼</mo><mrow><mn>10</mn><mo>-</mo><mrow><mn>20</mn><mo>⁢</mo><mtext>M</mtext></mrow></mrow></mrow><annotation encoding="application/x-tex">\sim 10-20\text{M}</annotation></semantics></math> tetrahedral elements. Consequently, efficient HPC techniques, including partitioning the mesh and distributing the computational load among available computing resources, were employed in all the developed models. This reduced the simulation time by orders of magnitude. The details of this parallelization, as well as the results of scaling tests to evaluate the behavior of the parallel model in HPC environments, are presented in Chapters <a href="Ch7.html" title="Chapter 7 Model parallelization for high-performance computing ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">7</span></a> and <a href="Ch10.html" title="Chapter 10 Model applications: patient-specific porous acetabular implants ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">10</span></a>.</p>
+</div>
+<div id="S1.p6" class="ltx_para">
+<p class="ltx_p">The computational models and workflows developed as part of this PhD thesis were assembled together in a standalone software called BioDeg, which is available to download as an open-source tool for biodegradation simulation of any arbitrary 3D geometry. The software features a graphical user interface and a basic pre-processor, helping non-technical users to take advantage of its functionality in a user-friendly manner. Various aspects of the development of BioDeg are detailed in Chapter <a href="Ch8.html" title="Chapter 8 BioDeg simulation software ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">8</span></a>. Furthermore, the details and workflow developed for the calibration and parameter estimation of the developed biodegradation model were separately published as open-source educational material. This was done using the Jupyter notebooks and open science principles, the details of which can be found in Chapter <a href="Ch9.html" title="Chapter 9 Bayesian parameter estimation of the computational models ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">9</span></a>.</p>
+</div>
+<div id="S1.p7" class="ltx_para">
+<p class="ltx_p">In the end, the developed biodegradation model was used in a couple of case studies in order to demonstrate its capabilities in real-world applications and scenarios related to biomedical engineering. The biodegradation model was coupled or integrated with other models in these case studies to simulate more comprehensive phenomena. The case studies selected to present in this PhD thesis include biodegradation of personalized printed porous implants (Chapter <a href="Ch10.html" title="Chapter 10 Model applications: patient-specific porous acetabular implants ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">10</span></a>), mechanical integrity of infilled structures during the biodegradation process (Chapter <a href="Ch11.html" title="Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11</span></a>), and investigating the mechanical loosening of jaw bone plates after implantation (Chapter <a href="Ch12.html" title="Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12</span></a>).</p>
+</div>
+</div>
+</section>
+<section id="S2" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">13.2</span> General discussion, challenges and limitations</h2>
+
+<section id="S2.SS1" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">13.2.1</span> Representing the chemistry in mechanistic models</h3>
+
+<div id="S2.SS1.p1" class="ltx_para">
+<p class="ltx_p">The core of this PhD research was related to capturing the chemistry of the biodegradation process in mathematical forms as realistically as possible. There is a wide variety of different approaches for doing so <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib85" title="Corrosion modeling of magnesium and its alloys for biomedical applications: review" class="ltx_ref">3</a>]</cite>. The available methods can be classified in different ways, but one of the most representative classifications is to divide them into mechanistic and phenomenological approaches. In mechanistic models, also called physical models, the model captures the physical rules. In contrast, in phenomenological modeling, the underlying physics is represented by simplified empirical relationships of the phenomena to each other.</p>
+</div>
+<div id="S2.SS1.p2" class="ltx_para">
+<p class="ltx_p">The model developed in this PhD (in all variations presented in the different chapters) falls in the category of mechanistic models, describing the underlying chemistry by a set of PDEs. Although these models provide more insightful information about the occurring phenomena compared to phenomenological models, they bring another challenge into play: the phenomena should be well-known and investigated so that they can be converted to mathematical forms. Mapped to the chemistry that the current model tries to capture, this challenge can be divided into two independent issues: 1) obtaining numerical values for all chemical parameters, some of which are difficult to get in experiments, and 2) lack of certainty in chemical experiments. These challenges are elaborated below.</p>
+</div>
+<div id="S2.SS1.p3" class="ltx_para">
+<p class="ltx_p">Converting the chemical reactions of the biodegradation process to a mechanistic computational model results in a model with multiple parameters. In a reaction-diffusion system, such as the one developed in this PhD, these parameters are related to the diffusion coefficient of the transport of contributing components and the reaction rates at which the chemical reactions are taking place. Measuring the exact value of these parameters is almost impossible in experimental studies, especially for complex systems like Mg degradation in SBF solutions, where there are a lot of interactions between the different components of the system. This measurement is more complicated for the reaction rates since it is difficult to isolate a single reaction among all the correlated reactions occurring in a complex phenomenon like the biodegradation process and measure its rate. The common solution to this problem is the so-called parameter estimation or model calibration process, in which the model parameters are optimized using an appropriate routine so that the model reproduces the experimentally-obtained output. Depending on the number of parameters and the chemistry that the mechanistic model is representing, this process can become complex soon, losing part of its efficiency to yield correct values for the physical and chemical coefficients. This issue is detailed in Chapter <a href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3</span></a>. Moreover, an overview of the necessity of the parameter estimation process can be found in Chapter <a href="Ch9.html" title="Chapter 9 Bayesian parameter estimation of the computational models ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">9</span></a>.</p>
+</div>
+<div id="S2.SS1.p4" class="ltx_para">
+<p class="ltx_p">The uncertainty in chemical reactions can be a big challenge in mechanistic modeling. An example of a lack of certainty in the chemistry of the biodegradation process is the unknown composition of the precipitation layer forming in complex electrolytes such as SBF and HBSS. The absence of a known composition makes it impossible to construct a mechanistic computational model of the precipitation process because it needs the stoichiometry of the reactions as the coefficients of the derived reaction-diffusion differential equations. Another example of this issue can be the high variability of the experimental results to the composition of the tested materials. As presented in Chapter <a href="Ch5.html" title="Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5</span></a>, even with a slight change in the alloying composition, like by going from highly-pure Mg to commercially-pure Mg, the results obtained for local pH profiles change significantly. These observations, which do not have a solid theoretical description from the chemical perspective, are extremely difficult to capture and mimic in mechanistic models such that the computational predictions reproduce the experimentally-obtained results. This problem is elaborated in Chapter <a href="Ch5.html" title="Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5</span></a>, where a solution is proposed for tackling it in which a thermodynamics-based code is coupled with the mechanistic biodegradation model to provide more information on the concentration of involved chemical components on the biodegradation surface.</p>
+</div>
+</div>
+</section>
+<section id="S2.SS2" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">13.2.2</span> Moving interface problems</h3>
+
+<div id="S2.SS2.p1" class="ltx_para">
+<p class="ltx_p">Although the interface tracking method used in the developed biodegradation model had prominent advantages, from the implementation perspective, it was one of the biggest challenges in all aspects of the modeling work carried out in this research. The challenge was boosted by considering the necessity of parallel computing and partitioned meshes. Moreover, integrating interface-coupled problems such as mass transfer and fluid flow can be quite challenging in the presence of an interface tracking scheme.</p>
+</div>
+<div id="S2.SS2.p2" class="ltx_para">
+<p class="ltx_p">In this PhD, a level-set formalism was employed to track the moving corrosion front, making it possible to investigate the morphological changes of the desired 3D degrading object. This was one of the unique aspects of the current model compared to other degradation and corrosion models, which usually deal with a simplified representation of geometries in 2D <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib293" title="In silico studies of magnesium-based implants: a review of the current stage and challenges" class="ltx_ref">10</a>]</cite>. However, some implementation hurdles were inevitable to achieve this uniqueness, not only from a technical perspective but also from the perspective of computational resource consumption. Some of the arising challenges are already elaborated in Chapter <a href="Ch7.html" title="Chapter 7 Model parallelization for high-performance computing ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">7</span></a> (section <a href="Ch7.html#S3.SS3" title="7.3.3 Level-set issues ‣ 7.3 Methodology of model implementation ‣ Chapter 7 Model parallelization for high-performance computing ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">7.3.3</span></a>).</p>
+</div>
+<div id="S2.SS2.p3" class="ltx_para">
+<p class="ltx_p">In the developed level-set formalism, an implicit distance function was used such that its zero iso-surface represents the interface. This implicit function was calculated as a solution of the level-set PDE, in which the interface shrinkage velocity was correlated to the gradient of the released ion concentrations. This PDE was solved in each time step along with the other PDEs derived from the chemistry of biodegradation and other coupled physics. The main challenge emerges due to the way that the boundary conditions of the coupled problems are defined. The boundary conditions are related to the mass transfer problem and should be defined on the biodegradation interface, which moves as the level-set implicit function evolves. All in all, this means that the BCs of the system are defined on the solution of one of the governing equations, which makes the implementation and debugging complex, especially in 3D.</p>
+</div>
+<div id="S2.SS2.p4" class="ltx_para">
+<p class="ltx_p">Two other factors can make this challenge even more complex: 1) the necessity of HPC and partitioning the mesh, and 2) adding more physics to the core problem, such as the presence of fluid flow affecting the mass transfer problem, based on which the level-set formalism is constructed. The current research faced these challenges in all the chapters of this thesis, which required spending time fixing the behavior of the developed interface tracking model by tuning the way that various transport mechanisms, such as diffusion and convection, affect the interface shrinkage velocity. This required even more time when an addition to the underlying physics was under development, such as the works presented in Chapters <a href="Ch4.html" title="Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4</span></a>, <a href="Ch5.html" title="Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5</span></a>, and <a href="Ch11.html" title="Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11</span></a>.</p>
+</div>
+<div id="S2.SS2.p5" class="ltx_para">
+<p class="ltx_p">The employed HPC and mesh partitioning techniques, including the mesh decomposition preconditioners in the HPDDM library and parallel computing features of PETSc toolkit elaborated in Chapter <a href="Ch7.html" title="Chapter 7 Model parallelization for high-performance computing ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">7</span></a>, are capable of handling the solution of the level-set equation in parallel without any major problem. However, a well-known problem of the level-set method causes a big issue here. Since advecting the implicit distance function causes a perturbation in its numerical solution, the function should be re-initialized after several time steps. Yet, due to the difficulties of re-initialization on a partitioned mesh, it is necessary to gather the distributed partitions back into a global mesh before the re-initialization. Doing this decreases the overall parallel efficiency in large-scale models, more details of which can be found in section <a href="Ch7.html#S3.SS3" title="7.3.3 Level-set issues ‣ 7.3 Methodology of model implementation ‣ Chapter 7 Model parallelization for high-performance computing ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">7.3.3</span></a>.</p>
+</div>
+<div id="S2.SS2.p6" class="ltx_para">
+<p class="ltx_p">Another relevant challenge worth mentioning here is related to coupling multiple interface tracking methods. An example of this is presented in Chapter <a href="Ch6.html" title="Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6</span></a>, where the final goal was to couple the level-set-based biodegradation model with a developed phase-field model of tissue growth. As mentioned above, defining BCs on the solution of one of the governing equations (the level-set PDE in this case) can be quite challenging. For coupling multiple moving interface models, one model should be declared on the solution of another, which is an even more intricate problem than the one described for the BCs. More details of this issue are elaborated in section <a href="Ch6.html#S8" title="6.8 Challenges in coupling tissue growth and biodegradation models ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.8</span></a>. Another example presented in this thesis can be found in Chapter <a href="Ch11.html" title="Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11</span></a>, in which the biodegradation model was coupled with the level-set-based mechanical integrity model, meaning that two separate level-set functions were defined to describe different phenomena.</p>
+</div>
+</div>
+</section>
+<section id="S2.SS3" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">13.2.3</span> Role of open-source tools and open science</h3>
+
+<div id="S2.SS3.p1" class="ltx_para">
+<p class="ltx_p">Open-source paradigm and open science principles played an important role in the research carried out in this PhD. Without the added value of open-source tools, it would not have been possible to build a multiphysics moving boundary model, which was later used to perform a simulation with over 45M elements on 7000 CPU cores (as presented in Chapter <a href="Ch10.html" title="Chapter 10 Model applications: patient-specific porous acetabular implants ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">10</span></a>). The added value of open-source comprises the potential flexibility required by computational science projects, open standards and exchange formats required for integration and interoperability of models, availability of tools for almost every aspect of model development, responsive support provided by open-source communities, and increasing transparency. These advantages will be elaborated in this section.</p>
+</div>
+<div id="S2.SS3.p2" class="ltx_para">
+<p class="ltx_p">Implementing the mathematical model derived from the chemistry of biodegradation, which was also coupled with other physical problems such as the perfusion effect, needed flexibility and full control of numerical details. As a result, doing such an implementation in commercial tools with pre-built models such as ANSYS, Abaqus, and COMSOL would have been inefficient and in some cases even impossible. Even though certain customization features such as user subroutines in Abaqus and weak form interface in COMSOL are available to provide some flexibility in model implementation, the possible modification level does not meet our requirements and would decrease work productivity and efficiency of models. Instead, we decided to opt for a different approach, bringing freedom in the development of the intended large-scale mechanistic model of the biodegradation behavior for any arbitrary 3D shape. To do this, a broad range of relevant open-source tools and libraries were leveraged in various aspects of this PhD to obtain desired numerical accuracy in high-performance computational models. These aspects included mesh generation and refinement, geometry construction, preconditioning, weak form implementation, solution of derived linear systems, parameter estimation, and postprocessing. An overview of these tools is presented in Fig. <a href="#F1" title="Figure 13.1 ‣ 13.2.3 Role of open-source tools and open science ‣ 13.2 General discussion, challenges and limitations ‣ Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">13.1</span></a>.</p>
+</div>
+<figure id="F1" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/conclusion/image/tools.jpg" id="F1.g1" class="ltx_graphics ltx_centering" width="541" height="192" alt="An overview of tools and libraries used in this research, which are all free and open-source."></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 13.1: </span>An overview of tools and libraries used in this research, which are all free and open-source.</figcaption>
+</figure>
+<div id="S2.SS3.p3" class="ltx_para">
+<p class="ltx_p">One of the most significant advantages of most open-source tools in the scientific computing community is the openness of standards and exchange formats, meaning a custom adapter, application programming interface (API), or converter can be developed to import the output of a program into another in case a proper one does not exist. Combined with the flexibility provided by these tools for doing any desired customization, this characteristic makes almost any coupling or exchange possible among various tools. This means that no matter if it is officially supported by the developers, the output of any tool can be used as the input of another. This flexibility was a big advantage for the research performed in this PhD at different levels, for each of which there are many examples to mention from all the chapters. The mesh generation done in Chapter <a href="Ch10.html" title="Chapter 10 Model applications: patient-specific porous acetabular implants ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">10</span></a> is a good large-scale example, which was executed using a combination of the FreeFEM internal mesh engine, Mmg, GMSH, and MeshLab on the output of a CGAL-based code. Another relevant example can be the geometry processing and mesh preparation performed in Chapters <a href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3</span></a>, <a href="Ch4.html" title="Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4</span></a>, and <a href="Ch5.html" title="Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5</span></a>, where an orchestration of various tools, like SALOME, GMSH, meshio, and FreeFEM, made it possible to generate a high-detailed large-scale multi-material mesh for the biodegradation and fluid flow simulations.</p>
+</div>
+<div id="S2.SS3.p4" class="ltx_para">
+<p class="ltx_p">The flexibility level provided by open-source tools is not comparable to commercial software programs. This brings two main benefits into play:</p>
+<ol id="S2.I1" class="ltx_enumerate">
+<li id="S2.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">1.</span><div id="S2.I1.i1.p1" class="ltx_para">​<p class="ltx_p">Easier customization to adapt to the target application and usage, which can be observed at various levels. The most-known flexibility in this regard is related to the availability of source codes, making it possible for any researcher to modify the tool to work in the desired manner. Such modifications were useful in some stages of the current PhD, where slight changes were made to some of the interfaces of FreeFEM to behave differently. However, this level is not the only flexibility useful for computational projects. Another prominent possibility is the customization during the build process of the software, meaning that various features of the employed tools can be customized while compiling them from source codes. This is also beneficial from the performance perspective, where building the software from the source codes allows optimizing it to the specific software and hardware configuration of the target system, which leads to increasing the performance and efficiency of the tool. This will be discussed in more details in section <a href="#S2.SS4" title="13.2.4 High-performance computing and scaling ‣ 13.2 General discussion, challenges and limitations ‣ Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">13.2.4</span></a>.</p>
+</div>
+</li>
+<li id="S2.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">2.</span><div id="S2.I1.i2.p1" class="ltx_para">​<p class="ltx_p">More responsive community formed around the tool, providing different levels of help and support for solving users’ issues and developing new features. These communities are unique for open-source paradigm as the contributors are not necessarily the main software developers. This relies on the open nature of the software, making it possible for anyone to contribute with different forms of support. This is extremely important and beneficial for more complex tools like the ones typically used in scientific computing and computational science projects.</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="S2.SS3.p5" class="ltx_para">
+<p class="ltx_p">Another added value of using open-source tools is related to the transparency and reproducibility of the research, a bonus that opens the stage for more efficient science outreach as well. Constructing research using freely available tools means that anyone can re-run the codes and models to reproduce the results, an action that can dramatically increase the transparency of the research and trust in the obtained results. This is still possible in research studies done with proprietary software programs, but the users who want to reproduce the results need to pay for the licenses first. Moreover, the tendency to share the codes, models and workflows is more likely in the open-source community. As mentioned above, this added value has a mutual benefit for both the transparency and science outreach, meaning that sharing the developed models and workflows can be treated as efficient project outreach in addition to increasing trust and transparency. In other words, open-source tools can help project outreach activities meet open science principles. An example of these activities are presented in Chapters <a href="Ch8.html" title="Chapter 8 BioDeg simulation software ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">8</span></a> and <a href="Ch9.html" title="Chapter 9 Bayesian parameter estimation of the computational models ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">9</span></a>. In Chapter <a href="Ch8.html" title="Chapter 8 BioDeg simulation software ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">8</span></a>, the developed models are encapsulated into a standalone open-source software that relies on open-source tools to work, implying that the users do not need any additional license to run biodegradation simulations. This software was reviewed and published in the Journal of Open-Source Software (JOSS) <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib281" title="BioDeg: a finite element software for the simulation of the corrosion and biodegradation process in metallic biomaterials" class="ltx_ref">29</a>]</cite>. In Chapter <a href="Ch9.html" title="Chapter 9 Bayesian parameter estimation of the computational models ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">9</span></a>, the details of the utilized parameter estimation process, an important building block of the carried out research, was represented as a self-teaching educational material in the format of Jupyter notebooks. This work was published in the Journal of Open-Source Education (JOSE) <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib282" title="An open source crash course on parameter estimation of computational models using a bayesian optimization approach" class="ltx_ref">27</a>]</cite>.</p>
+</div>
+<div id="S2.SS3.p6" class="ltx_para">
+<p class="ltx_p">A possible advantage of using proprietary codes in the development of medical devices comes with the assistance provided in the regulatory approval process. Digital evidence used in the regulatory dossier requires credibility assessment, following verification, validation and uncertainty quantification (VVUQ) guidelines (discussed in section <a href="#S3.SS3" title="13.3.3 Uncertainty quantification and model credibility ‣ 13.3 Future perspectives ‣ Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">13.3.3</span></a>). A big part of the verification is related to the software code itself, and companies owing proprietary codes have often already prepared extensive documentation. However, as open source codes are maturing, also their developers are developing this sort of verification documentation. An example is FEBio <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib294" title="FEBio: finite elements for biomechanics" class="ltx_ref">180</a>]</cite>, a finite element code primarily developed for applications in biomechanics, funded by public money from the NIH in the USA.</p>
+</div>
+<div id="S2.SS3.p7" class="ltx_para">
+<p class="ltx_p">As a summary, we should emphasize that this PhD was not possible without the freedom and flexibility available in open-source scientific computing world. The open-source paradigm also helped us to increase the outreach of the project using open science principles. Additionally, it is worth mentioning that in line with the project outreach activities, the obtained knowledge is getting published as a YouTube project called TuxRiders<span id="footnote1" class="ltx_note ltx_role_footnote"><sup class="ltx_note_mark">1</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">1</sup>
+                <span class="ltx_tag ltx_tag_note">1</span>
+                
+                
+                
+              <a href="https://www.youtube.com/TuxRiders" title="" class="ltx_ref ltx_url ltx_font_typewriter">https://www.youtube.com/TuxRiders</a></span></span></span>, in which the power of open-source scientific computing tools are discussed in details and demonstrated using practical use cases coming from real-world projects, which encompasses the research carried out in this PhD as well.</p>
+</div>
+</div>
+</section>
+<section id="S2.SS4" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">13.2.4</span> High-performance computing and scaling</h3>
+
+<div id="S2.SS4.p1" class="ltx_para">
+<p class="ltx_p">Parallelization of the models has been one of the main objectives of this PhD, making the models run faster to get the predictions and output in less time in large-scale simulations. Achieving this goal has involved various challenges across the project, which can be divided into two main categories: implementation and performance tuning issues. The implementation perspective was discussed in details in Chapters <a href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3</span></a>, <a href="Ch4.html" title="Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4</span></a>, <a href="Ch7.html" title="Chapter 7 Model parallelization for high-performance computing ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">7</span></a>, and <a href="Ch10.html" title="Chapter 10 Model applications: patient-specific porous acetabular implants ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">10</span></a>. The main implementation strategy was based on high-performance mesh decomposition, partitioning and distributing the mesh among available computing resources, and then utilization of high-performance preconditioners and iterative solvers tailored for different systems and physics. For example, the FieldSplit preconditioner and blocking approach was used for dealing with the Stokes and Navier-Stokes equations in the fluid flow system, and the BoomerAMG preconditioner was opted for the reaction-diffusion systems after evaluating various available options.</p>
+</div>
+<div id="S2.SS4.p2" class="ltx_para">
+<p class="ltx_p">Although it might not appear so, the performance tuning aspect can be as complicated as the implementation <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib295" title="Scaling modeling and simulation on high-performance computing clusters" class="ltx_ref">195</a>, <a href="bib.html#bib296" title="Performance tuning of scientific applications" class="ltx_ref">22</a>]</cite>. Running the model using 10 CPU cores with an accepted performance and speedup does not mean that one can increase the number of cores to 100 and still get the same speedup. The same problem appears by moving from the order of hundreds to the order of thousands, and so on. Entering a new order of magnitude for the number of CPU cores requires dealing with new issues <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib297" title="Introduction to high performance computing for scientists and engineers" class="ltx_ref">106</a>, <a href="bib.html#bib298" title="Performance optimization of numerically intensive codes (software, environments and tools)" class="ltx_ref">91</a>, <a href="bib.html#bib299" title="Software optimization for high-performance computing" class="ltx_ref">262</a>]</cite>.</p>
+</div>
+<div id="S2.SS4.p3" class="ltx_para">
+<p class="ltx_p">This section briefly summarizes various issues one can face while tackling HPC and performance-tuning challenges. These experiences were obtained by working in HPC environments on the VSC supercomputer in Belgium, the Snellius supercomputer in the Netherlands, and the ARCHER2 supercomputer in the UK. The order in which the items are sorted does not imply their importance. All the mentioned points should be taken into account for optimizing a code to get better performance.</p>
+</div>
+<div id="S2.SS4.p4" class="ltx_para">
+<ul id="S2.I2" class="ltx_itemize">
+<li id="S2.I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span><div id="S2.I2.i1.p1" class="ltx_para">​<p class="ltx_p"><span class="ltx_text ltx_font_bold">Building tools with different MPI implementations and toolchains</span>: Running codes in an HPC environment is quite different from a local machine, where all the software and hardware configurations made by the system maintainers can affect the performance of the code. Among various software-related aspects, the chosen compiler toolchain (GNU, Intel, Cray, etc.) and MPI implementation (MPICH, OpenMPI, Intel MPI, etc.) used to build and run a code can play an important role. In most cases, the computational tools should be built with all the available toolchains and MPI implementations to check which one offers better performance on the specific HPC environment.</p>
+</div>
+</li>
+<li id="S2.I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span><div id="S2.I2.i2.p1" class="ltx_para">​<p class="ltx_p"><span class="ltx_text ltx_font_bold">Inter-node communication</span>: Communications taking place between the computing nodes are the source of most of the problems happening in parallelization and performance tuning of codes. The first step towards a faster model is to check the code to remove unnecessary inter-node communications, especially for large-scale simulations. For example, there are usually redundant collective MPI calls in the model initialization that can be replaced by encapsulating more work in the main process and performing the collective operations at the end of it. These collective calls usually appear during the first round of parallelization of the code as a result of direct translation from sequential procedures.</p>
+</div>
+</li>
+<li id="S2.I2.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span><div id="S2.I2.i3.p1" class="ltx_para">​<p class="ltx_p"><span class="ltx_text ltx_font_bold">Running parallel version of tools and codes</span>: This point is actually a combination of the two previous points from a practical point of view. When a computational tool is built in HPC environments, it may fail to run in more than one node due to an inappropriate configuration during the build process. For example, FreeFEM may fail to execute when the job is supposed to run in more than a single node, implying that the inter-node communication does not work due to the used MPI or compiler toolchain. This scenario frequently occurs, showing the importance of employing correct toolchains and MPI implementations. The proper configuration differs from environment to environment, so the best recommendation would be to check the HPC documentation provided by vendors or system maintainers.</p>
+</div>
+</li>
+<li id="S2.I2.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span><div id="S2.I2.i4.p1" class="ltx_para">​<p class="ltx_p"><span class="ltx_text ltx_font_bold">Mesh generation for large-scale models</span>: The mesh of the acetabular cup presented in Chapter <a href="Ch10.html" title="Chapter 10 Model applications: patient-specific porous acetabular implants ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">10</span></a> had more than 45M tetrahedral elements. Besides the technical aspects of the computational part, generating such a mesh can be quite challenging and time consuming. Some of the common tools used for mesh generation have a parallel version aimed to work with a couple of CPU cores to reduce the time needed for mesh generation. For example, Mmg has a parallel version called ParMmg, and CGAL supports shared-memory parallelization for volumetric mesh generation. However, these tools are not very reliable and may cause further problems. In our tests on ParMmg, the tool showed major issues with inter-node communication on large-scale mesh generation, leading us to use sequential mesh generation principles for making the mesh in some cases (Chapter <a href="Ch10.html" title="Chapter 10 Model applications: patient-specific porous acetabular implants ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">10</span></a>).</p>
+</div>
+</li>
+<li id="S2.I2.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span><div id="S2.I2.i5.p1" class="ltx_para">​<p class="ltx_p"><span class="ltx_text ltx_font_bold">Mesh partitioning for large-scale models</span>: Choosing a proper mesh partitioner plays an essential role in the initialization of the simulations but can also be the source of some failure at this stage. The commonly-used partitioner in this research was METIS software. However, in particular cases and contrary to the previous point for mesh generators, it was observed that its parallel version, called ParMETIS, has significantly better performance. Switching between the sequential and parallel version of this partitioner, as well as using other tools such as SCOTCH, should be considered in the performance tuning of computational models.</p>
+</div>
+</li>
+<li id="S2.I2.i6" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span><div id="S2.I2.i6.p1" class="ltx_para">​<p class="ltx_p"><span class="ltx_text ltx_font_bold">Memory issues in each node</span>: Memory-related issues are one of the most common problems one can face while tuning computational models for better scaling behavior. Reviewing code for fixing memory-related issues can reduce memory usage, especially in the initialization stage, helping overcome part of these memory bottlenecks. The memory issues can be debugged in a single node execution first with the maximum memory available. In some cases, one needs to reduce the number of employed CPU cores in a node so that more memory is available to each core. Although this action can help remove memory-related errors, it reduces the efficiency of the whole computational task, leaving some CPU cores unused in each node due to memory problems.</p>
+</div>
+</li>
+<li id="S2.I2.i7" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span><div id="S2.I2.i7.p1" class="ltx_para">​<p class="ltx_p"><span class="ltx_text ltx_font_bold">Storage and IO bottlenecks</span>: There are usually different storage volumes available in HPC environments, which differ in various aspects such as the speed of access, space limitations, and backup policies. Choosing a proper location for file IO can particularly impact the performance of the codes. In more advanced HPC environments, the user does not have direct access to high-speed storage, so explicit file operations should be defined in the job batch file describing how the files should be copied to the high-speed volumes and moved back to the home directories. Another storage-related performance bottleneck is the known issue of slowed down reading speed of a large number of small files, which exists in some HPC environments. This problem usually impacts remote postprocessing and visualization tasks, in which a large number of files should be processed on an HPC node.</p>
+</div>
+</li>
+<li id="S2.I2.i8" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span><div id="S2.I2.i8.p1" class="ltx_para">​<p class="ltx_p"><span class="ltx_text ltx_font_bold">Remote visualization</span>: In large-scale simulations, where the model predictions result in tremendous output files, remote postprocessing and visualization can be a more efficient option compared to conventional local processing. Moreover, doing this can be beneficial for the debugging and performance tuning of computational models, where it saves a lot of time needed to transfer the files to a local machine for analysis. For the simulation presented in Chapter <a href="Ch10.html" title="Chapter 10 Model applications: patient-specific porous acetabular implants ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">10</span></a>, the results comprise of 95000 files with a total size of 148 GB. The visualization was done on a node featuring a GPU using the ParaView server on the remote node and the ParaView client on the local machine. Configuring such remote processing requires extra steps in HPC environments, such as making secure tunnels and setting up offscreen rendering, which are unnecessary to perform normal computational tasks.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</section>
+</div>
+</section>
+<section id="S3" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">13.3</span> Future perspectives</h2>
+
+<div id="S3.p1" class="ltx_para">
+<p class="ltx_p">The research carried out in this PhD can be seen as the first steps for constructing a comprehensive biodegradation model capable of working in 3D for any arbitrary shape and being integrated into other relevant modeling workflows. At its current stage, the model has been calibrated mainly for commercially-pure Mg and has been tested in immersion and hydrodynamics setup for aggressive corrosion environments and buffered solutions. Consequently, different lines of development can be considered to extend the model in the future. These lines can be classified into either developing the core model to improve its methodological aspects or combining it with other models for various use cases and applications.</p>
+</div>
+<div id="S3.p2" class="ltx_para">
+<p class="ltx_p">The future perspective can be seen as an attempt to address the mentioned limitations we faced in various stages and aspects of this research, allowing the developed model to capture more chemical and biological processes and improve its credibility. It is worth mentioning that in addition to improved numerical and computational methodologies, these perspectives require more sophisticated experimental approaches for validation purposes. This aspect of future development is not discussed in this thesis.</p>
+</div>
+<section id="S3.SS1" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">13.3.1</span> Other materials and effect of alloying elements</h3>
+
+<div id="S3.SS1.p1" class="ltx_para">
+<p class="ltx_p">As stated several times throughout this thesis, biodegradable metals include magnesium, zinc, and iron, among which magnesium is the most studied material. However, zing and iron have been gaining attention in recent years for various applications. As a result, the model can be further developed to capture the biodegradation of iron and zinc as well. Doing this does not need development from scratch since the biodegradation mechanisms of zinc and iron are similar to magnesium, meaning that the underlying reduction-oxidation reactions can be easily converted to the forms of the mathematical model developed in this thesis.</p>
+</div>
+<div id="S3.SS1.p2" class="ltx_para">
+<p class="ltx_p">Another factor limiting the applicability of the model developed in this thesis is related to its lack of support for different types of biodegradation other than uniform corrosion. The developed mathematical model, including the reaction-diffusion-convection equations coupled with the level-set formalism for tracking the moving corrosion front, is currently capable of simulating homogeneous corrosion only. Capturing localized corrosion behavior, such as pitting and galvanic corrosion, requires adding the effect of alloying elements and impurities. This needs further development on the core of the mathematical formulation such that it allows the inclusion of active zones in which the rate of degradation is higher.</p>
+</div>
+<div id="S3.SS1.p3" class="ltx_para">
+<p class="ltx_p">As part of the work performed in Chapter <a href="Ch11.html" title="Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11</span></a>, we intended to develop a multi-material biodegradation model capable of simulating the corrosion in composite materials for particular fixation applications in orthopedics. The work lacked a certain theoretical foundation, and as a result, it was not presented in this thesis. However, due to the interesting applications it may have, it should be considered as a worthwhile addition for future developments.</p>
+</div>
+</div>
+</section>
+<section id="S3.SS2" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">13.3.2</span> Biodegradation in complex electrolytes and environments</h3>
+
+<div id="S3.SS2.p1" class="ltx_para">
+<p class="ltx_p">The work presented in Chapters <a href="Ch4.html" title="Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4</span></a> and <a href="Ch5.html" title="Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5</span></a> aimed to investigate the biodegradation process in a complex electrolyte in the presence of various contributing chemical components. Doing such modeling combined with the prospective development mentioned in section <a href="#S3.SS1" title="13.3.1 Other materials and effect of alloying elements ‣ 13.3 Future perspectives ‣ Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">13.3.1</span></a> would allow the model to mimic the behavior of any metallic biomaterial in any desired environment. However, capturing the biodegradation behavior in complex electrolytes, such as HBSS and SBF, can be pretty challenging in a mechanistic model, the benefits of which are mentioned in section <a href="#S2.SS1" title="13.2.1 Representing the chemistry in mechanistic models ‣ 13.2 General discussion, challenges and limitations ‣ Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">13.2.1</span></a>. In Chapter <a href="Ch5.html" title="Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5</span></a>, the modeling approach was the coupling of the mechanistic model of biodegradation with a thermodynamics-based code being responsible for calculating the concentration of involved chemical species on the corrosion interface. Even though such coupling resulted in acceptable predictions of local pH changes, the extensibility and generalizability of it can still be questionable. A fully mechanistic model, in which the concentration of all components is tracked by means of a set of PDEs, can facilitate the model’s credibility for such complex environments. This can be considered as an important further development of the model.</p>
+</div>
+<div id="S3.SS2.p2" class="ltx_para">
+<p class="ltx_p">Another potential for future research exists in the chemical uncertainty mentioned in section <a href="#S2.SS1" title="13.2.1 Representing the chemistry in mechanistic models ‣ 13.2 General discussion, challenges and limitations ‣ Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">13.2.1</span></a>. The uncertainty in various levels of the chemistry of biodegradation, such as the stoichiometry of the precipitation layer in complex electrolytes, is a limiting factor for developing more detailed mathematical models. However, it opens the stage for inverse problem formulations, where the computational model can actually help demystify the complex reactions. As the first step, since the formation of the hydroxyapatite-like precipitation has an unknown stoichiometry (Eq. <a href="Ch5.html#E10" title="(5.10) ‣ 5.1 Introduction ‣ Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5.10</span></a> in Chapter <a href="Ch5.html" title="Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5</span></a>), an optimization problem can be constructed to find the chemical coefficients such that the simulation output matches the experimentally-obtained values. With such an inverse problem formulation, the computational modeling of the biodegradation process can help experimental research to understand the underlying phenomena better.</p>
+</div>
+</div>
+</section>
+<section id="S3.SS3" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">13.3.3</span> Uncertainty quantification and model credibility </h3>
+
+<div id="S3.SS3.p1" class="ltx_para">
+<p class="ltx_p">One of the most important limitations of computational models of the biodegradation process is that the majority of them are developed and calibrated for certain systems and under certain conditions. This limitation applies to the model developed in this PhD too. One of the best solutions to tackle this problem is to take advantage of uncertainty quantification (UQ) approaches in the context of VVUQ methods. Various methods and techniques provided by UQ can help to assess the model’s generalizability, and as a result, enhance its credibility for different biodegradation conditions. UQ may also accelerate the efficient exploration of the effective factors and parameters, resulting in more reliability for the developed model <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib293" title="In silico studies of magnesium-based implants: a review of the current stage and challenges" class="ltx_ref">10</a>]</cite>.</p>
+</div>
+<div id="S3.SS3.p2" class="ltx_para">
+<p class="ltx_p">UQ is a methodology to characterize the uncertainty in the output of computational models and measure their sensitivity to model parameters, which results in finding the source of uncertainty in the model. An example of a relevant study employing such an approach for building a computational biodegradation model is Zeller-Plumhoff et al. work <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib241" title="Computational modelling of magnesium degradation in simulated body fluid under physiological conditions" class="ltx_ref">290</a>]</cite>, in which they used UQ techniques for the parameter estimation of a mechanistic biodegradation model of pure Mg. As demonstrated by this study, employing UQ results in reducing the computational load in the parameter estimation phase and enhancing the generality of the model. Such an analysis should be performed on the model developed in this PhD as further development.</p>
+</div>
+<div id="S3.SS3.p3" class="ltx_para">
+<p class="ltx_p">Considering the importance of HPC in this PhD (as discussed in section <a href="#S2.SS4" title="13.2.4 High-performance computing and scaling ‣ 13.2 General discussion, challenges and limitations ‣ Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">13.2.4</span></a>), the UQ analysis of the developed biodegradation model should be performed in VVUQ frameworks designed for HPC environments. The suggested framework for this purpose is VECMA<span id="footnote2" class="ltx_note ltx_role_footnote"><sup class="ltx_note_mark">2</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">2</sup>
+                <span class="ltx_tag ltx_tag_note">2</span>
+                
+                
+                
+              <a href="https://www.vecma-toolkit.eu/" title="" class="ltx_ref ltx_url ltx_font_typewriter">https://www.vecma-toolkit.eu/</a></span></span></span>, an open-source toolkit (www.vecma-toolkit.eu) aimed to provide a wide range of tools to help facilitating the VVUQ processes in developing multiscale and multiphysics computational models, which is developed with scalability in HPC environments in mind <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib300" title="VECMAtk: a scalable verification, validation and uncertainty quantification toolkit for scientific simulations" class="ltx_ref">97</a>]</cite>. VECMA has demonstrated it capabilities for a range of different applications - including <span class="ltx_text ltx_font_italic">in silico</span> medicine - in recently conducted studies <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib301" title="Tutorial applications for verification, validation and uncertainty quantification using VECMA toolkit" class="ltx_ref">249</a>, <a href="bib.html#bib302" title="Principles governing control of aggregation and dispersion of aqueous graphene oxide" class="ltx_ref">252</a>, <a href="bib.html#bib303" title="Ensembles are required to handle aleatoric and parametric uncertainty in molecular dynamics simulation" class="ltx_ref">257</a>, <a href="bib.html#bib304" title="Reliability and reproducibility in computational science: implementing validation, verification and uncertainty quantification in silico" class="ltx_ref">58</a>]</cite>.</p>
+</div>
+</div>
+</section>
+<section id="S3.SS4" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">13.3.4</span> Coupled models for a wide range of applications</h3>
+
+<div id="S3.SS4.p1" class="ltx_para">
+<p class="ltx_p">As indicated in section <a href="#S1" title="13.1 Thesis summary ‣ Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">13.1</span></a>, as well as section <a href="Ch2.html#S2" title="2.2 Specific objectives ‣ Chapter 2 Aims and objectives ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">2.2</span></a> in Chapter <a href="Ch2.html" title="Chapter 2 Aims and objectives ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">2</span></a>, one of the objectives of the research carried out in this thesis was to utilize the developed biodegradation model in various case studies for different applications. Being facilitated by using open-source tools, this objective was demonstrated with three sample studies presented in Chapters <a href="Ch10.html" title="Chapter 10 Model applications: patient-specific porous acetabular implants ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">10</span></a>, <a href="Ch11.html" title="Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11</span></a>, and <a href="Ch12.html" title="Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">12</span></a>. In these chapters, the biodegradation model was coupled with other mechanical integrity models in order to deliver a more comprehensive representation of the underlying processes in tissue engineering. As an output of these sample use cases, the model showed a big potential from the integration point of view, meaning that it can bring certain added values when being integrated into other modeling workflows.</p>
+</div>
+<div id="S3.SS4.p2" class="ltx_para">
+<p class="ltx_p">In addition to the mentioned samples, the model is being used in a few more in-house studies at the time of writing this thesis. One example is the use of the developed model for the evaluation of the biodegradation behavior of different designs of cardiovascular stents in order to move towards an optimal design. Another example is a similar usage of the model to assess and compare the biodegradation rate of various designed screws for orthopedic applications to use the most suitable one for further <span class="ltx_text ltx_font_italic">in vivo</span> investigations. In line with all the constructed studies, the developed biodegradation model can be further employed in any other potential modeling use case in tissue engineering and biomaterials science, where biodegradation plays a role that needs to be taken into account. Moreover, further research can be carried out to overcome the challenges mentioned in section <a href="Ch6.html#S8" title="6.8 Challenges in coupling tissue growth and biodegradation models ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.8</span></a>, after which the biodegradation model can be coupled with sophisticated tissue growth models to investigate the phenomenon of replacement of biodegradable implants with neotissue happening inside the human body.</p>
+</div>
+<div id="S3.SS4.p3" class="ltx_para">
+<p class="ltx_p">By considering the typical applications of biodegradable metallic materials, the impact zone of the developed model will be mostly related to orthopedics and cardiovascular studies. Nevertheless, adding Nerst-Planck terms to the mathematical model enables it to capture the electrochemical potential changes. Doing this allows the model to act as an efficient tool in fundamental research relevant to chemistry and chemical engineering, where the corrosion of metals in aqueous solutions is being studied in the field of electrochemistry. Consequently, it results in a model with a broader application in the field of corrosion science.</p>
+</div>
+<div class="ltx_pagination ltx_role_newpage"></div>
+</div>
+</section>
+</div>
+</section>
+</div>
+</section>
+</div>
+</div>
+</div>
+<a href="Ch12.html" class="navigation navigation-prev" aria-label="Previous page"><i class="fa fa-angle-left"></i></a><a href="bib.html" class="navigation navigation-next" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+</div>
+</div>
+<script src="bookml/gitbook/js/app.min.js"></script>
+<script src="bookml/gitbook/js/jquery.highlight.js"></script>
+<script src="bookml/gitbook/js/plugin-search.js"></script>
+<script src="bookml/gitbook/js/plugin-fontsettings.js"></script>
+<script src="bookml/gitbook/js/plugin-bookdown.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script>
+        MathJax = {
+          startup: {
+            ready() {
+              // do not process equations disabled with \bmlDisableMathJax (code suggested by Davide P. Cervone)
+              class bmlFindMathML extends MathJax._.input.mathml.FindMathML.FindMathML {
+                processMath(set) {
+                  const adaptor = this.adaptor;
+                  for (const node of set.values()) {
+                    if (adaptor.hasClass(node, 'bml_disable_mathjax')) {
+                      set.delete(node);
+                    }
+                  }
+                  return super.processMath(set);
+                }
+              }
+
+              MathJax._.components.global.combineDefaults(MathJax.config, 'mml', {FindMathML: new bmlFindMathML()});
+
+              MathJax.startup.defaultReady();
+
+              // preproces MathML to make MathJax aware of certain LaTeXML and BookML additional info
+              const mmlFilters = MathJax.startup.input[0].mmlFilters;
+
+              // convert the LaTeXML calligraphic (chancery) annotation to a form MathJax understands
+              // since the corresponding Unicode characters render as script (rounded)
+              const script2latin = {
+                '𝒜': 'A', 'ℬ': 'B', '𝒞': 'C', '𝒟': 'D', 'ℰ': 'E', 'ℱ': 'F', '𝒢': 'G',
+                'ℋ': 'H', 'ℐ': 'I', '𝒥': 'J', '𝒦': 'K', 'ℒ': 'L', 'ℳ': 'M', '𝒩': 'N',
+                '𝒪': 'O', '𝒫': 'P', '𝒬': 'Q', 'ℛ': 'R', '𝒮': 'S', '𝒯': 'T', '𝒰': 'U',
+                '𝒱': 'V', '𝒲': 'W', '𝒳': 'X', '𝒴': 'Y', '𝒵': 'Z',
+              };
+
+              mmlFilters.add((args) => {
+                for (const n of args.data.getElementsByClassName('ltx_font_mathcaligraphic')) {
+                  n.classList.add('MJX-tex-calligraphic');
+                  const letter = script2latin[n.textContent];
+                  if (letter !== undefined) { n.textContent = letter; }
+                }
+              });
+
+              // adjust characters based on Unicode variation sequences
+              const replacements = {
+                // MathJax renders the empty set as the U+FE00 variant, so the plain character needs adjusting
+                '∅': { variant: 'variant' },
+                // MathJax renders script characters in rounded style, which is fine for no variation and U+FE00
+                '𝒜\xFE00': { text: 'A', variant: 'tex-calligraphic' },
+                'ℬ\xFE00': { text: 'B', variant: 'tex-calligraphic' },
+                '𝒞\xFE00': { text: 'C', variant: 'tex-calligraphic' },
+                '𝒟\xFE00': { text: 'D', variant: 'tex-calligraphic' },
+                'ℰ\xFE00': { text: 'E', variant: 'tex-calligraphic' },
+                'ℱ\xFE00': { text: 'F', variant: 'tex-calligraphic' },
+                '𝒢\xFE00': { text: 'G', variant: 'tex-calligraphic' },
+                'ℋ\xFE00': { text: 'H', variant: 'tex-calligraphic' },
+                'ℐ\xFE00': { text: 'I', variant: 'tex-calligraphic' },
+                '𝒥\xFE00': { text: 'J', variant: 'tex-calligraphic' },
+                '𝒦\xFE00': { text: 'K', variant: 'tex-calligraphic' },
+                'ℒ\xFE00': { text: 'L', variant: 'tex-calligraphic' },
+                'ℳ\xFE00': { text: 'M', variant: 'tex-calligraphic' },
+                '𝒩\xFE00': { text: 'N', variant: 'tex-calligraphic' },
+                '𝒪\xFE00': { text: 'O', variant: 'tex-calligraphic' },
+                '𝒫\xFE00': { text: 'P', variant: 'tex-calligraphic' },
+                '𝒬\xFE00': { text: 'Q', variant: 'tex-calligraphic' },
+                'ℛ\xFE00': { text: 'R', variant: 'tex-calligraphic' },
+                '𝒮\xFE00': { text: 'S', variant: 'tex-calligraphic' },
+                '𝒯\xFE00': { text: 'T', variant: 'tex-calligraphic' },
+                '𝒰\xFE00': { text: 'U', variant: 'tex-calligraphic' },
+                '𝒱\xFE00': { text: 'V', variant: 'tex-calligraphic' },
+                '𝒲\xFE00': { text: 'W', variant: 'tex-calligraphic' },
+                '𝒳\xFE00': { text: 'X', variant: 'tex-calligraphic' },
+                '𝒴\xFE00': { text: 'Y', variant: 'tex-calligraphic' },
+                '𝒵\xFE00': { text: 'Z', variant: 'tex-calligraphic' }
+              };
+
+              mmlFilters.add((args) => {
+                let nodes = document.evaluate('.//m:mi | .//m:mn | .//m:mo | .//m:ms', args.data,
+                  () => 'http://www.w3.org/1998/Math/MathML', XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE);
+                for (let i = 0; i < nodes.snapshotLength; i++) {
+                  const n = nodes.snapshotItem(i);
+                  const repl = replacements[n.innerHTML];
+                  if (repl !== undefined) {
+                    const variant = repl['variant'];
+                    const text = repl['text'];
+                    if (variant !== undefined) { n.classList.add('MJX-' + variant); n.removeAttribute('mathvariant'); }
+                    if (text !== undefined) { n.innerHTML = text; }
+                  }
+                }
+              });
+            }
+          }
+        };
+      </script>
+<script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js"></script>
+<script type="text/javascript">
+                gitbook.require(["gitbook"], function(gitbook) {
+                gitbook.start({
+                  "fontsettings": {
+                    "theme": "white",
+                    "family": "sans",
+                    "size": 2
+                  },
+                  "download": [ [ "thesis.pdf", "PDF" ], ],
+                  "search": {
+                    "engine": "fuse"
+                  },
+                  "toc": {
+                    "collapse": "none"
+                  }
+                });
+              });
+            </script>
+</body>
+
+</html>

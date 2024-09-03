@@ -1,0 +1,952 @@
+<!DOCTYPE html><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>6 Computational modeling of the neotissue growth process‣ Mathematical and computational modeling of metallic biomaterials biodegradation</title>
+<!--Generated on Sat Aug 31 17:26:45 2024 by LaTeXML (version 0.8.6) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on KU Leuven, June 2023.-->
+
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/style.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/plugin-table.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/plugin-search.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/plugin-bookdown.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/plugin-fontsettings.css" type="text/css">
+<link rel="stylesheet" href="ltx-report.css" type="text/css">
+<link rel="stylesheet" href="bookml/CSS/style.css" type="text/css">
+<link rel="stylesheet" href="bookml/CSS/style.gitbook,plain.css" type="text/css">
+<link rel="stylesheet" href="bookml/CSS/style.gitbook.css" type="text/css">
+<link rel="stylesheet" href="bmluser/colors.gitbook-thesis.css" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6"></script>
+<link rel="up" href="index.html" title="Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="start" href="index.html" title="Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="prev" href="Ch5.html" title="Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="next" href="Ch7.html" title="Chapter 7 Model parallelization for high-performance computing ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Chx1.html" title="Abstract ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch1.html" title="Chapter 1 General introduction ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch2.html" title="Chapter 2 Aims and objectives ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch4.html" title="Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch5.html" title="Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch7.html" title="Chapter 7 Model parallelization for high-performance computing ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch8.html" title="Chapter 8 BioDeg simulation software ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch9.html" title="Chapter 9 Bayesian parameter estimation of the computational models ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch10.html" title="Chapter 10 Model applications: patient-specific porous acetabular implants ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch11.html" title="Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch12.html" title="Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch13.html" title="Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="bibliography" href="bib.html" title="Bibliography ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="appendix" href="A1.html" title="Appendix A Mesh quality plots ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+</head>
+<body>
+<div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+<a href="#bml-main-content" tabindex="0" class="bml-skip-to-content">Skip to content.</a>
+<div class="book-summary"><nav class="ltx_page_navbar">
+<ul class="ltx_toclist summary">
+<li>
+<a href="index.html" title="Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref" rel="start">Mathematical and computational modeling of metallic biomaterials biodegradation</a>
+</li>
+<li class="divider">
+<li data-level="" data-path="Chx1.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Chx1.html" title="Abstract ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref">Abstract</a></li>
+<li data-level="1" data-path="Ch1.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch1.html" title="Chapter 1 General introduction ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">1 </span></b>General introduction</a></li>
+<li data-level="2" data-path="Ch2.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch2.html" title="Chapter 2 Aims and objectives ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">2 </span></b>Aims and objectives</a></li>
+<li data-level="3" data-path="Ch3.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">3 </span></b>Developing the core computational model</a></li>
+<li data-level="4" data-path="Ch4.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch4.html" title="Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">4 </span></b>Extending the model: adding fluid flow and convection</a></li>
+<li data-level="5" data-path="Ch5.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch5.html" title="Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">5 </span></b>Extending the model: simulating local pH evolution</a></li>
+<li data-level="6" data-path="" class="ltx_tocentry ltx_tocentry_chapter ltx_ref_self  chapter active">
+<a href="" title="Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">6 </span></b>Computational modeling of the neotissue growth process</a>
+<ul class="ltx_toclist ltx_toclist_chapter">
+<li data-level="6.1" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter "><a href="#S1" title="6.1 Introduction ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">6.1 </span></b>Introduction</a></li>
+<li data-level="6.2" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter ">
+<a href="#S2" title="6.2 Deriving the model ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">6.2 </span></b>Deriving the model</a>
+<ul class="ltx_toclist ltx_toclist_section">
+<li data-level="6.2.1" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S2.SS1" title="6.2.1 General equation of interface motion ‣ 6.2 Deriving the model ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">6.2.1 </span></b>General equation of interface motion</a></li>
+<li data-level="6.2.2" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S2.SS2" title="6.2.2 Phase-field formulation ‣ 6.2 Deriving the model ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">6.2.2 </span></b>Phase-field formulation</a></li>
+<li data-level="6.2.3" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S2.SS3" title="6.2.3 Level-set formulation ‣ 6.2 Deriving the model ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">6.2.3 </span></b>Level-set formulation</a></li>
+</ul>
+</li>
+<li data-level="6.3" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter ">
+<a href="#S3" title="6.3 Dimensionless forms for various cases ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">6.3 </span></b>Dimensionless forms for various cases</a>
+<ul class="ltx_toclist ltx_toclist_section">
+<li data-level="6.3.1" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S3.SS1" title="6.3.1 Stationary interface ‣ 6.3 Dimensionless forms for various cases ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">6.3.1 </span></b>Stationary interface</a></li>
+<li data-level="6.3.2" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S3.SS2" title="6.3.2 Evolution under constant normal speed ‣ 6.3 Dimensionless forms for various cases ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">6.3.2 </span></b>Evolution under constant normal speed</a></li>
+<li data-level="6.3.3" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S3.SS3" title="6.3.3 Curvature-driven interface evolution ‣ 6.3 Dimensionless forms for various cases ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">6.3.3 </span></b>Curvature-driven interface evolution</a></li>
+</ul>
+</li>
+<li data-level="6.4" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter "><a href="#S4" title="6.4 Adapting the formulation for curvature-driven tissue growth ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">6.4 </span></b>Adapting the formulation for curvature-driven tissue growth</a></li>
+<li data-level="6.5" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter ">
+<a href="#S5" title="6.5 Numerical implementation ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">6.5 </span></b>Numerical implementation</a>
+<ul class="ltx_toclist ltx_toclist_section">
+<li data-level="6.5.1" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S5.SS1" title="6.5.1 Phase-field model ‣ 6.5 Numerical implementation ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">6.5.1 </span></b>Phase-field model</a></li>
+<li data-level="6.5.2" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S5.SS2" title="6.5.2 Level-set model ‣ 6.5 Numerical implementation ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">6.5.2 </span></b>Level-set model</a></li>
+</ul>
+</li>
+<li data-level="6.6" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter "><a href="#S6" title="6.6 Simulation setup ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">6.6 </span></b>Simulation setup</a></li>
+<li data-level="6.7" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter "><a href="#S7" title="6.7 Results and discussion ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">6.7 </span></b>Results and discussion</a></li>
+<li data-level="6.8" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter "><a href="#S8" title="6.8 Challenges in coupling tissue growth and biodegradation models ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">6.8 </span></b>Challenges in coupling tissue growth and biodegradation models</a></li>
+<li data-level="6.9" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter "><a href="#S9" title="6.9 Conclusion ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">6.9 </span></b>Conclusion</a></li>
+</ul>
+</li>
+<li data-level="7" data-path="Ch7.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch7.html" title="Chapter 7 Model parallelization for high-performance computing ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">7 </span></b>Model parallelization for high-performance computing</a></li>
+<li data-level="8" data-path="Ch8.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch8.html" title="Chapter 8 BioDeg simulation software ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">8 </span></b>BioDeg simulation software</a></li>
+<li data-level="9" data-path="Ch9.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch9.html" title="Chapter 9 Bayesian parameter estimation of the computational models ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">9 </span></b>Bayesian parameter estimation of the computational models</a></li>
+<li data-level="10" data-path="Ch10.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch10.html" title="Chapter 10 Model applications: patient-specific porous acetabular implants ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">10 </span></b>Model applications: patient-specific porous acetabular implants</a></li>
+<li data-level="11" data-path="Ch11.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch11.html" title="Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">11 </span></b>Model applications: mechanical integrity of infilled structures</a></li>
+<li data-level="12" data-path="Ch12.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch12.html" title="Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">12 </span></b>Model applications: mechanical loosening of mandibular plates</a></li>
+<li data-level="13" data-path="Ch13.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch13.html" title="Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">13 </span></b>Conclusion</a></li>
+<li data-level="" data-path="bib.html" class="ltx_tocentry ltx_tocentry_bibliography  chapter "><a href="bib.html" title="Bibliography ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref">Bibliography</a></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li data-level="A" data-path="A1.html" class="ltx_tocentry ltx_tocentry_appendix  chapter "><a href="A1.html" title="Appendix A Mesh quality plots ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">A </span></b>Mesh quality plots</a></li>
+</ul>
+</nav></div>
+<div class="ltx_page_main book-body fixed">
+<div class="body-inner">
+<div class="book-header fixed" role="navigation"><h1>Computational modeling of the neotissue growth process</h1></div>
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="ltx_page_content page-inner" id="bml-main-content">
+<section class="ltx_chapter normal">
+<div class="section level1">
+
+<h1 class="ltx_title ltx_title_chapter">
+<span class="ltx_tag ltx_tag_chapter header-section-number">Chapter 6</span> Computational modeling of the neotissue growth process</h1>
+
+<div id="p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">
+<span class="ltx_inline-block ltx_parbox ltx_align_middle ltx_framed_rectangle" style="padding:9pt;width:433.6pt;">
+<span class="ltx_p">This chapter contains partial results from previously published content in <span class="ltx_text ltx_font_italic">Advanced Functional Materials</span>:</span>
+<span class="ltx_p">D. Van, B. Liang, S. Anania, M. Barzegari, B. Verlée, G. Nolens, J. Pirson, L. Geris, F. Lambert, “3D-Printed Synthetic Hydroxyapatite Scaffold With In Silico Optimized Macrostructure Enhances Bone Formation In Vivo,” <span class="ltx_text ltx_font_italic">Advanced Functional Materials</span>, vol. 32, p. 2105002, 2022.</span>
+</span></p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">This chapter focuses on developing computational models of the curvature-driven neotissue growth process, which can be coupled with the biodegradation model to have a hybrid model of biodegradation of biomaterials combined with the growth of neotissue inside/around them. To this end, two curvature-driven models were developed using the phase-field and level-set interface tracking techniques and compared to evaluate their similarities and differences.</p>
+</div>
+<section id="S1" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">6.1</span> Introduction</h2>
+
+<div id="S1.p1" class="ltx_para">
+<p class="ltx_p">Neotissue is defined as the cells and the extracellular matrix they produce. Coupling biodegradation and neotissue growth models can be useful for tuning the biodegradation rate to the rate of regeneration of new tissue, an example of which can be found in Chapter <a href="Ch10.html" title="Chapter 10 Model applications: patient-specific porous acetabular implants ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">10</span></a>. Similar to the biodegradation model, the modeling of the tissue formation process can take advantage of the interface tracking techniques in which the neotissue surface evolves over time, representing the growth process. Neotissue growth in porous scaffolds has been shown to be depending on the local mean curvature of the interface between the neotissue and the surrounding void space <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib198" title="How linear tension converts to curvature: geometric control of bone tissue growth" class="ltx_ref">36</a>, <a href="bib.html#bib199" title="Geometry as a factor for tissue growth: towards shape optimization of tissue engineering scaffolds" class="ltx_ref">37</a>, <a href="bib.html#bib200" title="The effect of geometry on three-dimensional tissue growth" class="ltx_ref">221</a>]</cite>. The commonly-used interface tracking techniques provide an efficient way to formulate curvature-driven problems. Although these models do not have immediate clinical applications, they can be quite useful for <span class="ltx_text ltx_font_italic">in vitro</span> tissue engineering experiments where the proliferation behavior and growth of various cell types need to be improved.</p>
+</div>
+<div id="S1.p2" class="ltx_para">
+<p class="ltx_p">Numerical tracking of interface movement has been widely used for certain modeling applications in science and engineering for multi-material and multiphase problems such as solidification, melting, corrosion, and grain growth to name a few <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib162" title="Sharp interface tracking using the phase-field equation" class="ltx_ref">251</a>]</cite>. The most popular Eulerian methodologies in this regard are the level-set <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib163" title="Fronts propagating with curvature-dependent speed: algorithms based on hamilton-jacobi formulations" class="ltx_ref">203</a>, <a href="bib.html#bib164" title="LEVEL set methods and fast marching methods: evolving interfaces in computational geometry, fluid mechanics, computer vision, and materials science, by j.a. sethian, cambridge university press, cambridge, uk, 2nd edn. 1999 (first published 1996 as level set methods) xviii + 420pp., isbn (paperback) 0-521-64557-3, (hardback) 0-521-64204-3 (pbk, £18.95)" class="ltx_ref">16</a>, <a href="bib.html#bib41" title="Level set methods and dynamic implicit surfaces" class="ltx_ref">219</a>]</cite>, volume-of-fluid (VOF) <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib165" title="Reconstructing volume tracking" class="ltx_ref">218</a>]</cite>, and phase-field methods <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib167" title="Phase-field simulation of solidification" class="ltx_ref">40</a>, <a href="bib.html#bib166" title="Phase-field modelling in extractive metallurgy" class="ltx_ref">33</a>]</cite>.</p>
+</div>
+<div id="S1.p3" class="ltx_para">
+<p class="ltx_p">The basic idea of the level-set method is to employ the Hamilton-Jacobi (HJ) algorithm for solving the general interface advection equation. The independent variable in the level-set method is a signed distance function called the level-set function <math id="S1.p3.m1" class="ltx_Math" alttext="\psi" display="inline"><semantics><mi>ψ</mi><annotation encoding="application/x-tex">\psi</annotation></semantics></math> <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib41" title="Level set methods and dynamic implicit surfaces" class="ltx_ref">219</a>]</cite>. The level-set function should be re-initialized as the interface evolves, which is the reason behind an inadvertent mass loss, one of the most prominent shortcomings of the level-set method. Although the VOF method is not vulnerable to the mass loss issue, calculating the interface curvature is difficult from the volume fraction <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib162" title="Sharp interface tracking using the phase-field equation" class="ltx_ref">251</a>]</cite>, making it less efficient to be used for curvature-driven problems.</p>
+</div>
+<div id="S1.p4" class="ltx_para">
+<p class="ltx_p">To overcome these challenges, diffuse interface methods <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib183" title="DIFFUSE-INTERFACE METHODS IN FLUID MECHANICS" class="ltx_ref">15</a>]</cite> have gained attention in recent decades, among which the phase-field method has shown potential for solving complex moving interface problems. Contrary to the level-set method, the interface is considered a smooth transition between phases, which usually has a finite width in diffuse interface methods. In the phase-field method, a non-conserved (or conserved) order parameter <math id="S1.p4.m1" class="ltx_Math" alttext="\phi" display="inline"><semantics><mi>ϕ</mi><annotation encoding="application/x-tex">\phi</annotation></semantics></math> is defined such that <math id="S1.p4.m2" class="ltx_Math" alttext="\phi=1" display="inline"><semantics><mrow><mi>ϕ</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\phi=1</annotation></semantics></math> in one bulk phase and <math id="S1.p4.m3" class="ltx_Math" alttext="\phi=-1" display="inline"><semantics><mrow><mi>ϕ</mi><mo>=</mo><mrow><mo>-</mo><mn>1</mn></mrow></mrow><annotation encoding="application/x-tex">\phi=-1</annotation></semantics></math> in the other. Then, the smooth transition between these two phases (<math id="S1.p4.m4" class="ltx_Math" alttext="-1&lt;\phi&lt;1" display="inline"><semantics><mrow><mrow><mo>-</mo><mn>1</mn></mrow><mo>&lt;</mo><mi>ϕ</mi><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">-1&lt;\phi&lt;1</annotation></semantics></math>) is marked as the interface. One of the advantages of the phase-field method is that the derived equation can be solved over the entire desired domain without considering the location of the interface. Moreover, although the curvature and interface normal vectors are not formulated explicitly, the phase-field method is suitable for problems in which the evolution of the interface depends on the local curvature or a field acting normal to the interface <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib162" title="Sharp interface tracking using the phase-field equation" class="ltx_ref">251</a>]</cite>. The phase-field method keeps a constant thickness for the smooth transition region normal to the interface, and as a result, no re-initialization as for the level-set method is needed.</p>
+</div>
+<div id="S1.p5" class="ltx_para">
+<p class="ltx_p">The phase-field method has been already proved to be an efficient interface tracking technique for various problems in micro/meso scales such as solidification <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib177" title="Quantitative phase-field modeling of dendritic growth in two and three dimensions" class="ltx_ref">143</a>, <a href="bib.html#bib167" title="Phase-field simulation of solidification" class="ltx_ref">40</a>]</cite>, microstructural evolution <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib178" title="Phase-field models for microstructure evolution" class="ltx_ref">51</a>]</cite>, grain growth <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib179" title="Computer simulation of the domain dynamics of a quenched system with a large number of nonconserved order parameters: the grain-growth kinetics" class="ltx_ref">50</a>]</cite>, crack propagation <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib180" title="Dynamic instabilities of fracture under biaxial strain using a phase field model" class="ltx_ref">114</a>, <a href="bib.html#bib181" title="Phase field modeling of crack propagation" class="ltx_ref">246</a>]</cite>, electromigration <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib182" title="Diffuse interface model for electromigration and stress voiding" class="ltx_ref">35</a>]</cite> and extractive metallurgy <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib166" title="Phase-field modelling in extractive metallurgy" class="ltx_ref">33</a>]</cite>. However, it has been used recently for dealing with problems described in macro level, such as corrosion <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib168" title="A phase field model for simulating the pitting corrosion" class="ltx_ref">183</a>, <a href="bib.html#bib169" title="Phase field study of mechanico-electrochemical corrosion" class="ltx_ref">168</a>, <a href="bib.html#bib171" title="Phase field modeling of galvanic corrosion" class="ltx_ref">126</a>, <a href="bib.html#bib172" title="Multi-phase-field modeling of localized corrosion involving galvanic pitting and mechano-electrochemical coupling" class="ltx_ref">169</a>, <a href="bib.html#bib173" title="Phase-field model of pitting corrosion kinetics in metallic materials" class="ltx_ref">17</a>, <a href="bib.html#bib174" title="Phase-field modeling for pH-dependent general and pitting corrosion of iron" class="ltx_ref">255</a>, <a href="bib.html#bib175" title="Numerical modeling of localized corrosion using phase-field and smoothed boundary methods" class="ltx_ref">47</a>]</cite> and cell/tissue growth <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib170" title="Phase-field model and its splitting numerical scheme for tissue growth" class="ltx_ref">135</a>, <a href="bib.html#bib176" title="Mathematical model and numerical simulation for tissue growth on bioscaffolds" class="ltx_ref">158</a>]</cite>. This chapter discusses the development of a phase-field model of the tissue growth process to describe the cell growth behavior on 3D surfaces as a moving-boundary problem. Additionally, a similar model was developed based on the level-set method to compare the performance and results of both interface tracking methods. Both models were implemented using the finite element method.</p>
+</div>
+</div>
+</section>
+<section id="S2" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">6.2</span> Deriving the model</h2>
+
+<div id="S2.p1" class="ltx_para">
+<p class="ltx_p">This section demonstrates the derivation of the phase-field and level-set equations from the general advection equation, showing the similarities and differences of these interface tracking techniques for moving boundary problems.</p>
+</div>
+<section id="S2.SS1" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">6.2.1</span> General equation of interface motion</h3>
+
+<div id="S2.SS1.p1" class="ltx_para">
+<p class="ltx_p">The general interface advection equation for an Eulerian description of interface movement can be written as <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib162" title="Sharp interface tracking using the phase-field equation" class="ltx_ref">251</a>]</cite>:</p>
+</div>
+<div id="S2.SS1.p2" class="ltx_para">
+<div id="E1" class="ltx_equation ltx_eqn_div">
+<span><math id="E1.m1" class="ltx_Math" alttext="\frac{\partial\phi}{\partial t}+\boldsymbol{u}\cdot\nabla\phi=0," display="block"><semantics><mrow><mrow><mrow><mfrac><mrow><mo>∂</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><mi>t</mi></mrow></mfrac><mo>+</mo><mrow><mi>𝒖</mi><mo>⋅</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>ϕ</mi></mrow></mrow></mrow><mo>=</mo><mn>0</mn></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\frac{\partial\phi}{\partial t}+\boldsymbol{u}\cdot\nabla\phi=0,</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.1)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">where <math id="S2.SS1.p2.m1" class="ltx_Math" alttext="\phi" display="inline"><semantics><mi>ϕ</mi><annotation encoding="application/x-tex">\phi</annotation></semantics></math> is the phase-field and <math id="S2.SS1.p2.m2" class="ltx_Math" alttext="\boldsymbol{u}" display="inline"><semantics><mi>𝒖</mi><annotation encoding="application/x-tex">\boldsymbol{u}</annotation></semantics></math> is the interface velocity. The velocity <math id="S2.SS1.p2.m3" class="ltx_Math" alttext="\boldsymbol{u}" display="inline"><semantics><mi>𝒖</mi><annotation encoding="application/x-tex">\boldsymbol{u}</annotation></semantics></math> can be divided into normal (<math id="S2.SS1.p2.m4" class="ltx_Math" alttext="u_{\mathrm{n}}" display="inline"><semantics><msub><mi>u</mi><mi mathvariant="normal">n</mi></msub><annotation encoding="application/x-tex">u_{\mathrm{n}}</annotation></semantics></math>) and external velocity components (<math id="S2.SS1.p2.m5" class="ltx_Math" alttext="\boldsymbol{u}_{\mathrm{e}}" display="inline"><semantics><msub><mi>𝒖</mi><mi mathvariant="normal">e</mi></msub><annotation encoding="application/x-tex">\boldsymbol{u}_{\mathrm{e}}</annotation></semantics></math>):</p>
+<div id="E2" class="ltx_equation ltx_eqn_div">
+<span><math id="E2.m1" class="ltx_Math" alttext="\boldsymbol{u}=u_{\mathrm{n}}\boldsymbol{n}+\boldsymbol{u}_{\mathrm{e}}," display="block"><semantics><mrow><mrow><mi>𝒖</mi><mo>=</mo><mrow><mrow><msub><mi>u</mi><mi mathvariant="normal">n</mi></msub><mo>⁢</mo><mi>𝒏</mi></mrow><mo>+</mo><msub><mi>𝒖</mi><mi mathvariant="normal">e</mi></msub></mrow></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\boldsymbol{u}=u_{\mathrm{n}}\boldsymbol{n}+\boldsymbol{u}_{\mathrm{e}},</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.2)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">in which <math id="S2.SS1.p2.m6" class="ltx_Math" alttext="\boldsymbol{n}=\nabla\phi/|\nabla\phi|" display="inline"><semantics><mrow><mi>𝒏</mi><mo>=</mo><mrow><mo>∇</mo><mo>⁡</mo><mrow><mi>ϕ</mi><mo>/</mo><mrow><mo stretchy="false">|</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mo stretchy="false">|</mo></mrow></mrow></mrow></mrow><annotation encoding="application/x-tex">\boldsymbol{n}=\nabla\phi/|\nabla\phi|</annotation></semantics></math> is the unit vector normal to the interface. So, Eq. <a href="#E1" title="(6.1) ‣ 6.2.1 General equation of interface motion ‣ 6.2 Deriving the model ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.1</span></a> can be rewritten as:</p>
+<div id="E3" class="ltx_equation ltx_eqn_div">
+<span><math id="E3.m1" class="ltx_Math" alttext="\frac{\partial\phi}{\partial t}+u_{\mathrm{n}}|\nabla\phi|+\boldsymbol{u}_{%
+\mathrm{e}}\cdot\nabla\phi=0." display="block"><semantics><mrow><mrow><mrow><mfrac><mrow><mo>∂</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><mi>t</mi></mrow></mfrac><mo>+</mo><mrow><msub><mi>u</mi><mi mathvariant="normal">n</mi></msub><mo>⁢</mo><mrow><mo stretchy="false">|</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mo stretchy="false">|</mo></mrow></mrow><mo>+</mo><mrow><msub><mi>𝒖</mi><mi mathvariant="normal">e</mi></msub><mo>⋅</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>ϕ</mi></mrow></mrow></mrow><mo>=</mo><mn>0</mn></mrow><mo>.</mo></mrow><annotation encoding="application/x-tex">\frac{\partial\phi}{\partial t}+u_{\mathrm{n}}|\nabla\phi|+\boldsymbol{u}_{%
+\mathrm{e}}\cdot\nabla\phi=0.</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.3)</span>
+              
+              
+            
+</div>
+</div>
+<div id="S2.SS1.p3" class="ltx_para">
+<p class="ltx_p">The normal velocity can be decomposed into more components to take into account the effect of interface curvature (<math id="S2.SS1.p3.m1" class="ltx_Math" alttext="\kappa" display="inline"><semantics><mi>κ</mi><annotation encoding="application/x-tex">\kappa</annotation></semantics></math>) such that the terms are independent and proportional to the curvature, respectively:</p>
+<div id="E4" class="ltx_equation ltx_eqn_div">
+<span><math id="E4.m1" class="ltx_Math" alttext="u_{\mathrm{n}}=a-b\kappa," display="block"><semantics><mrow><mrow><msub><mi>u</mi><mi mathvariant="normal">n</mi></msub><mo>=</mo><mrow><mi>a</mi><mo>-</mo><mrow><mi>b</mi><mo>⁢</mo><mi>κ</mi></mrow></mrow></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">u_{\mathrm{n}}=a-b\kappa,</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.4)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">where the coefficients <math id="S2.SS1.p3.m2" class="ltx_Math" alttext="a" display="inline"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math> and <math id="S2.SS1.p3.m3" class="ltx_Math" alttext="b" display="inline"><semantics><mi>b</mi><annotation encoding="application/x-tex">b</annotation></semantics></math> have units of <math id="S2.SS1.p3.m4" class="ltx_Math" alttext="\mathrm{m}/\mathrm{s}" display="inline"><semantics><mrow><mi mathvariant="normal">m</mi><mo>/</mo><mi mathvariant="normal">s</mi></mrow><annotation encoding="application/x-tex">\mathrm{m}/\mathrm{s}</annotation></semantics></math> and <math id="S2.SS1.p3.m5" class="ltx_Math" alttext="\mathrm{m}^{2}/\mathrm{s}" display="inline"><semantics><mrow><msup><mi mathvariant="normal">m</mi><mn>2</mn></msup><mo>/</mo><mi mathvariant="normal">s</mi></mrow><annotation encoding="application/x-tex">\mathrm{m}^{2}/\mathrm{s}</annotation></semantics></math>. Substituting this into Eq. <a href="#E2" title="(6.2) ‣ 6.2.1 General equation of interface motion ‣ 6.2 Deriving the model ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.2</span></a> yields the final form of the interface motion equation:</p>
+<div id="E5" class="ltx_equation ltx_eqn_div">
+<span><math id="E5.m1" class="ltx_Math" alttext="\frac{\partial\phi}{\partial t}+a|\nabla\phi|+\boldsymbol{u}_{\mathrm{e}}\cdot%
+\nabla\phi=b\kappa|\nabla\phi|." display="block"><semantics><mrow><mrow><mrow><mfrac><mrow><mo>∂</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><mi>t</mi></mrow></mfrac><mo>+</mo><mrow><mi>a</mi><mo>⁢</mo><mrow><mo stretchy="false">|</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mo stretchy="false">|</mo></mrow></mrow><mo>+</mo><mrow><msub><mi>𝒖</mi><mi mathvariant="normal">e</mi></msub><mo>⋅</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>ϕ</mi></mrow></mrow></mrow><mo>=</mo><mrow><mi>b</mi><mo>⁢</mo><mi>κ</mi><mo>⁢</mo><mrow><mo stretchy="false">|</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mo stretchy="false">|</mo></mrow></mrow></mrow><mo>.</mo></mrow><annotation encoding="application/x-tex">\frac{\partial\phi}{\partial t}+a|\nabla\phi|+\boldsymbol{u}_{\mathrm{e}}\cdot%
+\nabla\phi=b\kappa|\nabla\phi|.</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.5)</span>
+              
+              
+            
+</div>
+</div>
+</div>
+</section>
+<section id="S2.SS2" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">6.2.2</span> Phase-field formulation</h3>
+
+<div id="S2.SS2.p1" class="ltx_para">
+<p class="ltx_p">To further proceed with the phase-field formulation, a proper kernel should be selected for the phase-field variable, which can be done based on Beckermann et al. <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib184" title="Modeling melt convection in phase-field simulations of solidification" class="ltx_ref">32</a>]</cite>:</p>
+<div id="E6" class="ltx_equation ltx_eqn_div">
+<span><math id="E6.m1" class="ltx_Math" alttext="\phi=-\tanh\left(\frac{n}{\sqrt{2}w}\right)," display="block"><semantics><mrow><mrow><mi>ϕ</mi><mo>=</mo><mrow><mo>-</mo><mrow><mi>tanh</mi><mo>⁡</mo><mrow><mo>(</mo><mfrac><mi>n</mi><mrow><msqrt><mn>2</mn></msqrt><mo>⁢</mo><mi>w</mi></mrow></mfrac><mo>)</mo></mrow></mrow></mrow></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\phi=-\tanh\left(\frac{n}{\sqrt{2}w}\right),</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.6)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">in which <math id="S2.SS2.p1.m1" class="ltx_Math" alttext="w" display="inline"><semantics><mi>w</mi><annotation encoding="application/x-tex">w</annotation></semantics></math> is the thickness of the transition profile (<math id="S2.SS2.p1.m2" class="ltx_Math" alttext="\phi" display="inline"><semantics><mi>ϕ</mi><annotation encoding="application/x-tex">\phi</annotation></semantics></math> varies from <math id="S2.SS2.p1.m3" class="ltx_Math" alttext="-0.9" display="inline"><semantics><mrow><mo>-</mo><mn>0.9</mn></mrow><annotation encoding="application/x-tex">-0.9</annotation></semantics></math> to <math id="S2.SS2.p1.m4" class="ltx_Math" alttext="+0.9" display="inline"><semantics><mrow><mo>+</mo><mn>0.9</mn></mrow><annotation encoding="application/x-tex">+0.9</annotation></semantics></math> in a narrow layer with the width of <math id="S2.SS2.p1.m5" class="ltx_Math" alttext="3\sqrt{2}w" display="inline"><semantics><mrow><mn>3</mn><mo>⁢</mo><msqrt><mn>2</mn></msqrt><mo>⁢</mo><mi>w</mi></mrow><annotation encoding="application/x-tex">3\sqrt{2}w</annotation></semantics></math>), and <math id="S2.SS2.p1.m6" class="ltx_Math" alttext="n" display="inline"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> is the coordinate normal to the interface. The curvature can be written as a function of the phase-field variable:</p>
+<div id="E7" class="ltx_equation ltx_eqn_div">
+<span><math id="E7.m1" class="ltx_Math" alttext="\kappa=\nabla\cdot\boldsymbol{n}=\nabla\cdot\left(\frac{\nabla\phi}{|\nabla%
+\phi|}\right)=\frac{1}{|\nabla\phi|}\left[\nabla^{2}\phi-\frac{(\nabla\phi%
+\cdot\nabla)|\nabla\phi|}{|\nabla\phi|}\right]." display="block"><semantics><mrow><mrow><mi>κ</mi><mo>=</mo><mrow><mo>∇</mo><mo>⋅</mo><mi>𝒏</mi></mrow><mo>=</mo><mrow><mo>∇</mo><mo>⋅</mo><mrow><mo>(</mo><mfrac><mrow><mo>∇</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mrow><mo stretchy="false">|</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mo stretchy="false">|</mo></mrow></mfrac><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mfrac><mn>1</mn><mrow><mo stretchy="false">|</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mo stretchy="false">|</mo></mrow></mfrac><mo>⁢</mo><mrow><mo>[</mo><mrow><mrow><msup><mo>∇</mo><mn>2</mn></msup><mo>⁡</mo><mi>ϕ</mi></mrow><mo>-</mo><mfrac><mrow><mrow><mo stretchy="false">(</mo><mrow><mrow><mo>∇</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mo>⋅</mo><mo>∇</mo></mrow><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mrow><mo stretchy="false">|</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mo stretchy="false">|</mo></mrow></mrow><mrow><mo stretchy="false">|</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mo stretchy="false">|</mo></mrow></mfrac></mrow><mo>]</mo></mrow></mrow></mrow><mo>.</mo></mrow><annotation encoding="application/x-tex">\kappa=\nabla\cdot\boldsymbol{n}=\nabla\cdot\left(\frac{\nabla\phi}{|\nabla%
+\phi|}\right)=\frac{1}{|\nabla\phi|}\left[\nabla^{2}\phi-\frac{(\nabla\phi%
+\cdot\nabla)|\nabla\phi|}{|\nabla\phi|}\right].</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.7)</span>
+              
+              
+            
+</div>
+</div>
+<div id="S2.SS2.p2" class="ltx_para">
+<p class="ltx_p">Using the defined kernel, the terms in Eq. <a href="#E7" title="(6.7) ‣ 6.2.2 Phase-field formulation ‣ 6.2 Deriving the model ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.7</span></a> can be expressed as:</p>
+<div id="E8" class="ltx_equation ltx_eqn_div">
+<span><math id="E8.m1" class="ltx_Math" alttext="|\nabla\phi|=-\frac{\partial\phi}{\partial n}=\frac{1-\phi^{2}}{\sqrt{2}w}%
+\quad\text{ and }\quad\frac{(\nabla\phi\cdot\nabla)|\nabla\phi|}{|\nabla\phi|}%
+=\frac{\partial^{2}\phi}{\partial n^{2}}=-\frac{\phi\left(1-\phi^{2}\right)}{w%
+^{2}}." display="block"><semantics><mrow><mrow><mrow><mrow><mo stretchy="false">|</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mo stretchy="false">|</mo></mrow><mo>=</mo><mrow><mo>-</mo><mfrac><mrow><mo>∂</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><mi>n</mi></mrow></mfrac></mrow><mo>=</mo><mfrac><mrow><mn>1</mn><mo>-</mo><msup><mi>ϕ</mi><mn>2</mn></msup></mrow><mrow><msqrt><mn>2</mn></msqrt><mo>⁢</mo><mi>w</mi></mrow></mfrac></mrow><mo mathvariant="italic" separator="true"> </mo><mrow><mrow><mtext> and </mtext><mo mathvariant="italic" separator="true"> </mo><mfrac><mrow><mrow><mo stretchy="false">(</mo><mrow><mrow><mo>∇</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mo>⋅</mo><mo>∇</mo></mrow><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mrow><mo stretchy="false">|</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mo stretchy="false">|</mo></mrow></mrow><mrow><mo stretchy="false">|</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mo stretchy="false">|</mo></mrow></mfrac></mrow><mo>=</mo><mfrac><mrow><msup><mo>∂</mo><mn>2</mn></msup><mo>⁡</mo><mi>ϕ</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><msup><mi>n</mi><mn>2</mn></msup></mrow></mfrac><mo>=</mo><mrow><mo>-</mo><mfrac><mrow><mi>ϕ</mi><mo>⁢</mo><mrow><mo>(</mo><mrow><mn>1</mn><mo>-</mo><msup><mi>ϕ</mi><mn>2</mn></msup></mrow><mo>)</mo></mrow></mrow><msup><mi>w</mi><mn>2</mn></msup></mfrac></mrow></mrow></mrow><mo>.</mo></mrow><annotation encoding="application/x-tex">|\nabla\phi|=-\frac{\partial\phi}{\partial n}=\frac{1-\phi^{2}}{\sqrt{2}w}%
+\quad\text{ and }\quad\frac{(\nabla\phi\cdot\nabla)|\nabla\phi|}{|\nabla\phi|}%
+=\frac{\partial^{2}\phi}{\partial n^{2}}=-\frac{\phi\left(1-\phi^{2}\right)}{w%
+^{2}}.</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.8)</span>
+              
+              
+            
+</div>
+</div>
+<div id="S2.SS2.p3" class="ltx_para">
+<p class="ltx_p">Substituting Eq. <a href="#E8" title="(6.8) ‣ 6.2.2 Phase-field formulation ‣ 6.2 Deriving the model ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.8</span></a> into Eq. <a href="#E7" title="(6.7) ‣ 6.2.2 Phase-field formulation ‣ 6.2 Deriving the model ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.7</span></a> yields to the following definition of interface curvature:</p>
+<div id="E9" class="ltx_equation ltx_eqn_div">
+<span><math id="E9.m1" class="ltx_Math" alttext="\kappa=\frac{1}{|\nabla\phi|}\left[\nabla^{2}\phi+\frac{\phi\left(1-\phi^{2}%
+\right)}{w^{2}}\right]," display="block"><semantics><mrow><mrow><mi>κ</mi><mo>=</mo><mrow><mfrac><mn>1</mn><mrow><mo stretchy="false">|</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mo stretchy="false">|</mo></mrow></mfrac><mo>⁢</mo><mrow><mo>[</mo><mrow><mrow><msup><mo>∇</mo><mn>2</mn></msup><mo>⁡</mo><mi>ϕ</mi></mrow><mo>+</mo><mfrac><mrow><mi>ϕ</mi><mo>⁢</mo><mrow><mo>(</mo><mrow><mn>1</mn><mo>-</mo><msup><mi>ϕ</mi><mn>2</mn></msup></mrow><mo>)</mo></mrow></mrow><msup><mi>w</mi><mn>2</mn></msup></mfrac></mrow><mo>]</mo></mrow></mrow></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\kappa=\frac{1}{|\nabla\phi|}\left[\nabla^{2}\phi+\frac{\phi\left(1-\phi^{2}%
+\right)}{w^{2}}\right],</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.9)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">which subsequently changes Eq. <a href="#E5" title="(6.5) ‣ 6.2.1 General equation of interface motion ‣ 6.2 Deriving the model ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.5</span></a> into:</p>
+<div id="E10" class="ltx_equation ltx_eqn_div">
+<span><math id="E10.m1" class="ltx_Math" alttext="\frac{\partial\phi}{\partial t}+a|\nabla\phi|+\boldsymbol{u}_{\mathrm{e}}\cdot%
+\nabla\phi=b\left[\nabla^{2}\phi+\frac{\phi\left(1-\phi^{2}\right)}{w^{2}}%
+\right]." display="block"><semantics><mrow><mrow><mrow><mfrac><mrow><mo>∂</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><mi>t</mi></mrow></mfrac><mo>+</mo><mrow><mi>a</mi><mo>⁢</mo><mrow><mo stretchy="false">|</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mo stretchy="false">|</mo></mrow></mrow><mo>+</mo><mrow><msub><mi>𝒖</mi><mi mathvariant="normal">e</mi></msub><mo>⋅</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>ϕ</mi></mrow></mrow></mrow><mo>=</mo><mrow><mi>b</mi><mo>⁢</mo><mrow><mo>[</mo><mrow><mrow><msup><mo>∇</mo><mn>2</mn></msup><mo>⁡</mo><mi>ϕ</mi></mrow><mo>+</mo><mfrac><mrow><mi>ϕ</mi><mo>⁢</mo><mrow><mo>(</mo><mrow><mn>1</mn><mo>-</mo><msup><mi>ϕ</mi><mn>2</mn></msup></mrow><mo>)</mo></mrow></mrow><msup><mi>w</mi><mn>2</mn></msup></mfrac></mrow><mo>]</mo></mrow></mrow></mrow><mo>.</mo></mrow><annotation encoding="application/x-tex">\frac{\partial\phi}{\partial t}+a|\nabla\phi|+\boldsymbol{u}_{\mathrm{e}}\cdot%
+\nabla\phi=b\left[\nabla^{2}\phi+\frac{\phi\left(1-\phi^{2}\right)}{w^{2}}%
+\right].</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.10)</span>
+              
+              
+            
+</div>
+</div>
+<div id="S2.SS2.p4" class="ltx_para">
+<p class="ltx_p">Eq. <a href="#E10" title="(6.10) ‣ 6.2.2 Phase-field formulation ‣ 6.2 Deriving the model ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.10</span></a> is the derived form of the phase-field equation for tracking an evolving interface, containing terms corresponding to normal interface motion, advection by an external field, and curvature-driven movement. The term <math id="S2.SS2.p4.m1" class="ltx_Math" alttext="|\nabla\phi|" display="inline"><semantics><mrow><mo stretchy="false">|</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mo stretchy="false">|</mo></mrow><annotation encoding="application/x-tex">|\nabla\phi|</annotation></semantics></math> in Eq. <a href="#E10" title="(6.10) ‣ 6.2.2 Phase-field formulation ‣ 6.2 Deriving the model ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.10</span></a> can be replaced by its definition in Eq. <a href="#E8" title="(6.8) ‣ 6.2.2 Phase-field formulation ‣ 6.2 Deriving the model ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.8</span></a> to form another version of the equation:</p>
+</div>
+<div id="S2.SS2.p5" class="ltx_para">
+<div id="E11" class="ltx_equation ltx_eqn_div">
+<span><math id="E11.m1" class="ltx_Math" alttext="\frac{\partial\phi}{\partial t}+a\frac{1-\phi^{2}}{\sqrt{2}w}+\boldsymbol{u}_{%
+\mathrm{e}}\cdot\nabla\phi=b\left[\nabla^{2}\phi+\frac{\phi\left(1-\phi^{2}%
+\right)}{w^{2}}\right]," display="block"><semantics><mrow><mrow><mrow><mfrac><mrow><mo>∂</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><mi>t</mi></mrow></mfrac><mo>+</mo><mrow><mi>a</mi><mo>⁢</mo><mfrac><mrow><mn>1</mn><mo>-</mo><msup><mi>ϕ</mi><mn>2</mn></msup></mrow><mrow><msqrt><mn>2</mn></msqrt><mo>⁢</mo><mi>w</mi></mrow></mfrac></mrow><mo>+</mo><mrow><msub><mi>𝒖</mi><mi mathvariant="normal">e</mi></msub><mo>⋅</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>ϕ</mi></mrow></mrow></mrow><mo>=</mo><mrow><mi>b</mi><mo>⁢</mo><mrow><mo>[</mo><mrow><mrow><msup><mo>∇</mo><mn>2</mn></msup><mo>⁡</mo><mi>ϕ</mi></mrow><mo>+</mo><mfrac><mrow><mi>ϕ</mi><mo>⁢</mo><mrow><mo>(</mo><mrow><mn>1</mn><mo>-</mo><msup><mi>ϕ</mi><mn>2</mn></msup></mrow><mo>)</mo></mrow></mrow><msup><mi>w</mi><mn>2</mn></msup></mfrac></mrow><mo>]</mo></mrow></mrow></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\frac{\partial\phi}{\partial t}+a\frac{1-\phi^{2}}{\sqrt{2}w}+\boldsymbol{u}_{%
+\mathrm{e}}\cdot\nabla\phi=b\left[\nabla^{2}\phi+\frac{\phi\left(1-\phi^{2}%
+\right)}{w^{2}}\right],</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.11)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">which is an easier version to be implemented using numerical methods. The unique term on the right-hand side of Eq. <a href="#E11" title="(6.11) ‣ 6.2.2 Phase-field formulation ‣ 6.2 Deriving the model ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.11</span></a> is a characteristic of the phase-field method.</p>
+</div>
+</div>
+</section>
+<section id="S2.SS3" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">6.2.3</span> Level-set formulation</h3>
+
+<div id="S2.SS3.p1" class="ltx_para">
+<p class="ltx_p">From the mathematical perspective, the level-set equation has a direct connection to the phase-field equation and can be derived by replacing the phase-field variable with a sign distance function. To this end, Eq. <a href="#E5" title="(6.5) ‣ 6.2.1 General equation of interface motion ‣ 6.2 Deriving the model ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.5</span></a> can be rewritten to be a level-set equation:</p>
+<div id="E12" class="ltx_equation ltx_eqn_div">
+<span><math id="E12.m1" class="ltx_Math" alttext="\frac{\partial\psi}{\partial t}+a|\nabla\psi|+\boldsymbol{u}_{\mathrm{e}}\cdot%
+\nabla\psi=b\kappa|\nabla\psi|," display="block"><semantics><mrow><mrow><mrow><mfrac><mrow><mo>∂</mo><mo>⁡</mo><mi>ψ</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><mi>t</mi></mrow></mfrac><mo>+</mo><mrow><mi>a</mi><mo>⁢</mo><mrow><mo stretchy="false">|</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>ψ</mi></mrow><mo stretchy="false">|</mo></mrow></mrow><mo>+</mo><mrow><msub><mi>𝒖</mi><mi mathvariant="normal">e</mi></msub><mo>⋅</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>ψ</mi></mrow></mrow></mrow><mo>=</mo><mrow><mi>b</mi><mo>⁢</mo><mi>κ</mi><mo>⁢</mo><mrow><mo stretchy="false">|</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>ψ</mi></mrow><mo stretchy="false">|</mo></mrow></mrow></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\frac{\partial\psi}{\partial t}+a|\nabla\psi|+\boldsymbol{u}_{\mathrm{e}}\cdot%
+\nabla\psi=b\kappa|\nabla\psi|,</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.12)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">with <math id="S2.SS3.p1.m1" class="ltx_Math" alttext="\psi" display="inline"><semantics><mi>ψ</mi><annotation encoding="application/x-tex">\psi</annotation></semantics></math> being a sign distance function that descibes the distance of each point of the computational domain to the interface. This implies that the zero iso-contour of the level-set function defines the interface.</p>
+</div>
+</div>
+</section>
+</div>
+</section>
+<section id="S3" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">6.3</span> Dimensionless forms for various cases</h2>
+
+<section id="S3.SS1" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">6.3.1</span> Stationary interface</h3>
+
+<div id="S3.SS1.p1" class="ltx_para">
+<p class="ltx_p">A stationary interface, where there is no interface motion (<math id="S3.SS1.p1.m1" class="ltx_Math" alttext="a=0" display="inline"><semantics><mrow><mi>a</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a=0</annotation></semantics></math> and <math id="S3.SS1.p1.m2" class="ltx_Math" alttext="\boldsymbol{u}_{\mathrm{e}}=0" display="inline"><semantics><mrow><msub><mi>𝒖</mi><mi mathvariant="normal">e</mi></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\boldsymbol{u}_{\mathrm{e}}=0</annotation></semantics></math>), is a primary problem in examining the formulation and select proper grid spacing parameters. For a 1-D case, Eq. <a href="#E11" title="(6.11) ‣ 6.2.2 Phase-field formulation ‣ 6.2 Deriving the model ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.11</span></a> can be simplified as:</p>
+<div id="E13" class="ltx_equation ltx_eqn_div">
+<span><math id="E13.m1" class="ltx_Math" alttext="\frac{\partial\phi}{\partial t}=b\left(\frac{\partial^{2}\phi}{\partial x^{2}}%
++\frac{\phi\left(1-\phi^{2}\right)}{w^{2}}\right)." display="block"><semantics><mrow><mrow><mfrac><mrow><mo>∂</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><mi>t</mi></mrow></mfrac><mo>=</mo><mrow><mi>b</mi><mo>⁢</mo><mrow><mo>(</mo><mrow><mfrac><mrow><msup><mo>∂</mo><mn>2</mn></msup><mo>⁡</mo><mi>ϕ</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><msup><mi>x</mi><mn>2</mn></msup></mrow></mfrac><mo>+</mo><mfrac><mrow><mi>ϕ</mi><mo>⁢</mo><mrow><mo>(</mo><mrow><mn>1</mn><mo>-</mo><msup><mi>ϕ</mi><mn>2</mn></msup></mrow><mo>)</mo></mrow></mrow><msup><mi>w</mi><mn>2</mn></msup></mfrac></mrow><mo>)</mo></mrow></mrow></mrow><mo>.</mo></mrow><annotation encoding="application/x-tex">\frac{\partial\phi}{\partial t}=b\left(\frac{\partial^{2}\phi}{\partial x^{2}}%
++\frac{\phi\left(1-\phi^{2}\right)}{w^{2}}\right).</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.13)</span>
+              
+              
+            
+</div>
+</div>
+<div id="S3.SS1.p2" class="ltx_para">
+<p class="ltx_p">To scale this equation, the following dimensionless variables can be defined:</p>
+<div id="E14" class="ltx_equation ltx_eqn_div">
+<span><math id="E14.m1" class="ltx_Math" alttext="x^{\prime}=\frac{x}{x_{c}}\quad\text{and}\quad t^{\prime}=\frac{t}{t_{c}}." display="block"><semantics><mrow><mrow><mrow><msup><mi>x</mi><mo>′</mo></msup><mo>=</mo><mrow><mfrac><mi>x</mi><msub><mi>x</mi><mi>c</mi></msub></mfrac><mo mathvariant="italic" separator="true"> </mo><mtext>and</mtext></mrow></mrow><mo mathvariant="italic" separator="true"> </mo><mrow><msup><mi>t</mi><mo>′</mo></msup><mo>=</mo><mfrac><mi>t</mi><msub><mi>t</mi><mi>c</mi></msub></mfrac></mrow></mrow><mo>.</mo></mrow><annotation encoding="application/x-tex">x^{\prime}=\frac{x}{x_{c}}\quad\text{and}\quad t^{\prime}=\frac{t}{t_{c}}.</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.14)</span>
+              
+              
+            
+</div>
+</div>
+<div id="S3.SS1.p3" class="ltx_para">
+<p class="ltx_p">So, Eq. <a href="#E13" title="(6.13) ‣ 6.3.1 Stationary interface ‣ 6.3 Dimensionless forms for various cases ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.13</span></a> can be rewritten using these new variables:</p>
+<div id="E15" class="ltx_equation ltx_eqn_div">
+<span><math id="E15.m1" class="ltx_Math" alttext="\frac{1}{t_{c}}\frac{\partial\phi}{\partial t^{\prime}}=\frac{b}{x_{c}^{2}}%
+\frac{\partial^{2}\phi}{\partial x^{\prime 2}}+\frac{b}{w^{2}}f(\phi)," display="block"><semantics><mrow><mrow><mrow><mfrac><mn>1</mn><msub><mi>t</mi><mi>c</mi></msub></mfrac><mo>⁢</mo><mfrac><mrow><mo>∂</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><msup><mi>t</mi><mo>′</mo></msup></mrow></mfrac></mrow><mo>=</mo><mrow><mrow><mfrac><mi>b</mi><msubsup><mi>x</mi><mi>c</mi><mn>2</mn></msubsup></mfrac><mo>⁢</mo><mfrac><mrow><msup><mo>∂</mo><mn>2</mn></msup><mo>⁡</mo><mi>ϕ</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><msup><mi>x</mi><mrow><mo mathsize="142%" stretchy="false">′</mo><mo>⁣</mo><mn>2</mn></mrow></msup></mrow></mfrac></mrow><mo>+</mo><mrow><mfrac><mi>b</mi><msup><mi>w</mi><mn>2</mn></msup></mfrac><mo>⁢</mo><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>ϕ</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\frac{1}{t_{c}}\frac{\partial\phi}{\partial t^{\prime}}=\frac{b}{x_{c}^{2}}%
+\frac{\partial^{2}\phi}{\partial x^{\prime 2}}+\frac{b}{w^{2}}f(\phi),</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.15)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">with <math id="S3.SS1.p3.m1" class="ltx_Math" alttext="f(\phi)" display="inline"><semantics><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>ϕ</mi><mo stretchy="false">)</mo></mrow></mrow><annotation encoding="application/x-tex">f(\phi)</annotation></semantics></math> being defined as:</p>
+<div id="E16" class="ltx_equation ltx_eqn_div">
+<span><math id="E16.m1" class="ltx_Math" alttext="f(\phi)=\phi\left(1-\phi^{2}\right)." display="block"><semantics><mrow><mrow><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>ϕ</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mi>ϕ</mi><mo>⁢</mo><mrow><mo>(</mo><mrow><mn>1</mn><mo>-</mo><msup><mi>ϕ</mi><mn>2</mn></msup></mrow><mo>)</mo></mrow></mrow></mrow><mo>.</mo></mrow><annotation encoding="application/x-tex">f(\phi)=\phi\left(1-\phi^{2}\right).</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.16)</span>
+              
+              
+            
+</div>
+</div>
+<div id="S3.SS1.p4" class="ltx_para">
+<p class="ltx_p">Defining <math id="S3.SS1.p4.m1" class="ltx_Math" alttext="x_{c}=w" display="inline"><semantics><mrow><msub><mi>x</mi><mi>c</mi></msub><mo>=</mo><mi>w</mi></mrow><annotation encoding="application/x-tex">x_{c}=w</annotation></semantics></math> and <math id="S3.SS1.p4.m2" class="ltx_Math" alttext="t_{c}=w^{2}/b" display="inline"><semantics><mrow><msub><mi>t</mi><mi>c</mi></msub><mo>=</mo><mrow><msup><mi>w</mi><mn>2</mn></msup><mo>/</mo><mi>b</mi></mrow></mrow><annotation encoding="application/x-tex">t_{c}=w^{2}/b</annotation></semantics></math> leads to the following dimensionless form of Eq. <a href="#E13" title="(6.13) ‣ 6.3.1 Stationary interface ‣ 6.3 Dimensionless forms for various cases ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.13</span></a>:</p>
+</div>
+<div id="S3.SS1.p5" class="ltx_para">
+<div id="E17" class="ltx_equation ltx_eqn_div">
+<span><math id="E17.m1" class="ltx_Math" alttext="\frac{\partial\phi}{\partial t^{\prime}}=\frac{\partial^{2}\phi}{\partial x^{%
+\prime 2}}+\phi\left(1-\phi^{2}\right)." display="block"><semantics><mrow><mrow><mfrac><mrow><mo>∂</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><msup><mi>t</mi><mo>′</mo></msup></mrow></mfrac><mo>=</mo><mrow><mfrac><mrow><msup><mo>∂</mo><mn>2</mn></msup><mo>⁡</mo><mi>ϕ</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><msup><mi>x</mi><mrow><mo mathsize="142%" stretchy="false">′</mo><mo>⁣</mo><mn>2</mn></mrow></msup></mrow></mfrac><mo>+</mo><mrow><mi>ϕ</mi><mo>⁢</mo><mrow><mo>(</mo><mrow><mn>1</mn><mo>-</mo><msup><mi>ϕ</mi><mn>2</mn></msup></mrow><mo>)</mo></mrow></mrow></mrow></mrow><mo>.</mo></mrow><annotation encoding="application/x-tex">\frac{\partial\phi}{\partial t^{\prime}}=\frac{\partial^{2}\phi}{\partial x^{%
+\prime 2}}+\phi\left(1-\phi^{2}\right).</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.17)</span>
+              
+              
+            
+</div>
+</div>
+<div id="S3.SS1.p6" class="ltx_para">
+<p class="ltx_p">Numerical results for Eq. <a href="#E17" title="(6.17) ‣ 6.3.1 Stationary interface ‣ 6.3 Dimensionless forms for various cases ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.17</span></a> is depicted in Fig. <a href="#F1" title="Figure 6.1 ‣ 6.3.1 Stationary interface ‣ 6.3 Dimensionless forms for various cases ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.1</span></a>, and the phase-field profile is compared with the level-set distance function profile. An appropriate value for grid spacing and the layer width should be selected such that <math id="S3.SS1.p6.m1" class="ltx_Math" alttext="0.25w&lt;\Delta x^{\prime}&lt;0.5w" display="inline"><semantics><mrow><mrow><mn>0.25</mn><mo>⁢</mo><mi>w</mi></mrow><mo>&lt;</mo><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><msup><mi>x</mi><mo>′</mo></msup></mrow><mo>&lt;</mo><mrow><mn>0.5</mn><mo>⁢</mo><mi>w</mi></mrow></mrow><annotation encoding="application/x-tex">0.25w&lt;\Delta x^{\prime}&lt;0.5w</annotation></semantics></math>. Additionally, the selected value of <math id="S3.SS1.p6.m2" class="ltx_Math" alttext="w" display="inline"><semantics><mi>w</mi><annotation encoding="application/x-tex">w</annotation></semantics></math> should satisfy <math id="S3.SS1.p6.m3" class="ltx_Math" alttext="w&lt;R/4.2" display="inline"><semantics><mrow><mi>w</mi><mo>&lt;</mo><mrow><mi>R</mi><mo>/</mo><mn>4.2</mn></mrow></mrow><annotation encoding="application/x-tex">w&lt;R/4.2</annotation></semantics></math>, in which <math id="S3.SS1.p6.m4" class="ltx_Math" alttext="R" display="inline"><semantics><mi>R</mi><annotation encoding="application/x-tex">R</annotation></semantics></math> is the local radius of curvature <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib162" title="Sharp interface tracking using the phase-field equation" class="ltx_ref">251</a>]</cite>.</p>
+</div>
+<figure id="F1" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/tissue/image/pf_ls.jpg" id="F1.g1" class="ltx_graphics ltx_centering" width="379" height="349" alt="Comparison of phase-field variable and level-set function on the interface of a stationary interface with step function like initial condition "></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 6.1: </span>Comparison of phase-field variable and level-set function on the interface of a stationary interface with step function like initial condition <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib162" title="Sharp interface tracking using the phase-field equation" class="ltx_ref">251</a>]</cite></figcaption>
+</figure>
+</div>
+</section>
+<section id="S3.SS2" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">6.3.2</span> Evolution under constant normal speed</h3>
+
+<div id="S3.SS2.p1" class="ltx_para">
+<p class="ltx_p">For a problem in which the interface moves with constant velocity exclusively, Eq. <a href="#E11" title="(6.11) ‣ 6.2.2 Phase-field formulation ‣ 6.2 Deriving the model ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.11</span></a> in 1-D can be simplified according to the condition of <math id="S3.SS2.p1.m1" class="ltx_Math" alttext="a=\text{const.}" display="inline"><semantics><mrow><mi>a</mi><mo>=</mo><mtext>const.</mtext></mrow><annotation encoding="application/x-tex">a=\text{const.}</annotation></semantics></math>, <math id="S3.SS2.p1.m2" class="ltx_Math" alttext="\boldsymbol{u}_{\mathrm{e}}=0" display="inline"><semantics><mrow><msub><mi>𝒖</mi><mi mathvariant="normal">e</mi></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\boldsymbol{u}_{\mathrm{e}}=0</annotation></semantics></math>, and <math id="S3.SS2.p1.m3" class="ltx_Math" alttext="b=0" display="inline"><semantics><mrow><mi>b</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">b=0</annotation></semantics></math>:</p>
+<div id="E18" class="ltx_equation ltx_eqn_div">
+<span><math id="E18.m1" class="ltx_Math" alttext="\frac{\partial\phi}{\partial t}+a\frac{1-\phi^{2}}{\sqrt{2}w}=\beta\frac{%
+\partial^{2}\phi}{\partial x}+\beta\frac{f(\phi)}{w^{2}}," display="block"><semantics><mrow><mrow><mrow><mfrac><mrow><mo>∂</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><mi>t</mi></mrow></mfrac><mo>+</mo><mrow><mi>a</mi><mo>⁢</mo><mfrac><mrow><mn>1</mn><mo>-</mo><msup><mi>ϕ</mi><mn>2</mn></msup></mrow><mrow><msqrt><mn>2</mn></msqrt><mo>⁢</mo><mi>w</mi></mrow></mfrac></mrow></mrow><mo>=</mo><mrow><mrow><mi>β</mi><mo>⁢</mo><mfrac><mrow><msup><mo>∂</mo><mn>2</mn></msup><mo>⁡</mo><mi>ϕ</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><mi>x</mi></mrow></mfrac></mrow><mo>+</mo><mrow><mi>β</mi><mo>⁢</mo><mfrac><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>ϕ</mi><mo stretchy="false">)</mo></mrow></mrow><msup><mi>w</mi><mn>2</mn></msup></mfrac></mrow></mrow></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\frac{\partial\phi}{\partial t}+a\frac{1-\phi^{2}}{\sqrt{2}w}=\beta\frac{%
+\partial^{2}\phi}{\partial x}+\beta\frac{f(\phi)}{w^{2}},</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.18)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">in which <math id="S3.SS2.p1.m4" class="ltx_Math" alttext="\beta" display="inline"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math> is a numerical parameter for smoothing the interface and relaxation behavior of the phase-field profile.</p>
+</div>
+<div id="S3.SS2.p2" class="ltx_para">
+<p class="ltx_p">Defining dimensionless variables according to Eq. <a href="#E14" title="(6.14) ‣ 6.3.1 Stationary interface ‣ 6.3 Dimensionless forms for various cases ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.14</span></a> yields to:</p>
+<div id="E19" class="ltx_equation ltx_eqn_div">
+<span><math id="E19.m1" class="ltx_Math" alttext="\frac{1}{t_{c}}\frac{\partial\phi}{\partial t^{\prime}}+\frac{a}{w}\frac{1-%
+\phi^{2}}{\sqrt{2}}=\frac{\beta}{w^{2}}\frac{\partial^{2}\phi}{\partial x^{%
+\prime 2}}+\frac{\beta}{w^{2}}f(\phi)," display="block"><semantics><mrow><mrow><mrow><mrow><mfrac><mn>1</mn><msub><mi>t</mi><mi>c</mi></msub></mfrac><mo>⁢</mo><mfrac><mrow><mo>∂</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><msup><mi>t</mi><mo>′</mo></msup></mrow></mfrac></mrow><mo>+</mo><mrow><mfrac><mi>a</mi><mi>w</mi></mfrac><mo>⁢</mo><mfrac><mrow><mn>1</mn><mo>-</mo><msup><mi>ϕ</mi><mn>2</mn></msup></mrow><msqrt><mn>2</mn></msqrt></mfrac></mrow></mrow><mo>=</mo><mrow><mrow><mfrac><mi>β</mi><msup><mi>w</mi><mn>2</mn></msup></mfrac><mo>⁢</mo><mfrac><mrow><msup><mo>∂</mo><mn>2</mn></msup><mo>⁡</mo><mi>ϕ</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><msup><mi>x</mi><mrow><mo mathsize="142%" stretchy="false">′</mo><mo>⁣</mo><mn>2</mn></mrow></msup></mrow></mfrac></mrow><mo>+</mo><mrow><mfrac><mi>β</mi><msup><mi>w</mi><mn>2</mn></msup></mfrac><mo>⁢</mo><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>ϕ</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\frac{1}{t_{c}}\frac{\partial\phi}{\partial t^{\prime}}+\frac{a}{w}\frac{1-%
+\phi^{2}}{\sqrt{2}}=\frac{\beta}{w^{2}}\frac{\partial^{2}\phi}{\partial x^{%
+\prime 2}}+\frac{\beta}{w^{2}}f(\phi),</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.19)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">which can be reordered to:</p>
+<div id="E20" class="ltx_equation ltx_eqn_div">
+<span><math id="E20.m1" class="ltx_Math" alttext="\frac{\partial\phi}{\partial t^{\prime}}+\frac{1-\phi^{2}}{\sqrt{2}}=\beta^{%
+\prime}\left(\frac{\partial^{2}\phi}{\partial x^{\prime 2}}+f(\phi)\right)," display="block"><semantics><mrow><mrow><mrow><mfrac><mrow><mo>∂</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><msup><mi>t</mi><mo>′</mo></msup></mrow></mfrac><mo>+</mo><mfrac><mrow><mn>1</mn><mo>-</mo><msup><mi>ϕ</mi><mn>2</mn></msup></mrow><msqrt><mn>2</mn></msqrt></mfrac></mrow><mo>=</mo><mrow><msup><mi>β</mi><mo>′</mo></msup><mo>⁢</mo><mrow><mo>(</mo><mrow><mfrac><mrow><msup><mo>∂</mo><mn>2</mn></msup><mo>⁡</mo><mi>ϕ</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><msup><mi>x</mi><mrow><mo mathsize="142%" stretchy="false">′</mo><mo>⁣</mo><mn>2</mn></mrow></msup></mrow></mfrac><mo>+</mo><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>ϕ</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>)</mo></mrow></mrow></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\frac{\partial\phi}{\partial t^{\prime}}+\frac{1-\phi^{2}}{\sqrt{2}}=\beta^{%
+\prime}\left(\frac{\partial^{2}\phi}{\partial x^{\prime 2}}+f(\phi)\right),</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.20)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">with <math id="S3.SS2.p2.m1" class="ltx_Math" alttext="\beta^{\prime}=\beta/aw" display="inline"><semantics><mrow><msup><mi>β</mi><mo>′</mo></msup><mo>=</mo><mrow><mrow><mi>β</mi><mo>/</mo><mi>a</mi></mrow><mo>⁢</mo><mi>w</mi></mrow></mrow><annotation encoding="application/x-tex">\beta^{\prime}=\beta/aw</annotation></semantics></math>. For a stable numerical implementation, <math id="S3.SS2.p2.m2" class="ltx_Math" alttext="\Delta t^{\prime}/\Delta x^{\prime}&lt;0.1" display="inline"><semantics><mrow><mrow><mrow><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><msup><mi>t</mi><mo>′</mo></msup></mrow><mo>/</mo><mi mathvariant="normal">Δ</mi></mrow><mo>⁢</mo><msup><mi>x</mi><mo>′</mo></msup></mrow><mo>&lt;</mo><mn>0.1</mn></mrow><annotation encoding="application/x-tex">\Delta t^{\prime}/\Delta x^{\prime}&lt;0.1</annotation></semantics></math> and <math id="S3.SS2.p2.m3" class="ltx_Math" alttext="\beta^{\prime}&lt;1.2" display="inline"><semantics><mrow><msup><mi>β</mi><mo>′</mo></msup><mo>&lt;</mo><mn>1.2</mn></mrow><annotation encoding="application/x-tex">\beta^{\prime}&lt;1.2</annotation></semantics></math> should met roughly <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib162" title="Sharp interface tracking using the phase-field equation" class="ltx_ref">251</a>]</cite>.</p>
+</div>
+</div>
+</section>
+<section id="S3.SS3" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">6.3.3</span> Curvature-driven interface evolution</h3>
+
+<div id="S3.SS3.p1" class="ltx_para">
+<p class="ltx_p">A curvature-driven motion, which is desired for the current study, is straightforward to formulate using the phase-field method. A dimensionless form of Eq. <a href="#E11" title="(6.11) ‣ 6.2.2 Phase-field formulation ‣ 6.2 Deriving the model ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.11</span></a> can be derived using a similar method for the stationary interface for a multidimensional case with <math id="S3.SS3.p1.m1" class="ltx_Math" alttext="u_{\mathrm{n}}=-b\kappa" display="inline"><semantics><mrow><msub><mi>u</mi><mi mathvariant="normal">n</mi></msub><mo>=</mo><mrow><mo>-</mo><mrow><mi>b</mi><mo>⁢</mo><mi>κ</mi></mrow></mrow></mrow><annotation encoding="application/x-tex">u_{\mathrm{n}}=-b\kappa</annotation></semantics></math>, <math id="S3.SS3.p1.m2" class="ltx_Math" alttext="a=0" display="inline"><semantics><mrow><mi>a</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a=0</annotation></semantics></math>, and <math id="S3.SS3.p1.m3" class="ltx_Math" alttext="\boldsymbol{u}_{\mathrm{e}}=0" display="inline"><semantics><mrow><msub><mi>𝒖</mi><mi mathvariant="normal">e</mi></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\boldsymbol{u}_{\mathrm{e}}=0</annotation></semantics></math>:</p>
+<div id="E21" class="ltx_equation ltx_eqn_div">
+<span><math id="E21.m1" class="ltx_Math" alttext="\frac{\partial\phi}{\partial t^{\prime}}=\nabla^{\prime 2}\phi+\phi\left(1-%
+\phi^{2}\right)," display="block"><semantics><mrow><mrow><mfrac><mrow><mo>∂</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><msup><mi>t</mi><mo>′</mo></msup></mrow></mfrac><mo>=</mo><mrow><mrow><msup><mo>∇</mo><mrow><mo mathsize="142%" stretchy="false">′</mo><mo>⁣</mo><mn>2</mn></mrow></msup><mo>⁡</mo><mi>ϕ</mi></mrow><mo>+</mo><mrow><mi>ϕ</mi><mo>⁢</mo><mrow><mo>(</mo><mrow><mn>1</mn><mo>-</mo><msup><mi>ϕ</mi><mn>2</mn></msup></mrow><mo>)</mo></mrow></mrow></mrow></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\frac{\partial\phi}{\partial t^{\prime}}=\nabla^{\prime 2}\phi+\phi\left(1-%
+\phi^{2}\right),</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.21)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">in which <math id="S3.SS3.p1.m4" class="ltx_Math" alttext="t^{\prime}" display="inline"><semantics><msup><mi>t</mi><mo>′</mo></msup><annotation encoding="application/x-tex">t^{\prime}</annotation></semantics></math> and <math id="S3.SS3.p1.m5" class="ltx_Math" alttext="\nabla^{\prime}" display="inline"><semantics><msup><mo>∇</mo><mo>′</mo></msup><annotation encoding="application/x-tex">\nabla^{\prime}</annotation></semantics></math> are defined similar to Eq. <a href="#E14" title="(6.14) ‣ 6.3.1 Stationary interface ‣ 6.3 Dimensionless forms for various cases ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.14</span></a> as <math id="S3.SS3.p1.m6" class="ltx_Math" alttext="t^{\prime}=t/(w^{2}/b)" display="inline"><semantics><mrow><msup><mi>t</mi><mo>′</mo></msup><mo>=</mo><mrow><mi>t</mi><mo>/</mo><mrow><mo stretchy="false">(</mo><mrow><msup><mi>w</mi><mn>2</mn></msup><mo>/</mo><mi>b</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow><annotation encoding="application/x-tex">t^{\prime}=t/(w^{2}/b)</annotation></semantics></math> and <math id="S3.SS3.p1.m7" class="ltx_Math" alttext="\nabla^{\prime}=\nabla/w" display="inline"><semantics><mrow><msup><mo>∇</mo><mo>′</mo></msup><mo>=</mo><mrow><mo>∇</mo><mo>/</mo><mi>w</mi></mrow></mrow><annotation encoding="application/x-tex">\nabla^{\prime}=\nabla/w</annotation></semantics></math>, respectively.</p>
+</div>
+</div>
+</section>
+</div>
+</section>
+<section id="S4" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">6.4</span> Adapting the formulation for curvature-driven tissue growth</h2>
+
+<div id="S4.p1" class="ltx_para">
+<p class="ltx_p">Due to intrinsic support of interface curvature in the phase-field and level-set methods, an <span class="ltx_text ltx_font_italic">in silico</span> model of curvature-based tissue growth can be efficiently implemented using these principles. The growth-induced changes in the neotissue topology during the culture process can be seen as a moving interface between two different domains <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib200" title="The effect of geometry on three-dimensional tissue growth" class="ltx_ref">221</a>]</cite>. In this study, one domain represents the neotissue volume (<math id="S4.p1.m1" class="ltx_Math" alttext="\Omega_{\text{nt}}" display="inline"><semantics><msub><mi mathvariant="normal">Ω</mi><mtext>nt</mtext></msub><annotation encoding="application/x-tex">\Omega_{\text{nt}}</annotation></semantics></math>), and the other one is the void (<math id="S4.p1.m2" class="ltx_Math" alttext="\Omega_{\text{v}}" display="inline"><semantics><msub><mi mathvariant="normal">Ω</mi><mtext>v</mtext></msub><annotation encoding="application/x-tex">\Omega_{\text{v}}</annotation></semantics></math>), which are separated by an interface (<math id="S4.p1.m3" class="ltx_Math" alttext="\Gamma" display="inline"><semantics><mi mathvariant="normal">Γ</mi><annotation encoding="application/x-tex">\Gamma</annotation></semantics></math>) as can be seen in Fig. <a href="#F2" title="Figure 6.2 ‣ 6.4 Adapting the formulation for curvature-driven tissue growth ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.2</span></a>.</p>
+</div>
+<figure id="F2" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/tissue/image/growth_domain.jpg" id="F2.g1" class="ltx_graphics ltx_centering" width="271" height="256" alt="Schematic representation of the phase-field and level-set models for tissue growth, in which the neotissue domain ("></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 6.2: </span>Schematic representation of the phase-field and level-set models for tissue growth, in which the neotissue domain (<math id="F2.m1" class="ltx_Math" alttext="\Omega_{\text{nt}}" display="inline"><semantics><msub><mi mathvariant="normal">Ω</mi><mtext>nt</mtext></msub><annotation encoding="application/x-tex">\Omega_{\text{nt}}</annotation></semantics></math>) is separated from the void domain (<math id="F2.m2" class="ltx_Math" alttext="\Omega_{\text{v}}" display="inline"><semantics><msub><mi mathvariant="normal">Ω</mi><mtext>v</mtext></msub><annotation encoding="application/x-tex">\Omega_{\text{v}}</annotation></semantics></math>) by an interface (<math id="F2.m3" class="ltx_Math" alttext="\Gamma" display="inline"><semantics><mi mathvariant="normal">Γ</mi><annotation encoding="application/x-tex">\Gamma</annotation></semantics></math>).</figcaption>
+</figure>
+<div id="S4.p2" class="ltx_para">
+<p class="ltx_p">The interface <math id="S4.p2.m1" class="ltx_Math" alttext="\Gamma" display="inline"><semantics><mi mathvariant="normal">Γ</mi><annotation encoding="application/x-tex">\Gamma</annotation></semantics></math> evolves over time to fill the void space, having a faster growth in regions with higher curvature. Based on this definition, the phase-field variable can be defined as follows to separate these domains:</p>
+<div id="E22" class="ltx_equation ltx_eqn_div">
+<span><math id="E22.m1" class="ltx_Math" alttext="\left\{\begin{array}[]{ll}\phi=1&amp;\text{ in }\Omega_{\text{nt}}\\
+\phi=-1&amp;\text{ in }\Omega_{\text{v}}\\
+-1&lt;\phi&lt;1&amp;\text{ in }\Gamma\end{array}\right." display="block"><semantics><mrow><mo>{</mo><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="left"><mrow><mi>ϕ</mi><mo>=</mo><mn>1</mn></mrow></mtd><mtd columnalign="left"><mrow><mtext> in </mtext><mo>⁢</mo><msub><mi mathvariant="normal">Ω</mi><mtext>nt</mtext></msub></mrow></mtd></mtr><mtr><mtd columnalign="left"><mrow><mi>ϕ</mi><mo>=</mo><mrow><mo>-</mo><mn>1</mn></mrow></mrow></mtd><mtd columnalign="left"><mrow><mtext> in </mtext><mo>⁢</mo><msub><mi mathvariant="normal">Ω</mi><mtext>v</mtext></msub></mrow></mtd></mtr><mtr><mtd columnalign="left"><mrow><mrow><mo>-</mo><mn>1</mn></mrow><mo>&lt;</mo><mi>ϕ</mi><mo>&lt;</mo><mn>1</mn></mrow></mtd><mtd columnalign="left"><mrow><mtext> in </mtext><mo>⁢</mo><mi mathvariant="normal">Γ</mi></mrow></mtd></mtr></mtable><mi></mi></mrow><annotation encoding="application/x-tex">\left\{\begin{array}[]{ll}\phi=1&amp;\text{ in }\Omega_{\text{nt}}\\
+\phi=-1&amp;\text{ in }\Omega_{\text{v}}\\
+-1&lt;\phi&lt;1&amp;\text{ in }\Gamma\end{array}\right.</annotation></semantics></math></span>
+            <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.22)</span>
+            
+            
+          
+</div>
+</div>
+<div id="S4.p3" class="ltx_para">
+<p class="ltx_p">Similarly, a level-set function can be defined such that it separates the neotissue and void domains:</p>
+<div id="E23" class="ltx_equation ltx_eqn_div">
+<span><math id="E23.m1" class="ltx_Math" alttext="\left\{\begin{array}[]{ll}\psi&gt;0&amp;\text{ in }\Omega_{\text{nt}}\\
+\psi&lt;0&amp;\text{ in }\Omega_{\text{v}}\\
+\psi=0&amp;\text{ in }\Gamma\end{array}\right." display="block"><semantics><mrow><mo>{</mo><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="left"><mrow><mi>ψ</mi><mo>&gt;</mo><mn>0</mn></mrow></mtd><mtd columnalign="left"><mrow><mtext> in </mtext><mo>⁢</mo><msub><mi mathvariant="normal">Ω</mi><mtext>nt</mtext></msub></mrow></mtd></mtr><mtr><mtd columnalign="left"><mrow><mi>ψ</mi><mo>&lt;</mo><mn>0</mn></mrow></mtd><mtd columnalign="left"><mrow><mtext> in </mtext><mo>⁢</mo><msub><mi mathvariant="normal">Ω</mi><mtext>v</mtext></msub></mrow></mtd></mtr><mtr><mtd columnalign="left"><mrow><mi>ψ</mi><mo>=</mo><mn>0</mn></mrow></mtd><mtd columnalign="left"><mrow><mtext> in </mtext><mo>⁢</mo><mi mathvariant="normal">Γ</mi></mrow></mtd></mtr></mtable><mi></mi></mrow><annotation encoding="application/x-tex">\left\{\begin{array}[]{ll}\psi&gt;0&amp;\text{ in }\Omega_{\text{nt}}\\
+\psi&lt;0&amp;\text{ in }\Omega_{\text{v}}\\
+\psi=0&amp;\text{ in }\Gamma\end{array}\right.</annotation></semantics></math></span>
+            <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.23)</span>
+            
+            
+          
+</div>
+</div>
+<div id="S4.p4" class="ltx_para">
+<p class="ltx_p">In order to adapt Eq. <a href="#E21" title="(6.21) ‣ 6.3.3 Curvature-driven interface evolution ‣ 6.3 Dimensionless forms for various cases ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.21</span></a> for the curvature-driven process of neotissue growth, one can consider the following equation:</p>
+<div id="E24" class="ltx_equation ltx_eqn_div">
+<span><math id="E24.m1" class="ltx_Math" alttext="\frac{\partial\phi}{\partial t^{\prime}}=\left(\nabla^{\prime 2}\phi+\phi\left%
+(1-\phi^{2}\right)\right).H\left(\nabla^{\prime 2}\phi+\phi\left(1-\phi^{2}%
+\right)&gt;0\right)," display="block"><semantics><mrow><mrow><mrow><mfrac><mrow><mo>∂</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><msup><mi>t</mi><mo>′</mo></msup></mrow></mfrac><mo>=</mo><mrow><mo>(</mo><mrow><mrow><msup><mo>∇</mo><mrow><mo mathsize="142%" stretchy="false">′</mo><mo>⁣</mo><mn>2</mn></mrow></msup><mo>⁡</mo><mi>ϕ</mi></mrow><mo>+</mo><mrow><mi>ϕ</mi><mo>⁢</mo><mrow><mo>(</mo><mrow><mn>1</mn><mo>-</mo><msup><mi>ϕ</mi><mn>2</mn></msup></mrow><mo>)</mo></mrow></mrow></mrow><mo>)</mo></mrow></mrow><mo>.</mo><mrow><mi>H</mi><mo>⁢</mo><mrow><mo>(</mo><mrow><mrow><mrow><msup><mo>∇</mo><mrow><mo mathsize="142%" stretchy="false">′</mo><mo>⁣</mo><mn>2</mn></mrow></msup><mo>⁡</mo><mi>ϕ</mi></mrow><mo>+</mo><mrow><mi>ϕ</mi><mo>⁢</mo><mrow><mo>(</mo><mrow><mn>1</mn><mo>-</mo><msup><mi>ϕ</mi><mn>2</mn></msup></mrow><mo>)</mo></mrow></mrow></mrow><mo>&gt;</mo><mn>0</mn></mrow><mo>)</mo></mrow></mrow></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\frac{\partial\phi}{\partial t^{\prime}}=\left(\nabla^{\prime 2}\phi+\phi\left%
+(1-\phi^{2}\right)\right).H\left(\nabla^{\prime 2}\phi+\phi\left(1-\phi^{2}%
+\right)&gt;0\right),</annotation></semantics></math></span>
+            <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.24)</span>
+            
+            
+          
+</div>
+<p class="ltx_p">in which <math id="S4.p4.m1" class="ltx_Math" alttext="H" display="inline"><semantics><mi>H</mi><annotation encoding="application/x-tex">H</annotation></semantics></math> denotes a Heaviside step function. Eq. <a href="#E24" title="(6.24) ‣ 6.4 Adapting the formulation for curvature-driven tissue growth ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.24</span></a> implies that the growth is only allowed for regions with a positive curvature (right hand side of Eqs. <a href="#E11" title="(6.11) ‣ 6.2.2 Phase-field formulation ‣ 6.2 Deriving the model ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.11</span></a> and <a href="#E21" title="(6.21) ‣ 6.3.3 Curvature-driven interface evolution ‣ 6.3 Dimensionless forms for various cases ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.21</span></a>).</p>
+</div>
+<div id="S4.p5" class="ltx_para">
+<p class="ltx_p">Using the same approach, a similar level-set formulation can be obtained based on Eq. <a href="#E12" title="(6.12) ‣ 6.2.3 Level-set formulation ‣ 6.2 Deriving the model ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.12</span></a> by omitting the normal velocity and curvature terms and embedding the effect of the curvature in the velocity field. Doing this yields a convection equation for the distance function:</p>
+<div id="E25" class="ltx_equation ltx_eqn_div">
+<span><math id="E25.m1" class="ltx_Math" alttext="\frac{\partial\psi}{\partial t}+\boldsymbol{u}\cdot\nabla\psi=0," display="block"><semantics><mrow><mrow><mrow><mfrac><mrow><mo>∂</mo><mo>⁡</mo><mi>ψ</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><mi>t</mi></mrow></mfrac><mo>+</mo><mrow><mi>𝒖</mi><mo>⋅</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>ψ</mi></mrow></mrow></mrow><mo>=</mo><mn>0</mn></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\frac{\partial\psi}{\partial t}+\boldsymbol{u}\cdot\nabla\psi=0,</annotation></semantics></math></span>
+            <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.25)</span>
+            
+            
+          
+</div>
+<p class="ltx_p">in which the convection velocity field can be defined as:</p>
+<div id="E26" class="ltx_equation ltx_eqn_div">
+<span><math id="E26.m1" class="ltx_Math" alttext="\boldsymbol{u}=\left\{\begin{array}[]{ll}-\kappa\boldsymbol{n}&amp;\text{ if }%
+\kappa&gt;0\\
+0&amp;\text{ if }\kappa\leq 0\end{array}\right." display="block"><semantics><mrow><mi>𝒖</mi><mo>=</mo><mrow><mo>{</mo><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="left"><mrow><mo>-</mo><mrow><mi>κ</mi><mo>⁢</mo><mi>𝒏</mi></mrow></mrow></mtd><mtd columnalign="left"><mrow><mrow><mtext> if </mtext><mo>⁢</mo><mi>κ</mi></mrow><mo>&gt;</mo><mn>0</mn></mrow></mtd></mtr><mtr><mtd columnalign="left"><mn>0</mn></mtd><mtd columnalign="left"><mrow><mrow><mtext> if </mtext><mo>⁢</mo><mi>κ</mi></mrow><mo>≤</mo><mn>0</mn></mrow></mtd></mtr></mtable><mi></mi></mrow></mrow><annotation encoding="application/x-tex">\boldsymbol{u}=\left\{\begin{array}[]{ll}-\kappa\boldsymbol{n}&amp;\text{ if }%
+\kappa&gt;0\\
+0&amp;\text{ if }\kappa\leq 0\end{array}\right.</annotation></semantics></math></span>
+            <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.26)</span>
+            
+            
+          
+</div>
+<p class="ltx_p">with <math id="S4.p5.m1" class="ltx_Math" alttext="\kappa" display="inline"><semantics><mi>κ</mi><annotation encoding="application/x-tex">\kappa</annotation></semantics></math> being calculated similarly to Eq. <a href="#E7" title="(6.7) ‣ 6.2.2 Phase-field formulation ‣ 6.2 Deriving the model ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.7</span></a> for a distance function <math id="S4.p5.m2" class="ltx_Math" alttext="\psi" display="inline"><semantics><mi>ψ</mi><annotation encoding="application/x-tex">\psi</annotation></semantics></math>. This implies that neotissue grows faster where the curvature is higher and does not grow if the curvature is negative or equal to zero <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib198" title="How linear tension converts to curvature: geometric control of bone tissue growth" class="ltx_ref">36</a>]</cite>. The negative sign in Eq. <a href="#E26" title="(6.26) ‣ 6.4 Adapting the formulation for curvature-driven tissue growth ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.26</span></a> is due to our definition of <math id="S4.p5.m3" class="ltx_Math" alttext="\psi" display="inline"><semantics><mi>ψ</mi><annotation encoding="application/x-tex">\psi</annotation></semantics></math>, where the normal <math id="S4.p5.m4" class="ltx_Math" alttext="n_{\Gamma}" display="inline"><semantics><msub><mi>n</mi><mi mathvariant="normal">Γ</mi></msub><annotation encoding="application/x-tex">n_{\Gamma}</annotation></semantics></math> points toward neotissue, so growth has to be towards the opposite of the gradient of the level-set function (<math id="S4.p5.m5" class="ltx_Math" alttext="\nabla\psi" display="inline"><semantics><mrow><mo>∇</mo><mo>⁡</mo><mi>ψ</mi></mrow><annotation encoding="application/x-tex">\nabla\psi</annotation></semantics></math>).</p>
+</div>
+</div>
+</section>
+<section id="S5" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">6.5</span> Numerical implementation</h2>
+
+<section id="S5.SS1" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">6.5.1</span> Phase-field model</h3>
+
+<div id="S5.SS1.p1" class="ltx_para">
+<p class="ltx_p">The numerical solution of the phase-field equation requires dealing with the nonlinearity of the equation. Additionally, in the case of the dimensional form (Eq. <a href="#E11" title="(6.11) ‣ 6.2.2 Phase-field formulation ‣ 6.2 Deriving the model ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.11</span></a>), small coefficients of the state variable in the PDE lead to numerical difficulties. As a result, numerical implementation of the phase-field equation, especially for the spectral methods and the finite element method, is not straightforward and is an active field of research <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib186" title="Numerical approximations of allen-cahn and cahn-hilliard equations" class="ltx_ref">235</a>, <a href="bib.html#bib185" title="A stabilized bi-grid method for allen–cahn equation in finite elements" class="ltx_ref">2</a>]</cite>.</p>
+</div>
+<div id="S5.SS1.p2" class="ltx_para">
+<p class="ltx_p">In the finite element method, the solution of a PDE is calculated based on a sum of a set of certain basis functions, which are commonly piecewise linear, quadratic or polynomial functions that are non-zero only on a small element. For doing this, the PDE is first written in a weak formulation, and then the weak form is projected on a discretized space (a set of elements) to be written as the summation of the basis functions.</p>
+</div>
+<div id="S5.SS1.p3" class="ltx_para">
+<p class="ltx_p">In this section, the numerical solution of the stationary form (Eq. <a href="#E13" title="(6.13) ‣ 6.3.1 Stationary interface ‣ 6.3 Dimensionless forms for various cases ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.13</span></a>) and its corresponding considerations are elaborated as an example of employing the finite element formulation for simulating the phase-field equation. So, by assuming <math id="S5.SS1.p3.m1" class="ltx_Math" alttext="b=1" display="inline"><semantics><mrow><mi>b</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">b=1</annotation></semantics></math>, the problem can be summarized as:</p>
+<div id="E27" class="ltx_equation ltx_eqn_div">
+<span><math id="E27.m1" class="ltx_Math" alttext="\left\{\begin{array}[]{ll}\frac{\partial\phi}{\partial t}-\Delta\phi+\frac{1}{%
+w^{2}}f(\phi)=0,&amp;(x,t)\in\Omega\times(0,T]\\
+\left.\frac{\partial\phi}{\partial n}\right|_{\partial\Omega}=0\\
+\left.\phi\right|_{t=0}=\phi_{0}\end{array}\right." display="block"><semantics><mrow><mo>{</mo><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="left"><mrow><mrow><mrow><mrow><mstyle displaystyle="false"><mfrac><mrow><mo>∂</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><mi>t</mi></mrow></mfrac></mstyle><mo>-</mo><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>ϕ</mi></mrow></mrow><mo>+</mo><mrow><mstyle displaystyle="false"><mfrac><mn>1</mn><msup><mi>w</mi><mn>2</mn></msup></mfrac></mstyle><mo>⁢</mo><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>ϕ</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>=</mo><mn>0</mn></mrow><mo>,</mo></mrow></mtd><mtd columnalign="left"><mrow><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>t</mi><mo stretchy="false">)</mo></mrow><mo>∈</mo><mrow><mi mathvariant="normal">Ω</mi><mo>×</mo><mrow><mo stretchy="false">(</mo><mn>0</mn><mo>,</mo><mi>T</mi><mo stretchy="false">]</mo></mrow></mrow></mrow></mtd></mtr><mtr><mtd columnalign="left"><mrow><msub><mrow><mstyle displaystyle="false"><mfrac><mrow><mo>∂</mo><mo>⁡</mo><mi>ϕ</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><mi>n</mi></mrow></mfrac></mstyle><mo fence="true">|</mo></mrow><mrow><mo>∂</mo><mo>⁡</mo><mi mathvariant="normal">Ω</mi></mrow></msub><mo>=</mo><mn>0</mn></mrow></mtd><mtd></mtd></mtr><mtr><mtd columnalign="left"><mrow><msub><mrow><mi>ϕ</mi><mo fence="true">|</mo></mrow><mrow><mi>t</mi><mo>=</mo><mn>0</mn></mrow></msub><mo>=</mo><msub><mi>ϕ</mi><mn>0</mn></msub></mrow></mtd><mtd></mtd></mtr></mtable><mi></mi></mrow><annotation encoding="application/x-tex">\left\{\begin{array}[]{ll}\frac{\partial\phi}{\partial t}-\Delta\phi+\frac{1}{%
+w^{2}}f(\phi)=0,&amp;(x,t)\in\Omega\times(0,T]\\
+\left.\frac{\partial\phi}{\partial n}\right|_{\partial\Omega}=0\\
+\left.\phi\right|_{t=0}=\phi_{0}\end{array}\right.</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.27)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">which demonstrates the PDE, the boundary condition, and the initial condition of the phase-field variable where <math id="S5.SS1.p3.m2" class="ltx_Math" alttext="\Omega" display="inline"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math> is the domain of interest, <math id="S5.SS1.p3.m3" class="ltx_Math" alttext="\partial\Omega" display="inline"><semantics><mrow><mo>∂</mo><mo>⁡</mo><mi mathvariant="normal">Ω</mi></mrow><annotation encoding="application/x-tex">\partial\Omega</annotation></semantics></math> is its boundary, and <math id="S5.SS1.p3.m4" class="ltx_Math" alttext="T" display="inline"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math> is the final time. Deriving the weak formulation of Eq. <a href="#E27" title="(6.27) ‣ 6.5.1 Phase-field model ‣ 6.5 Numerical implementation ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.27</span></a> is relatively straightforward as it can be seen as a time-dependent diffusion-reaction PDE, but the difficulty arises in choosing the numerical stability scheme for discretizing the temporal derivative and dealing with the nonlinearity of <math id="S5.SS1.p3.m5" class="ltx_Math" alttext="f(\phi)" display="inline"><semantics><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>ϕ</mi><mo stretchy="false">)</mo></mrow></mrow><annotation encoding="application/x-tex">f(\phi)</annotation></semantics></math> when normally the <math id="S5.SS1.p3.m6" class="ltx_Math" alttext="\frac{1}{w^{2}}" display="inline"><semantics><mfrac><mn>1</mn><msup><mi>w</mi><mn>2</mn></msup></mfrac><annotation encoding="application/x-tex">\frac{1}{w^{2}}</annotation></semantics></math> coefficient is a small number.</p>
+</div>
+<div id="S5.SS1.p4" class="ltx_para">
+<p class="ltx_p">Incorporating a first-order semi-explicit scheme for Eq. <a href="#E27" title="(6.27) ‣ 6.5.1 Phase-field model ‣ 6.5 Numerical implementation ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.27</span></a> yields <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib185" title="A stabilized bi-grid method for allen–cahn equation in finite elements" class="ltx_ref">2</a>]</cite>:</p>
+<div id="E28" class="ltx_equation ltx_eqn_div">
+<span><math id="E28.m1" class="ltx_Math" alttext="\frac{1}{\Delta t}\left(\phi^{n+1}-\phi^{n},v\right)+\left(\nabla\phi^{n+1},%
+\nabla v\right)+\frac{1}{w^{2}}\left(f\left(\phi^{n}\right),v\right)=0,\quad%
+\forall v\in H^{1}(\Omega)," display="block"><semantics><mrow><mrow><mrow><mrow><mrow><mfrac><mn>1</mn><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac><mo>⁢</mo><mrow><mo>(</mo><mrow><msup><mi>ϕ</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msup><mo>-</mo><msup><mi>ϕ</mi><mi>n</mi></msup></mrow><mo>,</mo><mi>v</mi><mo>)</mo></mrow></mrow><mo>+</mo><mrow><mo>(</mo><mrow><mo>∇</mo><mo>⁡</mo><msup><mi>ϕ</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msup></mrow><mo>,</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>v</mi></mrow><mo>)</mo></mrow><mo>+</mo><mrow><mfrac><mn>1</mn><msup><mi>w</mi><mn>2</mn></msup></mfrac><mo>⁢</mo><mrow><mo>(</mo><mrow><mi>f</mi><mo>⁢</mo><mrow><mo>(</mo><msup><mi>ϕ</mi><mi>n</mi></msup><mo>)</mo></mrow></mrow><mo>,</mo><mi>v</mi><mo>)</mo></mrow></mrow></mrow><mo>=</mo><mn>0</mn></mrow><mo rspace="12.5pt">,</mo><mrow><mrow><mo>∀</mo><mi>v</mi></mrow><mo>∈</mo><mrow><msup><mi>H</mi><mn>1</mn></msup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi mathvariant="normal">Ω</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\frac{1}{\Delta t}\left(\phi^{n+1}-\phi^{n},v\right)+\left(\nabla\phi^{n+1},%
+\nabla v\right)+\frac{1}{w^{2}}\left(f\left(\phi^{n}\right),v\right)=0,\quad%
+\forall v\in H^{1}(\Omega),</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.28)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">where <math id="S5.SS1.p4.m1" class="ltx_Math" alttext="\Delta t" display="inline"><semantics><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow><annotation encoding="application/x-tex">\Delta t</annotation></semantics></math> is the time step, <math id="S5.SS1.p4.m2" class="ltx_Math" alttext="(\cdot,\cdot)" display="inline"><semantics><mrow><mo stretchy="false">(</mo><mo>⋅</mo><mo>,</mo><mo>⋅</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(\cdot,\cdot)</annotation></semantics></math> denotes the inner product, and <math id="S5.SS1.p4.m3" class="ltx_Math" alttext="H^{1}(\Omega)" display="inline"><semantics><mrow><msup><mi>H</mi><mn>1</mn></msup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi mathvariant="normal">Ω</mi><mo stretchy="false">)</mo></mrow></mrow><annotation encoding="application/x-tex">H^{1}(\Omega)</annotation></semantics></math> is the Sobolev space of the domain <math id="S5.SS1.p4.m4" class="ltx_Math" alttext="\Omega" display="inline"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>, which is a space of functions whose derivatives are square-integrable functions in <math id="S5.SS1.p4.m5" class="ltx_Math" alttext="\Omega" display="inline"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>. The main issue with this discretization scheme is its restrictive time step condition which should satisfy <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib186" title="Numerical approximations of allen-cahn and cahn-hilliard equations" class="ltx_ref">235</a>]</cite>:</p>
+<div id="E29" class="ltx_equation ltx_eqn_div">
+<span><math id="E29.m1" class="ltx_Math" alttext="\Delta t&lt;\frac{2w^{2}}{L}," display="block"><semantics><mrow><mrow><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow><mo>&lt;</mo><mfrac><mrow><mn>2</mn><mo>⁢</mo><msup><mi>w</mi><mn>2</mn></msup></mrow><mi>L</mi></mfrac></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\Delta t&lt;\frac{2w^{2}}{L},</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.29)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">where <math id="S5.SS1.p4.m6" class="ltx_Math" alttext="L" display="inline"><semantics><mi>L</mi><annotation encoding="application/x-tex">L</annotation></semantics></math> is a limit related to the non-linear part:</p>
+<div id="E30" class="ltx_equation ltx_eqn_div">
+<span><math id="E30.m1" class="ltx_Math" alttext="\max\left|f^{\prime}(\phi)\right|\leq L." display="block"><semantics><mrow><mrow><mrow><mi>max</mi><mo>⁡</mo><mrow><mo>|</mo><mrow><msup><mi>f</mi><mo>′</mo></msup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>ϕ</mi><mo stretchy="false">)</mo></mrow></mrow><mo>|</mo></mrow></mrow><mo>≤</mo><mi>L</mi></mrow><mo>.</mo></mrow><annotation encoding="application/x-tex">\max\left|f^{\prime}(\phi)\right|\leq L.</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.30)</span>
+              
+              
+            
+</div>
+</div>
+<div id="S5.SS1.p5" class="ltx_para">
+<p class="ltx_p">Obviously, since <math id="S5.SS1.p5.m1" class="ltx_Math" alttext="\Delta t\sim w^{2}" display="inline"><semantics><mrow><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow><mo>∼</mo><msup><mi>w</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\Delta t\sim w^{2}</annotation></semantics></math>, a very small time step is required to achieve stability in this scheme.</p>
+</div>
+<div id="S5.SS1.p6" class="ltx_para">
+<p class="ltx_p">Taking advantage of a fully implicit scheme improves the stability because it will be unconditionally stable, but it results in an equation that is difficult to implement as it needs to solve a fixed point problem at each time step. For example, a modified second-order implicit Crank-Nicolson scheme for Eq. <a href="#E27" title="(6.27) ‣ 6.5.1 Phase-field model ‣ 6.5 Numerical implementation ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.27</span></a> can be written as <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib185" title="A stabilized bi-grid method for allen–cahn equation in finite elements" class="ltx_ref">2</a>, <a href="bib.html#bib203" title="The cahn-hilliard model for the kinetics of phase separation" class="ltx_ref">73</a>]</cite>:</p>
+<div id="E31" class="ltx_equation ltx_eqn_div">
+<span><math id="E31.m1" class="ltx_Math" alttext="\left(\frac{\phi^{n+1}-\phi^{n}}{\Delta t},v\right)+\left(\nabla\frac{\phi^{n+%
+1}+\phi^{n}}{2},\nabla v\right)+\frac{1}{w^{2}}\left(\tilde{f}\left(\phi^{n+1}%
+,\phi^{n}\right),v\right)=0,\quad\forall v\in H^{1}," display="block"><semantics><mrow><mrow><mrow><mrow><mrow><mo>(</mo><mfrac><mrow><msup><mi>ϕ</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msup><mo>-</mo><msup><mi>ϕ</mi><mi>n</mi></msup></mrow><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac><mo>,</mo><mi>v</mi><mo>)</mo></mrow><mo>+</mo><mrow><mo>(</mo><mrow><mo>∇</mo><mo>⁡</mo><mfrac><mrow><msup><mi>ϕ</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msup><mo>+</mo><msup><mi>ϕ</mi><mi>n</mi></msup></mrow><mn>2</mn></mfrac></mrow><mo>,</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>v</mi></mrow><mo>)</mo></mrow><mo>+</mo><mrow><mfrac><mn>1</mn><msup><mi>w</mi><mn>2</mn></msup></mfrac><mo>⁢</mo><mrow><mo>(</mo><mrow><mover accent="true"><mi>f</mi><mo stretchy="false">~</mo></mover><mo>⁢</mo><mrow><mo>(</mo><msup><mi>ϕ</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msup><mo>,</mo><msup><mi>ϕ</mi><mi>n</mi></msup><mo>)</mo></mrow></mrow><mo>,</mo><mi>v</mi><mo>)</mo></mrow></mrow></mrow><mo>=</mo><mn>0</mn></mrow><mo rspace="12.5pt">,</mo><mrow><mrow><mo>∀</mo><mi>v</mi></mrow><mo>∈</mo><msup><mi>H</mi><mn>1</mn></msup></mrow></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\left(\frac{\phi^{n+1}-\phi^{n}}{\Delta t},v\right)+\left(\nabla\frac{\phi^{n+%
+1}+\phi^{n}}{2},\nabla v\right)+\frac{1}{w^{2}}\left(\tilde{f}\left(\phi^{n+1}%
+,\phi^{n}\right),v\right)=0,\quad\forall v\in H^{1},</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.31)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">where:</p>
+<div id="E32" class="ltx_equation ltx_eqn_div">
+<span><math id="E32.m1" class="ltx_Math" alttext="\tilde{f}(u,v)=\left\{\begin{array}[]{ll}\frac{F(u)-F(v)}{u-v}&amp;\text{ if }u%
+\neq v\\
+f(u)&amp;\text{ if }u=v\end{array}\right." display="block"><semantics><mrow><mrow><mover accent="true"><mi>f</mi><mo stretchy="false">~</mo></mover><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>u</mi><mo>,</mo><mi>v</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="left"><mstyle displaystyle="false"><mfrac><mrow><mrow><mi>F</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></mrow></mrow><mo>-</mo><mrow><mi>F</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>v</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mrow><mi>u</mi><mo>-</mo><mi>v</mi></mrow></mfrac></mstyle></mtd><mtd columnalign="left"><mrow><mrow><mtext> if </mtext><mo>⁢</mo><mi>u</mi></mrow><mo>≠</mo><mi>v</mi></mrow></mtd></mtr><mtr><mtd columnalign="left"><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>u</mi><mo stretchy="false">)</mo></mrow></mrow></mtd><mtd columnalign="left"><mrow><mrow><mtext> if </mtext><mo>⁢</mo><mi>u</mi></mrow><mo>=</mo><mi>v</mi></mrow></mtd></mtr></mtable><mi></mi></mrow></mrow><annotation encoding="application/x-tex">\tilde{f}(u,v)=\left\{\begin{array}[]{ll}\frac{F(u)-F(v)}{u-v}&amp;\text{ if }u%
+\neq v\\
+f(u)&amp;\text{ if }u=v\end{array}\right.</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.32)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">in which <math id="S5.SS1.p6.m1" class="ltx_Math" alttext="F" display="inline"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math> is the potential term (<math id="S5.SS1.p6.m2" class="ltx_Math" alttext="f(\phi)=F^{\prime}(\phi)" display="inline"><semantics><mrow><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>ϕ</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><msup><mi>F</mi><mo>′</mo></msup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>ϕ</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><annotation encoding="application/x-tex">f(\phi)=F^{\prime}(\phi)</annotation></semantics></math>).</p>
+</div>
+<div id="S5.SS1.p7" class="ltx_para">
+<p class="ltx_p">An alternative can be deriving a stabilized semi-implicit scheme by adding a stabilization term to Eq. <a href="#E28" title="(6.28) ‣ 6.5.1 Phase-field model ‣ 6.5 Numerical implementation ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.28</span></a>. The first-order version of such a scheme can be written as:</p>
+<div id="E33" class="ltx_equation ltx_eqn_div">
+<span><math id="E33.m1" class="ltx_Math" alttext="\left(\frac{1}{\Delta t}+\frac{S}{w^{2}}\right)\left(\phi^{n+1}-\phi^{n},v%
+\right)+\left(\nabla\phi^{n+1},\nabla v\right)+\frac{1}{w^{2}}\left(f\left(%
+\phi^{n}\right),v\right)=0,\quad\forall v\in H^{1}(\Omega)," display="block"><semantics><mrow><mrow><mrow><mrow><mrow><mrow><mo>(</mo><mrow><mfrac><mn>1</mn><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac><mo>+</mo><mfrac><mi>S</mi><msup><mi>w</mi><mn>2</mn></msup></mfrac></mrow><mo>)</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><mrow><msup><mi>ϕ</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msup><mo>-</mo><msup><mi>ϕ</mi><mi>n</mi></msup></mrow><mo>,</mo><mi>v</mi><mo>)</mo></mrow></mrow><mo>+</mo><mrow><mo>(</mo><mrow><mo>∇</mo><mo>⁡</mo><msup><mi>ϕ</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msup></mrow><mo>,</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>v</mi></mrow><mo>)</mo></mrow><mo>+</mo><mrow><mfrac><mn>1</mn><msup><mi>w</mi><mn>2</mn></msup></mfrac><mo>⁢</mo><mrow><mo>(</mo><mrow><mi>f</mi><mo>⁢</mo><mrow><mo>(</mo><msup><mi>ϕ</mi><mi>n</mi></msup><mo>)</mo></mrow></mrow><mo>,</mo><mi>v</mi><mo>)</mo></mrow></mrow></mrow><mo>=</mo><mn>0</mn></mrow><mo rspace="12.5pt">,</mo><mrow><mrow><mo>∀</mo><mi>v</mi></mrow><mo>∈</mo><mrow><msup><mi>H</mi><mn>1</mn></msup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi mathvariant="normal">Ω</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\left(\frac{1}{\Delta t}+\frac{S}{w^{2}}\right)\left(\phi^{n+1}-\phi^{n},v%
+\right)+\left(\nabla\phi^{n+1},\nabla v\right)+\frac{1}{w^{2}}\left(f\left(%
+\phi^{n}\right),v\right)=0,\quad\forall v\in H^{1}(\Omega),</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.33)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">which is unconditionally stable for any <math id="S5.SS1.p7.m1" class="ltx_Math" alttext="S\geq\frac{L}{2}" display="inline"><semantics><mrow><mi>S</mi><mo>≥</mo><mfrac><mi>L</mi><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">S\geq\frac{L}{2}</annotation></semantics></math> <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib186" title="Numerical approximations of allen-cahn and cahn-hilliard equations" class="ltx_ref">235</a>]</cite>.</p>
+</div>
+</div>
+</section>
+<section id="S5.SS2" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">6.5.2</span> Level-set model</h3>
+
+<div id="S5.SS2.p1" class="ltx_para">
+<p class="ltx_p">The derived level-set PDE (Eq. <a href="#E25" title="(6.25) ‣ 6.4 Adapting the formulation for curvature-driven tissue growth ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.25</span></a>) is an advection equation, which can be implemented numerically using the finite element method, in which the temporal term is discretized by the backward Euler method, and the advection term can be treated with the method of characteristics.</p>
+</div>
+<div id="S5.SS2.p2" class="ltx_para">
+<p class="ltx_p">A key parameter of the developed model is the local growth velocity of the neotissue. In the current implementation, the velocity was dependent on the interface’s local mean curvature as shown in <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib199" title="Geometry as a factor for tissue growth: towards shape optimization of tissue engineering scaffolds" class="ltx_ref">37</a>, <a href="bib.html#bib201" title="A computational model for cell/ECM growth on 3d surfaces using the level set method: a bone tissue engineering case study" class="ltx_ref">101</a>]</cite>. In order to match the growth velocity to experimental data, a coefficient can be added to the derived interface convection velocity (Eq. <a href="#E26" title="(6.26) ‣ 6.4 Adapting the formulation for curvature-driven tissue growth ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.26</span></a>):</p>
+<div id="E34" class="ltx_equation ltx_eqn_div">
+<span><math id="E34.m1" class="ltx_Math" alttext="\boldsymbol{u}=\left\{\begin{array}[]{ll}-\kappa A\boldsymbol{n}&amp;\text{ if }%
+\kappa&gt;0\\
+0&amp;\text{ if }\kappa\leq 0\end{array}\right." display="block"><semantics><mrow><mi>𝒖</mi><mo>=</mo><mrow><mo>{</mo><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="left"><mrow><mo>-</mo><mrow><mi>κ</mi><mo>⁢</mo><mi>A</mi><mo>⁢</mo><mi>𝒏</mi></mrow></mrow></mtd><mtd columnalign="left"><mrow><mrow><mtext> if </mtext><mo>⁢</mo><mi>κ</mi></mrow><mo>&gt;</mo><mn>0</mn></mrow></mtd></mtr><mtr><mtd columnalign="left"><mn>0</mn></mtd><mtd columnalign="left"><mrow><mrow><mtext> if </mtext><mo>⁢</mo><mi>κ</mi></mrow><mo>≤</mo><mn>0</mn></mrow></mtd></mtr></mtable><mi></mi></mrow></mrow><annotation encoding="application/x-tex">\boldsymbol{u}=\left\{\begin{array}[]{ll}-\kappa A\boldsymbol{n}&amp;\text{ if }%
+\kappa&gt;0\\
+0&amp;\text{ if }\kappa\leq 0\end{array}\right.</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.34)</span>
+              
+              
+            
+</div>
+</div>
+<div id="S5.SS2.p3" class="ltx_para">
+<p class="ltx_p">The model calibration performed by Guyot et al. <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib201" title="A computational model for cell/ECM growth on 3d surfaces using the level set method: a bone tissue engineering case study" class="ltx_ref">101</a>]</cite> was for a culture condition on titanium scaffolds in a bioreactor setting, estimating parameter <math id="S5.SS2.p3.m1" class="ltx_Math" alttext="A" display="inline"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math> to be <math id="S5.SS2.p3.m2" class="ltx_Math" alttext="4\times 10^{-14}\text{m}^{2}/\text{s}" display="inline"><semantics><mrow><mrow><mrow><mn>4</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>14</mn></mrow></msup></mrow><mo>⁢</mo><msup><mtext>m</mtext><mn>2</mn></msup></mrow><mo>/</mo><mtext>s</mtext></mrow><annotation encoding="application/x-tex">4\times 10^{-14}\text{m}^{2}/\text{s}</annotation></semantics></math>, obtained using trial and error from the experimental data on low flow rate tests <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib202" title="Three-dimensional characterization of tissue-engineered constructs by contrast-enhanced nanofocus computed tomography" class="ltx_ref">205</a>]</cite>.
+More dedicated calibration experiments were performed on prismatic structures, demonstrating a considerably slower growth on the CaP scaffolds, nevertheless confirming the curvature-based nature of tissue growth <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib252" title="3D-printed synthetic hydroxyapatite scaffold with in silico optimized macrostructure enhances bone formation in vivo" class="ltx_ref">113</a>]</cite>.</p>
+</div>
+<div id="S5.SS2.p4" class="ltx_para">
+<p class="ltx_p">In practical implementations, the distance function is not differentiable at every location of the domain due to discontinuities in the gradients, so one can consider taking advantage of artificial diffusion terms to overcome this issue, leading to the following equations for the normal vector and curvature calculation:</p>
+<div id="E35" class="ltx_equation ltx_eqn_div">
+<span><math id="E35.m1" class="ltx_Math" alttext="\boldsymbol{n}=\frac{\nabla\varphi}{|\nabla\varphi|}+\varepsilon\Delta%
+\boldsymbol{n}" display="block"><semantics><mrow><mi>𝒏</mi><mo>=</mo><mrow><mfrac><mrow><mo>∇</mo><mo>⁡</mo><mi>φ</mi></mrow><mrow><mo stretchy="false">|</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>φ</mi></mrow><mo stretchy="false">|</mo></mrow></mfrac><mo>+</mo><mrow><mi>ε</mi><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>𝒏</mi></mrow></mrow></mrow><annotation encoding="application/x-tex">\boldsymbol{n}=\frac{\nabla\varphi}{|\nabla\varphi|}+\varepsilon\Delta%
+\boldsymbol{n}</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.35)</span>
+              
+              
+            
+</div>
+<div id="E36" class="ltx_equation ltx_eqn_div">
+<span><math id="E36.m1" class="ltx_Math" alttext="\kappa=\nabla\cdot\boldsymbol{n}+\varepsilon\Delta\kappa," display="block"><semantics><mrow><mrow><mi>κ</mi><mo>=</mo><mrow><mrow><mo>∇</mo><mo>⋅</mo><mi>𝒏</mi></mrow><mo>+</mo><mrow><mi>ε</mi><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>κ</mi></mrow></mrow></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\kappa=\nabla\cdot\boldsymbol{n}+\varepsilon\Delta\kappa,</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(6.36)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">in which <math id="S5.SS2.p4.m1" class="ltx_Math" alttext="\varepsilon" display="inline"><semantics><mi>ε</mi><annotation encoding="application/x-tex">\varepsilon</annotation></semantics></math> denotes the numerical diffusion coefficient.</p>
+</div>
+</div>
+</section>
+</div>
+</section>
+<section id="S6" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">6.6</span> Simulation setup</h2>
+
+<div id="S6.p1" class="ltx_para">
+<p class="ltx_p">Numerical simulations of neotissue formation on various shapes (scaffolds) were carried out using the developed phase-field and level-set models to compare their performance. In 2D, two shapes were used, a square and a semi-circle (Fig. <a href="#F3" title="Figure 6.3 ‣ 6.6 Simulation setup ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.3</span></a>), which were simulated using both phase-field and level-set models. The qualitative comparison of the two developed models were done using this 2D setup, so for 3D cases, the models were simulated on vastly different geometries for just checking the performance of the interface tracking techniques on 3D scaffolds. In 3D, both models were evaluated on a cube, but the level-set model was also used to simulate the cell growth behavior on scaffolds with triply periodic minimal surface (TPMS) shapes.</p>
+</div>
+<figure id="F3" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/tissue/image/domain_geometry.jpg" id="F3.g1" class="ltx_graphics ltx_centering" width="325" height="139" alt="Schematic representation of the simulation domains"></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 6.3: </span>Schematic representation of the simulation domains</figcaption>
+</figure>
+<div id="S6.p2" class="ltx_para">
+<p class="ltx_p">The initial configuration of the phase-field variable and level-set distance function corresponds to a homogenous single cell layer over the scaffold struts with a thickness equal to <math id="S6.p2.m1" class="ltx_Math" alttext="10\mu m" display="inline"><semantics><mrow><mn>10</mn><mo>⁢</mo><mi>μ</mi><mo>⁢</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">10\mu m</annotation></semantics></math> in a dimensional setup <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib204" title="A neural network model for cell classification based on single-cell biomechanical properties" class="ltx_ref">64</a>]</cite>. This is depicted as the green layer in Fig. <a href="#F3" title="Figure 6.3 ‣ 6.6 Simulation setup ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.3</span></a>. For the 3D level-set model, neotissue growth was simulated for a variety of TPMS family and compared in a qualitative manner. A full quantitative prediction is not possible due to the absence of relevant validation experiments, which explains why comparisons between geometries are made over non-dimensional time.</p>
+</div>
+<div id="S6.p3" class="ltx_para">
+<p class="ltx_p">The derived weak forms were implemented using FreeFEM open-source PDE solver <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib44" title="New development in freefem++" class="ltx_ref">112</a>]</cite>. An Eulerian computational mesh for each simulation was constructed by generating tetrahedral elements using the internal mesh generator of FreeFEM, called BAMG. To decrease run time and increase the performance of the simulation, the mesh was partitioned using METIS graph partitioner <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib65" title="A fast and high quality multilevel scheme for partitioning irregular graphs" class="ltx_ref">144</a>]</cite> and HPDDM preconditioner <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib64" title="Scalable domain decomposition preconditioners for heterogeneous elliptic problems" class="ltx_ref">140</a>]</cite>, available in FreeFEM and the PETSc toolkit <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib61" title="PETSc Web page" class="ltx_ref">25</a>]</cite>. Moreover, the efficiency was boosted by using the HYPRE BoomerAMG preconditioner <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib69" title="Hypre: a library of high performance preconditioners" class="ltx_ref">78</a>]</cite> and the GMRES iterative solver <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib66" title="GMRES: a generalized minimal residual algorithm for solving nonsymmetric linear systems" class="ltx_ref">223</a>]</cite> of the PETSc toolkit.</p>
+</div>
+</div>
+</section>
+<section id="S7" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">6.7</span> Results and discussion</h2>
+
+<div id="S7.p1" class="ltx_para">
+<p class="ltx_p">In the current study, various 2D and 3D cases for the simulation of curvature-based neotissue formation were prepared and separately simulated using the phase-field and level-set models. The cases were a square and a semi-circle for 2D simulations, mimicking the situation in which cells were homogeneously seeded onto the scaffold to initiate the production of extracellular matrix. Similarly, a 3D cube was considered for evaluating the performance of the implementation of both models in 3D. Additionally, the level-set model was used to simulate cell proliferation on TMPS scaffolds with quantitative measurements being carried out for the percentage and filling rate of generation of neotissue.</p>
+</div>
+<div id="S7.p2" class="ltx_para">
+<p class="ltx_p">The results of neotissue growth model simulations can be visualized by depicting the +1 part of the phase-field variable (Eq. <a href="#E22" title="(6.22) ‣ 6.4 Adapting the formulation for curvature-driven tissue growth ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.22</span></a>) and the positive part of the level-set function (Eq. <a href="#E23" title="(6.23) ‣ 6.4 Adapting the formulation for curvature-driven tissue growth ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.23</span></a>). Fig. <a href="#F4" title="Figure 6.4 ‣ 6.7 Results and discussion ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.4</span></a> demonstrates such a visualization for the phase-field and level-set simulations performed on the square domain. Cells were seeded on the perimeter of the square, and the formation of neotissue was modeled using the evolution of the phase-field variable and level-set function. The light gray region in these figures shows the +1 part of the phase-field variable and the positive part of the level-set function.</p>
+</div>
+<figure id="F4" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/tissue/image/simulation_square.jpg" id="F4.g1" class="ltx_graphics ltx_centering" width="541" height="317" alt="Simulation result of the phase-field (A) and level-set (B) models for neotissue growth in the square domain. The light gray region shows the +1 part of the phase-field variable and the positive part of the distance function for the phase-field (A) and level-set (B) models, respectively. The evolution occurs from left to right over non-dimensionalized time."></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 6.4: </span>Simulation result of the phase-field (A) and level-set (B) models for neotissue growth in the square domain. The light gray region shows the +1 part of the phase-field variable and the positive part of the distance function for the phase-field (A) and level-set (B) models, respectively. The evolution occurs from left to right over non-dimensionalized time.</figcaption>
+</figure>
+<div id="S7.p3" class="ltx_para">
+<p class="ltx_p">As shown in Fig. <a href="#F4" title="Figure 6.4 ‣ 6.7 Results and discussion ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.4</span></a>, a qualitative comparison of the evolution of the formed tissue interface between the phase-field and level-set models indicates that they capture the curvature-driven growth similarly. It seems that the level-set model resulted in sharper interfaces, in which the surfaces without curvature do not move at all. But, in the phase-field predictions, the surfaces not having any curvature slightly move. This can be seen by comparing the growth pattern on the middle part of the top edge of the square, where it starts to grow only in the fourth column in Fig. <a href="#F4" title="Figure 6.4 ‣ 6.7 Results and discussion ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.4</span></a> for the level-set results, while a minor move can be seen in the phase-field predictions. This slightly different behavior can be related to the implementation details, such as the lack of a proper Heaviside function in FreeFEM that the phase-field model depends on. Another possible reason for this difference can be the visualization aspect since the transition region of the phase-field variable representing the surface is thicker in the phase-field model in comparison to the zero iso-contour of the level-set function. As a result, the evolution can be artificially plotted in the visualization software, which was ParaView in this case. This effect can be investigated further by refining the mesh to minimize artificial evolution.</p>
+</div>
+<div id="S7.p4" class="ltx_para">
+<p class="ltx_p">A similar visualization is depicted in Fig. <a href="#F5" title="Figure 6.5 ‣ 6.7 Results and discussion ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.5</span></a> for the neotissue formation on the semi-circle domain. Results show that the phase-field and level-set models have good agreement on the way they treat the curvature-based tissue growth. As seen in the figure, both models show identical predictions on the surface with curvature (the curvy edge of the semi-circle). However, the small difference observed for the square case can also be seen here on the top surface, where the neotissue grows slightly faster in the phase-field model.</p>
+</div>
+<figure id="F5" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/tissue/image/simulation_circle.jpg" id="F5.g1" class="ltx_graphics ltx_centering" width="541" height="211" alt="Simulation result of the phase-field (A) and the level-set (B) models for neotissue growth in the semi-circle domain. The evolution occurs from left to right over non-dimensionalized time."></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 6.5: </span>Simulation result of the phase-field (A) and the level-set (B) models for neotissue growth in the semi-circle domain. The evolution occurs from left to right over non-dimensionalized time.</figcaption>
+</figure>
+<div id="S7.p5" class="ltx_para">
+<p class="ltx_p">Fig. <a href="#F6" title="Figure 6.6 ‣ 6.7 Results and discussion ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.6</span></a> shows the evolution of the phase-field variable corresponding to the results depicted in Fig. <a href="#F5" title="Figure 6.5 ‣ 6.7 Results and discussion ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.5</span></a>-A, demonstrating how the diffuse interface model works. In this figure, the concept of the diffusive interface can be observed, where a narrow region between the two phases (the neotissue and the void space in this case) is formed and moves over time. This visualization demonstrates the internal mechanism of the phase-field model, in which the narrow region is kept at a fixed length (defined by the kernel in Eq. <a href="#E6" title="(6.6) ‣ 6.2.2 Phase-field formulation ‣ 6.2 Deriving the model ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.6</span></a> for a length of <math id="S7.p5.m1" class="ltx_Math" alttext="3\sqrt{2}w" display="inline"><semantics><mrow><mn>3</mn><mo>⁢</mo><msqrt><mn>2</mn></msqrt><mo>⁢</mo><mi>w</mi></mrow><annotation encoding="application/x-tex">3\sqrt{2}w</annotation></semantics></math>) and gets advected over time by the phase-field equation (Eq. <a href="#E11" title="(6.11) ‣ 6.2.2 Phase-field formulation ‣ 6.2 Deriving the model ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.11</span></a>). In contrast, in the level-set formalism, the interface is not tracked as a fixed length region, and instead, the zero iso-contour of a signed distance function is the interface between the phases. The signed distance function maps each node of the whole space (the desired computational domain) into the distance to the interface, and as a result, the change in the function determines the movement of the interface.</p>
+</div>
+<figure id="F6" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/tissue/image/pf_circle_field.jpg" id="F6.g1" class="ltx_graphics ltx_centering" width="541" height="224" alt="Visualization of the evolution of phase-field variable in the semi-circle domain. The evolution is depicted over time in an arbitrary unit, occurring from top to bottom and from left to right in each row. The red, blue, and white show the +1 region, -1 region, and the transient phase representing the interface, respectively."></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 6.6: </span>Visualization of the evolution of phase-field variable in the semi-circle domain. The evolution is depicted over time in an arbitrary unit, occurring from top to bottom and from left to right in each row. The red, blue, and white show the +1 region, -1 region, and the transient phase representing the interface, respectively.</figcaption>
+</figure>
+<div id="S7.p6" class="ltx_para">
+<p class="ltx_p">Similar results are obtained in 3D, where the cells are seeded on the circumstance of a cuboid. Fig. <a href="#F7" title="Figure 6.7 ‣ 6.7 Results and discussion ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.7</span></a> shows the simulation results of this 3D case, in which the evolution of the phase-field variable is converted to a bulk of the formed neotissue. As can be seen in this figure, the phase-field model performs well in 3D, showing a similar growth behavior to the 2D model. The mesh in the 3D case is relatively coarse, but the captured behavior of tissue growth by the phase-field model seems to be more acceptable than in the 2D case. This claim can be observed on the top and bottom surfaces of the cube, where the interface does not move until a curvature is created in those regions, a behavior that was captured better by the level-set model in the 2D cases.</p>
+</div>
+<figure id="F7" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/tissue/image/pf_3d.jpg" id="F7.g1" class="ltx_graphics ltx_centering" width="325" height="338" alt="Simulation result of the phase-field model for neotissue growth in a 3D cube domain, in which the +1 regions of the phase-field variable are visualized to show the formation of neotissue over non-dimensionalized time."></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 6.7: </span>Simulation result of the phase-field model for neotissue growth in a 3D cube domain, in which the +1 regions of the phase-field variable are visualized to show the formation of neotissue over non-dimensionalized time.</figcaption>
+</figure>
+<div id="S7.p7" class="ltx_para">
+<p class="ltx_p">Similarly, Fig. <a href="#F8" title="Figure 6.8 ‣ 6.7 Results and discussion ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.8</span></a> shows the evolution of neotissue formation in a 3D level-set simulation, in which the results are similar to the ones obtained using the phase-field model (Fig. <a href="#F7" title="Figure 6.7 ‣ 6.7 Results and discussion ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.7</span></a>). Generally speaking, the level-set model requires finer mesh in 3D in order to capture the interface movement accurately, which is the reason behind having a smoother interface in Fig. <a href="#F8" title="Figure 6.8 ‣ 6.7 Results and discussion ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.8</span></a> in comparison to Fig. <a href="#F7" title="Figure 6.7 ‣ 6.7 Results and discussion ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.7</span></a>. However, a qualitative comparison shows that both models act equivalently for capturing the curvature-dependent growth in 3D.</p>
+</div>
+<figure id="F8" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/tissue/image/ls_3d.jpg" id="F8.g1" class="ltx_graphics ltx_centering" width="325" height="338" alt="Simulation result of the level-set model for neotissue growth in a 3D cube domain, in which the positive regions of the level-set variable are visualized to show the formation of neotissue over non-dimensionalized time."></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 6.8: </span>Simulation result of the level-set model for neotissue growth in a 3D cube domain, in which the positive regions of the level-set variable are visualized to show the formation of neotissue over non-dimensionalized time.</figcaption>
+</figure>
+<div id="S7.p8" class="ltx_para">
+<p class="ltx_p">Fig. <a href="#F9" title="Figure 6.9 ‣ 6.7 Results and discussion ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.9</span></a> depicts various simulation results of the netissue formation in gyroid-TPMS scaffolds, demonstrating an example of the final application of these models in action. The reason for choosing gyroid-TPMS scaffolds is their promising performance for neotissue formation due to their favourable local curvature. Various geometries for investigating the pore size and wall thickness were evaluated in order to obtain the combination leading to optimal neotissue growth. Pore size was varied between <math id="S7.p8.m1" class="ltx_Math" alttext="700\mu m" display="inline"><semantics><mrow><mn>700</mn><mo>⁢</mo><mi>μ</mi><mo>⁢</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">700\mu m</annotation></semantics></math> and <math id="S7.p8.m2" class="ltx_Math" alttext="1.3mm" display="inline"><semantics><mrow><mn>1.3</mn><mo>⁢</mo><mi>m</mi><mo>⁢</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">1.3mm</annotation></semantics></math>, and wall thickness was varied from <math id="S7.p8.m3" class="ltx_Math" alttext="200\mu m" display="inline"><semantics><mrow><mn>200</mn><mo>⁢</mo><mi>μ</mi><mo>⁢</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">200\mu m</annotation></semantics></math> to <math id="S7.p8.m4" class="ltx_Math" alttext="800\mu m" display="inline"><semantics><mrow><mn>800</mn><mo>⁢</mo><mi>μ</mi><mo>⁢</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">800\mu m</annotation></semantics></math>, which are ranges that take into account restrictions of the manufacturing process in terms of the smallest feature dimensions. Balancing the need for swift neotissue ingrowth (Fig. <a href="#F9" title="Figure 6.9 ‣ 6.7 Results and discussion ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.9</span></a>-B, relevant for short-term implant stability) with the volume of neotissue formed (Fig. <a href="#F9" title="Figure 6.9 ‣ 6.7 Results and discussion ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.9</span></a>-A, relevant for long-term dental implant stability), the combination of <math id="S7.p8.m5" class="ltx_Math" alttext="700\mu m" display="inline"><semantics><mrow><mn>700</mn><mo>⁢</mo><mi>μ</mi><mo>⁢</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">700\mu m</annotation></semantics></math> pore size and <math id="S7.p8.m6" class="ltx_Math" alttext="200\mu m" display="inline"><semantics><mrow><mn>200</mn><mo>⁢</mo><mi>μ</mi><mo>⁢</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">200\mu m</annotation></semantics></math> wall thickness (Fig. <a href="#F9" title="Figure 6.9 ‣ 6.7 Results and discussion ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.9</span></a>-C) seemed to be the most optimal structure.</p>
+</div>
+<figure id="F9" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/tissue/image/ls_tpms.jpg" id="F9.g1" class="ltx_graphics ltx_centering" width="541" height="250" alt="Neotissue formation quantified in absolute volume (A) and filling percentage (B) for cylindrical test samples (diameter 6 mm, height 6 mm). The different combinations are indicated in the legend by 2 numbers, the first of which refers to pore size (7: 700 "></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 6.9: </span>Neotissue formation quantified in absolute volume (A) and filling percentage (B) for cylindrical test samples (diameter 6 mm, height 6 mm). The different combinations are indicated in the legend by 2 numbers, the first of which refers to pore size (7: 700 <math id="F9.m1" class="ltx_Math" alttext="\mu" display="inline"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math>m, 10: 1 mm, 13: 1.3 mm), and the second refers to wall thickness (2: 200 <math id="F9.m2" class="ltx_Math" alttext="\mu" display="inline"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math>m; 5: 500 <math id="F9.m3" class="ltx_Math" alttext="\mu" display="inline"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math>m; 8: 800 <math id="F9.m4" class="ltx_Math" alttext="\mu" display="inline"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math>m;). (C) Side view and cross-sectional view of neotissue growth in gyroid (7-2) scaffold for different levels of filling, starting with the initial condition at t=0 (top). Scale bars: 6 mm.</figcaption>
+</figure>
+<div id="S7.p9" class="ltx_para">
+<p class="ltx_p">The study shown as an example above <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib252" title="3D-printed synthetic hydroxyapatite scaffold with in silico optimized macrostructure enhances bone formation in vivo" class="ltx_ref">113</a>]</cite> demonstrates the relevance of the developed tissue growth models in tissue engineering applications. <span class="ltx_text ltx_font_italic">In silico</span> modeling is widely used for tissue engineering as it offers a more exhaustive approach compared to a “trial-and-error” method and reduces the number of experimental tests. Optimization of scaffold structures for bone tissue engineering purposes is often corroborated by comparison with <span class="ltx_text ltx_font_italic">in vitro</span> tests <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib253" title="Modeling the effect of curvature on the collective behavior of cells growing new tissue" class="ltx_ref">11</a>, <a href="bib.html#bib254" title="Scaffold pore geometry guides gene regulation and bone-like tissue formation in dynamic cultures" class="ltx_ref">220</a>]</cite> and only a small number of <span class="ltx_text ltx_font_italic">in vivo</span> studies have been reported in this regard <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib255" title="A paradigm for the development and evaluation of novel implant topologies for bone fixation: in vivo evaluation" class="ltx_ref">173</a>, <a href="bib.html#bib256" title="Finite-element design and optimization of a three-dimensional tetrahedral porous titanium scaffold for the reconstruction of mandibular defects" class="ltx_ref">175</a>, <a href="bib.html#bib257" title="CAD based design sensitivity analysis and shape optimization of scaffolds for bio-root regeneration in swine" class="ltx_ref">176</a>]</cite>. However, in these <span class="ltx_text ltx_font_italic">in vivo</span> studies, optimization was first performed on mechanical properties rather than the structural elements such as local curvature underlying the <span class="ltx_text ltx_font_italic">in silico</span> model presented in this chapter. Having such a model developed makes it easier to investigate the structural elements of scaffolds for improved regenerative performance. Using the modeling results makes it possible to limit the number of conditions tested <span class="ltx_text ltx_font_italic">in vivo</span>.</p>
+</div>
+</div>
+</section>
+<section id="S8" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">6.8</span> Challenges in coupling tissue growth and biodegradation models</h2>
+
+<div id="S8.p1" class="ltx_para">
+<p class="ltx_p">Coupling our biodegradation model <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib109" title="Computational modeling of degradation process of biodegradable magnesium biomaterials" class="ltx_ref">31</a>]</cite> (Chapter <a href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3</span></a>) with the developed tissue growth model in this chapter could have been a milestone of the current PhD thesis, where the neotissue is produced by the cells seeded on a biodegradable scaffold. Another interesting example could be using biodegradable porous implants in bone healing applications (similar to the model presented in Chapter <a href="Ch10.html" title="Chapter 10 Model applications: patient-specific porous acetabular implants ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">10</span></a>), in which the implant degrades while new bone forms and replaces the porous implant. However, despite the effort put on tissue growth modeling, such coupling can be complicated to accomplish in a mechanistic manner due to specific technical difficulties. In this section, these challenges are briefly reviewed.</p>
+</div>
+<div id="S8.p2" class="ltx_para">
+<p class="ltx_p">Both the biodegradation and the tissue growth models are free boundary problems, in which an interface capturing method (phase-field or level-set for the tissue growth and level-set for the biodegradation) was used to track the movement of a boundary. The moving boundary in the biodegradation model is the corrosion front, the interface between the metallic part and the surrounding environment, which can be a static electrolyte in immersion tests or circulated solutions in a perfusion setup. Various mass transfer boundary conditions are defined on this boundary <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib109" title="Computational modeling of degradation process of biodegradable magnesium biomaterials" class="ltx_ref">31</a>]</cite>, meaning that the boundary conditions are not fixed and move with the evolution of the surface. In other words, the boundary conditions of a set of equations are defined on the solution of one of the governing equations of the model (level-set equation), which is one of the challenging parts of the implementation of that model. On the other hand, the moving boundary in the tissue growth model is the surface of the formed neotissue, the interface between the neotissue and the surrounding environment in the bioreactor, which is considered as the void space since there is no tissue in that region. Coupling these two models requires defining the moving boundary problem of neotissue growth on the solution of the interface capturing of the biodegradation model. Regardless of using the same technique for both problems or using separate methods for each problem, such coupling can be quite challenging from the implementation perspective.</p>
+</div>
+<div id="S8.p3" class="ltx_para">
+<p class="ltx_p">The second problem is related to the behavior of neotissue formation after coupling the models when the biodegradable material shrinks and a new void space appears at the back of the formed neotissue. Fig. <a href="#F10" title="Figure 6.10 ‣ 6.8 Challenges in coupling tissue growth and biodegradation models ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.10</span></a> shows this problem schematically. Fig. <a href="#F10" title="Figure 6.10 ‣ 6.8 Challenges in coupling tissue growth and biodegradation models ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.10</span></a>-A shows an initial state of the coupled system, in which a level-set formulation is used to divide the domain into the scaffold and medium parts (the <math id="S8.p3.m1" class="ltx_Math" alttext="\psi" display="inline"><semantics><mi>ψ</mi><annotation encoding="application/x-tex">\psi</annotation></semantics></math> function on the top) while a phase-field function divides the domain into tissue and void space (the <math id="S8.p3.m2" class="ltx_Math" alttext="\phi" display="inline"><semantics><mi>ϕ</mi><annotation encoding="application/x-tex">\phi</annotation></semantics></math> function on the bottom). The positive side of the level-set function (<math id="S8.p3.m3" class="ltx_Math" alttext="\psi&gt;0" display="inline"><semantics><mrow><mi>ψ</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\psi&gt;0</annotation></semantics></math>) is not defined in the domain of the tissue growth model (<math id="S8.p3.m4" class="ltx_Math" alttext="\phi=\text{NaN}" display="inline"><semantics><mrow><mi>ϕ</mi><mo>=</mo><mtext>NaN</mtext></mrow><annotation encoding="application/x-tex">\phi=\text{NaN}</annotation></semantics></math>). After several time steps, the system enters a state similar to the one depicted in Fig. <a href="#F10" title="Figure 6.10 ‣ 6.8 Challenges in coupling tissue growth and biodegradation models ‣ Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">6.10</span></a>-B, where the scaffold has shrunk to the left due to biodegradation, and the tissue has grown to the right. As can be seen in the figure, these movements cause a new area to appear between the scaffold and neotissue, in which the level-set function is negative (<math id="S8.p3.m5" class="ltx_Math" alttext="\psi&lt;0" display="inline"><semantics><mrow><mi>ψ</mi><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\psi&lt;0</annotation></semantics></math>) and the phase-field variable is one (<math id="S8.p3.m6" class="ltx_Math" alttext="\phi=+1" display="inline"><semantics><mrow><mi>ϕ</mi><mo>=</mo><mrow><mo>+</mo><mn>1</mn></mrow></mrow><annotation encoding="application/x-tex">\phi=+1</annotation></semantics></math>). Since this area is part of the void space for the phase-field model, the tissue should grow in this direction as well, but this behavior does not have a clear definition from an implementation point of view. From a common-sense perspective, one might expect part of the tissue to still be attached to the surface of the scaffold and move with it to the left, a behavior that is quite challenging to consider in the formulation of the two coupled interface moving problems. Moreover, it is not fully clear how such behavior happens in experiments, so dedicated experiments are required to observe the actual reaction of the growing neotissue to the shrinkage of the scaffold. This behavior may be sensitive to experimental conditions such as static or perfusion setup of the medium, making the problem even more complex from the mathematical perspective.</p>
+</div>
+<figure id="F10" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/tissue/image/coupling_challenge.jpg" id="F10.g1" class="ltx_graphics ltx_centering" width="541" height="239" alt="Schematic presentation of coupled neotissue growth and biodegradation models (implemented using phase-field and level-set methods respectively): A) initial state of the system with level-set ("></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 6.10: </span>Schematic presentation of coupled neotissue growth and biodegradation models (implemented using phase-field and level-set methods respectively): A) initial state of the system with level-set (<math id="F10.m1" class="ltx_Math" alttext="\psi" display="inline"><semantics><mi>ψ</mi><annotation encoding="application/x-tex">\psi</annotation></semantics></math>) and phase-field (<math id="F10.m2" class="ltx_Math" alttext="\phi" display="inline"><semantics><mi>ϕ</mi><annotation encoding="application/x-tex">\phi</annotation></semantics></math>) variables dividing the domain for the biodegradation and neotissue growth models, respectively, B) the state of the system after some time steps, in which the biodegradation shrinks the scaffold to the left, the neotissue grows to the right, and a new area emerges between the scaffold and the neotissue.</figcaption>
+</figure>
+<div id="S8.p4" class="ltx_para">
+<p class="ltx_p">A potential solution for the mentioned coupling challenge would be to take advantage of the multi-phase field method for describing both the biodegradation and tissue growth processes using a single model. Putting this solution into practice requires a tremendous amount of work to re-implement the biodegradation model using the phase-field method, which needs to change part of the fundamental equations in the mathematical model elaborated in Chapter <a href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3</span></a>, but it removes the necessity of coupling two models and dealing with the emerging difficulties in the implementation. Such an idea has already been implemented in studies like Moure et al. work <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib315" title="Phase-field modeling of individual and collective cell migration" class="ltx_ref">199</a>, <a href="bib.html#bib314" title="Phase-field modeling and isogeometric analysis of cell crawling" class="ltx_ref">200</a>]</cite>, in which they used a multi-phase field model to investigate individual and collective cell migration and crawling.</p>
+</div>
+<div id="S8.p5" class="ltx_para">
+<p class="ltx_p">The next challenge would be the validation of the coupled model. In addition to the necessity mentioned above for performing dedicated experiments to observe the actual behavior of tissue growth on biodegradable scaffolds, such experiments are crucial to validate the model from a quantitative point of view. Doing these experimental studies seems to be challenging and resource-demanding because both the qualitative behavior and quantitative measurements should be recorded. The qualitative behavior is crucial to observe how tissue growth reacts to the shrinkage of the material underneath, while the quantitative output of the experiments can be directly used to validate the rate of degradation and neotissue formation predicted by the coupled model. Such resource-demanding experiments were never planned as part of this PhD, and as a result, the coupled models could not be easily validated.</p>
+</div>
+<div id="S8.p6" class="ltx_para">
+<p class="ltx_p">A suitable workaround for the aforementioned challenges can be coupling the biodegradation model with a simpler tissue growth model in the first place. A simpler model here implies that it does not include an interface tracking sub-model, for which the above challenges may appear in the implementation. An example of such simplified coupling is the work of Byrne et al. <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib286" title="Simulation of tissue differentiation in a scaffold as a function of porosity, young's modulus and dissolution rate: application of mechanobiological models in tissue engineering" class="ltx_ref">43</a>]</cite>, in which random walk algorithms were used to model neotissue differentiation, scaffold degradation, and their coupled effect phenomenologically. Another example of a more straightforward model is Carlier et al. work <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib250" title="MOSAIC: a multiscale model of osteogenesis and sprouting angiogenesis with lateral inhibition of endothelial cells" class="ltx_ref">44</a>, <a href="bib.html#bib251" title="Computational model-informed design and bioprinting of cell-patterned constructs for bone tissue engineering" class="ltx_ref">45</a>]</cite>, in which they solved a set of taxis-diffusion-reaction PDEs describing the evolution of biochemical factors, cells, and extracellular matrices to model the healing process, assuming the entire domain is already occupied by some form of tissue (no void space). Due to the lack of interface capturing, such a model is easier to integrate with the biodegradation model. This approach can be more difficult to validate, but it comes with the advantage of a more straightforward implementation. Looking at the time scales of the both processes however, several weeks for neotissue filling of a 3D porous scaffold of 6 mm cube and several months to years for the degradation of the same scaffold (depending on composition and circumstances), a practical work-around might be to decouple them. This would mean first simulating the neotissue growth until complete filling and only then considering scaffold degradation which focuses all the attention on the zone between the tissue and the scaffold.</p>
+</div>
+</div>
+</section>
+<section id="S9" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">6.9</span> Conclusion</h2>
+
+<div id="S9.p1" class="ltx_para">
+<p class="ltx_p">In this chapter, two curvature-driven models of the neotissue growth process were developed using the phase-field and level-set interface tracking methods. The models were used in various 2D and 3D growth simulations with cells seeded on the circumference of basic geometrical primitives, showing the similarities and differences between the phase-field and level-set methods. Additionally, the level-set model was used to simulate tissue growth on open porous scaffolds generated with TPMS geometries, demonstrating the applicability of the developed models for tissue engineering applications. The complications to couple the tissue growth models with the developed biodegradation model in Chapter <a href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3</span></a> were also elaborated, in which the potential solutions to address the emerging coupling challenges were discussed.</p>
+</div>
+<div class="ltx_pagination ltx_role_newpage"></div>
+</div>
+</section>
+</div>
+</section>
+</div>
+</div>
+</div>
+<a href="Ch5.html" class="navigation navigation-prev" aria-label="Previous page"><i class="fa fa-angle-left"></i></a><a href="Ch7.html" class="navigation navigation-next" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+</div>
+</div>
+<script src="bookml/gitbook/js/app.min.js"></script>
+<script src="bookml/gitbook/js/jquery.highlight.js"></script>
+<script src="bookml/gitbook/js/plugin-search.js"></script>
+<script src="bookml/gitbook/js/plugin-fontsettings.js"></script>
+<script src="bookml/gitbook/js/plugin-bookdown.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script>
+        MathJax = {
+          startup: {
+            ready() {
+              // do not process equations disabled with \bmlDisableMathJax (code suggested by Davide P. Cervone)
+              class bmlFindMathML extends MathJax._.input.mathml.FindMathML.FindMathML {
+                processMath(set) {
+                  const adaptor = this.adaptor;
+                  for (const node of set.values()) {
+                    if (adaptor.hasClass(node, 'bml_disable_mathjax')) {
+                      set.delete(node);
+                    }
+                  }
+                  return super.processMath(set);
+                }
+              }
+
+              MathJax._.components.global.combineDefaults(MathJax.config, 'mml', {FindMathML: new bmlFindMathML()});
+
+              MathJax.startup.defaultReady();
+
+              // preproces MathML to make MathJax aware of certain LaTeXML and BookML additional info
+              const mmlFilters = MathJax.startup.input[0].mmlFilters;
+
+              // convert the LaTeXML calligraphic (chancery) annotation to a form MathJax understands
+              // since the corresponding Unicode characters render as script (rounded)
+              const script2latin = {
+                '𝒜': 'A', 'ℬ': 'B', '𝒞': 'C', '𝒟': 'D', 'ℰ': 'E', 'ℱ': 'F', '𝒢': 'G',
+                'ℋ': 'H', 'ℐ': 'I', '𝒥': 'J', '𝒦': 'K', 'ℒ': 'L', 'ℳ': 'M', '𝒩': 'N',
+                '𝒪': 'O', '𝒫': 'P', '𝒬': 'Q', 'ℛ': 'R', '𝒮': 'S', '𝒯': 'T', '𝒰': 'U',
+                '𝒱': 'V', '𝒲': 'W', '𝒳': 'X', '𝒴': 'Y', '𝒵': 'Z',
+              };
+
+              mmlFilters.add((args) => {
+                for (const n of args.data.getElementsByClassName('ltx_font_mathcaligraphic')) {
+                  n.classList.add('MJX-tex-calligraphic');
+                  const letter = script2latin[n.textContent];
+                  if (letter !== undefined) { n.textContent = letter; }
+                }
+              });
+
+              // adjust characters based on Unicode variation sequences
+              const replacements = {
+                // MathJax renders the empty set as the U+FE00 variant, so the plain character needs adjusting
+                '∅': { variant: 'variant' },
+                // MathJax renders script characters in rounded style, which is fine for no variation and U+FE00
+                '𝒜\xFE00': { text: 'A', variant: 'tex-calligraphic' },
+                'ℬ\xFE00': { text: 'B', variant: 'tex-calligraphic' },
+                '𝒞\xFE00': { text: 'C', variant: 'tex-calligraphic' },
+                '𝒟\xFE00': { text: 'D', variant: 'tex-calligraphic' },
+                'ℰ\xFE00': { text: 'E', variant: 'tex-calligraphic' },
+                'ℱ\xFE00': { text: 'F', variant: 'tex-calligraphic' },
+                '𝒢\xFE00': { text: 'G', variant: 'tex-calligraphic' },
+                'ℋ\xFE00': { text: 'H', variant: 'tex-calligraphic' },
+                'ℐ\xFE00': { text: 'I', variant: 'tex-calligraphic' },
+                '𝒥\xFE00': { text: 'J', variant: 'tex-calligraphic' },
+                '𝒦\xFE00': { text: 'K', variant: 'tex-calligraphic' },
+                'ℒ\xFE00': { text: 'L', variant: 'tex-calligraphic' },
+                'ℳ\xFE00': { text: 'M', variant: 'tex-calligraphic' },
+                '𝒩\xFE00': { text: 'N', variant: 'tex-calligraphic' },
+                '𝒪\xFE00': { text: 'O', variant: 'tex-calligraphic' },
+                '𝒫\xFE00': { text: 'P', variant: 'tex-calligraphic' },
+                '𝒬\xFE00': { text: 'Q', variant: 'tex-calligraphic' },
+                'ℛ\xFE00': { text: 'R', variant: 'tex-calligraphic' },
+                '𝒮\xFE00': { text: 'S', variant: 'tex-calligraphic' },
+                '𝒯\xFE00': { text: 'T', variant: 'tex-calligraphic' },
+                '𝒰\xFE00': { text: 'U', variant: 'tex-calligraphic' },
+                '𝒱\xFE00': { text: 'V', variant: 'tex-calligraphic' },
+                '𝒲\xFE00': { text: 'W', variant: 'tex-calligraphic' },
+                '𝒳\xFE00': { text: 'X', variant: 'tex-calligraphic' },
+                '𝒴\xFE00': { text: 'Y', variant: 'tex-calligraphic' },
+                '𝒵\xFE00': { text: 'Z', variant: 'tex-calligraphic' }
+              };
+
+              mmlFilters.add((args) => {
+                let nodes = document.evaluate('.//m:mi | .//m:mn | .//m:mo | .//m:ms', args.data,
+                  () => 'http://www.w3.org/1998/Math/MathML', XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE);
+                for (let i = 0; i < nodes.snapshotLength; i++) {
+                  const n = nodes.snapshotItem(i);
+                  const repl = replacements[n.innerHTML];
+                  if (repl !== undefined) {
+                    const variant = repl['variant'];
+                    const text = repl['text'];
+                    if (variant !== undefined) { n.classList.add('MJX-' + variant); n.removeAttribute('mathvariant'); }
+                    if (text !== undefined) { n.innerHTML = text; }
+                  }
+                }
+              });
+            }
+          }
+        };
+      </script>
+<script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js"></script>
+<script type="text/javascript">
+                gitbook.require(["gitbook"], function(gitbook) {
+                gitbook.start({
+                  "fontsettings": {
+                    "theme": "white",
+                    "family": "sans",
+                    "size": 2
+                  },
+                  "download": [ [ "thesis.pdf", "PDF" ], ],
+                  "search": {
+                    "engine": "fuse"
+                  },
+                  "toc": {
+                    "collapse": "none"
+                  }
+                });
+              });
+            </script>
+</body>
+
+</html>

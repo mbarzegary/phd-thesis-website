@@ -1,0 +1,575 @@
+<!DOCTYPE html><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>11 Model applications: mechanical integrity of infilled structures‣ Mathematical and computational modeling of metallic biomaterials biodegradation</title>
+<!--Generated on Sat Aug 31 17:26:45 2024 by LaTeXML (version 0.8.6) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on KU Leuven, June 2023.-->
+
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/style.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/plugin-table.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/plugin-search.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/plugin-bookdown.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/plugin-fontsettings.css" type="text/css">
+<link rel="stylesheet" href="ltx-report.css" type="text/css">
+<link rel="stylesheet" href="bookml/CSS/style.css" type="text/css">
+<link rel="stylesheet" href="bookml/CSS/style.gitbook,plain.css" type="text/css">
+<link rel="stylesheet" href="bookml/CSS/style.gitbook.css" type="text/css">
+<link rel="stylesheet" href="bmluser/colors.gitbook-thesis.css" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6"></script>
+<link rel="up" href="index.html" title="Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="start" href="index.html" title="Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="prev" href="Ch10.html" title="Chapter 10 Model applications: patient-specific porous acetabular implants ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="next" href="Ch12.html" title="Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Chx1.html" title="Abstract ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch1.html" title="Chapter 1 General introduction ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch2.html" title="Chapter 2 Aims and objectives ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch4.html" title="Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch5.html" title="Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch6.html" title="Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch7.html" title="Chapter 7 Model parallelization for high-performance computing ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch8.html" title="Chapter 8 BioDeg simulation software ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch9.html" title="Chapter 9 Bayesian parameter estimation of the computational models ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch10.html" title="Chapter 10 Model applications: patient-specific porous acetabular implants ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch12.html" title="Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch13.html" title="Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="bibliography" href="bib.html" title="Bibliography ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="appendix" href="A1.html" title="Appendix A Mesh quality plots ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+</head>
+<body>
+<div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+<a href="#bml-main-content" tabindex="0" class="bml-skip-to-content">Skip to content.</a>
+<div class="book-summary"><nav class="ltx_page_navbar">
+<ul class="ltx_toclist summary">
+<li>
+<a href="index.html" title="Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref" rel="start">Mathematical and computational modeling of metallic biomaterials biodegradation</a>
+</li>
+<li class="divider">
+<li data-level="" data-path="Chx1.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Chx1.html" title="Abstract ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref">Abstract</a></li>
+<li data-level="1" data-path="Ch1.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch1.html" title="Chapter 1 General introduction ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">1 </span></b>General introduction</a></li>
+<li data-level="2" data-path="Ch2.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch2.html" title="Chapter 2 Aims and objectives ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">2 </span></b>Aims and objectives</a></li>
+<li data-level="3" data-path="Ch3.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">3 </span></b>Developing the core computational model</a></li>
+<li data-level="4" data-path="Ch4.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch4.html" title="Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">4 </span></b>Extending the model: adding fluid flow and convection</a></li>
+<li data-level="5" data-path="Ch5.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch5.html" title="Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">5 </span></b>Extending the model: simulating local pH evolution</a></li>
+<li data-level="6" data-path="Ch6.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch6.html" title="Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">6 </span></b>Computational modeling of the neotissue growth process</a></li>
+<li data-level="7" data-path="Ch7.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch7.html" title="Chapter 7 Model parallelization for high-performance computing ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">7 </span></b>Model parallelization for high-performance computing</a></li>
+<li data-level="8" data-path="Ch8.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch8.html" title="Chapter 8 BioDeg simulation software ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">8 </span></b>BioDeg simulation software</a></li>
+<li data-level="9" data-path="Ch9.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch9.html" title="Chapter 9 Bayesian parameter estimation of the computational models ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">9 </span></b>Bayesian parameter estimation of the computational models</a></li>
+<li data-level="10" data-path="Ch10.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch10.html" title="Chapter 10 Model applications: patient-specific porous acetabular implants ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">10 </span></b>Model applications: patient-specific porous acetabular implants</a></li>
+<li data-level="11" data-path="" class="ltx_tocentry ltx_tocentry_chapter ltx_ref_self  chapter active">
+<a href="" title="Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">11 </span></b>Model applications: mechanical integrity of infilled structures</a>
+<ul class="ltx_toclist ltx_toclist_chapter">
+<li data-level="11.1" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter "><a href="#S1" title="11.1 Introduction ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">11.1 </span></b>Introduction</a></li>
+<li data-level="11.2" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter ">
+<a href="#S2" title="11.2 Methods ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">11.2 </span></b>Methods</a>
+<ul class="ltx_toclist ltx_toclist_section">
+<li data-level="11.2.1" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S2.SS1" title="11.2.1 Topology optimization test cases ‣ 11.2 Methods ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">11.2.1 </span></b>Topology optimization test cases</a></li>
+<li data-level="11.2.2" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S2.SS2" title="11.2.2 Biodegradation simulation ‣ 11.2 Methods ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">11.2.2 </span></b>Biodegradation simulation</a></li>
+</ul>
+</li>
+<li data-level="11.3" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter "><a href="#S3" title="11.3 Results and discussion ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">11.3 </span></b>Results and discussion</a></li>
+<li data-level="11.4" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter "><a href="#S4" title="11.4 Conclusion ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">11.4 </span></b>Conclusion</a></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li data-level="11.A" data-path="" class="ltx_tocentry ltx_tocentry_appendix  chapter ">
+<a href="#A1" title="Appendix 11.A Mathematical details of the employed topology optimization procedure ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">11.A </span></b>Mathematical details of the topology optimization</a>
+<ul class="ltx_toclist ltx_toclist_appendix">
+<li data-level="11.A.1" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#A1.SS1" title="11.A.1 Level-set-based topology optimization method ‣ Appendix 11.A Mathematical details of the employed topology optimization procedure ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">11.A.1 </span></b>Level-set-based topology optimization method</a></li>
+<li data-level="11.A.2" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#A1.SS2" title="11.A.2 Maximum length-scale constraint ‣ Appendix 11.A Mathematical details of the employed topology optimization procedure ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">11.A.2 </span></b>Maximum length-scale constraint</a></li>
+<li data-level="11.A.3" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#A1.SS3" title="11.A.3 Optimum design problem for feature-rich structures ‣ Appendix 11.A Mathematical details of the employed topology optimization procedure ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">11.A.3 </span></b>Optimum design problem for feature-rich structures</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li data-level="12" data-path="Ch12.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch12.html" title="Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">12 </span></b>Model applications: mechanical loosening of mandibular plates</a></li>
+<li data-level="13" data-path="Ch13.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch13.html" title="Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">13 </span></b>Conclusion</a></li>
+<li data-level="" data-path="bib.html" class="ltx_tocentry ltx_tocentry_bibliography  chapter "><a href="bib.html" title="Bibliography ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref">Bibliography</a></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li data-level="A" data-path="A1.html" class="ltx_tocentry ltx_tocentry_appendix  chapter "><a href="A1.html" title="Appendix A Mesh quality plots ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">A </span></b>Mesh quality plots</a></li>
+</ul>
+</nav></div>
+<div class="ltx_page_main book-body fixed">
+<div class="body-inner">
+<div class="book-header fixed" role="navigation"><h1>Model applications: mechanical integrity of infilled structures</h1></div>
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="ltx_page_content page-inner" id="bml-main-content">
+<section class="ltx_chapter normal">
+<div class="section level1">
+
+<h1 class="ltx_title ltx_title_chapter">
+<span class="ltx_tag ltx_tag_chapter header-section-number">Chapter 11</span> Model applications: mechanical integrity of infilled structures</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">In this chapter, the developed biodegradation model in chapter <a href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3</span></a> is coupled with a level-set based topology optimization procedure that aims to facilitate the design of porous biodegradable scaffolds with complex infill geometries. It’s worth mentioning that this chapter is only discussing the first steps of the interaction of these two models rather than a fully developed study. The research presented in this chapter is carried out as an ongoing collaboration work between KU Leuven and Kyoto University, initiated by Dr. Hao Li and Dr. Heng Zhang. The effort put in by Dr. Li for contributing to the code development as well as writing part of this chapter is highly appreciated.</p>
+</div>
+<section id="S1" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">11.1</span> Introduction</h2>
+
+<div id="S1.p1" class="ltx_para">
+<p class="ltx_p">Mg-based alloys are called revolutionary metals in biomedical applications <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib231" title="Biodegradable metallic bone implants" class="ltx_ref">238</a>]</cite>, but in order to take advantage of these materials in bone tissue engineering applications, their degradation parameters should be tuned to the bone regeneration rate. One approach to investigating biodegradation behavior is to construct computational models to assess the biodegradation properties prior to conducting any <span class="ltx_text ltx_font_italic">in vitro</span> or <span class="ltx_text ltx_font_italic">in vivo</span> tests. In addition to degradation tuning, these models can be used for evaluating the mechanical integrity of the implants, which can be considered an important application in bone tissue engineering.</p>
+</div>
+<div id="S1.p2" class="ltx_para">
+<p class="ltx_p">Mechanical integrity can be studied via the change of mechanical properties of the implant over time, an example of which is the stiffness variations of the implant while the degradation takes place. In this chapter, the stiffness change of porous structures during the biodegradation process is investigated by coupling the degradation model and a mechanical analysis model. Such coupling allows studying the correlation of variations in different quantities in both models, such as the effect of mass loss on the structure’s compliance and, as a result, on the stiffness.</p>
+</div>
+<div id="S1.p3" class="ltx_para">
+<p class="ltx_p">Porous (or partially porous) structures are frequently used in biomedical applications due to their attractive properties , one of which is to allow more interaction between the implant and the body environment <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib232" title="Computational modelling of the mechanics of trabecular bone and marrow using fluid structure interaction techniques" class="ltx_ref">38</a>]</cite>. A bone implant with a proper lattice structure manufactured with functionally graded materials can improve the healing process of bone defects <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib233" title="Lattice structures and functionally graded materials applications in additive manufacturing of orthopedic implants: a review" class="ltx_ref">182</a>]</cite>. In this chapter, the investigated porous structures are created using a topology optimization (TO) routine, in which a set of different volume constraints leads to different final infill shapes.</p>
+</div>
+<div id="S1.p4" class="ltx_para">
+<p class="ltx_p">Performing TO on degrading structures has been rarely studied, the reason of which is the difficulty of evaluating the sensitivity of the optimization models in the presence of complex biodegradation mechanisms. Zhang et al. <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib234" title="Topology optimization of degradable composite structures with time-changeable stiffness" class="ltx_ref">294</a>]</cite> presented such a model for a simplified degradation mechanism in which a constant mass loss from the surface was considered in a sophisticated level-set based TO to mimic the biodegradation process. In their later work <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib235" title="Bi-material microstructural design of biodegradable composites using topology optimization" class="ltx_ref">293</a>]</cite>, they enhanced their implementation from the TO perspective by extending and verifying it in the microscopic scale for stiffness changeable composite structures. Despite the technical difficulty, the model presented in this chapter can be a first step towards building a coupled model for designing implants by optimizing the structure with the biodegradation tuning taken into account. In this model, the change in the compliance of the degrading structure is calculated in each step of the degradation simulation, making it possible to use it later as the objective function of the TO process to consider the effect of biodegradation.</p>
+</div>
+</div>
+</section>
+<section id="S2" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">11.2</span> Methods</h2>
+
+<div id="S2.p1" class="ltx_para">
+<p class="ltx_p">The coupled model developed in this chapter includes two sub-models: 1) a level-set-based TO model to get optimized lattice shapes out of initial geometries, and 2) a biodegradation model to perform degradation simulation on the optimized shapes. The computational workflow is such that the TO model generates lattice structures first, which are transferred to the biodegradation model to get the morphology changes due to the degradation process. These morphological changes are then moved to a sub-module of the TO model to compute the change in the strength (stiffness) of the structure and its deformation due to the applied load. A fully-coupled model is still under-development, in which the output of the biodegradation simulation is transferred back to the TO model during the optimization process, making it possible to consider biodegradation as part of the objective function of the optimization routine. Fig. <a href="#F1" title="Figure 11.1 ‣ 11.2 Methods ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11.1</span></a> shows a schematic representation of how simulation data is being passed from one model to the next, in which the sub-module of the TO model performing the stiffness analysis is depicted as a separate module (component 3) for easier demonstration. The ongoing development is shown in a yellow arrow, indicating that it is not considered in the work presented in this chapter.</p>
+</div>
+<figure id="F1" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/infill/image/workflow.jpg" id="F1.g1" class="ltx_graphics ltx_centering" width="541" height="292" alt="Computational workflow of the coupled TO-biodegradation model, showing how individual components are connected, the programming languages and tools used for the implementation, and the university at which each component is developed."></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 11.1: </span>Computational workflow of the coupled TO-biodegradation model, showing how individual components are connected, the programming languages and tools used for the implementation, and the university at which each component is developed.</figcaption>
+</figure>
+<section id="S2.SS1" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">11.2.1</span> Topology optimization test cases</h3>
+
+<div id="S2.SS1.p1" class="ltx_para">
+<p class="ltx_p">In order to prepare the optimized lattices for the biodegradation simulations, the developed TO procedure was applied on two 2D test cases, which were different due to type of applied constraint. The details of the developed level-set-based TO is briefly presented in the appendix. The computational domain was a rectangle with a dimension of <math id="S2.SS1.p1.m1" class="ltx_Math" alttext="2.5L\times 1.0L" display="inline"><semantics><mrow><mrow><mrow><mn>2.5</mn><mo>⁢</mo><mi>L</mi></mrow><mo>×</mo><mn>1.0</mn></mrow><mo>⁢</mo><mi>L</mi></mrow><annotation encoding="application/x-tex">2.5L\times 1.0L</annotation></semantics></math>. There were two holes inside the domain. The surface traction <math id="S2.SS1.p1.m2" class="ltx_Math" alttext="\boldsymbol{g}=\left[0,-1\right]^{\operatorname{T}}" display="inline"><semantics><mrow><mi>𝒈</mi><mo>=</mo><msup><mrow><mo>[</mo><mn>0</mn><mo>,</mo><mrow><mo>-</mo><mn>1</mn></mrow><mo>]</mo></mrow><mi mathvariant="normal">T</mi></msup></mrow><annotation encoding="application/x-tex">\boldsymbol{g}=\left[0,-1\right]^{\operatorname{T}}</annotation></semantics></math> was distributed evenly on the boundary of the right-hand side hole, and that of the left-hand side hole was a fixed wall <math id="S2.SS1.p1.m3" class="ltx_Math" alttext="\boldsymbol{u}=\left[0,0\right]^{\operatorname{T}}" display="inline"><semantics><mrow><mi>𝒖</mi><mo>=</mo><msup><mrow><mo>[</mo><mn>0</mn><mo>,</mo><mn>0</mn><mo>]</mo></mrow><mi mathvariant="normal">T</mi></msup></mrow><annotation encoding="application/x-tex">\boldsymbol{u}=\left[0,0\right]^{\operatorname{T}}</annotation></semantics></math> (Fig. <a href="#F2" title="Figure 11.2 ‣ 11.2.1 Topology optimization test cases ‣ 11.2 Methods ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11.2</span></a>). The Young’s Modulus was set to <math id="S2.SS1.p1.m4" class="ltx_Math" alttext="1.0" display="inline"><semantics><mn>1.0</mn><annotation encoding="application/x-tex">1.0</annotation></semantics></math>, and the Poisson’s ratio was set to <math id="S2.SS1.p1.m5" class="ltx_Math" alttext="0.3" display="inline"><semantics><mn>0.3</mn><annotation encoding="application/x-tex">0.3</annotation></semantics></math>. This setup was used for both the TO procedure and the structural analysis used to get the deformations and change of stiffness. For test case #1, the local volume constraint was imposed, with maximum allowable local volume fraction (<math id="S2.SS1.p1.m6" class="ltx_Math" alttext="\bar{V}_{\max}" display="inline"><semantics><msub><mover accent="true"><mi>V</mi><mo stretchy="false">¯</mo></mover><mi>max</mi></msub><annotation encoding="application/x-tex">\bar{V}_{\max}</annotation></semantics></math> in Eqs. <a href="#E4" title="(11.4) ‣ 11.A.2 Maximum length-scale constraint ‣ Appendix 11.A Mathematical details of the employed topology optimization procedure ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11.4</span></a> and <a href="#E5" title="(11.5) ‣ 11.A.2 Maximum length-scale constraint ‣ Appendix 11.A Mathematical details of the employed topology optimization procedure ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11.5</span></a>) set to <math id="S2.SS1.p1.m7" class="ltx_Math" alttext="0.6" display="inline"><semantics><mn>0.6</mn><annotation encoding="application/x-tex">0.6</annotation></semantics></math>. After being optimized, the global volume fraction was <math id="S2.SS1.p1.m8" class="ltx_Math" alttext="0.45" display="inline"><semantics><mn>0.45</mn><annotation encoding="application/x-tex">0.45</annotation></semantics></math>. Then, for test case #2, the global volume constraint was imposed with <math id="S2.SS1.p1.m9" class="ltx_Math" alttext="V_{\max}=0.45" display="inline"><semantics><mrow><msub><mi>V</mi><mi>max</mi></msub><mo>=</mo><mn>0.45</mn></mrow><annotation encoding="application/x-tex">V_{\max}=0.45</annotation></semantics></math> (Eq. <a href="#E7.2" title="(11.7b) ‣ (11.7) ‣ 11.A.3 Optimum design problem for feature-rich structures ‣ Appendix 11.A Mathematical details of the employed topology optimization procedure ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11.7b</span></a>), the value obtained from the final global volume fraction of test case #1. The implementation of these numerical examples was done in FreeFEM.</p>
+</div>
+<figure id="F2" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/infill/image/domain.jpg" id="F2.g1" class="ltx_graphics ltx_centering" width="271" height="182" alt="The computational domain used for the topology optimization with the applied load and fixed boundary conditions."></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 11.2: </span>The computational domain used for the topology optimization with the applied load and fixed boundary conditions.</figcaption>
+</figure>
+</div>
+</section>
+<section id="S2.SS2" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">11.2.2</span> Biodegradation simulation</h3>
+
+<div id="S2.SS2.p1" class="ltx_para">
+<p class="ltx_p">The output of the TO process for both cases is shown in Fig. <a href="#F3" title="Figure 11.3 ‣ 11.2.2 Biodegradation simulation ‣ 11.2 Methods ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11.3</span></a> (the evolution of the shape to get these lattice structures is discussed later in section <a href="#S3" title="11.3 Results and discussion ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11.3</span></a>). Since there is no space surrounding the optimized shapes, this output was embedded in a bigger domain for the biodegradation simulation. For doing this, the output level-set function of the TO process was mapped on the mesh of a bigger domain, transforming it into the level-set function of the biodegradation simulation, which is used to track the change in the morphology of the degrading object.</p>
+</div>
+<figure id="F3" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/infill/image/final_cases.jpg" id="F3.g1" class="ltx_graphics ltx_centering" width="541" height="155" alt="Topology optimization output to be used in the biodegradation simulations. The black region depicts the optimized material distribution, and the gray zone is the void space. "></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 11.3: </span>Topology optimization output to be used in the biodegradation simulations. The black region depicts the optimized material distribution, and the gray zone is the void space. </figcaption>
+</figure>
+<div id="S2.SS2.p2" class="ltx_para">
+<p class="ltx_p">The biodegradation simulation was performed using the developed mechanistic model of biodegradation (Chapter <a href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3</span></a> and <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib109" title="Computational modeling of degradation process of biodegradable magnesium biomaterials" class="ltx_ref">31</a>]</cite>), in which the chemistry of the corrosion process is converted to a set of partial differential equations. The derived PDEs are solved using the finite element method implemented in FreeFEM. After mapping the level-set function of the TO process to that of the biodegradation model, the computational mesh was refined on the interface of the degrading lattice to increase the accuracy of the interface capturing method, the result of which is demonstrated in Fig. <a href="#F4" title="Figure 11.4 ‣ 11.2.2 Biodegradation simulation ‣ 11.2 Methods ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11.4</span></a>.</p>
+</div>
+<figure id="F4" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/infill/image/mesh.jpg" id="F4.g1" class="ltx_graphics ltx_centering" width="541" height="365" alt="Computational mesh for the biodegradation simulations resulted from mapping the TO process output to a bigger domain and refining the mesh on the surface of the lattice. The lower row shows the zoomed view of the regions denoted by the dashed rectangle."></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 11.4: </span>Computational mesh for the biodegradation simulations resulted from mapping the TO process output to a bigger domain and refining the mesh on the surface of the lattice. The lower row shows the zoomed view of the regions denoted by the dashed rectangle.</figcaption>
+</figure>
+<div id="S2.SS2.p3" class="ltx_para">
+<p class="ltx_p">The change in the stiffness of the structure was measured during the biodegradation process by applying the boundary condition illustrated in Fig. <a href="#F2" title="Figure 11.2 ‣ 11.2.1 Topology optimization test cases ‣ 11.2 Methods ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11.2</span></a>. The stiffness was calculated as the inverse of the compliance computed using Eq. <a href="#E10" title="(11.10) ‣ 11.A.3 Optimum design problem for feature-rich structures ‣ Appendix 11.A Mathematical details of the employed topology optimization procedure ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11.10</span></a>, which is the sensitivity criterion used for the TO process. The biodegradation simulations were performed in three different diffusion regimes (high, low, and medium) in order to investigate the effect of the corrosive environment.</p>
+</div>
+</div>
+</section>
+</div>
+</section>
+<section id="S3" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">11.3</span> Results and discussion</h2>
+
+<div id="S3.p1" class="ltx_para">
+<p class="ltx_p">The coupled biodegradation and structural mechanics models were constructed using the output of the TO procedure. Fig. <a href="#F5" title="Figure 11.5 ‣ 11.3 Results and discussion ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11.5</span></a> shows the temporary evolving shapes of the infilled structures during the optimization process for case 1, each of which is taken by skipping several intermediate steps. Fig. <a href="#F6" title="Figure 11.6 ‣ 11.3 Results and discussion ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11.6</span></a> shows a similar 2D visualization for case 2. As mentioned in Section <a href="#S2.SS1" title="11.2.1 Topology optimization test cases ‣ 11.2 Methods ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11.2.1</span></a>, the difference between these two cases is related to the applied constraints, where a local volume constraint and a global volume constraint were assigned for case 1 and case 2, respectively.</p>
+</div>
+<figure id="F5" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/infill/image/case1_to_steps.jpg" id="F5.g1" class="ltx_graphics ltx_centering" width="541" height="617" alt="Evolution of the topology optimization level-set function to get the optimized shape for case 1, in which a local volume constraint was imposed."></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 11.5: </span>Evolution of the topology optimization level-set function to get the optimized shape for case 1, in which a local volume constraint was imposed.</figcaption>
+</figure>
+<figure id="F6" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/infill/image/case2_to_steps.jpg" id="F6.g1" class="ltx_graphics ltx_centering" width="541" height="616" alt="Evolution of the topology optimization level-set function to get the optimized shape for case 2, where only the global volume constraint was imposed."></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 11.6: </span>Evolution of the topology optimization level-set function to get the optimized shape for case 2, where only the global volume constraint was imposed.</figcaption>
+</figure>
+<div id="S3.p2" class="ltx_para">
+<p class="ltx_p">Fig. <a href="#F7" title="Figure 11.7 ‣ 11.3 Results and discussion ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11.7</span></a> shows the quantitative results of both components of the coupled computational model for the investigated cases. On the upper row, the degradation rate is plotted by measuring the mass loss over time, showing how the diffusion rate of the Mg ions affects the rate of biodegradation in this model. On the lower row, the change of the stiffness during the biodegradation is plotted, where the stiffness is calculated by inverting the compliance, the objective function of the TO routine calculated in each time step after adjusting the geometry in the presence of degradation. The morphology of the object changes as the degradation continues, leading to an increment in compliance and, subsequently, a decrease in the structure’s stiffness. This behavior is adequately captured by the coupled model, demonstrating that the models are correctly coupled. Validating the correct predictions of the model on the quantitative effect of degradation on the strength of the structures requires performing further UQ analysis to check the sensitivity of the coupled model to chosen parameters.</p>
+</div>
+<figure id="F7" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/infill/image/degradation_stiffness.png" id="F7.g1" class="ltx_graphics ltx_centering" width="541" height="608" alt="Results of the coupled model to predict the mass loss and stiffness changes during the biodegradation process of the optimized porous shapes for different Mg diffusion rates. Note the difference in vertical axes scaling."></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 11.7: </span>Results of the coupled model to predict the mass loss and stiffness changes during the biodegradation process of the optimized porous shapes for different Mg diffusion rates. Note the difference in vertical axes scaling.</figcaption>
+</figure>
+<div id="S3.p3" class="ltx_para">
+<p class="ltx_p">Case 2 has a higher initial stiffness due to more constitutive materials, but it is also subject to a higher loss of stiffness in the investigated time window compared to case 1 in the high diffusion model (Fig. <a href="#F7" title="Figure 11.7 ‣ 11.3 Results and discussion ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11.7</span></a>). In the first place, this effect may seem to be related to a higher degradation rate and loss of material, i.e., more exposed surfaces to corrosion. However, the mass loss plots show the opposite, where the degradation rate of case 1 is higher in the simulated time window. This observation is more complicated for the medium diffusion regime (<math id="S3.p3.m1" class="ltx_Math" alttext="D=0.01" display="inline"><semantics><mrow><mi>D</mi><mo>=</mo><mn>0.01</mn></mrow><annotation encoding="application/x-tex">D=0.01</annotation></semantics></math>), in which both the drop in stiffness and mass loss are higher for case 1. In low diffusion, both cases show similar behavior. Although not quantitatively validated, these observations demonstrate the necessity of this study, where the mutual effect of biodegradation and the structural characteristics can be investigated to find out the variability of these structural parameters in respect to different degradation parameters. In this study, the effect of only one degradation parameter (diffusion rate) was tested, but the analysis should be further extended by performing sophisticated VVUQ analysis on various biodegradation parameters such as the reaction rates. Moreover, the interplay of various parameters can be included in the TO process such that the change of morphology of the structure due to biodegradation is taken into account for computing the compliance (TO objective function), yielding more accurate optimization of the morphology of the implants.</p>
+</div>
+<div id="S3.p4" class="ltx_para">
+<p class="ltx_p">Fig. <a href="#F8" title="Figure 11.8 ‣ 11.3 Results and discussion ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11.8</span></a> demonstrates how the qualitative results of the coupled model look like, in which the infilled part undergoes the degradation and mechanical loading simultaneously. The green surface results from the mechanical analysis, visualized by bending the part according to the computed deformation vector in each node. The light gray surface is the degradation object visualized without bending, showing the change of the morphology due to biodegradation (by comparing the green and gray objects), while the release of the metallic ions is also depicted. The red region shows the release of Mg ions to the surrounding medium, moving the biodegradation interface by shrinkage. This visualization demonstrates the result of the applied boundary condition depicted in Fig. <a href="#F2" title="Figure 11.2 ‣ 11.2.1 Topology optimization test cases ‣ 11.2 Methods ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11.2</span></a>, where a load is applied to the circumference of the right hole, and the left hole is fixed. These boundary conditions were also used for the TO process to get the optimized morphology of the infilled structures.</p>
+</div>
+<figure id="F8" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/infill/image/results_mechanics.jpg" id="F8.g1" class="ltx_graphics ltx_centering" width="541" height="193" alt="Coupled model results showing the structural analysis taking place during the biodegradation simulation. The green surface shows the deformed infilled structure, and the light gray surface is the state of the morphology during biodegradation. The contour part shows the concentration of metallic ions as being released from the surface of the degrading part."></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 11.8: </span>Coupled model results showing the structural analysis taking place during the biodegradation simulation. The green surface shows the deformed infilled structure, and the light gray surface is the state of the morphology during biodegradation. The contour part shows the concentration of metallic ions as being released from the surface of the degrading part.</figcaption>
+</figure>
+<div id="S3.p5" class="ltx_para">
+<p class="ltx_p">In order to visualize the biodegradation only, the green surface is removed from Fig. <a href="#F8" title="Figure 11.8 ‣ 11.3 Results and discussion ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11.8</span></a>, and the results are plotted at various time points during the process. Figs. <a href="#F9" title="Figure 11.9 ‣ 11.3 Results and discussion ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11.9</span></a> and <a href="#F10" title="Figure 11.10 ‣ 11.3 Results and discussion ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11.10</span></a> show such visualization for case 1 and case 2, respectively, showing how the metallic ions are released during the biodegradation process, in which the surface of the degrading part is depicted in light gray. From the biodegradation perspective, the biggest difference between the two studied cases is the exposed surface area, which is higher for case 1, as can be seen in these figures. This fact impacts the degradation rate (Fig. <a href="#F7" title="Figure 11.7 ‣ 11.3 Results and discussion ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11.7</span></a>), leading to a higher loss of material in case 1 in the same simulation time period. However, another crucial aspect to consider is the saturation of the holes disconnected from the bulk electrolyte, where the released materials get accumulated since there is no way for them to spread away. This accumulation prevents further corrosion in the developed biodegradation model because the level-set formulation for the movement of the degradation front works based on the gradient of the concentration of released materials. The absence of gradient caused by the accumulation impacts the rate of degradation, as can be seen in Fig. <a href="#F7" title="Figure 11.7 ‣ 11.3 Results and discussion ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11.7</span></a>, in which the rate of materials loss tends to slow down for case 1. This behavior is more dominant in the high diffusion regime, meaning that the effect can be observed in earlier stages. On the other side, the material loss curve for case 2 shows a semi-linear behavior tending to increase and achieve stability in later stages in comparison to case 1, due to bigger holes in the optimized structure.</p>
+</div>
+<figure id="F9" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/infill/image/results_degradation_case1.jpg" id="F9.g1" class="ltx_graphics ltx_centering" width="541" height="339" alt="Visualization of the results of the biodegradation simulation for case 1, showing the degradation of the infilled structure and release of Mg ions over time. The colors depict the Mg ions concentration, and the numbers (1) to (4) demonstrate the evolution of the simulation over time."></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 11.9: </span>Visualization of the results of the biodegradation simulation for case 1, showing the degradation of the infilled structure and release of Mg ions over time. The colors depict the Mg ions concentration, and the numbers (1) to (4) demonstrate the evolution of the simulation over time.</figcaption>
+</figure>
+<figure id="F10" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/infill/image/results_degradation_case2.jpg" id="F10.g1" class="ltx_graphics ltx_centering" width="541" height="339" alt="Visualization of the results of the biodegradation simulation for case 2, showing the degrading infilled structure and release of Mg ions over time. The colors depict the Mg ions concentration, and the numbers (1) to (4) demonstrate the evolution of the simulation over time."></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 11.10: </span>Visualization of the results of the biodegradation simulation for case 2, showing the degrading infilled structure and release of Mg ions over time. The colors depict the Mg ions concentration, and the numbers (1) to (4) demonstrate the evolution of the simulation over time.</figcaption>
+</figure>
+<div id="S3.p6" class="ltx_para">
+<p class="ltx_p">It should be noted that the impact of the saturated concentration in the holes is highly dependent on the number of dimensions in <math id="S3.p6.m1" class="ltx_Math" alttext="\mathbb{R}^{d}" display="inline"><semantics><msup><mi>ℝ</mi><mi>d</mi></msup><annotation encoding="application/x-tex">\mathbb{R}^{d}</annotation></semantics></math>, meaning whether it’s a 2D or 3D analysis. In a 3D study, the holes have more connections to the bulk volume via the Z axis, whereas in 2D, as in the current study, the isolated holes are the main source of material accumulation which slows down the degradation rate. It emphasizes the necessity of continuing this study by developing a 3D model, which could not be put into practice in the current stage of model development due to technical difficulties in implementing the parallelization of the coupling techniques. This will be the first consideration in further development of the current coupled model.</p>
+</div>
+<div id="S3.p7" class="ltx_para">
+<p class="ltx_p">As mentioned before, in order to increase the accuracy of the employed interface capturing method, the biodegradation model needs a refined mesh on the metal-environment interface. A closer look at the results of Fig. <a href="#F9" title="Figure 11.9 ‣ 11.3 Results and discussion ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11.9</span></a>, depicted in Fig. <a href="#F11" title="Figure 11.11 ‣ 11.3 Results and discussion ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11.11</span></a>, shows the mesh being refined on the interface. In this figure, the colors show the concentration of Mg ions released from the interface, and the biodegradation can be observed by the shrinkage of the light gray surface representing the parts of the infilled object that are not degraded yet.</p>
+</div>
+<figure id="F11" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/infill/image/results_degradation_case1_zoom.jpg" id="F11.g1" class="ltx_graphics ltx_centering" width="541" height="339" alt="Zoomed view of the visualization results of the biodegradation simulation for case 1, showing the refined mesh, the concentration of released ions, and shrinkage of the degrading object. The numbers (1) to (4) demonstrate the evolution of the simulation over time."></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 11.11: </span>Zoomed view of the visualization results of the biodegradation simulation for case 1, showing the refined mesh, the concentration of released ions, and shrinkage of the degrading object. The numbers (1) to (4) demonstrate the evolution of the simulation over time.</figcaption>
+</figure>
+</div>
+</section>
+<section id="S4" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">11.4</span> Conclusion</h2>
+
+<div id="S4.p1" class="ltx_para">
+<p class="ltx_p">In this chapter, the biodegradation model was coupled with a topology optimization code to investigate the effect of biodegradation on the change of mechanical stiffness of porous structures. The development of the proposed coupled model was motivated by the strong desire for biodegradable porous implants for tissue engineering and orthopedic applications. As stated while discussing the results, the reported findings suggest that the biodegradation behavior of these complex structures is not necessarily straightforward to predict without using computer models. As a result, <span class="ltx_text ltx_font_italic">in silico</span> studies become crucial to help design the next generation of biomedical implants, in which the structural behavior during the biodegradation process is considered as one of the design objectives.</p>
+</div>
+</div>
+</section>
+<section id="A1" class="ltx_appendix normal">
+<div class="section level1">
+
+<h1 class="ltx_title ltx_title_appendix">
+<span class="ltx_tag ltx_tag_appendix header-section-number">Appendix 11.A</span> Mathematical details of the employed topology optimization procedure</h1>
+
+<div id="A1.p1" class="ltx_para">
+<p class="ltx_p">This section provides a brief mathematical summary of the topology optimization of feature-rich structures based on the reaction-diffusion equation-driven (RDE-driven) level-set method mostly for readers familiar with TO terminologies and concepts. The reader is encouraged to refer to the PhD work of Hao Li <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib287" title="Level set-based topology optimization of thermal fluid-structure systems" class="ltx_ref">164</a>]</cite> for elaboration on the employed methodology and implementation.</p>
+</div>
+<div id="A1.p2" class="ltx_para">
+<p class="ltx_p">Section <a href="#A1.SS1" title="11.A.1 Level-set-based topology optimization method ‣ Appendix 11.A Mathematical details of the employed topology optimization procedure ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11.A.1</span></a> introduces the basic concept of the RDE-driven TO method. In section <a href="#A1.SS2" title="11.A.2 Maximum length-scale constraint ‣ Appendix 11.A Mathematical details of the employed topology optimization procedure ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11.A.2</span></a>, the local volume constraint is introduced in this workflow. The key idea here is to use a variational method to compute the local volume fraction, which does not require the spatial information of the adjacent elements. The optimum design problem is formulated in section <a href="#A1.SS3" title="11.A.3 Optimum design problem for feature-rich structures ‣ Appendix 11.A Mathematical details of the employed topology optimization procedure ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11.A.3</span></a>.</p>
+</div>
+<section id="A1.SS1" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">11.A.1</span> Level-set-based topology optimization method</h3>
+
+<div id="A1.SS1.p1" class="ltx_para">
+<p class="ltx_p">For the basic concept of the level-set-based TO method, we followed the work of Yamada et al. <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib258" title="A topology optimization method based on the level set method incorporating a fictitious interface energy" class="ltx_ref">288</a>]</cite>. A structural topology optimization problem can be replaced by an optimum design problem to find the optimal material distribution. In other words, this technique essentially answers the question of where the material should be placed or where the hole should be nucleated. Let the computational domain be denoted as <math id="A1.SS1.p1.m1" class="ltx_Math" alttext="\Omega\subset\mathbb{R}^{d}" display="inline"><semantics><mrow><mi mathvariant="normal">Ω</mi><mo>⊂</mo><msup><mi>ℝ</mi><mi>d</mi></msup></mrow><annotation encoding="application/x-tex">\Omega\subset\mathbb{R}^{d}</annotation></semantics></math>, where <math id="A1.SS1.p1.m2" class="ltx_Math" alttext="d=2" display="inline"><semantics><mrow><mi>d</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">d=2</annotation></semantics></math>. A solid subdomain is then defined as <math id="A1.SS1.p1.m3" class="ltx_Math" alttext="\Omega_{s}\subseteq\Omega" display="inline"><semantics><mrow><msub><mi mathvariant="normal">Ω</mi><mi>s</mi></msub><mo>⊆</mo><mi mathvariant="normal">Ω</mi></mrow><annotation encoding="application/x-tex">\Omega_{s}\subseteq\Omega</annotation></semantics></math> so that a void domain is as the complementary domain <math id="A1.SS1.p1.m4" class="ltx_Math" alttext="\Omega\backslash\Omega_{s}" display="inline"><semantics><mrow><mi mathvariant="normal">Ω</mi><mo>\</mo><msub><mi mathvariant="normal">Ω</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">\Omega\backslash\Omega_{s}</annotation></semantics></math>. An implicit level-set function <math id="A1.SS1.p1.m5" class="ltx_Math" alttext="\phi\left(\boldsymbol{x}\right)" display="inline"><semantics><mrow><mi>ϕ</mi><mo>⁢</mo><mrow><mo>(</mo><mi>𝒙</mi><mo>)</mo></mrow></mrow><annotation encoding="application/x-tex">\phi\left(\boldsymbol{x}\right)</annotation></semantics></math> can be defined to have a piecewise profile as</p>
+<div id="E1" class="ltx_equation ltx_eqn_div">
+<span><math id="E1.m1" class="ltx_Math" alttext="\left\{\begin{array}[]{ll}{0&lt;\phi(\boldsymbol{x})\leq 1}&{\text{ for }%
+\boldsymbol{x}\in\Omega_{s}\backslash\partial\Omega_{s}}\\
+{\phi(\boldsymbol{x})=0}&{\text{ for }\boldsymbol{x}\in\partial\Omega_{s}}\\
+{-1\leq\phi(\boldsymbol{x})&lt;0}&{\text{ for }\boldsymbol{x}\in\Omega\backslash%
+\Omega_{s}},\end{array}\right." display="block"><semantics><mrow><mo>{</mo><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="left"><mrow><mn>0</mn><mo>&lt;</mo><mrow><mi>ϕ</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>𝒙</mi><mo stretchy="false">)</mo></mrow></mrow><mo>≤</mo><mn>1</mn></mrow></mtd><mtd columnalign="left"><mrow><mrow><mtext> for </mtext><mo>⁢</mo><mi>𝒙</mi></mrow><mo>∈</mo><mrow><msub><mi mathvariant="normal">Ω</mi><mi>s</mi></msub><mo>\</mo><mrow><mo>∂</mo><mo>⁡</mo><msub><mi mathvariant="normal">Ω</mi><mi>s</mi></msub></mrow></mrow></mrow></mtd></mtr><mtr><mtd columnalign="left"><mrow><mrow><mi>ϕ</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>𝒙</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mn>0</mn></mrow></mtd><mtd columnalign="left"><mrow><mrow><mtext> for </mtext><mo>⁢</mo><mi>𝒙</mi></mrow><mo>∈</mo><mrow><mo>∂</mo><mo>⁡</mo><msub><mi mathvariant="normal">Ω</mi><mi>s</mi></msub></mrow></mrow></mtd></mtr><mtr><mtd columnalign="left"><mrow><mrow><mo>-</mo><mn>1</mn></mrow><mo>≤</mo><mrow><mi>ϕ</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>𝒙</mi><mo stretchy="false">)</mo></mrow></mrow><mo>&lt;</mo><mn>0</mn></mrow></mtd><mtd columnalign="left"><mrow><mrow><mrow><mtext> for </mtext><mo>⁢</mo><mi>𝒙</mi></mrow><mo>∈</mo><mrow><mi mathvariant="normal">Ω</mi><mo>\</mo><msub><mi mathvariant="normal">Ω</mi><mi>s</mi></msub></mrow></mrow><mo>,</mo></mrow></mtd></mtr></mtable><mi></mi></mrow><annotation encoding="application/x-tex">\left\{\begin{array}[]{ll}{0&lt;\phi(\boldsymbol{x})\leq 1}&amp;{\text{ for }%
+\boldsymbol{x}\in\Omega_{s}\backslash\partial\Omega_{s}}\\
+{\phi(\boldsymbol{x})=0}&amp;{\text{ for }\boldsymbol{x}\in\partial\Omega_{s}}\\
+{-1\leq\phi(\boldsymbol{x})&lt;0}&amp;{\text{ for }\boldsymbol{x}\in\Omega\backslash%
+\Omega_{s}},\end{array}\right.</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(11.1)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">in which the solid–void interface <math id="A1.SS1.p1.m6" class="ltx_Math" alttext="\partial\Omega_{s}" display="inline"><semantics><mrow><mo>∂</mo><mo>⁡</mo><msub><mi mathvariant="normal">Ω</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">\partial\Omega_{s}</annotation></semantics></math> can be represented by the zero level-set iso-surface.</p>
+</div>
+<div id="A1.SS1.p2" class="ltx_para">
+<p class="ltx_p">Next, using a Heaviside step function, the material field can be modeled using a “1/0 binary structure” by the projection of the level-set function <math id="A1.SS1.p2.m1" class="ltx_Math" alttext="\phi(\mathbf{x})" display="inline"><semantics><mrow><mi>ϕ</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>𝐱</mi><mo stretchy="false">)</mo></mrow></mrow><annotation encoding="application/x-tex">\phi(\mathbf{x})</annotation></semantics></math> to the characteristic function <math id="A1.SS1.p2.m2" class="ltx_Math" alttext="\chi_{\phi}" display="inline"><semantics><msub><mi>χ</mi><mi>ϕ</mi></msub><annotation encoding="application/x-tex">\chi_{\phi}</annotation></semantics></math> as</p>
+<div id="E2" class="ltx_equation ltx_eqn_div">
+<span><math id="E2.m1" class="ltx_Math" alttext="\chi_{\phi}:=\left\{\begin{array}[]{ll}{1}&{\text{ for }\phi\left(\boldsymbol{%
+x}\right)\geq 0}\\
+{0}&{\text{ for }\phi\left(\boldsymbol{x}\right)&lt;0}.\end{array}\right." display="block"><semantics><mrow><msub><mi>χ</mi><mi>ϕ</mi></msub><mo>:=</mo><mrow><mo>{</mo><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="left"><mn>1</mn></mtd><mtd columnalign="left"><mrow><mrow><mtext> for </mtext><mo>⁢</mo><mi>ϕ</mi><mo>⁢</mo><mrow><mo>(</mo><mi>𝒙</mi><mo>)</mo></mrow></mrow><mo>≥</mo><mn>0</mn></mrow></mtd></mtr><mtr><mtd columnalign="left"><mn>0</mn></mtd><mtd columnalign="left"><mrow><mrow><mrow><mtext> for </mtext><mo>⁢</mo><mi>ϕ</mi><mo>⁢</mo><mrow><mo>(</mo><mi>𝒙</mi><mo>)</mo></mrow></mrow><mo>&lt;</mo><mn>0</mn></mrow><mo>.</mo></mrow></mtd></mtr></mtable><mi></mi></mrow></mrow><annotation encoding="application/x-tex">\chi_{\phi}:=\left\{\begin{array}[]{ll}{1}&amp;{\text{ for }\phi\left(\boldsymbol{%
+x}\right)\geq 0}\\
+{0}&amp;{\text{ for }\phi\left(\boldsymbol{x}\right)&lt;0}.\end{array}\right.</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(11.2)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">Using the Ersatz material approach, the material properties inside the computational domain <math id="A1.SS1.p2.m3" class="ltx_Math" alttext="\Omega" display="inline"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math> can be expanded using the obtained <math id="A1.SS1.p2.m4" class="ltx_Math" alttext="\chi_{\phi}" display="inline"><semantics><msub><mi>χ</mi><mi>ϕ</mi></msub><annotation encoding="application/x-tex">\chi_{\phi}</annotation></semantics></math>. The level-set function is obtained as the solution of a reaction–diffusion equation, which can be semi-discretized in a fictitious time-step <math id="A1.SS1.p2.m5" class="ltx_Math" alttext="\Delta t" display="inline"><semantics><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow><annotation encoding="application/x-tex">\Delta t</annotation></semantics></math>, as follows:</p>
+<div id="E3" class="ltx_equation ltx_eqn_div">
+<span><math id="E3.m1" class="ltx_Math" alttext="\left\{\begin{array}[]{ll}\dfrac{1}{\Delta t}\left(\phi_{n+1}-\phi_{n}\right)=%
+-\left(\tilde{C}\mathcal{F}^{\prime}-\tau\nabla^{2}\phi_{n+1}\right)&amp;\text{in %
+}\Omega\\
+\nabla\phi\cdot\boldsymbol{n}=0&amp;\text{on }\partial\Omega,\\
+\end{array}\right." display="block"><semantics><mrow><mo>{</mo><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="left"><mrow><mrow><mfrac><mn>1</mn><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac><mo>⁢</mo><mrow><mo>(</mo><mrow><msub><mi>ϕ</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>-</mo><msub><mi>ϕ</mi><mi>n</mi></msub></mrow><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>-</mo><mrow><mo>(</mo><mrow><mrow><mover accent="true"><mi>C</mi><mo stretchy="false">~</mo></mover><mo>⁢</mo><msup><mi class="ltx_font_mathcaligraphic">ℱ</mi><mo>′</mo></msup></mrow><mo>-</mo><mrow><mi>τ</mi><mo>⁢</mo><mrow><msup><mo>∇</mo><mn>2</mn></msup><mo>⁡</mo><msub><mi>ϕ</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow></mrow></mrow><mo>)</mo></mrow></mrow></mrow></mtd><mtd columnalign="left"><mrow><mtext>in </mtext><mo>⁢</mo><mi mathvariant="normal">Ω</mi></mrow></mtd></mtr><mtr><mtd columnalign="left"><mrow><mrow><mo>∇</mo><mo>⁡</mo><mrow><mi>ϕ</mi><mo>⋅</mo><mi>𝒏</mi></mrow></mrow><mo>=</mo><mn>0</mn></mrow></mtd><mtd columnalign="left"><mrow><mrow><mtext>on </mtext><mo>⁢</mo><mrow><mo>∂</mo><mo>⁡</mo><mi mathvariant="normal">Ω</mi></mrow></mrow><mo>,</mo></mrow></mtd></mtr></mtable><mi></mi></mrow><annotation encoding="application/x-tex">\left\{\begin{array}[]{ll}\dfrac{1}{\Delta t}\left(\phi_{n+1}-\phi_{n}\right)=%
+-\left(\tilde{C}\mathcal{F}^{\prime}-\tau\nabla^{2}\phi_{n+1}\right)&amp;\text{in %
+}\Omega\\
+\nabla\phi\cdot\boldsymbol{n}=0&amp;\text{on }\partial\Omega,\\
+\end{array}\right.</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(11.3)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">where <math id="A1.SS1.p2.m6" class="ltx_Math" alttext="\boldsymbol{n}" display="inline"><semantics><mi>𝒏</mi><annotation encoding="application/x-tex">\boldsymbol{n}</annotation></semantics></math> is the unit normal vector, <math id="A1.SS1.p2.m7" class="ltx_Math" alttext="\mathcal{F}^{\prime}" display="inline"><semantics><msup><mi class="ltx_font_mathcaligraphic">ℱ</mi><mo>′</mo></msup><annotation encoding="application/x-tex">\mathcal{F}^{\prime}</annotation></semantics></math> is the topological design sensitivity, <math id="A1.SS1.p2.m8" class="ltx_Math" alttext="\tilde{C}" display="inline"><semantics><mover accent="true"><mi>C</mi><mo stretchy="false">~</mo></mover><annotation encoding="application/x-tex">\tilde{C}</annotation></semantics></math> is the normalizer for the sensitivity, and <math id="A1.SS1.p2.m9" class="ltx_Math" alttext="\tau" display="inline"><semantics><mi>τ</mi><annotation encoding="application/x-tex">\tau</annotation></semantics></math> is the regularization parameter, which can be used to control the complexity of the optimal configuration. The subscript <math id="A1.SS1.p2.m10" class="ltx_Math" alttext="n" display="inline"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> indicates the fictitious time step. For more details, the reader is referred to the work of Li et al. <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib259" title="Full-scale 3D structural topology optimization using adaptive mesh refinement based on the level-set method" class="ltx_ref">163</a>]</cite>.</p>
+</div>
+</div>
+</section>
+<section id="A1.SS2" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">11.A.2</span> Maximum length-scale constraint</h3>
+
+<div id="A1.SS2.p1" class="ltx_para">
+<p class="ltx_p">A geometrical constraint is introduced to generate feature-rich structures observed in a natural system such as the trabecular bone. Here, we adopt the idea of Wu et al. <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib260" title="Infill optimization for additive manufacturing—approaching bone-like porous structures" class="ltx_ref">281</a>]</cite> by imposing a maximum allowable volume fraction to the local averaged value of the characteristic function, <math id="A1.SS2.p1.m1" class="ltx_Math" alttext="\bar{\chi}" display="inline"><semantics><mover accent="true"><mi>χ</mi><mo stretchy="false">¯</mo></mover><annotation encoding="application/x-tex">\bar{\chi}</annotation></semantics></math>. To approximate the maximum value of <math id="A1.SS2.p1.m2" class="ltx_Math" alttext="\bar{\chi}_{i}" display="inline"><semantics><msub><mover accent="true"><mi>χ</mi><mo stretchy="false">¯</mo></mover><mi>i</mi></msub><annotation encoding="application/x-tex">\bar{\chi}_{i}</annotation></semantics></math>, we use the <math id="A1.SS2.p1.m3" class="ltx_Math" alttext="p" display="inline"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>-norm function as</p>
+<div id="E4" class="ltx_equation ltx_eqn_div">
+<span><math id="E4.m1" class="ltx_Math" alttext="\max_{\forall i}\left(\bar{\chi}_{i}\right)\approx\|\bar{\chi}_{i}\|_{p}=\left%
+(\sum_{i}^{n}\bar{\chi}_{i}^{p}\right)^{1/p}\leq\left(\sum_{i}^{n}\bar{V}_{%
+\max}^{p}\right)^{1/p}," display="block"><semantics><mrow><mrow><mrow><munder><mi>max</mi><mrow><mo>∀</mo><mi>i</mi></mrow></munder><mo>⁡</mo><mrow><mo>(</mo><msub><mover accent="true"><mi>χ</mi><mo stretchy="false">¯</mo></mover><mi>i</mi></msub><mo>)</mo></mrow></mrow><mo>≈</mo><msub><mrow><mo>∥</mo><msub><mover accent="true"><mi>χ</mi><mo stretchy="false">¯</mo></mover><mi>i</mi></msub><mo>∥</mo></mrow><mi>p</mi></msub><mo>=</mo><msup><mrow><mo>(</mo><mrow><munderover><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mi>i</mi><mi>n</mi></munderover><msubsup><mover accent="true"><mi>χ</mi><mo stretchy="false">¯</mo></mover><mi>i</mi><mi>p</mi></msubsup></mrow><mo>)</mo></mrow><mrow><mn>1</mn><mo>/</mo><mi>p</mi></mrow></msup><mo>≤</mo><msup><mrow><mo>(</mo><mrow><munderover><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mi>i</mi><mi>n</mi></munderover><msubsup><mover accent="true"><mi>V</mi><mo stretchy="false">¯</mo></mover><mi>max</mi><mi>p</mi></msubsup></mrow><mo>)</mo></mrow><mrow><mn>1</mn><mo>/</mo><mi>p</mi></mrow></msup></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\max_{\forall i}\left(\bar{\chi}_{i}\right)\approx\|\bar{\chi}_{i}\|_{p}=\left%
+(\sum_{i}^{n}\bar{\chi}_{i}^{p}\right)^{1/p}\leq\left(\sum_{i}^{n}\bar{V}_{%
+\max}^{p}\right)^{1/p},</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(11.4)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">which can be rewritten as</p>
+<div id="E5" class="ltx_equation ltx_eqn_div">
+<span><math id="E5.m1" class="ltx_Math" alttext="\left(\dfrac{1}{n}\sum_{i}\bar{\chi}_{i}^{p}\right)^{1/p}\leq\bar{V}_{\max}," display="block"><semantics><mrow><mrow><msup><mrow><mo>(</mo><mrow><mfrac><mn>1</mn><mi>n</mi></mfrac><mo>⁢</mo><mrow><munder><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mi>i</mi></munder><msubsup><mover accent="true"><mi>χ</mi><mo stretchy="false">¯</mo></mover><mi>i</mi><mi>p</mi></msubsup></mrow></mrow><mo>)</mo></mrow><mrow><mn>1</mn><mo>/</mo><mi>p</mi></mrow></msup><mo>≤</mo><msub><mover accent="true"><mi>V</mi><mo stretchy="false">¯</mo></mover><mi>max</mi></msub></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\left(\dfrac{1}{n}\sum_{i}\bar{\chi}_{i}^{p}\right)^{1/p}\leq\bar{V}_{\max},</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(11.5)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">where <math id="A1.SS2.p1.m4" class="ltx_Math" alttext="n" display="inline"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> is the total number of vertices and <math id="A1.SS2.p1.m5" class="ltx_Math" alttext="p=10" display="inline"><semantics><mrow><mi>p</mi><mo>=</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">p=10</annotation></semantics></math> in this chapter <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib259" title="Full-scale 3D structural topology optimization using adaptive mesh refinement based on the level-set method" class="ltx_ref">163</a>]</cite>. Note that in FreeFEM <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib44" title="New development in freefem++" class="ltx_ref">112</a>]</cite>, the software package used to solve the derived system, the design variable, i.e. the characteristic function, is defined on the nodes of each element. <math id="A1.SS2.p1.m6" class="ltx_Math" alttext="\bar{V}_{\max}" display="inline"><semantics><msub><mover accent="true"><mi>V</mi><mo stretchy="false">¯</mo></mover><mi>max</mi></msub><annotation encoding="application/x-tex">\bar{V}_{\max}</annotation></semantics></math> is the maximum allowable local volume fraction.</p>
+</div>
+<div id="A1.SS2.p2" class="ltx_para">
+<p class="ltx_p">Then, we use a PDE-filter <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib261" title="Filters in topology optimization based on helmholtz-type differential equations" class="ltx_ref">157</a>, <a href="bib.html#bib262" title="Heaviside projection based topology optimization by a pde-filtered scalar function" class="ltx_ref">146</a>]</cite> to compute the local average value <math id="A1.SS2.p2.m1" class="ltx_Math" alttext="\bar{\chi}" display="inline"><semantics><mover accent="true"><mi>χ</mi><mo stretchy="false">¯</mo></mover><annotation encoding="application/x-tex">\bar{\chi}</annotation></semantics></math>, as</p>
+<div id="E6" class="ltx_equation ltx_eqn_div">
+<span><math id="E6.m1" class="ltx_Math" alttext="\left\{\begin{aligned} &amp;-r^{2}\nabla^{2}\bar{\chi}+\bar{\chi}=\chi&amp;\text{ in }%
+\Omega\\
+&amp;\nabla\bar{\chi}\cdot\boldsymbol{n}=0&amp;\text{ on }\partial\Omega,\end{aligned}\right." display="block"><semantics><mrow><mo>{</mo><mtable columnspacing="0pt" displaystyle="true" rowspacing="0pt"><mtr><mtd></mtd><mtd columnalign="left"><mrow><mrow><mrow><mo>-</mo><mrow><msup><mi>r</mi><mn>2</mn></msup><mo>⁢</mo><mrow><msup><mo>∇</mo><mn>2</mn></msup><mo>⁡</mo><mover accent="true"><mi>χ</mi><mo stretchy="false">¯</mo></mover></mrow></mrow></mrow><mo>+</mo><mover accent="true"><mi>χ</mi><mo stretchy="false">¯</mo></mover></mrow><mo>=</mo><mi>χ</mi></mrow></mtd><mtd columnalign="right"><mrow><mtext> in </mtext><mo>⁢</mo><mi mathvariant="normal">Ω</mi></mrow></mtd></mtr><mtr><mtd></mtd><mtd columnalign="left"><mrow><mrow><mo>∇</mo><mo>⁡</mo><mrow><mover accent="true"><mi>χ</mi><mo stretchy="false">¯</mo></mover><mo>⋅</mo><mi>𝒏</mi></mrow></mrow><mo>=</mo><mn>0</mn></mrow></mtd><mtd columnalign="right"><mrow><mrow><mtext> on </mtext><mo>⁢</mo><mrow><mo>∂</mo><mo>⁡</mo><mi mathvariant="normal">Ω</mi></mrow></mrow><mo>,</mo></mrow></mtd></mtr></mtable></mrow><annotation encoding="application/x-tex">\left\{\begin{aligned} &amp;-r^{2}\nabla^{2}\bar{\chi}+\bar{\chi}=\chi&amp;\text{ in }%
+\Omega\\
+&amp;\nabla\bar{\chi}\cdot\boldsymbol{n}=0&amp;\text{ on }\partial\Omega,\end{aligned}\right.</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(11.6)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">where <math id="A1.SS2.p2.m2" class="ltx_Math" alttext="r" display="inline"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math> is the filter radius. To clarify the concept of the aforementioned functions, Fig. <a href="#F12" title="Figure 11.12 ‣ 11.A.2 Maximum length-scale constraint ‣ Appendix 11.A Mathematical details of the employed topology optimization procedure ‣ Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">11.12</span></a> depicts the level-set (<math id="A1.SS2.p2.m3" class="ltx_Math" alttext="\phi" display="inline"><semantics><mi>ϕ</mi><annotation encoding="application/x-tex">\phi</annotation></semantics></math>), characteristic (<math id="A1.SS2.p2.m4" class="ltx_Math" alttext="\chi" display="inline"><semantics><mi>χ</mi><annotation encoding="application/x-tex">\chi</annotation></semantics></math>), and local average characteristic (<math id="A1.SS2.p2.m5" class="ltx_Math" alttext="\bar{\chi}" display="inline"><semantics><mover accent="true"><mi>χ</mi><mo stretchy="false">¯</mo></mover><annotation encoding="application/x-tex">\bar{\chi}</annotation></semantics></math>) functions for an optimized lattice structure.</p>
+</div>
+<figure id="F12" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/infill/image/diagram.jpg" id="F12.g1" class="ltx_graphics ltx_centering" width="541" height="273" alt="Visualization of the level-set ("></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 11.12: </span>Visualization of the level-set (<math id="F12.m1" class="ltx_Math" alttext="\phi" display="inline"><semantics><mi>ϕ</mi><annotation encoding="application/x-tex">\phi</annotation></semantics></math>), characteristic (<math id="F12.m2" class="ltx_Math" alttext="\chi" display="inline"><semantics><mi>χ</mi><annotation encoding="application/x-tex">\chi</annotation></semantics></math>), and local average characteristic (<math id="F12.m3" class="ltx_Math" alttext="\bar{\chi}" display="inline"><semantics><mover accent="true"><mi>χ</mi><mo stretchy="false">¯</mo></mover><annotation encoding="application/x-tex">\bar{\chi}</annotation></semantics></math>) functions for an optimized lattice structure.</figcaption>
+</figure>
+</div>
+</section>
+<section id="A1.SS3" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">11.A.3</span> Optimum design problem for feature-rich structures</h3>
+
+<div id="A1.SS3.p1" class="ltx_para">
+<p class="ltx_p">The underlying physics of the optimum design problem is the linear elasticity, where the following assumptions are made: (1) small displacements and deformations are observed (linear elasticity), and (2) the body force and gravity are neglected. Furthermore, the context of interest here is to minimize the mean compliance of the structure or, in other words, to maximize the stiffness. Therefore, the topology optimization problem can be formulated as</p>
+<div class="bml-overflow-wrapper">
+<table id="E7" class="ltx_equationgroup ltx_eqn_table">
+
+<tbody id="E7.1"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="E7.1.m1" class="ltx_Math" alttext="\inf_{\chi_{\phi}\in\mathcal{X}}J(\Omega)=\int_{\partial\Omega_{s}^{N}}%
+\boldsymbol{t}\cdot\boldsymbol{u}d\Gamma," display="block"><semantics><mrow><mrow><mrow><munder><mo movablelimits="false">inf</mo><mrow><msub><mi>χ</mi><mi>ϕ</mi></msub><mo>∈</mo><mi class="ltx_font_mathcaligraphic">𝒳</mi></mrow></munder><mo>⁡</mo><mrow><mi>J</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi mathvariant="normal">Ω</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>=</mo><mrow><msub><mo largeop="true" symmetric="true">∫</mo><mrow><mo>∂</mo><mo>⁡</mo><msubsup><mi mathvariant="normal">Ω</mi><mi>s</mi><mi>N</mi></msubsup></mrow></msub><mrow><mrow><mi>𝒕</mi><mo>⋅</mo><mi>𝒖</mi></mrow><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi mathvariant="normal">Γ</mi></mrow></mrow></mrow></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\inf_{\chi_{\phi}\in\mathcal{X}}J(\Omega)=\int_{\partial\Omega_{s}^{N}}%
+\boldsymbol{t}\cdot\boldsymbol{u}d\Gamma,</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(11.7a)</span></td>
+</tr></tbody>
+<tbody id="E7.2"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="E7.2.m1" class="ltx_Math" alttext="\text{ so that }\left\{\begin{array}[]{ll}-\operatorname{div}(\mathbb{C}_{\chi%
+_{\phi}}:e(\boldsymbol{u}))=0&amp;\text{ in }\Omega\\
+\boldsymbol{u}=\boldsymbol{u}_{0}&amp;\text{ on }\partial\Omega^{D}\\
+(\mathbb{C}:e(\boldsymbol{u}))\cdot\boldsymbol{n}_{s}=\mathbf{t}&amp;\text{ on }%
+\partial\Omega^{N}\\
+G_{1}=\dfrac{\int_{D}\chi d\Omega}{\int_{D}d\Omega}-V_{\max}\leq 0&amp;\\
+G_{2}=\left(\dfrac{1}{n}\sum\bar{\chi}^{p}\right)^{1/p}-\bar{V}_{\max}\leq 0&amp;%
+\\
+-r^{2}\nabla^{2}\bar{\chi}+\bar{\chi}=\chi&amp;\text{ in }\Omega\\
+\nabla\bar{\chi}\cdot\boldsymbol{n}=0&amp;\text{ on }\partial\Omega,\end{array}\right." display="block"><semantics><mrow><mtext> so that </mtext><mo>⁢</mo><mrow><mo>{</mo><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="left"><mrow><mrow><mo>-</mo><mrow><mi>div</mi><mo>⁡</mo><mrow><mo stretchy="false">(</mo><mrow><msub><mi>ℂ</mi><msub><mi>χ</mi><mi>ϕ</mi></msub></msub><mo>:</mo><mrow><mi>e</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>𝒖</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>=</mo><mn>0</mn></mrow></mtd><mtd columnalign="left"><mrow><mtext> in </mtext><mo>⁢</mo><mi mathvariant="normal">Ω</mi></mrow></mtd></mtr><mtr><mtd columnalign="left"><mrow><mi>𝒖</mi><mo>=</mo><msub><mi>𝒖</mi><mn>0</mn></msub></mrow></mtd><mtd columnalign="left"><mrow><mtext> on </mtext><mo>⁢</mo><mrow><mo>∂</mo><mo>⁡</mo><msup><mi mathvariant="normal">Ω</mi><mi>D</mi></msup></mrow></mrow></mtd></mtr><mtr><mtd columnalign="left"><mrow><mrow><mo stretchy="false">(</mo><mi>ℂ</mi><mo>:</mo><mi>e</mi><mrow><mo stretchy="false">(</mo><mi>𝒖</mi><mo stretchy="false">)</mo></mrow><mo stretchy="false">)</mo></mrow><mo>⋅</mo><msub><mi>𝒏</mi><mi>s</mi></msub><mo>=</mo><mi>𝐭</mi></mrow></mtd><mtd columnalign="left"><mrow><mtext> on </mtext><mo>⁢</mo><mrow><mo>∂</mo><mo>⁡</mo><msup><mi mathvariant="normal">Ω</mi><mi>N</mi></msup></mrow></mrow></mtd></mtr><mtr><mtd columnalign="left"><mrow><msub><mi>G</mi><mn>1</mn></msub><mo>=</mo><mrow><mfrac><mrow><msub><mo largeop="true" symmetric="true">∫</mo><mi>D</mi></msub><mrow><mi>χ</mi><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi mathvariant="normal">Ω</mi></mrow></mrow></mrow><mrow><msub><mo largeop="true" symmetric="true">∫</mo><mi>D</mi></msub><mrow><mo rspace="0pt">𝑑</mo><mi mathvariant="normal">Ω</mi></mrow></mrow></mfrac><mo>-</mo><msub><mi>V</mi><mi>max</mi></msub></mrow><mo>≤</mo><mn>0</mn></mrow></mtd><mtd></mtd></mtr><mtr><mtd columnalign="left"><mrow><msub><mi>G</mi><mn>2</mn></msub><mo>=</mo><mrow><msup><mrow><mo>(</mo><mrow><mfrac><mn>1</mn><mi>n</mi></mfrac><mo>⁢</mo><mstyle displaystyle="false"><mrow><mo largeop="true" symmetric="true">∑</mo><msup><mover accent="true"><mi>χ</mi><mo stretchy="false">¯</mo></mover><mi>p</mi></msup></mrow></mstyle></mrow><mo>)</mo></mrow><mrow><mn>1</mn><mo>/</mo><mi>p</mi></mrow></msup><mo>-</mo><msub><mover accent="true"><mi>V</mi><mo stretchy="false">¯</mo></mover><mi>max</mi></msub></mrow><mo>≤</mo><mn>0</mn></mrow></mtd><mtd></mtd></mtr><mtr><mtd columnalign="left"><mrow><mrow><mrow><mo>-</mo><mrow><msup><mi>r</mi><mn>2</mn></msup><mo>⁢</mo><mrow><msup><mo>∇</mo><mn>2</mn></msup><mo>⁡</mo><mover accent="true"><mi>χ</mi><mo stretchy="false">¯</mo></mover></mrow></mrow></mrow><mo>+</mo><mover accent="true"><mi>χ</mi><mo stretchy="false">¯</mo></mover></mrow><mo>=</mo><mi>χ</mi></mrow></mtd><mtd columnalign="left"><mrow><mtext> in </mtext><mo>⁢</mo><mi mathvariant="normal">Ω</mi></mrow></mtd></mtr><mtr><mtd columnalign="left"><mrow><mrow><mo>∇</mo><mo>⁡</mo><mrow><mover accent="true"><mi>χ</mi><mo stretchy="false">¯</mo></mover><mo>⋅</mo><mi>𝒏</mi></mrow></mrow><mo>=</mo><mn>0</mn></mrow></mtd><mtd columnalign="left"><mrow><mrow><mtext> on </mtext><mo>⁢</mo><mrow><mo>∂</mo><mo>⁡</mo><mi mathvariant="normal">Ω</mi></mrow></mrow><mo>,</mo></mrow></mtd></mtr></mtable><mi></mi></mrow></mrow><annotation encoding="application/x-tex">\text{ so that }\left\{\begin{array}[]{ll}-\operatorname{div}(\mathbb{C}_{\chi%
+_{\phi}}:e(\boldsymbol{u}))=0&amp;\text{ in }\Omega\\
+\boldsymbol{u}=\boldsymbol{u}_{0}&amp;\text{ on }\partial\Omega^{D}\\
+(\mathbb{C}:e(\boldsymbol{u}))\cdot\boldsymbol{n}_{s}=\mathbf{t}&amp;\text{ on }%
+\partial\Omega^{N}\\
+G_{1}=\dfrac{\int_{D}\chi d\Omega}{\int_{D}d\Omega}-V_{\max}\leq 0&amp;\\
+G_{2}=\left(\dfrac{1}{n}\sum\bar{\chi}^{p}\right)^{1/p}-\bar{V}_{\max}\leq 0&amp;%
+\\
+-r^{2}\nabla^{2}\bar{\chi}+\bar{\chi}=\chi&amp;\text{ in }\Omega\\
+\nabla\bar{\chi}\cdot\boldsymbol{n}=0&amp;\text{ on }\partial\Omega,\end{array}\right.</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(11.7b)</span></td>
+</tr></tbody>
+</table>
+</div>
+<p class="ltx_p">where <math id="A1.SS3.p1.m1" class="ltx_Math" alttext="\Gamma" display="inline"><semantics><mi mathvariant="normal">Γ</mi><annotation encoding="application/x-tex">\Gamma</annotation></semantics></math> is the boundary, <math id="A1.SS3.p1.m2" class="ltx_Math" alttext="\mathbb{C}" display="inline"><semantics><mi>ℂ</mi><annotation encoding="application/x-tex">\mathbb{C}</annotation></semantics></math> the fourth-order elasticity tensor, <math id="A1.SS3.p1.m3" class="ltx_Math" alttext="\boldsymbol{t}" display="inline"><semantics><mi>𝒕</mi><annotation encoding="application/x-tex">\boldsymbol{t}</annotation></semantics></math> the surface traction, <math id="A1.SS3.p1.m4" class="ltx_Math" alttext="e\left(\boldsymbol{u}\right)" display="inline"><semantics><mrow><mi>e</mi><mo>⁢</mo><mrow><mo>(</mo><mi>𝒖</mi><mo>)</mo></mrow></mrow><annotation encoding="application/x-tex">e\left(\boldsymbol{u}\right)</annotation></semantics></math> the linearized strain tensor, <math id="A1.SS3.p1.m5" class="ltx_Math" alttext="\boldsymbol{u}" display="inline"><semantics><mi>𝒖</mi><annotation encoding="application/x-tex">\boldsymbol{u}</annotation></semantics></math> displacement, <math id="A1.SS3.p1.m6" class="ltx_Math" alttext="\boldsymbol{u}_{0}" display="inline"><semantics><msub><mi>𝒖</mi><mn>0</mn></msub><annotation encoding="application/x-tex">\boldsymbol{u}_{0}</annotation></semantics></math> the initial displacement, <math id="A1.SS3.p1.m7" class="ltx_Math" alttext="\Omega^{D}" display="inline"><semantics><msup><mi mathvariant="normal">Ω</mi><mi>D</mi></msup><annotation encoding="application/x-tex">\Omega^{D}</annotation></semantics></math> the Dirichlet boundary, <math id="A1.SS3.p1.m8" class="ltx_Math" alttext="\Omega^{N}" display="inline"><semantics><msup><mi mathvariant="normal">Ω</mi><mi>N</mi></msup><annotation encoding="application/x-tex">\Omega^{N}</annotation></semantics></math> Neumann boundary, <math id="A1.SS3.p1.m9" class="ltx_Math" alttext="G_{1}" display="inline"><semantics><msub><mi>G</mi><mn>1</mn></msub><annotation encoding="application/x-tex">G_{1}</annotation></semantics></math> the global volume constraint, and <math id="A1.SS3.p1.m10" class="ltx_Math" alttext="G_{2}" display="inline"><semantics><msub><mi>G</mi><mn>2</mn></msub><annotation encoding="application/x-tex">G_{2}</annotation></semantics></math> the local volume constraint. Using the characteristic function <math id="A1.SS3.p1.m11" class="ltx_Math" alttext="\chi_{\phi}" display="inline"><semantics><msub><mi>χ</mi><mi>ϕ</mi></msub><annotation encoding="application/x-tex">\chi_{\phi}</annotation></semantics></math>, the elasticity tensor <math id="A1.SS3.p1.m12" class="ltx_Math" alttext="\mathbb{C}" display="inline"><semantics><mi>ℂ</mi><annotation encoding="application/x-tex">\mathbb{C}</annotation></semantics></math> can be expanded as</p>
+<div id="E8" class="ltx_equation ltx_eqn_div">
+<span><math id="E8.m1" class="ltx_Math" alttext="\mathbb{C}_{\chi_{\phi}}=\chi_{\phi}\left(\mathbb{C}_{\text{s}}-\mathbb{C}_{%
+\text{v}}\right)+\mathbb{C}_{\text{v}}," display="block"><semantics><mrow><mrow><msub><mi>ℂ</mi><msub><mi>χ</mi><mi>ϕ</mi></msub></msub><mo>=</mo><mrow><mrow><msub><mi>χ</mi><mi>ϕ</mi></msub><mo>⁢</mo><mrow><mo>(</mo><mrow><msub><mi>ℂ</mi><mtext>s</mtext></msub><mo>-</mo><msub><mi>ℂ</mi><mtext>v</mtext></msub></mrow><mo>)</mo></mrow></mrow><mo>+</mo><msub><mi>ℂ</mi><mtext>v</mtext></msub></mrow></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\mathbb{C}_{\chi_{\phi}}=\chi_{\phi}\left(\mathbb{C}_{\text{s}}-\mathbb{C}_{%
+\text{v}}\right)+\mathbb{C}_{\text{v}},</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(11.8)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">where <math id="A1.SS3.p1.m13" class="ltx_Math" alttext="\mathbb{C}_{\text{s}}" display="inline"><semantics><msub><mi>ℂ</mi><mtext>s</mtext></msub><annotation encoding="application/x-tex">\mathbb{C}_{\text{s}}</annotation></semantics></math> and <math id="A1.SS3.p1.m14" class="ltx_Math" alttext="\mathbb{C}_{\text{v}}" display="inline"><semantics><msub><mi>ℂ</mi><mtext>v</mtext></msub><annotation encoding="application/x-tex">\mathbb{C}_{\text{v}}</annotation></semantics></math> are the constitutive tensors for solid and void materials, respectively.</p>
+</div>
+<div id="A1.SS3.p2" class="ltx_para">
+<p class="ltx_p">As it is well-known that the mean compliance problem is self-adjoint, the topological design sensitivity can be derived as</p>
+<div id="E9" class="ltx_equation ltx_eqn_div">
+<span><math id="E9.m1" class="ltx_Math" alttext="\mathcal{F}^{\prime}=-\left(e(\boldsymbol{u}):\mathbb{C}_{\chi_{\phi}}\right):%
+e(\boldsymbol{u})+\lambda_{1}+\lambda_{2}\mathcal{G}^{\prime}," display="block"><semantics><mrow><msup><mi class="ltx_font_mathcaligraphic">ℱ</mi><mo>′</mo></msup><mo>=</mo><mo>-</mo><mrow><mo>(</mo><mi>e</mi><mrow><mo stretchy="false">(</mo><mi>𝒖</mi><mo stretchy="false">)</mo></mrow><mo>:</mo><msub><mi>ℂ</mi><msub><mi>χ</mi><mi>ϕ</mi></msub></msub><mo>)</mo></mrow><mo>:</mo><mi>e</mi><mrow><mo stretchy="false">(</mo><mi>𝒖</mi><mo stretchy="false">)</mo></mrow><mo>+</mo><msub><mi>λ</mi><mn>1</mn></msub><mo>+</mo><msub><mi>λ</mi><mn>2</mn></msub><msup><mi class="ltx_font_mathcaligraphic">𝒢</mi><mo>′</mo></msup><mo>,</mo></mrow><annotation encoding="application/x-tex">\mathcal{F}^{\prime}=-\left(e(\boldsymbol{u}):\mathbb{C}_{\chi_{\phi}}\right):%
+e(\boldsymbol{u})+\lambda_{1}+\lambda_{2}\mathcal{G}^{\prime},</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(11.9)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">where <math id="A1.SS3.p2.m1" class="ltx_Math" alttext="\lambda_{1}" display="inline"><semantics><msub><mi>λ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\lambda_{1}</annotation></semantics></math> and <math id="A1.SS3.p2.m2" class="ltx_Math" alttext="\lambda_{2}" display="inline"><semantics><msub><mi>λ</mi><mn>2</mn></msub><annotation encoding="application/x-tex">\lambda_{2}</annotation></semantics></math> are the Lagrange multipliers associated with the global and local averaging volume constraints, respectively. They can be updated using the augmented Lagrange method <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib259" title="Full-scale 3D structural topology optimization using adaptive mesh refinement based on the level-set method" class="ltx_ref">163</a>]</cite>.</p>
+</div>
+<div id="A1.SS3.p3" class="ltx_para">
+<p class="ltx_p">The sensitivity associated with the local volume constraint (denoted by <math id="A1.SS3.p3.m1" class="ltx_Math" alttext="\mathcal{G}^{\prime}" display="inline"><semantics><msup><mi class="ltx_font_mathcaligraphic">𝒢</mi><mo>′</mo></msup><annotation encoding="application/x-tex">\mathcal{G}^{\prime}</annotation></semantics></math>) is computed as the solution of the following system of equations:</p>
+<div id="E10" class="ltx_equation ltx_eqn_div">
+<span><math id="E10.m1" class="ltx_Math" alttext="\left\{\begin{aligned} &amp;-r^{2}\nabla^{2}\mathcal{G}^{\prime}+\mathcal{G}^{%
+\prime}=\dfrac{\partial G_{2}}{\partial\bar{\chi}}&amp;\text{ in }\Omega\\
+&amp;\nabla\mathcal{G}^{\prime}\cdot\boldsymbol{n}=0&amp;\text{ on }\partial\Omega.%
+\end{aligned}\right." display="block"><semantics><mrow><mo>{</mo><mtable columnspacing="0pt" displaystyle="true" rowspacing="0pt"><mtr><mtd></mtd><mtd columnalign="left"><mrow><mrow><mrow><mo>-</mo><mrow><msup><mi>r</mi><mn>2</mn></msup><mo>⁢</mo><mrow><msup><mo>∇</mo><mn>2</mn></msup><mo>⁡</mo><msup><mi class="ltx_font_mathcaligraphic">𝒢</mi><mo>′</mo></msup></mrow></mrow></mrow><mo>+</mo><msup><mi class="ltx_font_mathcaligraphic">𝒢</mi><mo>′</mo></msup></mrow><mo>=</mo><mfrac><mrow><mo>∂</mo><mo>⁡</mo><msub><mi>G</mi><mn>2</mn></msub></mrow><mrow><mo>∂</mo><mo>⁡</mo><mover accent="true"><mi>χ</mi><mo stretchy="false">¯</mo></mover></mrow></mfrac></mrow></mtd><mtd columnalign="right"><mrow><mtext> in </mtext><mo>⁢</mo><mi mathvariant="normal">Ω</mi></mrow></mtd></mtr><mtr><mtd></mtd><mtd columnalign="left"><mrow><mrow><mo>∇</mo><mo>⁡</mo><mrow><msup><mi class="ltx_font_mathcaligraphic">𝒢</mi><mo>′</mo></msup><mo>⋅</mo><mi>𝒏</mi></mrow></mrow><mo>=</mo><mn>0</mn></mrow></mtd><mtd columnalign="right"><mrow><mrow><mtext> on </mtext><mo>⁢</mo><mrow><mo>∂</mo><mo>⁡</mo><mi mathvariant="normal">Ω</mi></mrow></mrow><mo>.</mo></mrow></mtd></mtr></mtable></mrow><annotation encoding="application/x-tex">\left\{\begin{aligned} &amp;-r^{2}\nabla^{2}\mathcal{G}^{\prime}+\mathcal{G}^{%
+\prime}=\dfrac{\partial G_{2}}{\partial\bar{\chi}}&amp;\text{ in }\Omega\\
+&amp;\nabla\mathcal{G}^{\prime}\cdot\boldsymbol{n}=0&amp;\text{ on }\partial\Omega.%
+\end{aligned}\right.</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(11.10)</span>
+              
+              
+            
+</div>
+</div>
+</div>
+</section>
+</div>
+</section>
+<div class="ltx_pagination ltx_role_newpage"></div>
+</div>
+</section>
+</div>
+</div>
+</div>
+<a href="Ch10.html" class="navigation navigation-prev" aria-label="Previous page"><i class="fa fa-angle-left"></i></a><a href="Ch12.html" class="navigation navigation-next" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+</div>
+</div>
+<script src="bookml/gitbook/js/app.min.js"></script>
+<script src="bookml/gitbook/js/jquery.highlight.js"></script>
+<script src="bookml/gitbook/js/plugin-search.js"></script>
+<script src="bookml/gitbook/js/plugin-fontsettings.js"></script>
+<script src="bookml/gitbook/js/plugin-bookdown.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script>
+        MathJax = {
+          startup: {
+            ready() {
+              // do not process equations disabled with \bmlDisableMathJax (code suggested by Davide P. Cervone)
+              class bmlFindMathML extends MathJax._.input.mathml.FindMathML.FindMathML {
+                processMath(set) {
+                  const adaptor = this.adaptor;
+                  for (const node of set.values()) {
+                    if (adaptor.hasClass(node, 'bml_disable_mathjax')) {
+                      set.delete(node);
+                    }
+                  }
+                  return super.processMath(set);
+                }
+              }
+
+              MathJax._.components.global.combineDefaults(MathJax.config, 'mml', {FindMathML: new bmlFindMathML()});
+
+              MathJax.startup.defaultReady();
+
+              // preproces MathML to make MathJax aware of certain LaTeXML and BookML additional info
+              const mmlFilters = MathJax.startup.input[0].mmlFilters;
+
+              // convert the LaTeXML calligraphic (chancery) annotation to a form MathJax understands
+              // since the corresponding Unicode characters render as script (rounded)
+              const script2latin = {
+                '𝒜': 'A', 'ℬ': 'B', '𝒞': 'C', '𝒟': 'D', 'ℰ': 'E', 'ℱ': 'F', '𝒢': 'G',
+                'ℋ': 'H', 'ℐ': 'I', '𝒥': 'J', '𝒦': 'K', 'ℒ': 'L', 'ℳ': 'M', '𝒩': 'N',
+                '𝒪': 'O', '𝒫': 'P', '𝒬': 'Q', 'ℛ': 'R', '𝒮': 'S', '𝒯': 'T', '𝒰': 'U',
+                '𝒱': 'V', '𝒲': 'W', '𝒳': 'X', '𝒴': 'Y', '𝒵': 'Z',
+              };
+
+              mmlFilters.add((args) => {
+                for (const n of args.data.getElementsByClassName('ltx_font_mathcaligraphic')) {
+                  n.classList.add('MJX-tex-calligraphic');
+                  const letter = script2latin[n.textContent];
+                  if (letter !== undefined) { n.textContent = letter; }
+                }
+              });
+
+              // adjust characters based on Unicode variation sequences
+              const replacements = {
+                // MathJax renders the empty set as the U+FE00 variant, so the plain character needs adjusting
+                '∅': { variant: 'variant' },
+                // MathJax renders script characters in rounded style, which is fine for no variation and U+FE00
+                '𝒜\xFE00': { text: 'A', variant: 'tex-calligraphic' },
+                'ℬ\xFE00': { text: 'B', variant: 'tex-calligraphic' },
+                '𝒞\xFE00': { text: 'C', variant: 'tex-calligraphic' },
+                '𝒟\xFE00': { text: 'D', variant: 'tex-calligraphic' },
+                'ℰ\xFE00': { text: 'E', variant: 'tex-calligraphic' },
+                'ℱ\xFE00': { text: 'F', variant: 'tex-calligraphic' },
+                '𝒢\xFE00': { text: 'G', variant: 'tex-calligraphic' },
+                'ℋ\xFE00': { text: 'H', variant: 'tex-calligraphic' },
+                'ℐ\xFE00': { text: 'I', variant: 'tex-calligraphic' },
+                '𝒥\xFE00': { text: 'J', variant: 'tex-calligraphic' },
+                '𝒦\xFE00': { text: 'K', variant: 'tex-calligraphic' },
+                'ℒ\xFE00': { text: 'L', variant: 'tex-calligraphic' },
+                'ℳ\xFE00': { text: 'M', variant: 'tex-calligraphic' },
+                '𝒩\xFE00': { text: 'N', variant: 'tex-calligraphic' },
+                '𝒪\xFE00': { text: 'O', variant: 'tex-calligraphic' },
+                '𝒫\xFE00': { text: 'P', variant: 'tex-calligraphic' },
+                '𝒬\xFE00': { text: 'Q', variant: 'tex-calligraphic' },
+                'ℛ\xFE00': { text: 'R', variant: 'tex-calligraphic' },
+                '𝒮\xFE00': { text: 'S', variant: 'tex-calligraphic' },
+                '𝒯\xFE00': { text: 'T', variant: 'tex-calligraphic' },
+                '𝒰\xFE00': { text: 'U', variant: 'tex-calligraphic' },
+                '𝒱\xFE00': { text: 'V', variant: 'tex-calligraphic' },
+                '𝒲\xFE00': { text: 'W', variant: 'tex-calligraphic' },
+                '𝒳\xFE00': { text: 'X', variant: 'tex-calligraphic' },
+                '𝒴\xFE00': { text: 'Y', variant: 'tex-calligraphic' },
+                '𝒵\xFE00': { text: 'Z', variant: 'tex-calligraphic' }
+              };
+
+              mmlFilters.add((args) => {
+                let nodes = document.evaluate('.//m:mi | .//m:mn | .//m:mo | .//m:ms', args.data,
+                  () => 'http://www.w3.org/1998/Math/MathML', XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE);
+                for (let i = 0; i < nodes.snapshotLength; i++) {
+                  const n = nodes.snapshotItem(i);
+                  const repl = replacements[n.innerHTML];
+                  if (repl !== undefined) {
+                    const variant = repl['variant'];
+                    const text = repl['text'];
+                    if (variant !== undefined) { n.classList.add('MJX-' + variant); n.removeAttribute('mathvariant'); }
+                    if (text !== undefined) { n.innerHTML = text; }
+                  }
+                }
+              });
+            }
+          }
+        };
+      </script>
+<script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js"></script>
+<script type="text/javascript">
+                gitbook.require(["gitbook"], function(gitbook) {
+                gitbook.start({
+                  "fontsettings": {
+                    "theme": "white",
+                    "family": "sans",
+                    "size": 2
+                  },
+                  "download": [ [ "thesis.pdf", "PDF" ], ],
+                  "search": {
+                    "engine": "fuse"
+                  },
+                  "toc": {
+                    "collapse": "none"
+                  }
+                });
+              });
+            </script>
+</body>
+
+</html>

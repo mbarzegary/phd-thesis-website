@@ -1,0 +1,801 @@
+<!DOCTYPE html><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>1 General introduction‣ Mathematical and computational modeling of metallic biomaterials biodegradation</title>
+<!--Generated on Sat Aug 31 17:26:45 2024 by LaTeXML (version 0.8.6) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on KU Leuven, June 2023.-->
+
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/style.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/plugin-table.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/plugin-search.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/plugin-bookdown.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/plugin-fontsettings.css" type="text/css">
+<link rel="stylesheet" href="ltx-report.css" type="text/css">
+<link rel="stylesheet" href="bookml/CSS/style.css" type="text/css">
+<link rel="stylesheet" href="bookml/CSS/style.gitbook,plain.css" type="text/css">
+<link rel="stylesheet" href="bookml/CSS/style.gitbook.css" type="text/css">
+<link rel="stylesheet" href="bmluser/colors.gitbook-thesis.css" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6"></script>
+<link rel="up" href="index.html" title="Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="start" href="index.html" title="Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="prev" href="Chx1.html" title="Abstract ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="next" href="Ch2.html" title="Chapter 2 Aims and objectives ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Chx1.html" title="Abstract ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch2.html" title="Chapter 2 Aims and objectives ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch4.html" title="Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch5.html" title="Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch6.html" title="Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch7.html" title="Chapter 7 Model parallelization for high-performance computing ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch8.html" title="Chapter 8 BioDeg simulation software ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch9.html" title="Chapter 9 Bayesian parameter estimation of the computational models ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch10.html" title="Chapter 10 Model applications: patient-specific porous acetabular implants ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch11.html" title="Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch12.html" title="Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch13.html" title="Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="bibliography" href="bib.html" title="Bibliography ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="appendix" href="A1.html" title="Appendix A Mesh quality plots ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+</head>
+<body>
+<div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+<a href="#bml-main-content" tabindex="0" class="bml-skip-to-content">Skip to content.</a>
+<div class="book-summary"><nav class="ltx_page_navbar">
+<ul class="ltx_toclist summary">
+<li>
+<a href="index.html" title="Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref" rel="start">Mathematical and computational modeling of metallic biomaterials biodegradation</a>
+</li>
+<li class="divider">
+<li data-level="" data-path="Chx1.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Chx1.html" title="Abstract ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref">Abstract</a></li>
+<li data-level="1" data-path="" class="ltx_tocentry ltx_tocentry_chapter ltx_ref_self  chapter active">
+<a href="" title="Chapter 1 General introduction ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">1 </span></b>General introduction</a>
+<ul class="ltx_toclist ltx_toclist_chapter">
+<li data-level="1.1" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter "><a href="#S1" title="1.1 Biodegradable metals ‣ Chapter 1 General introduction ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">1.1 </span></b>Biodegradable metals</a></li>
+<li data-level="1.2" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter "><a href="#S2" title="1.2 Magnesium as a biodegradable material ‣ Chapter 1 General introduction ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">1.2 </span></b>Magnesium as a biodegradable material</a></li>
+<li data-level="1.3" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter "><a href="#S3" title="1.3 Chemistry of biodegradation of magnesium ‣ Chapter 1 General introduction ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">1.3 </span></b>Chemistry of biodegradation of magnesium</a></li>
+<li data-level="1.4" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter "><a href="#S4" title="1.4 Computational modeling of biodegradation 1 footnote 1 1 footnote 1 This section is partially based on a manuscript prepared to be submitted: S. Mukherjee, S. Mandal, M. Barzegari, F. Perez-Boerema, B. Liang, E. Sadeghian Dekhord, L. Groeneveldt, L. Geris, “In silico design and optimization of mesoscopic and macroscopic properties of additively manufactured scaffolds: applications in skeletal tissue engineering.” ‣ Chapter 1 General introduction ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">1.4 </span></b>Computational modeling of biodegradation<span class="ltx_note ltx_role_footnote"><sup class="ltx_note_mark">1</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">1</sup>
+            <b><span class="ltx_tag ltx_tag_note">1</span></b>
+            <b></b>
+            <b></b>
+            <b></b>
+          This section is partially based on a manuscript prepared to be submitted:<span class="ltx_text"> </span>S. Mukherjee, S. Mandal, M. Barzegari, F. Perez-Boerema, B. Liang, E. Sadeghian Dekhord, L. Groeneveldt, L. Geris, “In silico design and optimization of mesoscopic and macroscopic properties of additively manufactured scaffolds: applications in skeletal tissue engineering.”</span></span></span></a></li>
+</ul>
+</li>
+<li data-level="2" data-path="Ch2.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch2.html" title="Chapter 2 Aims and objectives ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">2 </span></b>Aims and objectives</a></li>
+<li data-level="3" data-path="Ch3.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">3 </span></b>Developing the core computational model</a></li>
+<li data-level="4" data-path="Ch4.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch4.html" title="Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">4 </span></b>Extending the model: adding fluid flow and convection</a></li>
+<li data-level="5" data-path="Ch5.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch5.html" title="Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">5 </span></b>Extending the model: simulating local pH evolution</a></li>
+<li data-level="6" data-path="Ch6.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch6.html" title="Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">6 </span></b>Computational modeling of the neotissue growth process</a></li>
+<li data-level="7" data-path="Ch7.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch7.html" title="Chapter 7 Model parallelization for high-performance computing ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">7 </span></b>Model parallelization for high-performance computing</a></li>
+<li data-level="8" data-path="Ch8.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch8.html" title="Chapter 8 BioDeg simulation software ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">8 </span></b>BioDeg simulation software</a></li>
+<li data-level="9" data-path="Ch9.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch9.html" title="Chapter 9 Bayesian parameter estimation of the computational models ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">9 </span></b>Bayesian parameter estimation of the computational models</a></li>
+<li data-level="10" data-path="Ch10.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch10.html" title="Chapter 10 Model applications: patient-specific porous acetabular implants ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">10 </span></b>Model applications: patient-specific porous acetabular implants</a></li>
+<li data-level="11" data-path="Ch11.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch11.html" title="Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">11 </span></b>Model applications: mechanical integrity of infilled structures</a></li>
+<li data-level="12" data-path="Ch12.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch12.html" title="Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">12 </span></b>Model applications: mechanical loosening of mandibular plates</a></li>
+<li data-level="13" data-path="Ch13.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch13.html" title="Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">13 </span></b>Conclusion</a></li>
+<li data-level="" data-path="bib.html" class="ltx_tocentry ltx_tocentry_bibliography  chapter "><a href="bib.html" title="Bibliography ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref">Bibliography</a></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li data-level="A" data-path="A1.html" class="ltx_tocentry ltx_tocentry_appendix  chapter "><a href="A1.html" title="Appendix A Mesh quality plots ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">A </span></b>Mesh quality plots</a></li>
+</ul>
+</nav></div>
+<div class="ltx_page_main book-body fixed">
+<div class="body-inner">
+<div class="book-header fixed" role="navigation"><h1>General introduction</h1></div>
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="ltx_page_content page-inner" id="bml-main-content">
+<section class="ltx_chapter normal">
+<div class="section level1">
+
+<h1 class="ltx_title ltx_title_chapter">
+<span class="ltx_tag ltx_tag_chapter header-section-number">Chapter 1</span> General introduction</h1>
+
+<div id="p1" class="ltx_para">
+<p class="ltx_p">Biodegradable (bioabsorbable) implants provide temporary support for tissues, where the implants completely dissolve and are absorbed by the body during or after tissue healing, avoiding several drawbacks of permanent implants <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib263" title="Biomechanics of magnesium-based implant during tissue repair" class="ltx_ref">81</a>]</cite>. The application of biodegradable metallic biomaterials <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib1" title="Biodegradable metals" class="ltx_ref">299</a>, <a href="bib.html#bib2" title="Fundamental theory of biodegradable metals—definition, criteria, and design" class="ltx_ref">172</a>, <a href="bib.html#bib9" title="Current status and outlook on the clinical translation of biodegradable metals" class="ltx_ref">110</a>]</cite>, including magnesium <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib3" title="Current status on clinical applications of magnesium-based orthopaedic implants: a review from clinical translational perspective" class="ltx_ref">296</a>, <a href="bib.html#bib4" title="A review on in vitro corrosion performance test of biodegradable metallic materials" class="ltx_ref">297</a>, <a href="bib.html#bib6" title="The interface between degradable mg and tissue" class="ltx_ref">276</a>]</cite>, zinc <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib7" title="The influence of alloying and fabrication techniques on the mechanical properties, biodegradability and biocompatibility of zinc: a comprehensive review" class="ltx_ref">259</a>, <a href="bib.html#bib8" title="Zinc-based alloys for degradable vascular stent applications" class="ltx_ref">198</a>]</cite>, and iron <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib10" title="Design strategy for biodegradable fe-based alloys for medical applications" class="ltx_ref">232</a>]</cite>, has become more prominent for over a decade in various biomedical engineering and tissue engineering disciplines. Among the mentioned materials, magnesium (Mg) is the most studied metal <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib5" title="Fundamentals and advances in magnesium alloy corrosion" class="ltx_ref">77</a>]</cite>, the reason for which is its suitable mechanical and chemical properties for biomedical applications. Although poor corrosion resistance of Mg is a limiting factor for its application as light structural material, like in the transportation industry, it becomes an interesting characteristic when it comes to the biodegradable materials field for cardiovascular and orthopedic applications <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib34" title="Biocorrosion of magnesium alloys: a new principle in cardiovascular implant technology?" class="ltx_ref">116</a>, <a href="bib.html#bib35" title="Magnesium and its alloys as orthopedic biomaterials: a review" class="ltx_ref">247</a>, <a href="bib.html#bib36" title="Magnesium biomaterials for orthopedic application: a review from a biological perspective" class="ltx_ref">264</a>]</cite>. The first clinical usage of Mg was reported in 1878, but a renewed interest in it has grown significantly in the last 15-20 years <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib5" title="Fundamentals and advances in magnesium alloy corrosion" class="ltx_ref">77</a>]</cite>. From the clinical and biomedical perspective, two major concerns about using Mg in clinics are the release of hydrogen gas and surface alkalization due to Mg dissolution <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib37" title="Influence of magnesium alloy degradation on undifferentiated human cells" class="ltx_ref">46</a>]</cite>. These issues are commonly addressed by alloying, biocompatible coating and surface modification <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib5" title="Fundamentals and advances in magnesium alloy corrosion" class="ltx_ref">77</a>]</cite>. This chapter includes an overview of biodegradable materials with a focus on Mg, the history of their usage in medical applications, a description of the chemistry of Mg biodegradation, and various computational models aiming to capture this chemistry.</p>
+</div>
+<section id="S1" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">1.1</span> Biodegradable metals</h2>
+
+<div id="S1.p1" class="ltx_para">
+<p class="ltx_p">It has been a very long time since metals have started being employed as implant materials to support, reinforce, repair, or replace damaged tissues and organs. Historically speaking, iron dental implants were discovered in the remains of a European who perished at the end of the first century AD or the start of the second century <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib264" title="False teeth of the roman world" class="ltx_ref">60</a>]</cite>. Moreover, gold has been used for the same application in China since ancient times. With more development in materials science and engineering, inert materials such as titanium alloys, cobalt alloys, and stainless steel are widely used nowadays in biomedical implants and devices. However, there are certain drawbacks to these materials in medical applications:</p>
+</div>
+<div id="S1.p2" class="ltx_para">
+<ul id="S1.I1" class="ltx_itemize">
+<li id="S1.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span><div id="S1.I1.i1.p1" class="ltx_para">​<p class="ltx_p">The release of metallic ions from implants fabricated with these materials can lead to various side effects in the surrounding tissues such as inflammation.</p>
+</div>
+</li>
+<li id="S1.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span><div id="S1.I1.i2.p1" class="ltx_para">​<p class="ltx_p">In some cases, such as for temporary fixation in cardiovascular and orthopedics applications, implant presence is unnecessary after the healing process. Moreover, removing the implant via a secondary surgery may not be a practical solution, causing suffering and pain to the patient again.</p>
+</div>
+</li>
+<li id="S1.I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span><div id="S1.I1.i3.p1" class="ltx_para">​<p class="ltx_p">The difference between the elastic modulus of these materials and the surrounding tissues can lead to various mechanical integrity issues. For instance, in the case of bone, this difference causes stress shielding effect, where the implant acts as a shield preventing the bone from receiving enough mechanical load needed for bone remodeling and growth. Additionally, this may cause further mechanical loosening of the implant and secondary bone fracture.</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="S1.p3" class="ltx_para">
+<p class="ltx_p">Biodegradable implants would be a great solution to the issues mentioned above. Implants fabricated from biodegradable materials gradually disappear and get absorbed by the body. With more attention to employing these materials in clinical applications, more research studies were conducted to investigate their various aspects. Initially, degradable polymers (such as polylactic acid) were used for this purpose, but later studies showed that they might stimulate the aseptic inflammation of surrounding tissues <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib263" title="Biomechanics of magnesium-based implant during tissue repair" class="ltx_ref">81</a>]</cite>. Besides, the mechanical properties of polymer materials are not acceptable in load-bearing applications. As a result, biodegradable metals gained more attention in orthopedics where Mg is the most suitable candidate due to its elastic modulus (41-45 GPa) being closest to that of natural bone (2-30 GPa) <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib265" title="Biodegradable magnesium-based implants in orthopedics—a general review and perspectives" class="ltx_ref">268</a>]</cite>. In addition to this, especially for bone healing applications, the released metallic ions during the degradation process contribute to the metabolism of the underlying biological process. For example, Mg is one of the most abundant ions found in the bone, and Mg cations have a beneficial impact on the metabolism of enzymes in the bone regeneration process. Similarly, iron (Fe) plays a key role in oxygen transport in the body, and zinc (Zn) positively influences the physiological functions of bone healing and the formation of different transcriptional factors <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib288" title="Development of a novel biodegradable porous iron-based implant for bone replacement" class="ltx_ref">272</a>, <a href="bib.html#bib289" title="Biodegradable iron-based materials—what was done and what more can be done?" class="ltx_ref">85</a>, <a href="bib.html#bib290" title="Biodegradable magnesium alloys promote angio-osteogenesis to enhance bone repair" class="ltx_ref">108</a>, <a href="bib.html#bib291" title="The prospects of zinc as a structural material for biodegradable implants—a review paper" class="ltx_ref">162</a>, <a href="bib.html#bib292" title="In vitro investigation of ultra-pure zn and its mini-tube as potential bioabsorbable stent material" class="ltx_ref">171</a>]</cite>.</p>
+</div>
+</div>
+</section>
+<section id="S2" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">1.2</span> Magnesium as a biodegradable material</h2>
+
+<div id="S2.p1" class="ltx_para">
+<p class="ltx_p">From the corrosion science perspective, Mg is an active material with a relatively low standard electrode potential of <math id="S2.p1.m1" class="ltx_Math" alttext="-2.37\text{V}" display="inline"><semantics><mrow><mo>-</mo><mrow><mn>2.37</mn><mo>⁢</mo><mtext>V</mtext></mrow></mrow><annotation encoding="application/x-tex">-2.37\text{V}</annotation></semantics></math>, meaning that Mg and its alloys have high corrosion/degradation rate <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib263" title="Biomechanics of magnesium-based implant during tissue repair" class="ltx_ref">81</a>]</cite>. This property makes Mg and Mg-based alloys a biodegradable metal in biomedical applications, where the materials undergo corrosion in biological and physiological conditions and disappear during or after the damaged tissue is repaired.</p>
+</div>
+<div id="S2.p2" class="ltx_para">
+<p class="ltx_p">From the biological perspective, Mg can contribute positively to the human body’s metabolism to improve health. A normal adult body contains <math id="S2.p2.m1" class="ltx_Math" alttext="20-28\text{g}" display="inline"><semantics><mrow><mn>20</mn><mo>-</mo><mrow><mn>28</mn><mo>⁢</mo><mtext>g</mtext></mrow></mrow><annotation encoding="application/x-tex">20-28\text{g}</annotation></semantics></math> of Mg, from which <math id="S2.p2.m2" class="ltx_Math" alttext="27\%" display="inline"><semantics><mrow><mn>27</mn><mo>%</mo></mrow><annotation encoding="application/x-tex">27\%</annotation></semantics></math> is distributed in muscles, <math id="S2.p2.m3" class="ltx_Math" alttext="65\%" display="inline"><semantics><mrow><mn>65</mn><mo>%</mo></mrow><annotation encoding="application/x-tex">65\%</annotation></semantics></math> in bone, and the rest in blood and other tissues <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib266" title="Magnesium: nutrition and metabolism" class="ltx_ref">260</a>]</cite>. Additionally, Mg contributes to more than 300 enzyme reactions in the body <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib267" title="Magnesium metabolism in health and disease" class="ltx_ref">72</a>]</cite>. Extra Mg not needed by the body metabolism is transported via the circulatory system and excreted through the bladder, without causing any major side effect <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib265" title="Biodegradable magnesium-based implants in orthopedics—a general review and perspectives" class="ltx_ref">268</a>]</cite>.</p>
+</div>
+<div id="S2.p3" class="ltx_para">
+<p class="ltx_p">The first application of Mg for biomedical purposes was recorded in 1878 by Hues, who made artificial radial arteries from Mg and suggested that Mg can be beneficial for the treatment of ovariectomy and hemorrhoids <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib263" title="Biomechanics of magnesium-based implant during tissue repair" class="ltx_ref">81</a>]</cite>. Payr performed successful animal experiments using Mg tubular vascular connectors in 1900, after which the vessels were reformed, and vascular thickness returned to its normal range after 16 days of implantation <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib269" title="The history of biodegradable magnesium implants: a review" class="ltx_ref">279</a>]</cite>. This started a wide range of usage of Mg for cardiovascular applications, a recent example of which is the work by Ikeo et al. for designing V-shaped vascular clips made of Mg-Zn-Ca alloy <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib270" title="Fabrication of a magnesium alloy with excellent ductility for biodegradable clips" class="ltx_ref">125</a>]</cite>. In this work, the ductility of Mg was reported to be an added advantage for bearing large plastic deformations that these clips experience. In a relevant study, Erbel et al. implanted 71 stents made of Mg alloys in the coronary arteries of 63 patients. The results showed a similar efficiency and safety for Mg stents to that of other metallic stents <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib271" title="Temporary scaffolding of coronary arteries with bioabsorbable magnesium stents: a prospective, non-randomised multicentre trial" class="ltx_ref">75</a>]</cite>. Moreover, Mg stents degraded without any problem after four months. This type of study resulted in acquiring the CE mark for the next generation of Mg stents in Europe <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib272" title="Bioresorbable scaffold" class="ltx_ref">245</a>, <a href="bib.html#bib273" title="In vivo serial invasive imaging of the second-generation drug-eluting absorbable metal scaffold (magmaris — DREAMS 2g) in de novo coronary lesions: insights from the BIOSOLVE-II first-in-man trial" class="ltx_ref">83</a>]</cite>.</p>
+</div>
+<div id="S2.p4" class="ltx_para">
+<p class="ltx_p">The history of usage of Mg in orthopedics applications started very similarly to its vascular applications. In the study by Payr mentioned above, he also stated that Mg can improve the bone healing rate <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib269" title="The history of biodegradable magnesium implants: a review" class="ltx_ref">279</a>]</cite>. Six years later, in 1906, the first Mg-based implant was used by Lambotte for fixation of a fracture case <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib274" title="Technique et indication des prothèses dans le traitement des fractures" class="ltx_ref">155</a>, <a href="bib.html#bib275" title="L’utilisation du magnesium comme materiel perdu dans l’osteosynthèse" class="ltx_ref">156</a>]</cite>. This study was followed by many other studies in the last century, the results of which confirmed that Mg could facilitate the bone healing process. However, these studies also demonstrated that the hydrogen gas released during the biodegradation of Mg could lead to inflammation. Furthermore, since Mg’s rate of degradation is high, the tissues may not receive enough support before the implants vanish <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib269" title="The history of biodegradable magnesium implants: a review" class="ltx_ref">279</a>]</cite>. These issues made the Mg-based implants less common compared to inert metals for orthopedics applications. But, in recent decades, these implants gained more attention thanks to enormous research studies on the biodegradation of Mg to control its side effects and degradation behavior. In 2005, the possibility of using Mg for orthopedics implants was proposed by Witte et al. <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib276" title="In vivo corrosion of four magnesium alloys and the associated bone response" class="ltx_ref">277</a>]</cite>, a suggestion supported by the results of animal studies on femoral implants manufactured from Mg alloys (AZ31, AZ91, WE43, and LAE442). After this study, a wide variety of research works were conducted to investigate the efficiency of Mg-based implants for orthopedics applications <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib31" title="High rate oxygen reduction reaction during corrosion of ultra-high-purity magnesium" class="ltx_ref">265</a>, <a href="bib.html#bib277" title="High-purity weight-bearing magnesium screw: translational application in the healing of femoral neck fracture" class="ltx_ref">123</a>, <a href="bib.html#bib3" title="Current status on clinical applications of magnesium-based orthopaedic implants: a review from clinical translational perspective" class="ltx_ref">296</a>]</cite>. Fig. <a href="#F1" title="Figure 1.1 ‣ 1.2 Magnesium as a biodegradable material ‣ Chapter 1 General introduction ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">1.1</span></a> shows the current usage of Mg-based implants and medical devices divided into three categories: commercially approved, on clinical trials, and potential applications <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib9" title="Current status and outlook on the clinical translation of biodegradable metals" class="ltx_ref">110</a>]</cite>.</p>
+</div>
+<figure id="F1" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/introduction/image/applications.jpg" id="F1.g1" class="ltx_graphics ltx_centering" width="325" height="329" alt="Various potential applications of Mg as a biodegradable metallic biomaterial for cardiovascular and orthopedic implants and devices "></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 1.1: </span>Various potential applications of Mg as a biodegradable metallic biomaterial for cardiovascular and orthopedic implants and devices <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib9" title="Current status and outlook on the clinical translation of biodegradable metals" class="ltx_ref">110</a>]</cite>.</figcaption>
+</figure>
+</div>
+</section>
+<section id="S3" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">1.3</span> Chemistry of biodegradation of magnesium</h2>
+
+<div id="S3.p1" class="ltx_para">
+<p class="ltx_p">The biodegradation behavior of Mg is investigated in corrosion tests, in which the selection of the corrosive media plays an important role since it affects the underlying chemical reactions <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib11" title="Selecting medium for corrosion testing of bioabsorbable magnesium and other metals – a critical review" class="ltx_ref">193</a>]</cite>. By considering the main application of the biomaterial, which can be tissue engineering scaffolds, vascular stents, or orthopedic fixation devices, the corrosive media can be selected to be a representative of the service environment. The most basic form of the medium is a saline (NaCl) solution, in which the degradation rate is the highest possible <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib11" title="Selecting medium for corrosion testing of bioabsorbable magnesium and other metals – a critical review" class="ltx_ref">193</a>]</cite>. More complex solutions can be used to mimic the behavior of the body environment by taking into account more body fluid components, the most popular of which are Ringer’s solution, PBS (phosphate buffered saline), SBFs (simulated body fluids), HBSS (Hank’s balanced salt solution), and Earle’s balanced salt solution (EBSS) <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib11" title="Selecting medium for corrosion testing of bioabsorbable magnesium and other metals – a critical review" class="ltx_ref">193</a>]</cite>. Adding more organic components to the solution will prepare it to simulate cell culture conditions. The common media for this purpose are MEM (Minimum Essential medium) and DMEM (Dulbecco’s modified Eagle’s medium) <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib11" title="Selecting medium for corrosion testing of bioabsorbable magnesium and other metals – a critical review" class="ltx_ref">193</a>]</cite>. Fig. <a href="#F2" title="Figure 1.2 ‣ 1.3 Chemistry of biodegradation of magnesium ‣ Chapter 1 General introduction ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">1.2</span></a> summarizes various commonly used corrosive media for testing biodegradable metals along with their main components <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib11" title="Selecting medium for corrosion testing of bioabsorbable magnesium and other metals – a critical review" class="ltx_ref">193</a>]</cite>.</p>
+</div>
+<figure id="F2" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/introduction/image/components.jpg" id="F2.g1" class="ltx_graphics ltx_centering" width="541" height="404" alt="A schematic representation of commonly used corrosive media for testing biodegradable metals, sorted by their complexity from the chemical perspective from bottom to top "></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 1.2: </span>A schematic representation of commonly used corrosive media for testing biodegradable metals, sorted by their complexity from the chemical perspective from bottom to top <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib11" title="Selecting medium for corrosion testing of bioabsorbable magnesium and other metals – a critical review" class="ltx_ref">193</a>]</cite>.</figcaption>
+</figure>
+<div id="S3.p2" class="ltx_para">
+<p class="ltx_p">Various studies have already investigated the effect of different components in the aforementioned corrosive media on the degradation behavior of Mg materials <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib12" title="The role of individual components of simulated body fluid on the corrosion behavior of commercially pure mg" class="ltx_ref">192</a>, <a href="bib.html#bib13" title="Corrosion of magnesium alloy AZ31: the influence of bicarbonate, sulphate, hydrogen phosphate and dihydrogen phosphate ions in saline solution" class="ltx_ref">292</a>, <a href="bib.html#bib14" title="Building towards a standardised approach to biocorrosion studies: a review of factors influencing mg corrosion in vitro pertinent to in vivo corrosion" class="ltx_ref">137</a>, <a href="bib.html#bib15" title="Local pH and its evolution near mg alloy surfaces exposed to simulated body fluids" class="ltx_ref">154</a>, <a href="bib.html#bib16" title="The effect of small-molecule bio-relevant organic components at low concentration on the corrosion of commercially pure mg and mg-0.8ca alloy: an overall perspective" class="ltx_ref">191</a>]</cite>. In addition to the presented chemical components, it has been shown that synthetic pH buffers (such as Tris and HEPES) contribute to the biodegradation rate of Mg <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib12" title="The role of individual components of simulated body fluid on the corrosion behavior of commercially pure mg" class="ltx_ref">192</a>]</cite>. The investigations on the effect of different inorganic components, including carbonate, phosphate, sulfate and calcium, show these components’ effective contribution to the degradation rate. However, the corrosion protection resulting from the mutual effect of carbonate, phosphate and calcium has been emphasized more <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib12" title="The role of individual components of simulated body fluid on the corrosion behavior of commercially pure mg" class="ltx_ref">192</a>, <a href="bib.html#bib15" title="Local pH and its evolution near mg alloy surfaces exposed to simulated body fluids" class="ltx_ref">154</a>]</cite>.</p>
+</div>
+<div id="S3.p3" class="ltx_para">
+<p class="ltx_p">The most common solution for performing corrosion tests on Mg is saline (NaCl) solution, in which the material undergoes aggressive corrosion due to higher electrochemical activities <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib17" title="Electrochemical characteristics of calcium-phosphatized AZ31 magnesium alloy in 0.9 % NaCl solution" class="ltx_ref">105</a>, <a href="bib.html#bib18" title="Unveiling the inhibition mechanism of an effective inhibitor for AZ91 mg alloy" class="ltx_ref">174</a>]</cite>. In a typical aqueous solution, the major corrosion reactions occurring can be written as detailed below <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib19" title="Exploration the inhibition mechanism of sodium dodecyl sulfate on mg alloy" class="ltx_ref">167</a>, <a href="bib.html#bib20" title="Review of recent developments in the field of magnesium corrosion" class="ltx_ref">20</a>]</cite>.</p>
+</div>
+<div id="S3.p4" class="ltx_para">
+<p class="ltx_p">Main, hydrogen evolution reaction (HER):</p>
+<div id="E1" class="ltx_equation ltx_eqn_div">
+<span><math id="E1.m1" class="ltx_Math" alttext="\mathrm{Mg}+2\mathrm{H}_{2}\mathrm{O}\rightarrow\mathrm{Mg}(\mathrm{OH})_{2}+%
+\mathrm{H}_{2}." display="block"><semantics><mrow><mrow><mrow><mi>Mg</mi><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><msub><mi mathvariant="normal">H</mi><mn>2</mn></msub><mo>⁢</mo><mi mathvariant="normal">O</mi></mrow></mrow><mo>→</mo><mrow><mrow><mi>Mg</mi><mo>⁢</mo><msub><mrow><mo stretchy="false">(</mo><mi>OH</mi><mo stretchy="false">)</mo></mrow><mn>2</mn></msub></mrow><mo>+</mo><msub><mi mathvariant="normal">H</mi><mn>2</mn></msub></mrow></mrow><mo>.</mo></mrow><annotation encoding="application/x-tex">\mathrm{Mg}+2\mathrm{H}_{2}\mathrm{O}\rightarrow\mathrm{Mg}(\mathrm{OH})_{2}+%
+\mathrm{H}_{2}.</annotation></semantics></math></span>
+            <span class="ltx_tag ltx_tag_equation ltx_align_right">(1.1)</span>
+
+
+
+</div>
+</div>
+<div id="S3.p5" class="ltx_para">
+<p class="ltx_p">Secondary, oxygen reduction reaction (ORR):</p>
+<div id="E2" class="ltx_equation ltx_eqn_div">
+<span><math id="E2.m1" class="ltx_Math" alttext="2\mathrm{Mg}+2\mathrm{H}_{2}\mathrm{O}+\mathrm{O}_{2}\rightarrow 2\mathrm{Mg}(%
+\mathrm{OH})_{2}." display="block"><semantics><mrow><mrow><mrow><mrow><mn>2</mn><mo>⁢</mo><mi mathvariant="normal">M</mi><mo>⁢</mo><mi mathvariant="normal">g</mi></mrow><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><msub><mi mathvariant="normal">H</mi><mn>2</mn></msub><mo>⁢</mo><mi mathvariant="normal">O</mi></mrow><mo>+</mo><msub><mi mathvariant="normal">O</mi><mn>2</mn></msub></mrow><mo>→</mo><mrow><mn>2</mn><mo>⁢</mo><mi mathvariant="normal">M</mi><mo>⁢</mo><mi mathvariant="normal">g</mi><mo>⁢</mo><msub><mrow><mo stretchy="false">(</mo><mi>OH</mi><mo stretchy="false">)</mo></mrow><mn>2</mn></msub></mrow></mrow><mo>.</mo></mrow><annotation encoding="application/x-tex">2\mathrm{Mg}+2\mathrm{H}_{2}\mathrm{O}+\mathrm{O}_{2}\rightarrow 2\mathrm{Mg}(%
+\mathrm{OH})_{2}.</annotation></semantics></math></span>
+            <span class="ltx_tag ltx_tag_equation ltx_align_right">(1.2)</span>
+
+
+
+</div>
+</div>
+<div id="S3.p6" class="ltx_para">
+<p class="ltx_p">In this situation, the corrosion products forming on the corroded surface of Mg consist mainly of <math id="S3.p6.m1" class="ltx_Math" alttext="\mathrm{Mg}(\mathrm{OH})_{2}" display="inline"><semantics><mrow><mi>Mg</mi><mo>⁢</mo><msub><mrow><mo stretchy="false">(</mo><mi>OH</mi><mo stretchy="false">)</mo></mrow><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">\mathrm{Mg}(\mathrm{OH})_{2}</annotation></semantics></math> and <math id="S3.p6.m2" class="ltx_Math" alttext="\mathrm{MgO}" display="inline"><semantics><mi>MgO</mi><annotation encoding="application/x-tex">\mathrm{MgO}</annotation></semantics></math>, and the pH in regions close to this surface remains alkaline. In the presence of chloride ions in the saline medium, the formed corrosion product may be broken or bypassed, leading to an increased degradation rate.</p>
+<div id="E3" class="ltx_equation ltx_eqn_div">
+<span><math id="E3.m1" class="ltx_Math" alttext="\mathrm{Mg}(\mathrm{OH})_{2}+2\mathrm{Cl}^{-}\rightarrow\mathrm{Mg}^{2+}+2%
+\mathrm{Cl}^{-}+2\mathrm{OH}^{-}" display="block"><semantics><mrow><mrow><mrow><mi>Mg</mi><mo>⁢</mo><msub><mrow><mo stretchy="false">(</mo><mi>OH</mi><mo stretchy="false">)</mo></mrow><mn>2</mn></msub></mrow><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><mi mathvariant="normal">C</mi><mo>⁢</mo><msup><mi mathvariant="normal">l</mi><mo>-</mo></msup></mrow></mrow><mo>→</mo><mrow><msup><mi>Mg</mi><mrow><mn>2</mn><mo>+</mo></mrow></msup><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><mi mathvariant="normal">C</mi><mo>⁢</mo><msup><mi mathvariant="normal">l</mi><mo>-</mo></msup></mrow><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><mi mathvariant="normal">O</mi><mo>⁢</mo><msup><mi mathvariant="normal">H</mi><mo>-</mo></msup></mrow></mrow></mrow><annotation encoding="application/x-tex">\mathrm{Mg}(\mathrm{OH})_{2}+2\mathrm{Cl}^{-}\rightarrow\mathrm{Mg}^{2+}+2%
+\mathrm{Cl}^{-}+2\mathrm{OH}^{-}</annotation></semantics></math></span>
+            <span class="ltx_tag ltx_tag_equation ltx_align_right">(1.3)</span>
+
+
+
+</div>
+<div id="E4" class="ltx_equation ltx_eqn_div">
+<span><math id="E4.m1" class="ltx_Math" alttext="\mathrm{MgO}+\mathrm{Cl}^{-}+\mathrm{H}_{2}\mathrm{O}\rightarrow\mathrm{Mg}^{2%
++}+\mathrm{Cl}^{-}+2\mathrm{OH}^{-}" display="block"><semantics><mrow><mrow><mi>MgO</mi><mo>+</mo><msup><mi>Cl</mi><mo>-</mo></msup><mo>+</mo><mrow><msub><mi mathvariant="normal">H</mi><mn>2</mn></msub><mo>⁢</mo><mi mathvariant="normal">O</mi></mrow></mrow><mo>→</mo><mrow><msup><mi>Mg</mi><mrow><mn>2</mn><mo>+</mo></mrow></msup><mo>+</mo><msup><mi>Cl</mi><mo>-</mo></msup><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><mi mathvariant="normal">O</mi><mo>⁢</mo><msup><mi mathvariant="normal">H</mi><mo>-</mo></msup></mrow></mrow></mrow><annotation encoding="application/x-tex">\mathrm{MgO}+\mathrm{Cl}^{-}+\mathrm{H}_{2}\mathrm{O}\rightarrow\mathrm{Mg}^{2%
++}+\mathrm{Cl}^{-}+2\mathrm{OH}^{-}</annotation></semantics></math></span>
+            <span class="ltx_tag ltx_tag_equation ltx_align_right">(1.4)</span>
+
+
+
+</div>
+</div>
+<div id="S3.p7" class="ltx_para">
+<p class="ltx_p">The main advantage of using a saline solution for corrosion tests compared to more complex media is that the absence of inorganic ions like carbonate, phosphate, sulfate and calcium allows for investigating the corrosion behavior without concerning possible effect caused by the interaction of these chemical components. On the other hand, the main weakness of saline solution is that it cannot represent the complexity of real body fluid, and as a result, a more complex medium is required to investigate such conditions. To address this issue, more complex saline solutions, such as PBS, are widely used for assessing the applicability of Mg alloys in more complex conditions from the chemical perspective <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib22" title="Corrosion of experimental magnesium alloys in blood and PBS: a gravimetric and microscopic evaluation" class="ltx_ref">231</a>, <a href="bib.html#bib21" title="In vivo and in vitro degradation behavior of magnesium alloys as biomaterials" class="ltx_ref">286</a>]</cite>. Despite the mentioned limitations, corrosion tests in saline solution are still contributing to understanding intrinsic degradation properties of Mg.</p>
+</div>
+<div id="S3.p8" class="ltx_para">
+<p class="ltx_p">The term ”simulated body fluid” is generally used to refer to solutions containing inorganic ions of human serum and interstitial fluid <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib11" title="Selecting medium for corrosion testing of bioabsorbable magnesium and other metals – a critical review" class="ltx_ref">193</a>]</cite>. The commonly used corrosive media in this regard are SBF, HBSS, and EBSS, which all include the same inorganic components yet with a slight difference in their concentrations. A typical composition of these media is chloride, carbonate, phosphates, sulfate and calcium. The individual effect of these components on the rate of degradation of Mg has been extensively studied, where it has been observed that carbonate and phosphate slow down the rate whereas the effect of sulfate is negligible <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib14" title="Building towards a standardised approach to biocorrosion studies: a review of factors influencing mg corrosion in vitro pertinent to in vivo corrosion" class="ltx_ref">137</a>, <a href="bib.html#bib16" title="The effect of small-molecule bio-relevant organic components at low concentration on the corrosion of commercially pure mg and mg-0.8ca alloy: an overall perspective" class="ltx_ref">191</a>]</cite>. The concentration of <math id="S3.p8.m1" class="ltx_Math" alttext="\mathrm{HCO}_{3}^{-}" display="inline"><semantics><msubsup><mi>HCO</mi><mn>3</mn><mo>-</mo></msubsup><annotation encoding="application/x-tex">\mathrm{HCO}_{3}^{-}</annotation></semantics></math> affects the pH buffering capacity and the degradation rate of Mg simultaneously <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib23" title="Degradation behaviour of pure magnesium in simulated body fluids with different concentrations of hco3" class="ltx_ref">282</a>]</cite>. The effect of calcium ions is more complex because it does not contribute to Mg corrosion directly. Fig. <a href="#F3" title="Figure 1.3 ‣ 1.3 Chemistry of biodegradation of magnesium ‣ Chapter 1 General introduction ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">1.3</span></a> briefly summarizes the various reactions and formed precipitation compositions of the mentioned media for testing the degradation behavior of Mg <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib11" title="Selecting medium for corrosion testing of bioabsorbable magnesium and other metals – a critical review" class="ltx_ref">193</a>]</cite>.</p>
+</div>
+<figure id="F3" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/introduction/image/reactions.jpg" id="F3.g1" class="ltx_graphics ltx_centering" width="541" height="209" alt="A schematic representation of Mg biodegradation behavior in commonly used solutions for corrosion tests of biodegradable metals "></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 1.3: </span>A schematic representation of Mg biodegradation behavior in commonly used solutions for corrosion tests of biodegradable metals <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib11" title="Selecting medium for corrosion testing of bioabsorbable magnesium and other metals – a critical review" class="ltx_ref">193</a>]</cite>.</figcaption>
+</figure>
+<div id="S3.p9" class="ltx_para">
+<p class="ltx_p">There are various evaluation techniques for measuring the degradation rate of Mg, among which the weight loss, hydrogen evolution, potentiodynamic polarization, and electrochemical impedance spectroscopy are the commonly used ones. Generally speaking, the method used for evaluating the degradation rate can affect the reported behavior. For example, it has been shown that in HBSS, the measured corrosion rate of Mg is lower (slower) when evaluated using hydrogen evolution in comparison to the rate found by direct weight loss measurements <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib32" title="The influence of pH on the corrosion rate of high-purity mg, AZ91 and ZE41 in bicarbonate buffered hanks’ solution" class="ltx_ref">138</a>, <a href="bib.html#bib33" title="Investigating mg biocorrosion in vitro: lessons learned and recommendations" class="ltx_ref">139</a>]</cite>, which can be due to the secondary dissolution of evolved hydrogen. Moreover, oxygen consumption due to secondary ORR can affect the volume of evolved gas, which is more significant for media with slower degradation rates such as HBSS and MEM <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib31" title="High rate oxygen reduction reaction during corrosion of ultra-high-purity magnesium" class="ltx_ref">265</a>]</cite>. Table <a href="#T1" title="Table 1.1 ‣ 1.3 Chemistry of biodegradation of magnesium ‣ Chapter 1 General introduction ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">1.1</span></a> summarizes the advantages and shortcomings of widely used techniques for measuring degradation rate <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib11" title="Selecting medium for corrosion testing of bioabsorbable magnesium and other metals – a critical review" class="ltx_ref">193</a>]</cite>.</p>
+</div>
+<div id="S3.p10" class="ltx_para">
+<p class="ltx_p">Discussing the degradation rate of Mg-based materials can be tricky because as mentioned before, the measurement method and the employed solution can influence the measured degradation rate <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib307" title="Magnesium-based biodegradable alloys: degradation, application, and alloying elements" class="ltx_ref">208</a>]</cite>. However, certain studies have performed this quantitative measurement using different representative media for <span class="ltx_text ltx_font_italic">in vivo</span> conditions, resulting in different reported values. The corrosion rate for pure Mg in EBSS was reported to be <math id="S3.p10.m1" class="ltx_Math" alttext="0.39\text{ mm.year}^{-1}" display="inline"><semantics><mrow><mn>0.39</mn><mo>⁢</mo><msup><mtext> mm.year</mtext><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">0.39\text{ mm.year}^{-1}</annotation></semantics></math> <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib308" title="Magnesium alloys: predicting in vivo corrosion with in vitro immersion testing" class="ltx_ref">263</a>]</cite>, but in SBF and HBSS, the reported values are <math id="S3.p10.m2" class="ltx_Math" alttext="1.39" display="inline"><semantics><mn>1.39</mn><annotation encoding="application/x-tex">1.39</annotation></semantics></math> <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib309" title="In vitro corrosion and biocompatibility of binary magnesium alloys" class="ltx_ref">99</a>]</cite> and <math id="S3.p10.m3" class="ltx_Math" alttext="2.05\text{ mm.year}^{-1}" display="inline"><semantics><mrow><mn>2.05</mn><mo>⁢</mo><msup><mtext> mm.year</mtext><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">2.05\text{ mm.year}^{-1}</annotation></semantics></math> <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib97" title="The in vivo and in vitro corrosion of high-purity magnesium and magnesium alloys WZ21 and AZ91" class="ltx_ref">4</a>]</cite>, respectively. Alloying Mg and adding Ca-P coating seems to decrease the degradation rate to <math id="S3.p10.m4" class="ltx_Math" alttext="0.25\text{ mm.year}^{-1}" display="inline"><semantics><mrow><mn>0.25</mn><mo>⁢</mo><msup><mtext> mm.year</mtext><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">0.25\text{ mm.year}^{-1}</annotation></semantics></math> in HBSS <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib310" title="In vitro biodegradation behavior of magnesium and magnesium alloy" class="ltx_ref">267</a>]</cite> and <math id="S3.p10.m5" class="ltx_Math" alttext="1.88\text{ mm.year}^{-1}" display="inline"><semantics><mrow><mn>1.88</mn><mo>⁢</mo><msup><mtext> mm.year</mtext><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">1.88\text{ mm.year}^{-1}</annotation></semantics></math> in SBF <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib311" title="The potential of magnesium alloy use in orthopaedic surgery" class="ltx_ref">26</a>]</cite>, although no direct correlation between alloying compounds and the degradation rate has been found yet <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib312" title="Mg and mg alloys: how comparable are in vitro and in vivo corrosion rates? a review" class="ltx_ref">225</a>]</cite>.</p>
+</div>
+<figure id="T1" class="ltx_table">
+<figcaption class="ltx_caption"><span class="ltx_tag ltx_tag_table">Table 1.1: </span>Summary of various common methods to assess the degradation rate of Mg <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib11" title="Selecting medium for corrosion testing of bioabsorbable magnesium and other metals – a critical review" class="ltx_ref">193</a>]</cite></figcaption>
+<!-- <div class="ltx_inline-block ltx_transformed_outer" style="width:433.6pt;height:317.7pt;vertical-align:-0.0pt;"><span class="ltx_transformed_inner" style="transform:translate(-62.2pt,45.6pt) scale(0.777108631930242,0.777108631930242) ;"><div class="bml-overflow-wrapper"> -->
+<table class="ltx_tabular ltx_align_middle">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:130.1pt;">
+<p class="ltx_p ltx_align_top">Test method</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:216.8pt;">
+<p class="ltx_p ltx_align_top">Advantages</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:216.8pt;">
+<p class="ltx_p ltx_align_top">Shortcomings</p>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:130.1pt;">
+<p class="ltx_p ltx_align_top">Weight loss</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:216.8pt;"><div class="bml-overflow-wrapper">
+<table class="ltx_tabular ltx_align_top">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_justify" style="width:195.1pt;">
+<p class="ltx_p ltx_align_top">High reliability</p>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_justify" style="width:195.1pt;">
+<p class="ltx_p ltx_align_top">Direct measurement</p>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_justify" style="width:195.1pt;">
+<p class="ltx_p ltx_align_top">Easily controlled test environment</p>
+</td>
+</tr>
+</table>
+</div></td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:216.8pt;"><div class="bml-overflow-wrapper">
+<table class="ltx_tabular ltx_align_top">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_justify" style="width:195.1pt;">
+<p class="ltx_p ltx_align_top">Non-continuous. Does not reveal varying corrosion rate throughout the immersion</p>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_justify" style="width:195.1pt;">
+<p class="ltx_p ltx_align_top">Low sensitivity at the initial stages</p>
+</td>
+</tr>
+</table>
+</div></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:130.1pt;">
+<p class="ltx_p ltx_align_top">Hydrogen evolution</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:216.8pt;"><div class="bml-overflow-wrapper">
+<table class="ltx_tabular ltx_align_top">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_justify" style="width:195.1pt;">
+<p class="ltx_p ltx_align_top">Continuous</p>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_justify" style="width:195.1pt;">
+<p class="ltx_p ltx_align_top">Can be automated</p>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_justify" style="width:195.1pt;">
+<p class="ltx_p ltx_align_top">Can be performed in closed eudiometers</p>
+</td>
+</tr>
+</table>
+</div></td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:216.8pt;"><div class="bml-overflow-wrapper">
+<table class="ltx_tabular ltx_align_top">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_justify" style="width:195.1pt;">
+<p class="ltx_p ltx_align_top">Performed in open environment in most cases</p>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_justify" style="width:195.1pt;">
+<p class="ltx_p ltx_align_top">Might show underestimated values of corrosion rate due to secondary ORR and solubility of <math id="T1.m1" class="ltx_Math" alttext="\mathrm{H}_{2}" display="inline"><semantics><msub><mi mathvariant="normal">H</mi><mn>2</mn></msub><annotation encoding="application/x-tex">\mathrm{H}_{2}</annotation></semantics></math> in aqueous media</p>
+</td>
+</tr>
+</table>
+</div></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:130.1pt;">
+<p class="ltx_p ltx_align_top">Potentiodynamic polarization</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:216.8pt;">
+<p class="ltx_p ltx_align_top">Fast measurement</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:216.8pt;"><div class="bml-overflow-wrapper">
+<table class="ltx_tabular ltx_align_top">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_justify" style="width:195.1pt;">
+<p class="ltx_p ltx_align_top">Non-continuous</p>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_justify" style="width:195.1pt;">
+<p class="ltx_p ltx_align_top">Open environment measurement in most cases</p>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_justify" style="width:195.1pt;">
+<p class="ltx_p ltx_align_top">Very often low correlation with long-term weight loss measurements</p>
+</td>
+</tr>
+</table>
+</div></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_justify ltx_border_b ltx_border_t" style="width:130.1pt;">
+<p class="ltx_p ltx_align_top">Electrochemical impedance spectroscopy</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_b ltx_border_t" style="width:216.8pt;"><div class="bml-overflow-wrapper">
+<table class="ltx_tabular ltx_align_top">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_justify" style="width:195.1pt;">
+<p class="ltx_p ltx_align_top">Continuous</p>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_justify" style="width:195.1pt;">
+<p class="ltx_p ltx_align_top">In situ investigation of protective properties of forming corrosion products</p>
+</td>
+</tr>
+</table>
+</div></td>
+<td class="ltx_td ltx_align_justify ltx_border_b ltx_border_t" style="width:216.8pt;">
+<p class="ltx_p ltx_align_top">Performed in open environments in most cases</p>
+</td>
+</tr>
+</table>
+<!-- </div> -->
+</span></div>
+</figure>
+</div>
+</section>
+<section id="S4" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">1.4</span> Computational modeling of biodegradation<span id="footnote1" class="ltx_note ltx_role_footnote"><sup class="ltx_note_mark">1</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">1</sup>
+            <span class="ltx_tag ltx_tag_note">1</span>
+
+
+
+          This section is partially based on a manuscript prepared to be submitted:
+<br class="ltx_break">S. Mukherjee, S. Mandal, M. Barzegari, F. Perez-Boerema, B. Liang, E. Sadeghian Dekhord, L. Groeneveldt, L. Geris, “In silico design and optimization of mesoscopic and macroscopic properties of additively manufactured scaffolds: applications in skeletal tissue engineering.”</span></span></span>
+</h2>
+
+<div id="S4.p1" class="ltx_para">
+<p class="ltx_p">Besides experimental approaches to investigate the properties of biodegradable metallic implants and scaffolds, computational modeling of the biodegradation process and behavior can be used as an efficient tool to design the next generation of medical devices and implants <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib84" title="A review of material degradation modelling for the analysis and design of bioabsorbable stents" class="ltx_ref">42</a>]</cite>. In addition to traditional modeling approaches for mechanics of materials, it is possible to take advantage of well-developed principles of modeling transport phenomena and numerical simulations to investigate the biodegradation process computationally <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib278" title="Continuum modeling and simulation in bone tissue engineering" class="ltx_ref">229</a>]</cite>.</p>
+</div>
+<div id="S4.p2" class="ltx_para">
+<p class="ltx_p">Computational models of the biodegradation process vary from a basic implementation of the process to comprehensive mathematical models that capture multiple aspects of the degradation phenomenon. In the category of simplified corrosion models, Gao et al. performed a quantitative study on the change of mechanics during the biodegradation of Mg alloys for cardiovascular applications <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib49" title="A quantitative study on magnesium alloy stent biodegradation" class="ltx_ref">82</a>]</cite>. Liu et al. developed a fluid dynamics model to characterize the effect of the induced wall shear stress (WSS) on the biodegradation mechanism of Mg stents <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib70" title="Degradation mechanism of magnesium alloy stent under simulated human micro-stress environment" class="ltx_ref">170</a>]</cite>. They investigated the effect of blood flow velocity and dynamic environment on the degradation of cardiovascular stents. Boland et al. studied the mechanical performance of Mg stents for the treatment of coronary artery diseases using a computational model <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib279" title="Computational modelling of magnesium stent mechanical performance in a remodelling artery: effects of multiple remodelling stimuli" class="ltx_ref">41</a>]</cite>. Gartzke et al. proposed a degradation model for the corrosion of Mg alloys coupled with mechanical analysis, allowing them to study the change of mechanical properties during the biodegradation process <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib88" title="A simulation model for the degradation of magnesium-based bone implants" class="ltx_ref">84</a>]</cite>. Another common category of studies in this regard is continuous damage (CD) simulations, in which geometrical discontinuities get translated into the reduction of materials. Despite the limitation of this technique for modeling biodegradation, such as more focus on the mechanical integrity rather than on the fundamental phenomena, it has been used for various relevant studies, such as Gastaldi et al. <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib50" title="Continuum damage model for bioresorbable magnesium alloy devices — application to coronary stents" class="ltx_ref">86</a>]</cite> and Shi et al. <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib280" title="A multi-dimensional non-uniform corrosion model for bioabsorbable metallic vascular stents" class="ltx_ref">237</a>]</cite>.</p>
+</div>
+<div id="S4.p3" class="ltx_para">
+<p class="ltx_p">Among the relevant studies, mass transfer-related models were more successful in representing the biodegradation process mathematically. Indeed, the approach of constructing models based on the well-formulated transport phenomena equations and then solving the derived equations using appropriate numerical schemes has been followed in recent years to study biodegradation. Ahmed et al. derived a set of mathematical equations to capture the chemical reactions occurring in Mg degradation <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib71" title="Numerical modelling of effects of biphasic layers of corrosion products to the degradation of magnesium metal in vitro" class="ltx_ref">7</a>]</cite>, in which the detailed mathematical equations provided a proper insight into the effect of different chemical components on the biodegradation of Mg <span class="ltx_text ltx_font_italic">in vitro</span>. Grogan et al. developed a model to correlate the mass flux of the metallic ions in the biodegradation interface to the velocity of the interface, used to simulate the degradation of complex geometries of Mg-based stents <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib52" title="A physical corrosion model for bioabsorbable metal stents" class="ltx_ref">98</a>]</cite>. Similarly, Shen et al. developed a theoretical model to predict the degradation behavior of Mg alloys in orthopedic implants <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib72" title="Predicting the degradation behavior of magnesium alloys with a diffusion-based theoretical model and in vitro corrosion testing" class="ltx_ref">236</a>]</cite>. Their 3D model had a high agreement with <span class="ltx_text ltx_font_italic">in vitro</span> corrosion test results.</p>
+</div>
+<div id="S4.p4" class="ltx_para">
+<p class="ltx_p">One of the important applications of biodegradation models is to investigate the change of shape and morphology of the implants and medical devices over time. To this end, appropriate interface capturing methods should be used to track the corrosion interface during the biodegradation process. Bajger et al. developed a mathematical model to study the degradation of Mg implants by reaction-diffusion equations and level-set method (LSM), which enabled them to track the geometrical changes of the implant during degradation <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib53" title="Mathematical modelling of the degradation behaviour of biodegradable metals" class="ltx_ref">23</a>]</cite>. Similarly, Sanz-Herrera et al. developed a comprehensive computational model as a tool for Mg implant design <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib74" title="In silico design of magnesium implants: macroscopic modeling" class="ltx_ref">227</a>]</cite>. They combined multiple diffusion-reaction equations to study the change of concentration of the chemical components that play an essential role in <span class="ltx_text ltx_font_italic">in vitro</span> biodegradation of Mg implants. A summary of the studies mentioned above is represented in Table <a href="#T2" title="Table 1.2 ‣ 1.4 Computational modeling of biodegradation 1 footnote 1 1 footnote 1 This section is partially based on a manuscript prepared to be submitted: S. Mukherjee, S. Mandal, M. Barzegari, F. Perez-Boerema, B. Liang, E. Sadeghian Dekhord, L. Groeneveldt, L. Geris, “In silico design and optimization of mesoscopic and macroscopic properties of additively manufactured scaffolds: applications in skeletal tissue engineering.” ‣ Chapter 1 General introduction ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">1.2</span></a>. The reader is encouraged to refer to <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib293" title="In silico studies of magnesium-based implants: a review of the current stage and challenges" class="ltx_ref">10</a>]</cite> for a more complete list of recent published mechanistic and phenomenological models of the biodegradation process of Mg-based implants.</p>
+</div>
+<figure id="T2" class="ltx_table">
+<figcaption class="ltx_caption"><span class="ltx_tag ltx_tag_table">Table 1.2: </span>Summary of the recently-developed computational models of the degradation process of Mg-based biomaterials and some of their key characteristics. FEM: Finite Element Method; CFD: Computational Fluid Dynamics; FVM: Finite Volume Method; MOL: Method of Lines; FSI: Fluid-Structure Interaction; ALE: Arbitrary Lagrangian-Eulerian.</figcaption>
+<!-- <div class="ltx_inline-block ltx_transformed_outer" style="width:433.6pt;height:369.3pt;vertical-align:-1.6pt;"><span class="ltx_transformed_inner" style="transform:translate(-111.7pt,94.7pt) scale(0.660010070954452,0.660010070954452) ;"><div class="bml-overflow-wrapper"> -->
+<table class="ltx_tabular ltx_align_middle">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:78.1pt;"><span class="ltx_text ltx_font_bold ltx_align_top">Biological system</span></td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;"><span class="ltx_text ltx_font_bold ltx_align_top">Modeled device</span></td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;"><span class="ltx_text ltx_font_bold ltx_align_top">Material</span></td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:73.7pt;"><span class="ltx_text ltx_font_bold ltx_align_top">Basis of degradation</span></td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;"><span class="ltx_text ltx_font_bold ltx_align_top">Software used</span></td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;"><span class="ltx_text ltx_font_bold ltx_align_top">Modeling method</span></td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:21.7pt;"><span class="ltx_text ltx_font_bold ltx_align_top">Ref</span></td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:78.1pt;">
+<p class="ltx_p ltx_align_top">Artery</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">Vascular stent</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">Mg Alloy AZ31B</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:73.7pt;">
+<p class="ltx_p ltx_align_top">Surface corrosion</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">ABAQUS</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">FEM, UMAT</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:21.7pt;">
+<p class="ltx_p ltx_align_top"><cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib49" title="A quantitative study on magnesium alloy stent biodegradation" class="ltx_ref">82</a>]</cite></p>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:78.1pt;">
+<p class="ltx_p ltx_align_top">Artery</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">Vascular stent</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">Mg Alloy WE43</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:73.7pt;">
+<p class="ltx_p ltx_align_top">Surface corrosion</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">ANSYS Fluent</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">CFD, FSI, FVM</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:21.7pt;">
+<p class="ltx_p ltx_align_top"><cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib70" title="Degradation mechanism of magnesium alloy stent under simulated human micro-stress environment" class="ltx_ref">170</a>]</cite></p>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:78.1pt;">
+<p class="ltx_p ltx_align_top">Remodeling artery</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">Vascular stent</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">Mg Alloy AZ31</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:73.7pt;">
+<p class="ltx_p ltx_align_top">Uniform and pitting corrosion</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">ABAQUS</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">FEM, USDFLD</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:21.7pt;">
+<p class="ltx_p ltx_align_top"><cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib279" title="Computational modelling of magnesium stent mechanical performance in a remodelling artery: effects of multiple remodelling stimuli" class="ltx_ref">41</a>]</cite></p>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:78.1pt;">
+<p class="ltx_p ltx_align_top">Artery</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">Coronary stents</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">Mg alloys AZ31, AZ61, AZ80, ZK60 and ZM21</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:73.7pt;">
+<p class="ltx_p ltx_align_top">Surface and stress corrosion</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">ABAQUS</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">CD, FEM</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:21.7pt;">
+<p class="ltx_p ltx_align_top"><cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib50" title="Continuum damage model for bioresorbable magnesium alloy devices — application to coronary stents" class="ltx_ref">86</a>]</cite></p>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:78.1pt;">
+<p class="ltx_p ltx_align_top">Bone</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">Orthopedic implants</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">Pure Mg</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:73.7pt;">
+<p class="ltx_p ltx_align_top">Surface corrosion by considering biphasic layers</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">MATLAB</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">Mass transfer, MOL</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:21.7pt;">
+<p class="ltx_p ltx_align_top"><cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib71" title="Numerical modelling of effects of biphasic layers of corrosion products to the degradation of magnesium metal in vitro" class="ltx_ref">7</a>]</cite></p>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:78.1pt;">
+<p class="ltx_p ltx_align_top">Artery</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">Vascular stent</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">Mg Alloy AZ31</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:73.7pt;">
+<p class="ltx_p ltx_align_top">Surface corrosion</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">ABAQUS</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">Diffusion model, ALE, FEM</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:21.7pt;">
+<p class="ltx_p ltx_align_top"><cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib52" title="A physical corrosion model for bioabsorbable metal stents" class="ltx_ref">98</a>]</cite></p>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:78.1pt;">
+<p class="ltx_p ltx_align_top">Bone</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">Orthopedic pins</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">Mg alloys Mg-1Ca and Mg-3Ge</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:73.7pt;">
+<p class="ltx_p ltx_align_top">Surface corrosion</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">ABAQUS</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">Diffusion model, FEM</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:21.7pt;">
+<p class="ltx_p ltx_align_top"><cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib72" title="Predicting the degradation behavior of magnesium alloys with a diffusion-based theoretical model and in vitro corrosion testing" class="ltx_ref">236</a>]</cite></p>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:78.1pt;">
+<p class="ltx_p ltx_align_top">Hip bone</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">Orthopedic implant</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">Pure Mg</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:73.7pt;">
+<p class="ltx_p ltx_align_top">Surface corrosion</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">In-house, FreeFEM</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">Reaction-diffusion model, LSM, FEM</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:21.7pt;">
+<p class="ltx_p ltx_align_top"><cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib53" title="Mathematical modelling of the degradation behaviour of biodegradable metals" class="ltx_ref">23</a>]</cite></p>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:78.1pt;">
+<p class="ltx_p ltx_align_top">Bone</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">Orthopedic screws</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">Mg alloy</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:73.7pt;">
+<p class="ltx_p ltx_align_top">Surface corrosion</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">In-house</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">Reaction-diffusion model, FEM</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:21.7pt;">
+<p class="ltx_p ltx_align_top"><cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib74" title="In silico design of magnesium implants: macroscopic modeling" class="ltx_ref">227</a>]</cite></p>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:78.1pt;">
+<p class="ltx_p ltx_align_top">Bone</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">Porous scaffolds</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">Mg Alloy LAE442</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:73.7pt;">
+<p class="ltx_p ltx_align_top">Surface corrosion</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">ABAQUS</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">FEM, UMAT</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:21.7pt;">
+<p class="ltx_p ltx_align_top"><cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib88" title="A simulation model for the degradation of magnesium-based bone implants" class="ltx_ref">84</a>]</cite></p>
+</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:78.1pt;">
+<p class="ltx_p ltx_align_top">Artery</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">Vascular stent</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">Mg Alloy AZ31</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:73.7pt;">
+<p class="ltx_p ltx_align_top">Surface corrosion</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">ABAQUS</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:65.0pt;">
+<p class="ltx_p ltx_align_top">CD, FEM, UMAT</p>
+</td>
+<td class="ltx_td ltx_align_justify ltx_border_t" style="width:21.7pt;">
+<p class="ltx_p ltx_align_top"><cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib280" title="A multi-dimensional non-uniform corrosion model for bioabsorbable metallic vascular stents" class="ltx_ref">237</a>]</cite></p>
+</td>
+</tr>
+</table>
+<!-- </div> -->
+</span></div>
+</figure>
+<div id="S4.p5" class="ltx_para">
+<p class="ltx_p">The approach taken by Bajger et al. was followed in the current thesis, in which an improved model was developed by considering more chemical components and phenomena, allowing us to perform a more accurate validation using <span class="ltx_text ltx_font_italic">in vitro</span> data. Although the biodegradation models are getting more mature and more promising for simulating experimental situations, their integration into other models, such as mechanical stability analysis or neotissue growth, to construct fully-coupled models has remained a challenge. Solving this challenge will enable future models to replicate complex <span class="ltx_text ltx_font_italic">in vivo</span> conditions more accurately <span class="ltx_text ltx_font_italic">in silico</span>.</p>
+</div>
+<div class="ltx_pagination ltx_role_newpage"></div>
+</div>
+</section>
+</div>
+</section>
+</div>
+</div>
+</div>
+<a href="Chx1.html" class="navigation navigation-prev" aria-label="Previous page"><i class="fa fa-angle-left"></i></a><a href="Ch2.html" class="navigation navigation-next" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+</div>
+</div>
+<script src="bookml/gitbook/js/app.min.js"></script>
+<script src="bookml/gitbook/js/jquery.highlight.js"></script>
+<script src="bookml/gitbook/js/plugin-search.js"></script>
+<script src="bookml/gitbook/js/plugin-fontsettings.js"></script>
+<script src="bookml/gitbook/js/plugin-bookdown.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script>
+        MathJax = {
+          startup: {
+            ready() {
+              // do not process equations disabled with \bmlDisableMathJax (code suggested by Davide P. Cervone)
+              class bmlFindMathML extends MathJax._.input.mathml.FindMathML.FindMathML {
+                processMath(set) {
+                  const adaptor = this.adaptor;
+                  for (const node of set.values()) {
+                    if (adaptor.hasClass(node, 'bml_disable_mathjax')) {
+                      set.delete(node);
+                    }
+                  }
+                  return super.processMath(set);
+                }
+              }
+
+              MathJax._.components.global.combineDefaults(MathJax.config, 'mml', {FindMathML: new bmlFindMathML()});
+
+              MathJax.startup.defaultReady();
+
+              // preproces MathML to make MathJax aware of certain LaTeXML and BookML additional info
+              const mmlFilters = MathJax.startup.input[0].mmlFilters;
+
+              // convert the LaTeXML calligraphic (chancery) annotation to a form MathJax understands
+              // since the corresponding Unicode characters render as script (rounded)
+              const script2latin = {
+                '𝒜': 'A', 'ℬ': 'B', '𝒞': 'C', '𝒟': 'D', 'ℰ': 'E', 'ℱ': 'F', '𝒢': 'G',
+                'ℋ': 'H', 'ℐ': 'I', '𝒥': 'J', '𝒦': 'K', 'ℒ': 'L', 'ℳ': 'M', '𝒩': 'N',
+                '𝒪': 'O', '𝒫': 'P', '𝒬': 'Q', 'ℛ': 'R', '𝒮': 'S', '𝒯': 'T', '𝒰': 'U',
+                '𝒱': 'V', '𝒲': 'W', '𝒳': 'X', '𝒴': 'Y', '𝒵': 'Z',
+              };
+
+              mmlFilters.add((args) => {
+                for (const n of args.data.getElementsByClassName('ltx_font_mathcaligraphic')) {
+                  n.classList.add('MJX-tex-calligraphic');
+                  const letter = script2latin[n.textContent];
+                  if (letter !== undefined) { n.textContent = letter; }
+                }
+              });
+
+              // adjust characters based on Unicode variation sequences
+              const replacements = {
+                // MathJax renders the empty set as the U+FE00 variant, so the plain character needs adjusting
+                '∅': { variant: 'variant' },
+                // MathJax renders script characters in rounded style, which is fine for no variation and U+FE00
+                '𝒜\xFE00': { text: 'A', variant: 'tex-calligraphic' },
+                'ℬ\xFE00': { text: 'B', variant: 'tex-calligraphic' },
+                '𝒞\xFE00': { text: 'C', variant: 'tex-calligraphic' },
+                '𝒟\xFE00': { text: 'D', variant: 'tex-calligraphic' },
+                'ℰ\xFE00': { text: 'E', variant: 'tex-calligraphic' },
+                'ℱ\xFE00': { text: 'F', variant: 'tex-calligraphic' },
+                '𝒢\xFE00': { text: 'G', variant: 'tex-calligraphic' },
+                'ℋ\xFE00': { text: 'H', variant: 'tex-calligraphic' },
+                'ℐ\xFE00': { text: 'I', variant: 'tex-calligraphic' },
+                '𝒥\xFE00': { text: 'J', variant: 'tex-calligraphic' },
+                '𝒦\xFE00': { text: 'K', variant: 'tex-calligraphic' },
+                'ℒ\xFE00': { text: 'L', variant: 'tex-calligraphic' },
+                'ℳ\xFE00': { text: 'M', variant: 'tex-calligraphic' },
+                '𝒩\xFE00': { text: 'N', variant: 'tex-calligraphic' },
+                '𝒪\xFE00': { text: 'O', variant: 'tex-calligraphic' },
+                '𝒫\xFE00': { text: 'P', variant: 'tex-calligraphic' },
+                '𝒬\xFE00': { text: 'Q', variant: 'tex-calligraphic' },
+                'ℛ\xFE00': { text: 'R', variant: 'tex-calligraphic' },
+                '𝒮\xFE00': { text: 'S', variant: 'tex-calligraphic' },
+                '𝒯\xFE00': { text: 'T', variant: 'tex-calligraphic' },
+                '𝒰\xFE00': { text: 'U', variant: 'tex-calligraphic' },
+                '𝒱\xFE00': { text: 'V', variant: 'tex-calligraphic' },
+                '𝒲\xFE00': { text: 'W', variant: 'tex-calligraphic' },
+                '𝒳\xFE00': { text: 'X', variant: 'tex-calligraphic' },
+                '𝒴\xFE00': { text: 'Y', variant: 'tex-calligraphic' },
+                '𝒵\xFE00': { text: 'Z', variant: 'tex-calligraphic' }
+              };
+
+              mmlFilters.add((args) => {
+                let nodes = document.evaluate('.//m:mi | .//m:mn | .//m:mo | .//m:ms', args.data,
+                  () => 'http://www.w3.org/1998/Math/MathML', XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE);
+                for (let i = 0; i < nodes.snapshotLength; i++) {
+                  const n = nodes.snapshotItem(i);
+                  const repl = replacements[n.innerHTML];
+                  if (repl !== undefined) {
+                    const variant = repl['variant'];
+                    const text = repl['text'];
+                    if (variant !== undefined) { n.classList.add('MJX-' + variant); n.removeAttribute('mathvariant'); }
+                    if (text !== undefined) { n.innerHTML = text; }
+                  }
+                }
+              });
+            }
+          }
+        };
+      </script>
+<script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js"></script>
+<script type="text/javascript">
+                gitbook.require(["gitbook"], function(gitbook) {
+                gitbook.start({
+                  "fontsettings": {
+                    "theme": "white",
+                    "family": "sans",
+                    "size": 2
+                  },
+                  "download": [ [ "thesis.pdf", "PDF" ], ],
+                  "search": {
+                    "engine": "fuse"
+                  },
+                  "toc": {
+                    "collapse": "none"
+                  }
+                });
+              });
+            </script>
+</body>
+
+</html>

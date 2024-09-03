@@ -1,0 +1,899 @@
+<!DOCTYPE html><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>4 Extending the model: adding fluid flow and convection‣ Mathematical and computational modeling of metallic biomaterials biodegradation</title>
+<!--Generated on Sat Aug 31 17:26:45 2024 by LaTeXML (version 0.8.6) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on KU Leuven, June 2023.-->
+
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/style.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/plugin-table.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/plugin-search.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/plugin-bookdown.css" type="text/css">
+<link rel="stylesheet" href="bookml/gitbook/css/plugin-fontsettings.css" type="text/css">
+<link rel="stylesheet" href="ltx-report.css" type="text/css">
+<link rel="stylesheet" href="bookml/CSS/style.css" type="text/css">
+<link rel="stylesheet" href="bookml/CSS/style.gitbook,plain.css" type="text/css">
+<link rel="stylesheet" href="bookml/CSS/style.gitbook.css" type="text/css">
+<link rel="stylesheet" href="bmluser/colors.gitbook-thesis.css" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6"></script>
+<link rel="up" href="index.html" title="Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="start" href="index.html" title="Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="prev" href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="next" href="Ch5.html" title="Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Chx1.html" title="Abstract ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch1.html" title="Chapter 1 General introduction ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch2.html" title="Chapter 2 Aims and objectives ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch5.html" title="Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch6.html" title="Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch7.html" title="Chapter 7 Model parallelization for high-performance computing ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch8.html" title="Chapter 8 BioDeg simulation software ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch9.html" title="Chapter 9 Bayesian parameter estimation of the computational models ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch10.html" title="Chapter 10 Model applications: patient-specific porous acetabular implants ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch11.html" title="Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch12.html" title="Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="chapter" href="Ch13.html" title="Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="bibliography" href="bib.html" title="Bibliography ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+<link rel="appendix" href="A1.html" title="Appendix A Mesh quality plots ‣ Mathematical and computational modeling of metallic biomaterials biodegradation">
+</head>
+<body>
+<div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+<a href="#bml-main-content" tabindex="0" class="bml-skip-to-content">Skip to content.</a>
+<div class="book-summary"><nav class="ltx_page_navbar">
+<ul class="ltx_toclist summary">
+<li>
+<a href="index.html" title="Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref" rel="start">Mathematical and computational modeling of metallic biomaterials biodegradation</a>
+</li>
+<li class="divider">
+<li data-level="" data-path="Chx1.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Chx1.html" title="Abstract ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref">Abstract</a></li>
+<li data-level="1" data-path="Ch1.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch1.html" title="Chapter 1 General introduction ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">1 </span></b>General introduction</a></li>
+<li data-level="2" data-path="Ch2.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch2.html" title="Chapter 2 Aims and objectives ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">2 </span></b>Aims and objectives</a></li>
+<li data-level="3" data-path="Ch3.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">3 </span></b>Developing the core computational model</a></li>
+<li data-level="4" data-path="" class="ltx_tocentry ltx_tocentry_chapter ltx_ref_self  chapter active">
+<a href="" title="Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">4 </span></b>Extending the model: adding fluid flow and convection</a>
+<ul class="ltx_toclist ltx_toclist_chapter">
+<li data-level="4.1" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter "><a href="#S1" title="4.1 Introduction ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">4.1 </span></b>Introduction</a></li>
+<li data-level="4.2" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter ">
+<a href="#S2" title="4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">4.2 </span></b>Methods</a>
+<ul class="ltx_toclist ltx_toclist_section">
+<li data-level="4.2.1" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S2.SS1" title="4.2.1 Navier-Stokes equations ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">4.2.1 </span></b>Navier-Stokes equations</a></li>
+<li data-level="4.2.2" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S2.SS2" title="4.2.2 Weak formulation of the Navier-Stokes equations ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">4.2.2 </span></b>Weak formulation of the Navier-Stokes equations</a></li>
+<li data-level="4.2.3" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S2.SS3" title="4.2.3 Stokes equations ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">4.2.3 </span></b>Stokes equations</a></li>
+<li data-level="4.2.4" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S2.SS4" title="4.2.4 Implementation ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">4.2.4 </span></b>Implementation</a></li>
+<li data-level="4.2.5" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S2.SS5" title="4.2.5 Preconditioning and parallelizing the computation ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">4.2.5 </span></b>Preconditioning and parallelizing the computation</a></li>
+<li data-level="4.2.6" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter "><a href="#S2.SS6" title="4.2.6 Considering the degrading object ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">4.2.6 </span></b>Considering the degrading object</a></li>
+<li data-level="4.2.7" data-path="" class="ltx_tocentry ltx_tocentry_subsection  chapter ">
+<a href="#S2.SS7" title="4.2.7 Simulation setup ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">4.2.7 </span></b>Simulation setup</a>
+<ul class="ltx_toclist ltx_toclist_subsection">
+<li data-level="" data-path="" class="ltx_tocentry ltx_tocentry_subsubsection  chapter "><a href="#S2.SS7.SSSx1" title="Test case to compare with OpenFOAM ‣ 4.2.7 Simulation setup ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref">Test case to compare with OpenFOAM</a></li>
+<li data-level="" data-path="" class="ltx_tocentry ltx_tocentry_subsubsection  chapter "><a href="#S2.SS7.SSSx2" title="Test case to check coupling with degradation model ‣ 4.2.7 Simulation setup ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref">Test case to check coupling with degradation model</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li data-level="4.3" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter "><a href="#S3" title="4.3 Results ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">4.3 </span></b>Results</a></li>
+<li data-level="4.4" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter "><a href="#S4" title="4.4 Discussion ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">4.4 </span></b>Discussion</a></li>
+<li data-level="4.5" data-path="" class="ltx_tocentry ltx_tocentry_section  chapter "><a href="#S5" title="4.5 Conclusion ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">4.5 </span></b>Conclusion</a></li>
+</ul>
+</li>
+<li data-level="5" data-path="Ch5.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch5.html" title="Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">5 </span></b>Extending the model: simulating local pH evolution</a></li>
+<li data-level="6" data-path="Ch6.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch6.html" title="Chapter 6 Computational modeling of the neotissue growth process ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">6 </span></b>Computational modeling of the neotissue growth process</a></li>
+<li data-level="7" data-path="Ch7.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch7.html" title="Chapter 7 Model parallelization for high-performance computing ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">7 </span></b>Model parallelization for high-performance computing</a></li>
+<li data-level="8" data-path="Ch8.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch8.html" title="Chapter 8 BioDeg simulation software ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">8 </span></b>BioDeg simulation software</a></li>
+<li data-level="9" data-path="Ch9.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch9.html" title="Chapter 9 Bayesian parameter estimation of the computational models ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">9 </span></b>Bayesian parameter estimation of the computational models</a></li>
+<li data-level="10" data-path="Ch10.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch10.html" title="Chapter 10 Model applications: patient-specific porous acetabular implants ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">10 </span></b>Model applications: patient-specific porous acetabular implants</a></li>
+<li data-level="11" data-path="Ch11.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch11.html" title="Chapter 11 Model applications: mechanical integrity of infilled structures ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">11 </span></b>Model applications: mechanical integrity of infilled structures</a></li>
+<li data-level="12" data-path="Ch12.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch12.html" title="Chapter 12 Model applications: mechanical loosening of mandibular plates ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">12 </span></b>Model applications: mechanical loosening of mandibular plates</a></li>
+<li data-level="13" data-path="Ch13.html" class="ltx_tocentry ltx_tocentry_chapter  chapter "><a href="Ch13.html" title="Chapter 13 Conclusion ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">13 </span></b>Conclusion</a></li>
+<li data-level="" data-path="bib.html" class="ltx_tocentry ltx_tocentry_bibliography  chapter "><a href="bib.html" title="Bibliography ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref">Bibliography</a></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li data-level="A" data-path="A1.html" class="ltx_tocentry ltx_tocentry_appendix  chapter "><a href="A1.html" title="Appendix A Mesh quality plots ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><b><span class="ltx_tag ltx_tag_ref">A </span></b>Mesh quality plots</a></li>
+</ul>
+</nav></div>
+<div class="ltx_page_main book-body fixed">
+<div class="body-inner">
+<div class="book-header fixed" role="navigation"><h1>Extending the model: adding fluid flow and convection</h1></div>
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="ltx_page_content page-inner" id="bml-main-content">
+<section class="ltx_chapter normal">
+<div class="section level1">
+
+<h1 class="ltx_title ltx_title_chapter">
+<span class="ltx_tag ltx_tag_chapter header-section-number">Chapter 4</span> Extending the model: adding fluid flow and convection</h1>
+
+<div id="p1" class="ltx_para ltx_noindent">
+<p class="ltx_p">
+<span class="ltx_inline-block ltx_parbox ltx_align_middle ltx_framed_rectangle" style="padding:9pt;width:433.6pt;">
+<span class="ltx_p">This chapter is partially based on a manuscript prepared to be submitted:</span>
+<span class="ltx_p">M. Barzegari, C. Wang, S.V. Lamaka, G. Zavodszky, and L. Geris, “Interface-coupled multiphysics computational modeling of local pH changes during the biodegradation of magnesium biomaterials.”</span>
+</span></p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">Similar to the importance of perfusion in tissue engineering bioreactors, fluid flow plays an important role in biodegradation tests in hydrodynamics conditions. In this chapter, the development of a parallel fluid flow model is detailed, which is further coupled with the biodegradation model for simulating immersion tests in hydrodynamics setup.</p>
+</div>
+<section id="S1" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">4.1</span> Introduction</h2>
+
+<div id="S1.p1" class="ltx_para">
+<p class="ltx_p">Considering fluid flow in the developed biodegradation model is crucial in light of the final application of the model, which is to be coupled with cell differentiation and tissue growth models to predict the rate of neotissue formation on biodegradable implants and scaffolds. In tissue engineering, cell expansion and differentiation experiments usually take place inside perfusion bioreactors, meaning that the flow of a biological fluid provides sufficient nutrients needed for the growth process and removes unnecessary and undesirable waste <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib209" title="Flow perfusion enhances the calcified matrix deposition of marrow stromal cells in biodegradable nonwoven fiber mesh scaffolds" class="ltx_ref">239</a>, <a href="bib.html#bib210" title="Optimizing the medium perfusion rate in bone tissue engineering bioreactors" class="ltx_ref">95</a>, <a href="bib.html#bib211" title="Human periosteal-derived cell expansion in a perfusion bioreactor system: proliferation, differentiation and extracellular matrix formation" class="ltx_ref">244</a>]</cite>. Moreover, the induced shear stress resulting from this perfusion plays a prominent role in the cell differentiation process <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib212" title="Mechanical modulation of nascent stem cell lineage commitment in tissue engineering scaffolds" class="ltx_ref">242</a>, <a href="bib.html#bib213" title="Influence of flow rate and scaffold pore size on cell behavior during mechanical stimulation in a flow perfusion bioreactor" class="ltx_ref">188</a>, <a href="bib.html#bib214" title="Bioreactor systems for bone tissue engineering" class="ltx_ref">213</a>, <a href="bib.html#bib215" title="Process quality engineering for bioreactor-driven manufacturing of tissue-engineered constructs for bone regeneration" class="ltx_ref">204</a>]</cite>, making the fluid flow inside the bioreactor even more critical. Consequently, the effect of the fluid flow should be considered in the biodegradation model to enable it to make predictions in a perfusion setup, which is interchangeably called hydrodynamics conditions in chemistry.</p>
+</div>
+<div id="S1.p2" class="ltx_para">
+<p class="ltx_p">Fluid flow in the context of a hydrodynamic condition has a similar application in corrosion and biodegradation experiments <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib221" title="Flow-induced corrosion behavior of absorbable magnesium-based stents" class="ltx_ref">269</a>]</cite>. In a typical setup, the electrolyte moves and is refreshed over time to remove the corrosion products and provide needed mechanical stimuli if applicable. In biodegradation experiments, the flow velocity and induced shear stress affect the corrosion behavior of degradable scaffolds and implants due to increased mechanical forces and mass transfer <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib221" title="Flow-induced corrosion behavior of absorbable magnesium-based stents" class="ltx_ref">269</a>]</cite>. Studies show that hydrodynamics conditions play a significant role in Mg degradation <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib222" title="Design of a pseudo-physiological test bench specific to the development of biodegradable metallic biomaterials" class="ltx_ref">160</a>]</cite> where the corrosion rate increases in comparison to static conditions in immersion tests, in the presence of flowing <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib223" title="Comparative study on corrosion behaviour of pure mg and WE43 alloy in static, stirring and flowing hank’s solution" class="ltx_ref">165</a>]</cite>, rotating <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib224" title="Novel approach using EIS to study flow accelerated pitting corrosion of AA5083-h321 aluminum–magnesium alloy in NaCl solution" class="ltx_ref">134</a>]</cite>, circulating <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib225" title="Dynamic degradation behavior of MgZn alloy in circulating m-SBF" class="ltx_ref">54</a>]</cite>, and <span class="ltx_text ltx_font_italic">in vivo</span> perfusion <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib226" title="MRI based perfusion measurements in bone after implantation of biodegradable magnesium rods" class="ltx_ref">278</a>]</cite>. Additionally, the fluid flow helps remove the corrosion products and avoid their accumulation <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib227" title="Influence of pH and flow on the polarisation behaviour of pure magnesium in borate buffer solutions" class="ltx_ref">117</a>]</cite>.</p>
+</div>
+<div id="S1.p3" class="ltx_para">
+<p class="ltx_p">The effect of hydrodynamics condition on the rate and pattern of biodegradation is rooted in the distribution and diffusion of fluids <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib243" title="Flow effects on corrosion" class="ltx_ref">71</a>]</cite>, which can be related to increment of mechanical stimuli like wall shear stress or increment in ions transport. It is reported that the presence of fluid flow leading to accelerated movement of the corrosive medium increases the rate of uniform and localized corrosion of Mg alloys <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib221" title="Flow-induced corrosion behavior of absorbable magnesium-based stents" class="ltx_ref">269</a>]</cite>. The increase in corrosion rate is due to the increase of mass transfer of ions <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib243" title="Flow effects on corrosion" class="ltx_ref">71</a>]</cite>, affecting the chemical reactions occurring in the interface of Mg and the electrolyte <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib227" title="Influence of pH and flow on the polarisation behaviour of pure magnesium in borate buffer solutions" class="ltx_ref">117</a>, <a href="bib.html#bib244" title="Effect of fluid hydrodynamics on flow-assisted corrosion of aluminum alloy in ethylene glycol–water solution studied by a microelectrode technique" class="ltx_ref">284</a>]</cite>. Moreover, the increment in mass transfer removes more corrosion products from the surface, which is another contribution of the fluid flow to increasing the biodegradation rate <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib243" title="Flow effects on corrosion" class="ltx_ref">71</a>]</cite>. Wang et al. <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib221" title="Flow-induced corrosion behavior of absorbable magnesium-based stents" class="ltx_ref">269</a>]</cite> reported that the degradation rate was <math id="S1.p3.m1" class="ltx_Math" alttext="0.37\pm 0.007" display="inline"><semantics><mrow><mn>0.37</mn><mo>±</mo><mn>0.007</mn></mrow><annotation encoding="application/x-tex">0.37\pm 0.007</annotation></semantics></math> and <math id="S1.p3.m2" class="ltx_Math" alttext="1.21\pm 0.27\text{mm.year}^{-1}" display="inline"><semantics><mrow><mn>1.21</mn><mo>±</mo><mrow><mn>0.27</mn><mo>⁢</mo><msup><mtext>mm.year</mtext><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow></mrow><annotation encoding="application/x-tex">1.21\pm 0.27\text{mm.year}^{-1}</annotation></semantics></math> for the corrosion of stents made of Mg AZ31 alloys in static and hydrodynamics conditions, respectively. After considering the volume loss with CT measurements, they have concluded that the corrosion rate of these alloys is three times more in the presence of fluid flow, increasing from <math id="S1.p3.m3" class="ltx_Math" alttext="\sim 0.6\text{mm.year}^{-1}" display="inline"><semantics><mrow><mi></mi><mo>∼</mo><mrow><mn>0.6</mn><mo>⁢</mo><msup><mtext>mm.year</mtext><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow></mrow><annotation encoding="application/x-tex">\sim 0.6\text{mm.year}^{-1}</annotation></semantics></math> in static condition to <math id="S1.p3.m4" class="ltx_Math" alttext="\sim 1.5\text{mm.year}^{-1}" display="inline"><semantics><mrow><mi></mi><mo>∼</mo><mrow><mn>1.5</mn><mo>⁢</mo><msup><mtext>mm.year</mtext><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow></mrow><annotation encoding="application/x-tex">\sim 1.5\text{mm.year}^{-1}</annotation></semantics></math> in a hydrodynamics setup <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib221" title="Flow-induced corrosion behavior of absorbable magnesium-based stents" class="ltx_ref">269</a>]</cite>. This shows the significance of adding fluid flow to the developed biodegradation model.</p>
+</div>
+<div id="S1.p4" class="ltx_para">
+<p class="ltx_p">Computational Fluid Dynamics (CFD) is the field of studying the dynamics of fluid flow using mathematical and computational methods <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib216" title="Introduction to computational fluid dynamics, an" class="ltx_ref">103</a>, <a href="bib.html#bib217" title="Introduction to computational fluid dynamics" class="ltx_ref">234</a>]</cite>. The fluid flow is usually expressed in the form of Navier-Stokes or Stokes equations, on which appropriate numerical schemes are applied and the derived system of equations is solved using computers, resulting in the prediction of flow patterns and secondary entities like the shear stress. CFD modeling has been used in tissue engineering to study fluid flow systems such as dynamic cell culture conditions in perfusion bioreactors <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib218" title="Computational fluid dynamics for improved bioreactor design and 3d culture" class="ltx_ref">124</a>, <a href="bib.html#bib219" title="Investigation of the in vitro culture process for skeletal-tissue-engineered constructs using computational fluid dynamics and experimental methods" class="ltx_ref">122</a>, <a href="bib.html#bib220" title="Application of computational fluid dynamics in tissue engineering" class="ltx_ref">206</a>]</cite>.</p>
+</div>
+<div id="S1.p5" class="ltx_para">
+<p class="ltx_p">In this chapter, a parallel computational model for fluid flow simulations was developed and coupled with the biodegradation model. The model was developed by solving the derived equations, i.e., Navier-Stokes equations coupled with the Darcy effect for the degrading object, using the finite element method. To ensure proper verification of the simulation results, the model output was compared with an OpenFOAM simulation on the same geometry and setup.</p>
+</div>
+</div>
+</section>
+<section id="S2" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">4.2</span> Methods</h2>
+
+<section id="S2.SS1" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">4.2.1</span> Navier-Stokes equations</h3>
+
+<div id="S2.SS1.p1" class="ltx_para">
+<p class="ltx_p">In its general form, the Navier-Stokes equations describing the flow of an incompressible fluid with constant density <math id="S2.SS1.p1.m1" class="ltx_Math" alttext="\rho" display="inline"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math> in the domain <math id="S2.SS1.p1.m2" class="ltx_Math" alttext="\Omega\subset\mathbb{R}^{d}" display="inline"><semantics><mrow><mi mathvariant="normal">Ω</mi><mo>⊂</mo><msup><mi>ℝ</mi><mi>d</mi></msup></mrow><annotation encoding="application/x-tex">\Omega\subset\mathbb{R}^{d}</annotation></semantics></math> (with <math id="S2.SS1.p1.m3" class="ltx_Math" alttext="d" display="inline"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math> being the dimension, so 2 or 3) can be written as <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib188" title="Computational fluid dynamics" class="ltx_ref">57</a>]</cite>:</p>
+<div id="E1" class="ltx_equation ltx_eqn_div">
+<span><math id="E1.m1" class="ltx_Math" alttext="\left\{{\begin{array}[]{*{20}{l}}\displaystyle{\frac{{\partial{\mathbf{u}}}}{{%
+\partial t}}-{\nabla\cdot}[\nu(\nabla{\mathbf{u}}+\nabla{{\mathbf{u}}^{T}})]+(%
+{\mathbf{u}}.\nabla){\mathbf{u}}+\nabla p={\mathbf{f}},\quad x\in\Omega,t&gt;0,}%
+\\
+\displaystyle{\nabla\cdot{\mathbf{u}}=0,\quad\quad\quad\quad\quad\quad\quad%
+\quad\quad\quad\quad\quad\quad\quad x\in\Omega,t&gt;0,}\end{array}}\right." display="block"><semantics><mrow><mo>{</mo><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="left"><mrow><mfrac><mrow><mo>∂</mo><mo>⁡</mo><mi>𝐮</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><mi>t</mi></mrow></mfrac><mo>-</mo><mo>∇</mo><mo>⋅</mo><mrow><mo stretchy="false">[</mo><mi>ν</mi><mrow><mo stretchy="false">(</mo><mo>∇</mo><mi>𝐮</mi><mo>+</mo><mo>∇</mo><msup><mi>𝐮</mi><mi>T</mi></msup><mo stretchy="false">)</mo></mrow><mo stretchy="false">]</mo></mrow><mo>+</mo><mrow><mo stretchy="false">(</mo><mi>𝐮</mi><mo>.</mo><mo>∇</mo><mo stretchy="false">)</mo></mrow><mi>𝐮</mi><mo>+</mo><mo>∇</mo><mi>p</mi><mo>=</mo><mi>𝐟</mi><mo rspace="12.5pt">,</mo><mi>x</mi><mo>∈</mo><mi mathvariant="normal">Ω</mi><mo>,</mo><mi>t</mi><mo>&gt;</mo><mn>0</mn><mo>,</mo></mrow></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd></mtr><mtr><mtd columnalign="left"><mrow><mrow><mrow><mrow><mo>∇</mo><mo>⋅</mo><mi>𝐮</mi></mrow><mo>=</mo><mn>0</mn></mrow><mo rspace="142.5pt">,</mo><mrow><mrow><mi>x</mi><mo>∈</mo><mi mathvariant="normal">Ω</mi></mrow><mo>,</mo><mrow><mi>t</mi><mo>&gt;</mo><mn>0</mn></mrow></mrow></mrow><mo>,</mo></mrow></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd></mtr></mtable><mi></mi></mrow><annotation encoding="application/x-tex">\left\{{\begin{array}[]{*{20}{l}}\displaystyle{\frac{{\partial{\mathbf{u}}}}{{%
+\partial t}}-{\nabla\cdot}[\nu(\nabla{\mathbf{u}}+\nabla{{\mathbf{u}}^{T}})]+(%
+{\mathbf{u}}.\nabla){\mathbf{u}}+\nabla p={\mathbf{f}},\quad x\in\Omega,t&gt;0,}%
+\\
+\displaystyle{\nabla\cdot{\mathbf{u}}=0,\quad\quad\quad\quad\quad\quad\quad%
+\quad\quad\quad\quad\quad\quad\quad x\in\Omega,t&gt;0,}\end{array}}\right.</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(4.1)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">in which <math id="S2.SS1.p1.m4" class="ltx_Math" alttext="\mathbf{u}" display="inline"><semantics><mi>𝐮</mi><annotation encoding="application/x-tex">\mathbf{u}</annotation></semantics></math> is the fluid velocity, <math id="S2.SS1.p1.m5" class="ltx_Math" alttext="p" display="inline"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math> is the pressure (which is actually pressure divided by the density), <math id="S2.SS1.p1.m6" class="ltx_Math" alttext="\nu=\frac{\mu}{\rho}" display="inline"><semantics><mrow><mi>ν</mi><mo>=</mo><mfrac><mi>μ</mi><mi>ρ</mi></mfrac></mrow><annotation encoding="application/x-tex">\nu=\frac{\mu}{\rho}</annotation></semantics></math> is the kinematic viscosity (with <math id="S2.SS1.p1.m7" class="ltx_Math" alttext="\mu" display="inline"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math> being the dynamic viscosity), and
+<math id="S2.SS1.p1.m8" class="ltx_Math" alttext="\mathbf{f}" display="inline"><semantics><mi>𝐟</mi><annotation encoding="application/x-tex">\mathbf{f}</annotation></semantics></math> is a force term. The equations are conservation of linear momentum and conservation of mass (also called continuity equation), respectively. When <math id="S2.SS1.p1.m9" class="ltx_Math" alttext="\nu" display="inline"><semantics><mi>ν</mi><annotation encoding="application/x-tex">\nu</annotation></semantics></math> is constant, the diffusion term in Eq. <a href="#E1" title="(4.1) ‣ 4.2.1 Navier-Stokes equations ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.1</span></a> can be simplified as <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib189" title="Navier-stokes equations" class="ltx_ref">210</a>]</cite>:</p>
+<div id="E2" class="ltx_equation ltx_eqn_div">
+<span><math id="E2.m1" class="ltx_Math" alttext="\text{div}[\nu(\nabla{\bf u}+\nabla{\bf u}^{T})]=\nu(\Delta{\bf u}+\nabla\text%
+{div}{\bf u})=\nu\Delta{\bf u}," display="block"><semantics><mrow><mrow><mrow><mtext>div</mtext><mo>⁢</mo><mrow><mo stretchy="false">[</mo><mrow><mi>ν</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mrow><mo>∇</mo><mo>⁡</mo><mi>𝐮</mi></mrow><mo>+</mo><mrow><mo>∇</mo><mo>⁡</mo><msup><mi>𝐮</mi><mi>T</mi></msup></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">]</mo></mrow></mrow><mo>=</mo><mrow><mi>ν</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>𝐮</mi></mrow><mo>+</mo><mrow><mo>∇</mo><mo>⁡</mo><mrow><mtext>div</mtext><mo>⁢</mo><mi>𝐮</mi></mrow></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mi>ν</mi><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>𝐮</mi></mrow></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">\text{div}[\nu(\nabla{\bf u}+\nabla{\bf u}^{T})]=\nu(\Delta{\bf u}+\nabla\text%
+{div}{\bf u})=\nu\Delta{\bf u},</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(4.2)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">which turns Eq. <a href="#E1" title="(4.1) ‣ 4.2.1 Navier-Stokes equations ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.1</span></a> into the following form:</p>
+<div id="E3" class="ltx_equation ltx_eqn_div">
+<span><math id="E3.m1" class="ltx_Math" alttext="\left\{{\begin{array}[]{*{20}{l}}\displaystyle{\frac{{\partial{\mathbf{u}}}}{{%
+\partial t}}-\nu\Delta{\mathbf{u}}+\left({{\mathbf{u}}\cdot\nabla}\right){%
+\mathbf{u}}+\nabla p={\mathbf{f}},\quad x\in\Omega,t&gt;0,}\\
+\displaystyle{\nabla\cdot{\mathbf{u}}=0,\quad\quad\quad\quad\quad\quad\quad%
+\quad\quad\quad\quad\quad\quad\quad x\in\Omega,t&gt;0,}\end{array}}\right." display="block"><semantics><mrow><mo>{</mo><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="left"><mrow><mrow><mrow><mrow><mrow><mfrac><mrow><mo>∂</mo><mo>⁡</mo><mi>𝐮</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><mi>t</mi></mrow></mfrac><mo>-</mo><mrow><mi>ν</mi><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>𝐮</mi></mrow></mrow><mo>+</mo><mrow><mrow><mo>(</mo><mrow><mi>𝐮</mi><mo>⋅</mo><mo>∇</mo></mrow><mo>)</mo></mrow><mo>⁢</mo><mi>𝐮</mi></mrow><mo>+</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>p</mi></mrow></mrow><mo>=</mo><mi>𝐟</mi></mrow><mo rspace="12.5pt">,</mo><mrow><mrow><mi>x</mi><mo>∈</mo><mi mathvariant="normal">Ω</mi></mrow><mo>,</mo><mrow><mi>t</mi><mo>&gt;</mo><mn>0</mn></mrow></mrow></mrow><mo>,</mo></mrow></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd></mtr><mtr><mtd columnalign="left"><mrow><mrow><mrow><mrow><mo>∇</mo><mo>⋅</mo><mi>𝐮</mi></mrow><mo>=</mo><mn>0</mn></mrow><mo rspace="142.5pt">,</mo><mrow><mrow><mi>x</mi><mo>∈</mo><mi mathvariant="normal">Ω</mi></mrow><mo>,</mo><mrow><mi>t</mi><mo>&gt;</mo><mn>0</mn></mrow></mrow></mrow><mo>,</mo></mrow></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd></mtr></mtable><mi></mi></mrow><annotation encoding="application/x-tex">\left\{{\begin{array}[]{*{20}{l}}\displaystyle{\frac{{\partial{\mathbf{u}}}}{{%
+\partial t}}-\nu\Delta{\mathbf{u}}+\left({{\mathbf{u}}\cdot\nabla}\right){%
+\mathbf{u}}+\nabla p={\mathbf{f}},\quad x\in\Omega,t&gt;0,}\\
+\displaystyle{\nabla\cdot{\mathbf{u}}=0,\quad\quad\quad\quad\quad\quad\quad%
+\quad\quad\quad\quad\quad\quad\quad x\in\Omega,t&gt;0,}\end{array}}\right.</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(4.3)</span>
+              
+              
+            
+</div>
+</div>
+<div id="S2.SS1.p2" class="ltx_para">
+<p class="ltx_p">Eq. <a href="#E3" title="(4.3) ‣ 4.2.1 Navier-Stokes equations ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.3</span></a> satisfies the incompressibility condition <math id="S2.SS1.p2.m1" class="ltx_Math" alttext="\nabla\cdot\mathbf{u}=0" display="inline"><semantics><mrow><mrow><mo>∇</mo><mo>⋅</mo><mi>𝐮</mi></mrow><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\nabla\cdot\mathbf{u}=0</annotation></semantics></math> and needs proper initial and boundary conditions to be well-posed. The initial condition can be defined as:</p>
+<div id="E4" class="ltx_equation ltx_eqn_div">
+<span><math id="E4.m1" class="ltx_Math" alttext="{\bf u}({\bf x},0)={\bf u}_{0}({\bf x})\qquad\forall{\bf x}\ \epsilon\ {\bf%
+\Omega,}" display="block"><semantics><mrow><mrow><mrow><mi>𝐮</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>𝐱</mi><mo>,</mo><mn>0</mn><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mrow><msub><mi>𝐮</mi><mn>0</mn></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>𝐱</mi><mo stretchy="false">)</mo></mrow></mrow><mo mathvariant="italic" separator="true">  </mo><mrow><mo>∀</mo><mrow><mpadded width="+5pt"><mi>𝐱</mi></mpadded><mo>⁢</mo><mpadded width="+5pt"><mi>ϵ</mi></mpadded><mo>⁢</mo><mi>𝛀</mi></mrow></mrow></mrow></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">{\bf u}({\bf x},0)={\bf u}_{0}({\bf x})\qquad\forall{\bf x}\ \epsilon\ {\bf%
+\Omega,}</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(4.4)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">where <math id="S2.SS1.p2.m2" class="ltx_Math" alttext="{\bf u}_{0}" display="inline"><semantics><msub><mi>𝐮</mi><mn>0</mn></msub><annotation encoding="application/x-tex">{\bf u}_{0}</annotation></semantics></math> is a divergence-free velocity field. Various types of boundary conditions can be applied, but the ones we deal with in this chapter are described here. If <math id="S2.SS1.p2.m3" class="ltx_Math" alttext="\partial\Omega" display="inline"><semantics><mrow><mo>∂</mo><mo>⁡</mo><mi mathvariant="normal">Ω</mi></mrow><annotation encoding="application/x-tex">\partial\Omega</annotation></semantics></math> is the boundary of <math id="S2.SS1.p2.m4" class="ltx_Math" alttext="\Omega" display="inline"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>, it can be split into 3 distinct boundaries <math id="S2.SS1.p2.m5" class="ltx_Math" alttext="\partial\Omega=\Gamma_{1}\cup\Gamma_{2}\cup\Gamma_{3}" display="inline"><semantics><mrow><mrow><mo>∂</mo><mo>⁡</mo><mi mathvariant="normal">Ω</mi></mrow><mo>=</mo><mrow><msub><mi mathvariant="normal">Γ</mi><mn>1</mn></msub><mo>∪</mo><msub><mi mathvariant="normal">Γ</mi><mn>2</mn></msub><mo>∪</mo><msub><mi mathvariant="normal">Γ</mi><mn>3</mn></msub></mrow></mrow><annotation encoding="application/x-tex">\partial\Omega=\Gamma_{1}\cup\Gamma_{2}\cup\Gamma_{3}</annotation></semantics></math> each of which with a different type. On <math id="S2.SS1.p2.m6" class="ltx_Math" alttext="\Gamma_{1}" display="inline"><semantics><msub><mi mathvariant="normal">Γ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\Gamma_{1}</annotation></semantics></math>, the inlet can be defined as a Dirichlet boundary condition for the velocity for a given velocity profile <math id="S2.SS1.p2.m7" class="ltx_Math" alttext="{\bf g}" display="inline"><semantics><mi>𝐠</mi><annotation encoding="application/x-tex">{\bf g}</annotation></semantics></math>:</p>
+<div id="E5" class="ltx_equation ltx_eqn_div">
+<span><math id="E5.m1" class="ltx_Math" alttext="{\bf u}={\bf g}\quad\text{on }\Gamma_{1}" display="block"><semantics><mrow><mi>𝐮</mi><mo>=</mo><mrow><mi>𝐠</mi><mo mathvariant="italic" separator="true"> </mo><mrow><mtext>on </mtext><mo>⁢</mo><msub><mi mathvariant="normal">Γ</mi><mn>1</mn></msub></mrow></mrow></mrow><annotation encoding="application/x-tex">{\bf u}={\bf g}\quad\text{on }\Gamma_{1}</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(4.5)</span>
+              
+              
+            
+</div>
+</div>
+<div id="S2.SS1.p3" class="ltx_para">
+<p class="ltx_p">On <math id="S2.SS1.p3.m1" class="ltx_Math" alttext="\Gamma_{2}" display="inline"><semantics><msub><mi mathvariant="normal">Γ</mi><mn>2</mn></msub><annotation encoding="application/x-tex">\Gamma_{2}</annotation></semantics></math>, a wall boundary no-slip condition can be considered:</p>
+<div id="E6" class="ltx_equation ltx_eqn_div">
+<span><math id="E6.m1" class="ltx_Math" alttext="{\bf u}=0\quad\text{on }\Gamma_{2}" display="block"><semantics><mrow><mi>𝐮</mi><mo>=</mo><mrow><mn>0</mn><mo mathvariant="italic" separator="true"> </mo><mrow><mtext>on </mtext><mo>⁢</mo><msub><mi mathvariant="normal">Γ</mi><mn>2</mn></msub></mrow></mrow></mrow><annotation encoding="application/x-tex">{\bf u}=0\quad\text{on }\Gamma_{2}</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(4.6)</span>
+              
+              
+            
+</div>
+</div>
+<div id="S2.SS1.p4" class="ltx_para">
+<p class="ltx_p">On <math id="S2.SS1.p4.m1" class="ltx_Math" alttext="\Gamma_{3}" display="inline"><semantics><msub><mi mathvariant="normal">Γ</mi><mn>3</mn></msub><annotation encoding="application/x-tex">\Gamma_{3}</annotation></semantics></math>, for the outlet condition, a homogeneous Neumann condition on velocity and a zero pressure condition can be defined like:</p>
+<div id="E7" class="ltx_equation ltx_eqn_div">
+<span><math id="E7.m1" class="ltx_Math" alttext="\frac{\partial{\bf u}}{\partial\boldsymbol{n}}=0,\quad p=0,\quad\text{on }%
+\Gamma_{3}" display="block"><semantics><mrow><mrow><mfrac><mrow><mo>∂</mo><mo>⁡</mo><mi>𝐮</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><mi>𝒏</mi></mrow></mfrac><mo>=</mo><mn>0</mn></mrow><mo rspace="12.5pt">,</mo><mrow><mi>p</mi><mo>=</mo><mrow><mn>0</mn><mo rspace="12.5pt">,</mo><mrow><mtext>on </mtext><mo>⁢</mo><msub><mi mathvariant="normal">Γ</mi><mn>3</mn></msub></mrow></mrow></mrow></mrow><annotation encoding="application/x-tex">\frac{\partial{\bf u}}{\partial\boldsymbol{n}}=0,\quad p=0,\quad\text{on }%
+\Gamma_{3}</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(4.7)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">with <math id="S2.SS1.p4.m2" class="ltx_Math" alttext="\boldsymbol{n}" display="inline"><semantics><mi>𝒏</mi><annotation encoding="application/x-tex">\boldsymbol{n}</annotation></semantics></math> being the normal direction on the boundary <math id="S2.SS1.p4.m3" class="ltx_Math" alttext="\partial\Omega" display="inline"><semantics><mrow><mo>∂</mo><mo>⁡</mo><mi mathvariant="normal">Ω</mi></mrow><annotation encoding="application/x-tex">\partial\Omega</annotation></semantics></math>. Broadly speaking, these boundaries can be grouped into 2 sets: <math id="S2.SS1.p4.m4" class="ltx_Math" alttext="\Gamma_{D}=\Gamma_{1}\cup\Gamma_{2}" display="inline"><semantics><mrow><msub><mi mathvariant="normal">Γ</mi><mi>D</mi></msub><mo>=</mo><mrow><msub><mi mathvariant="normal">Γ</mi><mn>1</mn></msub><mo>∪</mo><msub><mi mathvariant="normal">Γ</mi><mn>2</mn></msub></mrow></mrow><annotation encoding="application/x-tex">\Gamma_{D}=\Gamma_{1}\cup\Gamma_{2}</annotation></semantics></math> and <math id="S2.SS1.p4.m5" class="ltx_Math" alttext="\Gamma_{N}=\Gamma_{3}" display="inline"><semantics><mrow><msub><mi mathvariant="normal">Γ</mi><mi>N</mi></msub><mo>=</mo><msub><mi mathvariant="normal">Γ</mi><mn>3</mn></msub></mrow><annotation encoding="application/x-tex">\Gamma_{N}=\Gamma_{3}</annotation></semantics></math> for boundaries with Dirichlet and Neumann conditions, respectively.</p>
+</div>
+<div id="S2.SS1.p5" class="ltx_para">
+<p class="ltx_p">The Navier-Stokes equations can be written componentwise for individual components of the flow vector field in the Cartesian coordinates. Denoting <math id="S2.SS1.p5.m1" class="ltx_Math" alttext="u_{i},i=1,\ldots,d" display="inline"><semantics><mrow><mrow><mrow><msub><mi>u</mi><mi>i</mi></msub><mo>,</mo><mi>i</mi></mrow><mo>=</mo><mn>1</mn></mrow><mo>,</mo><mrow><mi mathvariant="normal">…</mi><mo>,</mo><mi>d</mi></mrow></mrow><annotation encoding="application/x-tex">u_{i},i=1,\ldots,d</annotation></semantics></math> (with <math id="S2.SS1.p5.m2" class="ltx_Math" alttext="d=2" display="inline"><semantics><mrow><mi>d</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">d=2</annotation></semantics></math> in 2D and <math id="S2.SS1.p5.m3" class="ltx_Math" alttext="d=3" display="inline"><semantics><mrow><mi>d</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">d=3</annotation></semantics></math> in 3D), Eq. <a href="#E3" title="(4.3) ‣ 4.2.1 Navier-Stokes equations ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.3</span></a> can be presented as:</p>
+</div>
+<div id="S2.SS1.p6" class="ltx_para">
+<div id="E8" class="ltx_equation ltx_eqn_div">
+<span><math id="E8.m1" class="ltx_Math" alttext="\left\{{\begin{array}[]{*{20}{l}}\displaystyle{\frac{{\partial{u_{i}}}}{{%
+\partial t}}-\nu\Delta{u_{i}}+\mathop{\sum}\limits_{j=1}^{d}{u_{j}}\frac{{%
+\partial{u_{i}}}}{{\partial{x_{j}}}}+\frac{{\partial p}}{{\partial{x_{i}}}}={f%
+_{i}},\qquad i=1,\ldots,d,}\\
+\displaystyle{\mathop{\sum}\limits_{j=1}^{d}\frac{{\partial{u_{j}}}}{{\partial%
+{x_{j}}}}=0.}\end{array}}\right." display="block"><semantics><mrow><mo>{</mo><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="left"><mrow><mrow><mrow><mrow><mrow><mfrac><mrow><mo>∂</mo><mo>⁡</mo><msub><mi>u</mi><mi>i</mi></msub></mrow><mrow><mo>∂</mo><mo>⁡</mo><mi>t</mi></mrow></mfrac><mo>-</mo><mrow><mi>ν</mi><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><msub><mi>u</mi><mi>i</mi></msub></mrow></mrow><mo>+</mo><mrow><munderover><mo movablelimits="false">∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>d</mi></munderover><mrow><msub><mi>u</mi><mi>j</mi></msub><mo>⁢</mo><mfrac><mrow><mo>∂</mo><mo>⁡</mo><msub><mi>u</mi><mi>i</mi></msub></mrow><mrow><mo>∂</mo><mo>⁡</mo><msub><mi>x</mi><mi>j</mi></msub></mrow></mfrac></mrow></mrow><mo>+</mo><mfrac><mrow><mo>∂</mo><mo>⁡</mo><mi>p</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><msub><mi>x</mi><mi>i</mi></msub></mrow></mfrac></mrow><mo>=</mo><msub><mi>f</mi><mi>i</mi></msub></mrow><mo rspace="22.5pt">,</mo><mrow><mi>i</mi><mo>=</mo><mrow><mn>1</mn><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><mi>d</mi></mrow></mrow></mrow><mo>,</mo></mrow></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd></mtr><mtr><mtd columnalign="left"><mrow><mrow><mrow><munderover><mo movablelimits="false">∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>d</mi></munderover><mfrac><mrow><mo>∂</mo><mo>⁡</mo><msub><mi>u</mi><mi>j</mi></msub></mrow><mrow><mo>∂</mo><mo>⁡</mo><msub><mi>x</mi><mi>j</mi></msub></mrow></mfrac></mrow><mo>=</mo><mn>0</mn></mrow><mo>.</mo></mrow></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd></mtr></mtable><mi></mi></mrow><annotation encoding="application/x-tex">\left\{{\begin{array}[]{*{20}{l}}\displaystyle{\frac{{\partial{u_{i}}}}{{%
+\partial t}}-\nu\Delta{u_{i}}+\mathop{\sum}\limits_{j=1}^{d}{u_{j}}\frac{{%
+\partial{u_{i}}}}{{\partial{x_{j}}}}+\frac{{\partial p}}{{\partial{x_{i}}}}={f%
+_{i}},\qquad i=1,\ldots,d,}\\
+\displaystyle{\mathop{\sum}\limits_{j=1}^{d}\frac{{\partial{u_{j}}}}{{\partial%
+{x_{j}}}}=0.}\end{array}}\right.</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(4.8)</span>
+              
+              
+            
+</div>
+</div>
+</div>
+</section>
+<section id="S2.SS2" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">4.2.2</span> Weak formulation of the Navier-Stokes equations</h3>
+
+<div id="S2.SS2.p1" class="ltx_para">
+<p class="ltx_p">For deriving the weak formulation, the first equation of <a href="#E3" title="(4.3) ‣ 4.2.1 Navier-Stokes equations ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.3</span></a> is multiplied by a test function <math id="S2.SS2.p1.m1" class="ltx_Math" alttext="\bf v" display="inline"><semantics><mi>𝐯</mi><annotation encoding="application/x-tex">\bf v</annotation></semantics></math> defined on a proper function space V (with <math id="S2.SS2.p1.m2" class="ltx_Math" alttext="{\bf H}^{1}" display="inline"><semantics><msup><mi>𝐇</mi><mn>1</mn></msup><annotation encoding="application/x-tex">{\bf H}^{1}</annotation></semantics></math> being the Sobolev space defined in domain <math id="S2.SS2.p1.m3" class="ltx_Math" alttext="\Omega" display="inline"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>) in which the test functions vanish on the Dirichlet boundary:</p>
+<div id="E9" class="ltx_equation ltx_eqn_div">
+<span><math id="E9.m1" class="ltx_Math" alttext="V=[{\bf H}^{1}_{\Gamma_{D}}(\Omega)]^{d}=\{{\bf V}\in[{\bf H}^{1}(\Omega)]^{d}%
+:{\bf v}|_{\Gamma_{D}}={\bf 0}\}." display="block"><semantics><mrow><mrow><mi>V</mi><mo>=</mo><msup><mrow><mo stretchy="false">[</mo><mrow><msubsup><mi>𝐇</mi><msub><mi mathvariant="normal">Γ</mi><mi>D</mi></msub><mn>1</mn></msubsup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi mathvariant="normal">Ω</mi><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">]</mo></mrow><mi>d</mi></msup><mo>=</mo><mrow><mo stretchy="false">{</mo><mrow><mi>𝐕</mi><mo>∈</mo><msup><mrow><mo stretchy="false">[</mo><mrow><msup><mi>𝐇</mi><mn>1</mn></msup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi mathvariant="normal">Ω</mi><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">]</mo></mrow><mi>d</mi></msup></mrow><mo>:</mo><mrow><msub><mrow><mi>𝐯</mi><mo fence="true" stretchy="false">|</mo></mrow><msub><mi mathvariant="normal">Γ</mi><mi>D</mi></msub></msub><mo>=</mo><mn>𝟎</mn></mrow><mo stretchy="false">}</mo></mrow></mrow><mo>.</mo></mrow><annotation encoding="application/x-tex">V=[{\bf H}^{1}_{\Gamma_{D}}(\Omega)]^{d}=\{{\bf V}\in[{\bf H}^{1}(\Omega)]^{d}%
+:{\bf v}|_{\Gamma_{D}}={\bf 0}\}.</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(4.9)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">yielding to:</p>
+<div id="E10" class="ltx_equation ltx_eqn_div">
+<span><math id="E10.m1" class="ltx_Math" alttext="{\mathop{\int}_{\Omega}}{\partial{\bf u}\over\partial t}.{\bf v}\ d\omega-{%
+\mathop{\int}_{\Omega}}\nu\triangle{\bf u.v}d\omega+{\mathop{\int}_{\Omega}}[(%
+{\bf u.\nabla){\bf u].{\bf v}}}d\omega+{\mathop{\int}_{\Omega}}\nabla p.{\bf v%
+}d\omega={\mathop{\int}_{\Omega}}{\bf f.v}d\omega." display="block"><semantics><mrow><munder><mo movablelimits="false">∫</mo><mi mathvariant="normal">Ω</mi></munder><mfrac><mrow><mo>∂</mo><mo>⁡</mo><mi>𝐮</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><mi>t</mi></mrow></mfrac><mo>.</mo><mpadded width="+5pt"><mi>𝐯</mi></mpadded><mi>d</mi><mi>ω</mi><mo>-</mo><munder><mo movablelimits="false">∫</mo><mi mathvariant="normal">Ω</mi></munder><mi>ν</mi><mi mathvariant="normal">△</mi><mi>𝐮</mi><mo>.</mo><mi>𝐯</mi><mi>d</mi><mi>ω</mi><mo>+</mo><munder><mo movablelimits="false">∫</mo><mi mathvariant="normal">Ω</mi></munder><mrow><mo stretchy="false">[</mo><mrow><mo stretchy="false">(</mo><mi>𝐮</mi><mo>.</mo><mo>∇</mo><mo stretchy="false">)</mo></mrow><mi>𝐮</mi><mo stretchy="false">]</mo></mrow><mo>.</mo><mi>𝐯</mi><mi>d</mi><mi>ω</mi><mo>+</mo><munder><mo movablelimits="false">∫</mo><mi mathvariant="normal">Ω</mi></munder><mo>∇</mo><mi>p</mi><mo>.</mo><mi>𝐯</mi><mi>d</mi><mi>ω</mi><mo>=</mo><munder><mo movablelimits="false">∫</mo><mi mathvariant="normal">Ω</mi></munder><mi>𝐟</mi><mo>.</mo><mi>𝐯</mi><mi>d</mi><mi>ω</mi><mo>.</mo></mrow><annotation encoding="application/x-tex">{\mathop{\int}_{\Omega}}{\partial{\bf u}\over\partial t}.{\bf v}\ d\omega-{%
+\mathop{\int}_{\Omega}}\nu\triangle{\bf u.v}d\omega+{\mathop{\int}_{\Omega}}[(%
+{\bf u.\nabla){\bf u].{\bf v}}}d\omega+{\mathop{\int}_{\Omega}}\nabla p.{\bf v%
+}d\omega={\mathop{\int}_{\Omega}}{\bf f.v}d\omega.</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(4.10)</span>
+              
+              
+            
+</div>
+</div>
+<div id="S2.SS2.p2" class="ltx_para ltx_noindent">
+<p class="ltx_p">Applying Green’s divergence theory results in:</p>
+<div id="E11" class="ltx_equation ltx_eqn_div">
+<span><math id="E11.m1" class="ltx_Math" alttext="-\int_{\Omega}\nu\Delta\mathbf{u}\cdot\mathbf{v}d\omega=\int_{\Omega}\nu\nabla%
+\mathbf{u}\cdot\nabla\mathbf{v}d\omega-\int_{\partial\Omega}\nu\frac{\partial%
+\mathbf{u}}{\partial\mathbf{n}}\cdot\mathbf{v}d\gamma" display="block"><semantics><mrow><mrow><mo>-</mo><mrow><msub><mo largeop="true" symmetric="true">∫</mo><mi mathvariant="normal">Ω</mi></msub><mrow><mrow><mrow><mi>ν</mi><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>𝐮</mi></mrow><mo>⋅</mo><mi>𝐯</mi></mrow><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>ω</mi></mrow></mrow></mrow></mrow><mo>=</mo><mrow><mrow><msub><mo largeop="true" symmetric="true">∫</mo><mi mathvariant="normal">Ω</mi></msub><mrow><mrow><mi>ν</mi><mo>⁢</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>𝐮</mi></mrow></mrow><mo>⋅</mo><mrow><mo>∇</mo><mo>⁡</mo><mrow><mi>𝐯</mi><mo>⁢</mo><mi>d</mi><mo>⁢</mo><mi>ω</mi></mrow></mrow></mrow></mrow><mo>-</mo><mrow><msub><mo largeop="true" symmetric="true">∫</mo><mrow><mo>∂</mo><mo>⁡</mo><mi mathvariant="normal">Ω</mi></mrow></msub><mrow><mrow><mrow><mi>ν</mi><mo>⁢</mo><mfrac><mrow><mo>∂</mo><mo>⁡</mo><mi>𝐮</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><mi>𝐧</mi></mrow></mfrac></mrow><mo>⋅</mo><mi>𝐯</mi></mrow><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>γ</mi></mrow></mrow></mrow></mrow></mrow><annotation encoding="application/x-tex">-\int_{\Omega}\nu\Delta\mathbf{u}\cdot\mathbf{v}d\omega=\int_{\Omega}\nu\nabla%
+\mathbf{u}\cdot\nabla\mathbf{v}d\omega-\int_{\partial\Omega}\nu\frac{\partial%
+\mathbf{u}}{\partial\mathbf{n}}\cdot\mathbf{v}d\gamma</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(4.11)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">and</p>
+<div id="E12" class="ltx_equation ltx_eqn_div">
+<span><math id="E12.m1" class="ltx_Math" alttext="\int_{\Omega}\nabla p\cdot\mathbf{v}d\omega=-\int_{\Omega}p\nabla\cdot\mathbf{%
+v}d\omega+\int_{\partial\Omega}p\mathbf{v}\cdot\mathbf{n}d\gamma" display="block"><semantics><mrow><mrow><msub><mo largeop="true" symmetric="true">∫</mo><mi mathvariant="normal">Ω</mi></msub><mrow><mo>∇</mo><mo>⁡</mo><mrow><mrow><mi>p</mi><mo>⋅</mo><mi>𝐯</mi></mrow><mo>⁢</mo><mi>d</mi><mo>⁢</mo><mi>ω</mi></mrow></mrow></mrow><mo>=</mo><mrow><mrow><mo>-</mo><mrow><msub><mo largeop="true" symmetric="true">∫</mo><mi mathvariant="normal">Ω</mi></msub><mrow><mrow><mrow><mi>p</mi><mo>⁢</mo><mo>∇</mo></mrow><mo>⋅</mo><mi>𝐯</mi></mrow><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>ω</mi></mrow></mrow></mrow></mrow><mo>+</mo><mrow><msub><mo largeop="true" symmetric="true">∫</mo><mrow><mo>∂</mo><mo>⁡</mo><mi mathvariant="normal">Ω</mi></mrow></msub><mrow><mrow><mrow><mi>p</mi><mo>⁢</mo><mi>𝐯</mi></mrow><mo>⋅</mo><mi>𝐧</mi></mrow><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>γ</mi></mrow></mrow></mrow></mrow></mrow><annotation encoding="application/x-tex">\int_{\Omega}\nabla p\cdot\mathbf{v}d\omega=-\int_{\Omega}p\nabla\cdot\mathbf{%
+v}d\omega+\int_{\partial\Omega}p\mathbf{v}\cdot\mathbf{n}d\gamma</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(4.12)</span>
+              
+              
+            
+</div>
+</div>
+<div id="S2.SS2.p3" class="ltx_para ltx_noindent">
+<p class="ltx_p">Substituting Eqs. <a href="#E11" title="(4.11) ‣ 4.2.2 Weak formulation of the Navier-Stokes equations ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.11</span></a> and <a href="#E12" title="(4.12) ‣ 4.2.2 Weak formulation of the Navier-Stokes equations ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.12</span></a> into Eq, <a href="#E10" title="(4.10) ‣ 4.2.2 Weak formulation of the Navier-Stokes equations ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.10</span></a> yields to:</p>
+<div id="E13" class="ltx_equation ltx_eqn_div">
+<span><math id="E13.m1" class="ltx_Math" alttext="\begin{array}[]{r}\displaystyle\int_{\Omega}\frac{\partial\mathbf{u}}{\partial
+t%
+}\cdot\mathbf{v}d\omega+\int_{\Omega}\nu\nabla\mathbf{u}\cdot\nabla\mathbf{v}d%
+\omega+\int_{\Omega}[(\mathbf{u}\cdot\nabla)\mathbf{u}]\cdot\mathbf{v}d\omega-%
+\int_{\Omega}p\nabla\cdot\mathbf{v}d\omega\\
+\displaystyle=\int_{\Omega}\mathbf{f}\cdot\mathbf{v}d\omega+\int_{\partial%
+\Omega}\left(\nu\frac{\partial\mathbf{u}}{\partial\mathbf{n}}-p\mathbf{n}%
+\right)\cdot\mathbf{v}d\gamma\quad\forall\mathbf{v}\in V.\end{array}" display="block"><semantics><mtable displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="right"><mrow><mrow><mrow><msub><mo largeop="true" symmetric="true">∫</mo><mi mathvariant="normal">Ω</mi></msub><mrow><mrow><mfrac><mrow><mo>∂</mo><mo>⁡</mo><mi>𝐮</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><mi>t</mi></mrow></mfrac><mo>⋅</mo><mi>𝐯</mi></mrow><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>ω</mi></mrow></mrow></mrow><mo>+</mo><mrow><msub><mo largeop="true" symmetric="true">∫</mo><mi mathvariant="normal">Ω</mi></msub><mrow><mrow><mi>ν</mi><mo>⁢</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>𝐮</mi></mrow></mrow><mo>⋅</mo><mrow><mo>∇</mo><mo>⁡</mo><mrow><mi>𝐯</mi><mo>⁢</mo><mi>d</mi><mo>⁢</mo><mi>ω</mi></mrow></mrow></mrow></mrow><mo>+</mo><mrow><msub><mo largeop="true" symmetric="true">∫</mo><mi mathvariant="normal">Ω</mi></msub><mrow><mrow><mrow><mo stretchy="false">[</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>𝐮</mi><mo>⋅</mo><mo>∇</mo></mrow><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mi>𝐮</mi></mrow><mo stretchy="false">]</mo></mrow><mo>⋅</mo><mi>𝐯</mi></mrow><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>ω</mi></mrow></mrow></mrow></mrow><mo>-</mo><mrow><msub><mo largeop="true" symmetric="true">∫</mo><mi mathvariant="normal">Ω</mi></msub><mrow><mrow><mrow><mi>p</mi><mo>⁢</mo><mo>∇</mo></mrow><mo>⋅</mo><mi>𝐯</mi></mrow><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>ω</mi></mrow></mrow></mrow></mrow></mtd></mtr><mtr><mtd columnalign="right"><mrow><mrow><mrow><mi></mi><mo>=</mo><mrow><mrow><msub><mo largeop="true" symmetric="true">∫</mo><mi mathvariant="normal">Ω</mi></msub><mrow><mrow><mi>𝐟</mi><mo>⋅</mo><mi>𝐯</mi></mrow><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>ω</mi></mrow></mrow></mrow><mo>+</mo><mrow><msub><mo largeop="true" symmetric="true">∫</mo><mrow><mo>∂</mo><mo>⁡</mo><mi mathvariant="normal">Ω</mi></mrow></msub><mrow><mrow><mrow><mo>(</mo><mrow><mrow><mi>ν</mi><mo>⁢</mo><mfrac><mrow><mo>∂</mo><mo>⁡</mo><mi>𝐮</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><mi>𝐧</mi></mrow></mfrac></mrow><mo>-</mo><mrow><mi>p</mi><mo>⁢</mo><mi>𝐧</mi></mrow></mrow><mo>)</mo></mrow><mo>⋅</mo><mi>𝐯</mi></mrow><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>γ</mi></mrow></mrow></mrow></mrow></mrow><mo separator="true"> </mo><mrow><mrow><mo>∀</mo><mi>𝐯</mi></mrow><mo>∈</mo><mi>V</mi></mrow></mrow><mo>.</mo></mrow></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{array}[]{r}\displaystyle\int_{\Omega}\frac{\partial\mathbf{u}}{\partial
+t%
+}\cdot\mathbf{v}d\omega+\int_{\Omega}\nu\nabla\mathbf{u}\cdot\nabla\mathbf{v}d%
+\omega+\int_{\Omega}[(\mathbf{u}\cdot\nabla)\mathbf{u}]\cdot\mathbf{v}d\omega-%
+\int_{\Omega}p\nabla\cdot\mathbf{v}d\omega\\
+\displaystyle=\int_{\Omega}\mathbf{f}\cdot\mathbf{v}d\omega+\int_{\partial%
+\Omega}\left(\nu\frac{\partial\mathbf{u}}{\partial\mathbf{n}}-p\mathbf{n}%
+\right)\cdot\mathbf{v}d\gamma\quad\forall\mathbf{v}\in V.\end{array}</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(4.13)</span>
+              
+              
+            
+</div>
+</div>
+<div id="S2.SS2.p4" class="ltx_para ltx_noindent">
+<p class="ltx_p">The last term of Eq. <a href="#E13" title="(4.13) ‣ 4.2.2 Weak formulation of the Navier-Stokes equations ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.13</span></a> is expressed in accordance to the defined Neumann boundary condition, which vanishes on <math id="S2.SS2.p4.m1" class="ltx_Math" alttext="\Gamma_{3}" display="inline"><semantics><msub><mi mathvariant="normal">Γ</mi><mn>3</mn></msub><annotation encoding="application/x-tex">\Gamma_{3}</annotation></semantics></math> due to the defined condition in the current study (Eq. <a href="#E7" title="(4.7) ‣ 4.2.1 Navier-Stokes equations ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.7</span></a>). Moreover, this term vanishes on the Dirichlet boundaries due to the properties of the function space <math id="S2.SS2.p4.m2" class="ltx_Math" alttext="V" display="inline"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math> (Eq. <a href="#E9" title="(4.9) ‣ 4.2.2 Weak formulation of the Navier-Stokes equations ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.9</span></a>).</p>
+</div>
+<div id="S2.SS2.p5" class="ltx_para">
+<p class="ltx_p">Similarly, the second equation of <a href="#E3" title="(4.3) ‣ 4.2.1 Navier-Stokes equations ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.3</span></a> is multiplied by a test function <math id="S2.SS2.p5.m1" class="ltx_Math" alttext="q" display="inline"><semantics><mi>q</mi><annotation encoding="application/x-tex">q</annotation></semantics></math> belonging to the function space Q (with <math id="S2.SS2.p5.m2" class="ltx_Math" alttext="{\bf L}^{2}" display="inline"><semantics><msup><mi>𝐋</mi><mn>2</mn></msup><annotation encoding="application/x-tex">{\bf L}^{2}</annotation></semantics></math> being a Hilbert space defined in domain <math id="S2.SS2.p5.m3" class="ltx_Math" alttext="\Omega" display="inline"><semantics><mi mathvariant="normal">Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>), called the pressure space:</p>
+<div id="E14" class="ltx_equation ltx_eqn_div">
+<span><math id="E14.m1" class="ltx_Math" alttext="Q={\bf L}^{2}_{0}(\Omega)=\{p\in{\bf L}^{2}(\Omega):{\mathop{\int}_{\Omega}}p%
+\ d\omega=0\}," display="block"><semantics><mrow><mrow><mi>Q</mi><mo>=</mo><mrow><msubsup><mi>𝐋</mi><mn>0</mn><mn>2</mn></msubsup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi mathvariant="normal">Ω</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mo stretchy="false">{</mo><mrow><mi>p</mi><mo>∈</mo><mrow><msup><mi>𝐋</mi><mn>2</mn></msup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi mathvariant="normal">Ω</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>:</mo><mrow><mrow><munder><mo movablelimits="false">∫</mo><mi mathvariant="normal">Ω</mi></munder><mrow><mpadded width="+5pt"><mi>p</mi></mpadded><mo>⁢</mo><mi>d</mi><mo>⁢</mo><mi>ω</mi></mrow></mrow><mo>=</mo><mn>0</mn></mrow><mo stretchy="false">}</mo></mrow></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">Q={\bf L}^{2}_{0}(\Omega)=\{p\in{\bf L}^{2}(\Omega):{\mathop{\int}_{\Omega}}p%
+\ d\omega=0\},</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(4.14)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">resulting in:</p>
+<div id="E15" class="ltx_equation ltx_eqn_div">
+<span><math id="E15.m1" class="ltx_Math" alttext="{\mathop{\int}_{\Omega}}q\nabla\cdot{\bf u}\ d\omega=0\qquad\forall q\in Q." display="block"><semantics><mrow><mrow><mrow><mrow><munder><mo movablelimits="false">∫</mo><mi mathvariant="normal">Ω</mi></munder><mrow><mrow><mrow><mi>q</mi><mo>⁢</mo><mo>∇</mo></mrow><mo>⋅</mo><mpadded width="+5pt"><mi>𝐮</mi></mpadded></mrow><mo>⁢</mo><mi>d</mi><mo>⁢</mo><mi>ω</mi></mrow></mrow><mo>=</mo><mn>0</mn></mrow><mo mathvariant="italic" separator="true">  </mo><mrow><mrow><mo>∀</mo><mi>q</mi></mrow><mo>∈</mo><mi>Q</mi></mrow></mrow><mo>.</mo></mrow><annotation encoding="application/x-tex">{\mathop{\int}_{\Omega}}q\nabla\cdot{\bf u}\ d\omega=0\qquad\forall q\in Q.</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(4.15)</span>
+              
+              
+            
+</div>
+</div>
+<div id="S2.SS2.p6" class="ltx_para">
+<p class="ltx_p">Eqs. <a href="#E13" title="(4.13) ‣ 4.2.2 Weak formulation of the Navier-Stokes equations ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.13</span></a> and <a href="#E15" title="(4.15) ‣ 4.2.2 Weak formulation of the Navier-Stokes equations ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.15</span></a> are so called weak forms of the Navier-Stokes equations.</p>
+</div>
+</div>
+</section>
+<section id="S2.SS3" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">4.2.3</span> Stokes equations</h3>
+
+<div id="S2.SS3.p1" class="ltx_para">
+<p class="ltx_p">For viscous flow, where the Reynolds number is less than 1 (<math id="S2.SS3.p1.m1" class="ltx_Math" alttext="Re={|{\bf U}|L\over\nu}" display="inline"><semantics><mrow><mrow><mi>R</mi><mo>⁢</mo><mi>e</mi></mrow><mo>=</mo><mfrac><mrow><mrow><mo stretchy="false">|</mo><mi>𝐔</mi><mo stretchy="false">|</mo></mrow><mo>⁢</mo><mi>L</mi></mrow><mi>ν</mi></mfrac></mrow><annotation encoding="application/x-tex">Re={|{\bf U}|L\over\nu}</annotation></semantics></math>, with <math id="S2.SS3.p1.m2" class="ltx_Math" alttext="L" display="inline"><semantics><mi>L</mi><annotation encoding="application/x-tex">L</annotation></semantics></math> and <math id="S2.SS3.p1.m3" class="ltx_Math" alttext="\bf U" display="inline"><semantics><mi>𝐔</mi><annotation encoding="application/x-tex">\bf U</annotation></semantics></math> being the representative length and velocity of the domain), the convection term of the Navier-Stokes equations can be neglected, simplifying Eq. <a href="#E3" title="(4.3) ‣ 4.2.1 Navier-Stokes equations ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.3</span></a> to <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib189" title="Navier-stokes equations" class="ltx_ref">210</a>]</cite>:</p>
+<div id="E16" class="ltx_equation ltx_eqn_div">
+<span><math id="E16.m1" class="ltx_Math" alttext="\left\{{\begin{array}[]{*{20}{l}}\displaystyle{\alpha\mathbf{u}-\nu\Delta%
+\mathbf{u}+\nabla p=\mathbf{f}\quad\text{in}\;\Omega,}\\
+\displaystyle{\nabla\cdot\mathbf{u}=0\quad\quad\quad\quad\;\;\;\text{in}\;%
+\Omega,}\end{array}}\right." display="block"><semantics><mrow><mo>{</mo><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="left"><mrow><mrow><mrow><mrow><mrow><mi>α</mi><mo>⁢</mo><mi>𝐮</mi></mrow><mo>-</mo><mrow><mi>ν</mi><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>𝐮</mi></mrow></mrow><mo>+</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>p</mi></mrow></mrow><mo>=</mo><mrow><mi>𝐟</mi><mo mathvariant="italic" separator="true"> </mo><mrow><mpadded width="+2.8pt"><mtext>in</mtext></mpadded><mo>⁢</mo><mi mathvariant="normal">Ω</mi></mrow></mrow></mrow><mo>,</mo></mrow></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd></mtr><mtr><mtd columnalign="left"><mrow><mrow><mrow><mo>∇</mo><mo>⋅</mo><mi>𝐮</mi></mrow><mo>=</mo><mrow><mn>0</mn><mo mathvariant="italic" separator="true">      </mo><mrow><mpadded width="+2.8pt"><mtext>in</mtext></mpadded><mo>⁢</mo><mi mathvariant="normal">Ω</mi></mrow></mrow></mrow><mo>,</mo></mrow></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd></mtr></mtable><mi></mi></mrow><annotation encoding="application/x-tex">\left\{{\begin{array}[]{*{20}{l}}\displaystyle{\alpha\mathbf{u}-\nu\Delta%
+\mathbf{u}+\nabla p=\mathbf{f}\quad\text{in}\;\Omega,}\\
+\displaystyle{\nabla\cdot\mathbf{u}=0\quad\quad\quad\quad\;\;\;\text{in}\;%
+\Omega,}\end{array}}\right.</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(4.16)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">with <math id="S2.SS3.p1.m4" class="ltx_Math" alttext="\alpha" display="inline"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math> being a positive coefficient. Eq. <a href="#E16" title="(4.16) ‣ 4.2.3 Stokes equations ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.16</span></a> can be used to model laminar flow in low Reynolds regimes and is simpler to handle than Eq. <a href="#E3" title="(4.3) ‣ 4.2.1 Navier-Stokes equations ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.3</span></a> from the numerical computing perspective. The weak formulation of the Stokes equation can be derived by following the approach taken for the Navier-Stokes equations in Section <a href="#S2.SS2" title="4.2.2 Weak formulation of the Navier-Stokes equations ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.2.2</span></a>. The final form of the weak formulation is:</p>
+<div id="E17" class="ltx_equation ltx_eqn_div">
+<span><math id="E17.m1" class="ltx_Math" alttext="\left\{{\begin{array}[]{*{20}{l}}\displaystyle{\int\limits_{\Omega}{(\alpha{%
+\mathbf{u}}.{\mathbf{v}}+\nu\nabla{\mathbf{u}}.\nabla{\mathbf{v}})\,}d\omega-%
+\int\limits_{\Omega}{p\nabla\cdot{\mathbf{v}}\;d\omega=}\int\limits_{\Omega}{{%
+\mathbf{f}}.{\mathbf{v}}\;d\omega\qquad{\forall{\mathbf{v}}}\in V,}}\\
+\displaystyle{\int\limits_{\Omega}{q\nabla\cdot{\mathbf{u}}\;d\omega=0}\qquad%
+\qquad\qquad\qquad\qquad\qquad\qquad\;\;\;{\forall{{q}}}\in Q,}\end{array}}\right." display="block"><semantics><mrow><mo>{</mo><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="left"><mrow><munder><mo largeop="true" movablelimits="false" symmetric="true">∫</mo><mi mathvariant="normal">Ω</mi></munder><mrow><mo stretchy="false">(</mo><mi>α</mi><mi>𝐮</mi><mo>.</mo><mi>𝐯</mi><mo>+</mo><mi>ν</mi><mo>∇</mo><mi>𝐮</mi><mo>.</mo><mo>∇</mo><mi>𝐯</mi><mo rspace="4.2pt" stretchy="false">)</mo></mrow><mi>d</mi><mi>ω</mi><mo>-</mo><munder><mo largeop="true" movablelimits="false" symmetric="true">∫</mo><mi mathvariant="normal">Ω</mi></munder><mi>p</mi><mo>∇</mo><mo>⋅</mo><mpadded width="+2.8pt"><mi>𝐯</mi></mpadded><mi>d</mi><mi>ω</mi><mo>=</mo><munder><mo largeop="true" movablelimits="false" symmetric="true">∫</mo><mi mathvariant="normal">Ω</mi></munder><mi>𝐟</mi><mo>.</mo><mpadded width="+2.8pt"><mi>𝐯</mi></mpadded><mi>d</mi><mi>ω</mi><mo mathvariant="italic" separator="true">  </mo><mo>∀</mo><mi>𝐯</mi><mo>∈</mo><mi>V</mi><mo>,</mo></mrow></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd></mtr><mtr><mtd columnalign="left"><mrow><mrow><mrow><mrow><munder><mo largeop="true" movablelimits="false" symmetric="true">∫</mo><mi mathvariant="normal">Ω</mi></munder><mrow><mrow><mrow><mi>q</mi><mo>⁢</mo><mo>∇</mo></mrow><mo>⋅</mo><mpadded width="+2.8pt"><mi>𝐮</mi></mpadded></mrow><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>ω</mi></mrow></mrow></mrow><mo>=</mo><mn>0</mn></mrow><mo mathvariant="italic" separator="true">                </mo><mrow><mrow><mo>∀</mo><mi>q</mi></mrow><mo>∈</mo><mi>Q</mi></mrow></mrow><mo>,</mo></mrow></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd></mtr></mtable><mi></mi></mrow><annotation encoding="application/x-tex">\left\{{\begin{array}[]{*{20}{l}}\displaystyle{\int\limits_{\Omega}{(\alpha{%
+\mathbf{u}}.{\mathbf{v}}+\nu\nabla{\mathbf{u}}.\nabla{\mathbf{v}})\,}d\omega-%
+\int\limits_{\Omega}{p\nabla\cdot{\mathbf{v}}\;d\omega=}\int\limits_{\Omega}{{%
+\mathbf{f}}.{\mathbf{v}}\;d\omega\qquad{\forall{\mathbf{v}}}\in V,}}\\
+\displaystyle{\int\limits_{\Omega}{q\nabla\cdot{\mathbf{u}}\;d\omega=0}\qquad%
+\qquad\qquad\qquad\qquad\qquad\qquad\;\;\;{\forall{{q}}}\in Q,}\end{array}}\right.</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(4.17)</span>
+              
+              
+            
+</div>
+</div>
+<div id="S2.SS3.p2" class="ltx_para">
+<p class="ltx_p">Eq. <a href="#E17" title="(4.17) ‣ 4.2.3 Stokes equations ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.17</span></a> can be written in the standard finite element variational form by defining 2 bilinear terms <math id="S2.SS3.p2.m1" class="ltx_Math" alttext="a:V\times V\mapsto\mathbb{R}" display="inline"><semantics><mrow><mi>a</mi><mo>:</mo><mrow><mrow><mi>V</mi><mo>×</mo><mi>V</mi></mrow><mo>↦</mo><mi>ℝ</mi></mrow></mrow><annotation encoding="application/x-tex">a:V\times V\mapsto\mathbb{R}</annotation></semantics></math> and <math id="S2.SS3.p2.m2" class="ltx_Math" alttext="b:V\times Q\mapsto\mathbb{R}" display="inline"><semantics><mrow><mi>b</mi><mo>:</mo><mrow><mrow><mi>V</mi><mo>×</mo><mi>Q</mi></mrow><mo>↦</mo><mi>ℝ</mi></mrow></mrow><annotation encoding="application/x-tex">b:V\times Q\mapsto\mathbb{R}</annotation></semantics></math>:</p>
+<div id="E18" class="ltx_equation ltx_eqn_div">
+<span><math id="E18.m1" class="ltx_Math" alttext="\begin{array}[]{*{20}{l}}\displaystyle{a({\mathbf{u}},{\mathbf{v}})=\int%
+\limits_{\Omega}{(\alpha{\mathbf{u}}.{\mathbf{v}}+\nu\nabla{\mathbf{u}}.\nabla%
+{\mathbf{v}})\;d\omega,}}\\
+\displaystyle{b({\mathbf{u}},{q})=-\int\limits_{\Omega}{q\nabla\cdot{\mathbf{u%
+}}\;d\omega,}}\end{array}" display="block"><semantics><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="left"><mrow><mi>a</mi><mrow><mo stretchy="false">(</mo><mi>𝐮</mi><mo>,</mo><mi>𝐯</mi><mo stretchy="false">)</mo></mrow><mo>=</mo><munder><mo largeop="true" movablelimits="false" symmetric="true">∫</mo><mi mathvariant="normal">Ω</mi></munder><mrow><mo stretchy="false">(</mo><mi>α</mi><mi>𝐮</mi><mo>.</mo><mi>𝐯</mi><mo>+</mo><mi>ν</mi><mo>∇</mo><mi>𝐮</mi><mo>.</mo><mo>∇</mo><mi>𝐯</mi><mo rspace="5.3pt" stretchy="false">)</mo></mrow><mi>d</mi><mi>ω</mi><mo>,</mo></mrow></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd></mtr><mtr><mtd columnalign="left"><mrow><mrow><mrow><mi>b</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>𝐮</mi><mo>,</mo><mi>q</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mo>-</mo><mrow><munder><mo largeop="true" movablelimits="false" symmetric="true">∫</mo><mi mathvariant="normal">Ω</mi></munder><mrow><mrow><mrow><mi>q</mi><mo>⁢</mo><mo>∇</mo></mrow><mo>⋅</mo><mpadded width="+2.8pt"><mi>𝐮</mi></mpadded></mrow><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>ω</mi></mrow></mrow></mrow></mrow></mrow><mo>,</mo></mrow></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{array}[]{*{20}{l}}\displaystyle{a({\mathbf{u}},{\mathbf{v}})=\int%
+\limits_{\Omega}{(\alpha{\mathbf{u}}.{\mathbf{v}}+\nu\nabla{\mathbf{u}}.\nabla%
+{\mathbf{v}})\;d\omega,}}\\
+\displaystyle{b({\mathbf{u}},{q})=-\int\limits_{\Omega}{q\nabla\cdot{\mathbf{u%
+}}\;d\omega,}}\end{array}</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(4.18)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">which simplifies the notation of the variational problem of the Stokes equation to:</p>
+<div id="E19" class="ltx_equation ltx_eqn_div">
+<span><math id="E19.m1" class="ltx_Math" alttext="\left\{{\begin{array}[]{*{20}{l}}\displaystyle{a({\mathbf{u}},{\mathbf{v}})+{b%
+}({\mathbf{v}},p)=({\mathbf{f}},{\mathbf{v}})\qquad{\forall{\mathbf{v}}}\in V,%
+}\\
+\displaystyle{b({\mathbf{u}},q)=0\qquad\qquad\qquad\quad\;{\forall q}\in Q,}%
+\end{array}}\right." display="block"><semantics><mrow><mo>{</mo><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="left"><mrow><mrow><mrow><mrow><mrow><mi>a</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>𝐮</mi><mo>,</mo><mi>𝐯</mi><mo stretchy="false">)</mo></mrow></mrow><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>𝐯</mi><mo>,</mo><mi>p</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>=</mo><mrow><mo stretchy="false">(</mo><mi>𝐟</mi><mo>,</mo><mi>𝐯</mi><mo stretchy="false">)</mo></mrow></mrow><mo mathvariant="italic" separator="true">  </mo><mrow><mrow><mo>∀</mo><mi>𝐯</mi></mrow><mo>∈</mo><mi>V</mi></mrow></mrow><mo>,</mo></mrow></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd></mtr><mtr><mtd columnalign="left"><mrow><mrow><mrow><mrow><mi>b</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>𝐮</mi><mo>,</mo><mi>q</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mn>0</mn></mrow><mo mathvariant="italic" separator="true">        </mo><mrow><mrow><mo>∀</mo><mi>q</mi></mrow><mo>∈</mo><mi>Q</mi></mrow></mrow><mo>,</mo></mrow></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd></mtr></mtable><mi></mi></mrow><annotation encoding="application/x-tex">\left\{{\begin{array}[]{*{20}{l}}\displaystyle{a({\mathbf{u}},{\mathbf{v}})+{b%
+}({\mathbf{v}},p)=({\mathbf{f}},{\mathbf{v}})\qquad{\forall{\mathbf{v}}}\in V,%
+}\\
+\displaystyle{b({\mathbf{u}},q)=0\qquad\qquad\qquad\quad\;{\forall q}\in Q,}%
+\end{array}}\right.</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(4.19)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">in which</p>
+<div id="E20" class="ltx_equation ltx_eqn_div">
+<span><math id="E20.m1" class="ltx_Math" alttext="(\mathbf{f},\mathbf{v})=\sum_{i=1}^{d}\int_{\Omega}f_{i}v_{i}d\omega." display="block"><semantics><mrow><mrow><mrow><mo stretchy="false">(</mo><mi>𝐟</mi><mo>,</mo><mi>𝐯</mi><mo stretchy="false">)</mo></mrow><mo>=</mo><mrow><munderover><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>d</mi></munderover><mrow><msub><mo largeop="true" symmetric="true">∫</mo><mi mathvariant="normal">Ω</mi></msub><mrow><msub><mi>f</mi><mi>i</mi></msub><mo>⁢</mo><msub><mi>v</mi><mi>i</mi></msub><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>ω</mi></mrow></mrow></mrow></mrow></mrow><mo>.</mo></mrow><annotation encoding="application/x-tex">(\mathbf{f},\mathbf{v})=\sum_{i=1}^{d}\int_{\Omega}f_{i}v_{i}d\omega.</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(4.20)</span>
+              
+              
+            
+</div>
+</div>
+</div>
+</section>
+<section id="S2.SS4" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">4.2.4</span> Implementation</h3>
+
+<div id="S2.SS4.p1" class="ltx_para">
+<p class="ltx_p">Numerical implementation of the Stokes (Eq. <a href="#E16" title="(4.16) ‣ 4.2.3 Stokes equations ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.16</span></a>) and Navier-Stokes (Eq. <a href="#E16" title="(4.16) ‣ 4.2.3 Stokes equations ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.16</span></a>) equations can be tricky due to the presence of specific sources of instability, which highly depends on the type of studied fluid regime <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib190" title="Finite element approximation of the navier-stokes equations" class="ltx_ref">89</a>, <a href="bib.html#bib191" title="Finite elements and fast iterative solvers with applications in incompressible fluid dynamics" class="ltx_ref">74</a>]</cite>. Various numerical models have been presented for dealing with these equations, some of which are commonly used in CFD applications, such as the Newton-Raphson approximation of Navier-Stokes equations and the Chorin’s projection method.</p>
+</div>
+<div id="S2.SS4.p2" class="ltx_para">
+<p class="ltx_p">In order to increase the stability and avoid problems in the mathematical analysis of the numerical models (e.g., V-ellipticity
+property), a pseudo-compressibility assumption can be added to the continuity equation. The pseudo-compressible approximation appears as a pressure term <math id="S2.SS4.p2.m1" class="ltx_Math" alttext="\varepsilon p" display="inline"><semantics><mrow><mi>ε</mi><mo>⁢</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">\varepsilon p</annotation></semantics></math> with <math id="S2.SS4.p2.m2" class="ltx_Math" alttext="\varepsilon" display="inline"><semantics><mi>ε</mi><annotation encoding="application/x-tex">\varepsilon</annotation></semantics></math> being a very small coefficient, resulting in the following equation as the final form of the Navier-Stokes equations that we consider in this study <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib192" title="Numerical modeling of transport problems using freefem++ software – with examples in biology, CFD, traffic flow and energy transfer" class="ltx_ref">65</a>]</cite>:</p>
+<div id="E21" class="ltx_equation ltx_eqn_div">
+<span><math id="E21.m1" class="ltx_Math" alttext="\left\{{\begin{array}[]{*{20}{l}}\displaystyle{\frac{{\partial{\mathbf{u}}}}{{%
+\partial t}}-\nu\Delta{\mathbf{u}}+\left({{\mathbf{u}}\cdot\nabla}\right){%
+\mathbf{u}}+\nabla p={\mathbf{f}},}\\
+\displaystyle{\nabla\cdot{\mathbf{u}}+\varepsilon p=0.}\end{array}}\right." display="block"><semantics><mrow><mo>{</mo><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="left"><mrow><mrow><mrow><mrow><mfrac><mrow><mo>∂</mo><mo>⁡</mo><mi>𝐮</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><mi>t</mi></mrow></mfrac><mo>-</mo><mrow><mi>ν</mi><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>𝐮</mi></mrow></mrow><mo>+</mo><mrow><mrow><mo>(</mo><mrow><mi>𝐮</mi><mo>⋅</mo><mo>∇</mo></mrow><mo>)</mo></mrow><mo>⁢</mo><mi>𝐮</mi></mrow><mo>+</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>p</mi></mrow></mrow><mo>=</mo><mi>𝐟</mi></mrow><mo>,</mo></mrow></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd></mtr><mtr><mtd columnalign="left"><mrow><mrow><mrow><mrow><mo>∇</mo><mo>⋅</mo><mi>𝐮</mi></mrow><mo>+</mo><mrow><mi>ε</mi><mo>⁢</mo><mi>p</mi></mrow></mrow><mo>=</mo><mn>0</mn></mrow><mo>.</mo></mrow></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd></mtr></mtable><mi></mi></mrow><annotation encoding="application/x-tex">\left\{{\begin{array}[]{*{20}{l}}\displaystyle{\frac{{\partial{\mathbf{u}}}}{{%
+\partial t}}-\nu\Delta{\mathbf{u}}+\left({{\mathbf{u}}\cdot\nabla}\right){%
+\mathbf{u}}+\nabla p={\mathbf{f}},}\\
+\displaystyle{\nabla\cdot{\mathbf{u}}+\varepsilon p=0.}\end{array}}\right.</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(4.21)</span>
+              
+              
+            
+</div>
+</div>
+<div id="S2.SS4.p3" class="ltx_para">
+<p class="ltx_p">Similarly, the Stokes equation can be written as:</p>
+<div id="E22" class="ltx_equation ltx_eqn_div">
+<span><math id="E22.m1" class="ltx_Math" alttext="\left\{{\begin{array}[]{*{20}{l}}\displaystyle{\alpha\mathbf{u}-\nu\Delta%
+\mathbf{u}+\nabla p=\mathbf{f},}\\
+\displaystyle{\nabla\cdot\mathbf{u}+\varepsilon p=0.}\end{array}}\right." display="block"><semantics><mrow><mo>{</mo><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="left"><mrow><mrow><mrow><mrow><mrow><mi>α</mi><mo>⁢</mo><mi>𝐮</mi></mrow><mo>-</mo><mrow><mi>ν</mi><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>𝐮</mi></mrow></mrow><mo>+</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>p</mi></mrow></mrow><mo>=</mo><mi>𝐟</mi></mrow><mo>,</mo></mrow></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd></mtr><mtr><mtd columnalign="left"><mrow><mrow><mrow><mrow><mo>∇</mo><mo>⋅</mo><mi>𝐮</mi></mrow><mo>+</mo><mrow><mi>ε</mi><mo>⁢</mo><mi>p</mi></mrow></mrow><mo>=</mo><mn>0</mn></mrow><mo>.</mo></mrow></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd></mtr></mtable><mi></mi></mrow><annotation encoding="application/x-tex">\left\{{\begin{array}[]{*{20}{l}}\displaystyle{\alpha\mathbf{u}-\nu\Delta%
+\mathbf{u}+\nabla p=\mathbf{f},}\\
+\displaystyle{\nabla\cdot\mathbf{u}+\varepsilon p=0.}\end{array}}\right.</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(4.22)</span>
+              
+              
+            
+</div>
+</div>
+<div id="S2.SS4.p4" class="ltx_para">
+<p class="ltx_p">Another challenging part is to approximate the convection terms in the equations. One of the best approaches to do so is to take advantage of the method of characteristics, in which the characteristics curves of a PDE are used to convert it to an ODE, resulting in a simpler solution. By using the method of characteristics for the convection term and a backward Euler discretization for the temporal term, the weak form of the Navier-Stokes and continuity equations (Eq. <a href="#E21" title="(4.21) ‣ 4.2.4 Implementation ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.21</span></a>) can be rewritten as:</p>
+<div class="bml-overflow-wrapper">
+<table id="E23" class="ltx_equationgroup ltx_eqn_table">
+
+<tr id="E23X" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="E23X.m2" class="ltx_Math" alttext="\displaystyle\int_{\Omega}\frac{\mathbf{u}^{n+1}-\mathbf{u}^{n}\circ X^{n}}{%
+\Delta t}\cdot\mathbf{v}d\omega+\nu\int_{\Omega}\nabla\mathbf{u}^{n+1}\cdot%
+\nabla\mathbf{v}d\omega-\int_{\Omega}p^{n+1}\nabla\cdot\mathbf{v}d\omega=\int_%
+{\Omega}\mathbf{f}\cdot\mathbf{v}d\omega" display="inline"><semantics><mrow><mrow><mrow><mrow><mstyle displaystyle="true"><msub><mo largeop="true" symmetric="true">∫</mo><mi mathvariant="normal">Ω</mi></msub></mstyle><mrow><mrow><mstyle displaystyle="true"><mfrac><mrow><msup><mi>𝐮</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msup><mo>-</mo><mrow><msup><mi>𝐮</mi><mi>n</mi></msup><mo>∘</mo><msup><mi>X</mi><mi>n</mi></msup></mrow></mrow><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mstyle><mo>⋅</mo><mi>𝐯</mi></mrow><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>ω</mi></mrow></mrow></mrow><mo>+</mo><mrow><mi>ν</mi><mo>⁢</mo><mrow><mstyle displaystyle="true"><msub><mo largeop="true" symmetric="true">∫</mo><mi mathvariant="normal">Ω</mi></msub></mstyle><mrow><mrow><mo>∇</mo><mo>⁡</mo><msup><mi>𝐮</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msup></mrow><mo>⋅</mo><mrow><mo>∇</mo><mo>⁡</mo><mrow><mi>𝐯</mi><mo>⁢</mo><mi>d</mi><mo>⁢</mo><mi>ω</mi></mrow></mrow></mrow></mrow></mrow></mrow><mo>-</mo><mrow><mstyle displaystyle="true"><msub><mo largeop="true" symmetric="true">∫</mo><mi mathvariant="normal">Ω</mi></msub></mstyle><mrow><mrow><mrow><msup><mi>p</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msup><mo>⁢</mo><mo>∇</mo></mrow><mo>⋅</mo><mi>𝐯</mi></mrow><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>ω</mi></mrow></mrow></mrow></mrow><mo>=</mo><mrow><mstyle displaystyle="true"><msub><mo largeop="true" symmetric="true">∫</mo><mi mathvariant="normal">Ω</mi></msub></mstyle><mrow><mrow><mi>𝐟</mi><mo>⋅</mo><mi>𝐯</mi></mrow><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>ω</mi></mrow></mrow></mrow></mrow><annotation encoding="application/x-tex">\displaystyle\int_{\Omega}\frac{\mathbf{u}^{n+1}-\mathbf{u}^{n}\circ X^{n}}{%
+\Delta t}\cdot\mathbf{v}d\omega+\nu\int_{\Omega}\nabla\mathbf{u}^{n+1}\cdot%
+\nabla\mathbf{v}d\omega-\int_{\Omega}p^{n+1}\nabla\cdot\mathbf{v}d\omega=\int_%
+{\Omega}\mathbf{f}\cdot\mathbf{v}d\omega</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td rowspan="2" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equationgroup ltx_align_right">(4.23)</span></td>
+</tr>
+<tr id="E23Xa" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="E23Xa.m2" class="ltx_Math" alttext="\displaystyle\int_{\Omega}\nabla\cdot\mathbf{u}^{n+1}qd\omega+\varepsilon\int_%
+{\Omega}p^{n+1}qd\omega=0" display="inline"><semantics><mrow><mrow><mrow><mstyle displaystyle="true"><msub><mo largeop="true" symmetric="true">∫</mo><mi mathvariant="normal">Ω</mi></msub></mstyle><mrow><mrow><mo>∇</mo><mo>⋅</mo><msup><mi>𝐮</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msup></mrow><mo>⁢</mo><mi>q</mi><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>ω</mi></mrow></mrow></mrow><mo>+</mo><mrow><mi>ε</mi><mo>⁢</mo><mrow><mstyle displaystyle="true"><msub><mo largeop="true" symmetric="true">∫</mo><mi mathvariant="normal">Ω</mi></msub></mstyle><mrow><msup><mi>p</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msup><mo>⁢</mo><mi>q</mi><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>ω</mi></mrow></mrow></mrow></mrow></mrow><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\displaystyle\int_{\Omega}\nabla\cdot\mathbf{u}^{n+1}qd\omega+\varepsilon\int_%
+{\Omega}p^{n+1}qd\omega=0</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<p class="ltx_p">in which <math id="S2.SS4.p4.m1" class="ltx_Math" alttext="(\mathbf{u}^{n+1},p^{n+1})" display="inline"><semantics><mrow><mo stretchy="false">(</mo><msup><mi>𝐮</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msup><mo>,</mo><msup><mi>p</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(\mathbf{u}^{n+1},p^{n+1})</annotation></semantics></math> are the unknowns to be computed from the known state <math id="S2.SS4.p4.m2" class="ltx_Math" alttext="\mathbf{u}^{n}" display="inline"><semantics><msup><mi>𝐮</mi><mi>n</mi></msup><annotation encoding="application/x-tex">\mathbf{u}^{n}</annotation></semantics></math> coming from the previous time step or the initial condition. In Eq. <a href="#E23" title="(4.23) ‣ 4.2.4 Implementation ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.23</span></a>, the term <math id="S2.SS4.p4.m3" class="ltx_Math" alttext="\mathbf{u}^{n+1}-\mathbf{u}^{n}\circ X^{n}" display="inline"><semantics><mrow><msup><mi>𝐮</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msup><mo>-</mo><mrow><msup><mi>𝐮</mi><mi>n</mi></msup><mo>∘</mo><msup><mi>X</mi><mi>n</mi></msup></mrow></mrow><annotation encoding="application/x-tex">\mathbf{u}^{n+1}-\mathbf{u}^{n}\circ X^{n}</annotation></semantics></math> is corresponding to the convection term being approximated using the method of characteristics.</p>
+</div>
+<div id="S2.SS4.p5" class="ltx_para">
+<p class="ltx_p">The weak form of the Stokes equations stays almost the same as Eq. <a href="#E17" title="(4.17) ‣ 4.2.3 Stokes equations ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.17</span></a> (because it does not contain transient and convection terms) but needs a slight modification to add the pseudo-compressible terms from Eq. <a href="#E22" title="(4.22) ‣ 4.2.4 Implementation ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.22</span></a>:</p>
+<div id="E24" class="ltx_equation ltx_eqn_div">
+<span><math id="E24.m1" class="ltx_Math" alttext="\begin{array}[]{*{20}{l}}\displaystyle{\int\limits_{\Omega}{(\alpha{\mathbf{u}%
+}.{\mathbf{v}}+\nu\nabla{\mathbf{u}}.\nabla{\mathbf{v}})\,}d\omega-\int\limits%
+_{\Omega}{p\nabla\cdot{\mathbf{v}}\;d\omega=}\int\limits_{\Omega}{{\mathbf{f}}%
+.{\mathbf{v}}\;d\omega,}}\\
+\displaystyle{\int\limits_{\Omega}{q\nabla\cdot{\mathbf{u}}\;d\omega+%
+\varepsilon\int_{\Omega}pqd\omega=0}.}\end{array}" display="block"><semantics><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="left"><mrow><munder><mo largeop="true" movablelimits="false" symmetric="true">∫</mo><mi mathvariant="normal">Ω</mi></munder><mrow><mo stretchy="false">(</mo><mi>α</mi><mi>𝐮</mi><mo>.</mo><mi>𝐯</mi><mo>+</mo><mi>ν</mi><mo>∇</mo><mi>𝐮</mi><mo>.</mo><mo>∇</mo><mi>𝐯</mi><mo rspace="4.2pt" stretchy="false">)</mo></mrow><mi>d</mi><mi>ω</mi><mo>-</mo><munder><mo largeop="true" movablelimits="false" symmetric="true">∫</mo><mi mathvariant="normal">Ω</mi></munder><mi>p</mi><mo>∇</mo><mo>⋅</mo><mpadded width="+2.8pt"><mi>𝐯</mi></mpadded><mi>d</mi><mi>ω</mi><mo>=</mo><munder><mo largeop="true" movablelimits="false" symmetric="true">∫</mo><mi mathvariant="normal">Ω</mi></munder><mi>𝐟</mi><mo>.</mo><mpadded width="+2.8pt"><mi>𝐯</mi></mpadded><mi>d</mi><mi>ω</mi><mo>,</mo></mrow></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd></mtr><mtr><mtd columnalign="left"><mrow><mrow><mrow><mrow><munder><mo largeop="true" movablelimits="false" symmetric="true">∫</mo><mi mathvariant="normal">Ω</mi></munder><mrow><mrow><mrow><mi>q</mi><mo>⁢</mo><mo>∇</mo></mrow><mo>⋅</mo><mpadded width="+2.8pt"><mi>𝐮</mi></mpadded></mrow><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>ω</mi></mrow></mrow></mrow><mo>+</mo><mrow><mi>ε</mi><mo>⁢</mo><mrow><msub><mo largeop="true" symmetric="true">∫</mo><mi mathvariant="normal">Ω</mi></msub><mrow><mi>p</mi><mo>⁢</mo><mi>q</mi><mo>⁢</mo><mrow><mo rspace="0pt">𝑑</mo><mi>ω</mi></mrow></mrow></mrow></mrow></mrow><mo>=</mo><mn>0</mn></mrow><mo>.</mo></mrow></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd><mtd></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{array}[]{*{20}{l}}\displaystyle{\int\limits_{\Omega}{(\alpha{\mathbf{u}%
+}.{\mathbf{v}}+\nu\nabla{\mathbf{u}}.\nabla{\mathbf{v}})\,}d\omega-\int\limits%
+_{\Omega}{p\nabla\cdot{\mathbf{v}}\;d\omega=}\int\limits_{\Omega}{{\mathbf{f}}%
+.{\mathbf{v}}\;d\omega,}}\\
+\displaystyle{\int\limits_{\Omega}{q\nabla\cdot{\mathbf{u}}\;d\omega+%
+\varepsilon\int_{\Omega}pqd\omega=0}.}\end{array}</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(4.24)</span>
+              
+              
+            
+</div>
+</div>
+<div id="S2.SS4.p6" class="ltx_para">
+<p class="ltx_p">The model was implemented in the open-source PDE solver FreeFEM <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib44" title="New development in freefem++" class="ltx_ref">112</a>]</cite> using P1 elements for the pressure and P2 elements for the velocity state variables. Eqs. <a href="#E23" title="(4.23) ‣ 4.2.4 Implementation ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.23</span></a> and <a href="#E24" title="(4.24) ‣ 4.2.4 Implementation ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.24</span></a> can be easily implemented in FreeFEM thanks to the built-in support of the method of characteristics via the <code class="ltx_verbatim ltx_font_typewriter">convect</code> function.</p>
+</div>
+</div>
+</section>
+<section id="S2.SS5" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">4.2.5</span> Preconditioning and parallelizing the computation</h3>
+
+<div id="S2.SS5.p1" class="ltx_para">
+<p class="ltx_p">The solution of the Stokes and Navier-Stokes equations using the finite element method in 3D is a computationally intensive process, and as a result, taking advantage of high-performance techniques to reduce the simulation time becomes crucial in real-world applications. Preconditioning the system and parallelizing the simulation by partitioning the mesh and distributing the partitions among available computing nodes in a parallel computing setup are great solutions to this challenge.</p>
+</div>
+<div id="S2.SS5.p2" class="ltx_para">
+<p class="ltx_p">In the current implementation, the METIS graph partitioner <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib65" title="A fast and high quality multilevel scheme for partitioning irregular graphs" class="ltx_ref">144</a>]</cite> and HPDDM package <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib64" title="Scalable domain decomposition preconditioners for heterogeneous elliptic problems" class="ltx_ref">140</a>]</cite> were used to partition the computational mesh and distribute the load over the available resources. For preconditioning and improving the solution time of the derived equations, various (combinations of) preconditioners and iterative or direct solvers available in the PETSc toolkit <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib61" title="PETSc Web page" class="ltx_ref">25</a>]</cite> were tested to find the most suitable combination.</p>
+</div>
+<div id="S2.SS5.p3" class="ltx_para">
+<p class="ltx_p">While exact factorization preconditioners (such as LU) are easy to implement and use for fluid flow applications, they show bad memory scaling profiles in large-scale problems, meaning that memory usage increases exponentially with the problem size, making it almost impossible to use them for 3D cases. A better solution for this class of problems is to take advantage of the FieldSplit preconditioner in the PETSc toolkit, which allows solving the derived linear system of equations using the block matrices technique. In this technique, the matrices are divided into smaller blocks, and separate preconditioners or solvers can be assigned to each block (each field). These blocks arise naturally from the underlying physics or numerical discretization of the problem, such as velocity and pressure in fluid flow applications. For matrices with an arbitrary number of blocks, three different “block” algorithms are available in the PETSc toolkit: block Jacobi (<code class="ltx_verbatim ltx_font_typewriter">additive</code>), block Gauss-Seidel (<code class="ltx_verbatim ltx_font_typewriter">multiplicative</code>), and symmetric block Gauss-Seidel (<code class="ltx_verbatim ltx_font_typewriter">symmetric_multiplicative</code>), which can be selected by passing the desired one to the <code class="ltx_verbatim ltx_font_typewriter">pc_fieldsplit_type</code> flag. For two blocks, like the one in fluid flow problems with velocity and pressure as the blocks, another family of solvers based on Schur complements can be used.</p>
+</div>
+<div id="S2.SS5.p4" class="ltx_para">
+<p class="ltx_p">In the current study, the FieldSplit preconditioner with Schur complement approximation was used on two blocks for velocity and pressure. A GMRES KSP type <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib66" title="GMRES: a generalized minimal residual algorithm for solving nonsymmetric linear systems" class="ltx_ref">223</a>]</cite> was employed to solve the preconditioned system with an iterative solver. An Algebraic Multigrid (AMG) preconditioner <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib101" title="Multigrid methods" class="ltx_ref">187</a>]</cite> was used for the velocity block, and a Jacobi preconditioner was assigned to the pressure block. The result of this configuration, as well as the request for appropriate monitoring tools, can be written as follows:</p>
+<pre class="ltx_verbatim ltx_font_typewriter">
+-ksp_monitor -ksp_converged_reason -ksp_type fgmres
+-pc_type fieldsplit -pc_fieldsplit_type schur
+-pc_fieldsplit_schur_fact_type full
+-fieldsplit_velocity_pc_type gamg
+-fieldsplit_velocity_ksp_type preonly
+-fieldsplit_pressure_pc_type jacobi
+-fieldsplit_pressure_ksp_max_it 5 
+</pre>
+<p class="ltx_p">to pass to PETSc while solving the equations.</p>
+</div>
+</div>
+</section>
+<section id="S2.SS6" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">4.2.6</span> Considering the degrading object</h3>
+
+<div id="S2.SS6.p1" class="ltx_para">
+<p class="ltx_p">In biodegradation simulations, a degrading object exists in the fluid domain, through which the flow should not pass because it is a solid part. One common approach to handle this situation is to remove the solid part from the fluid flow mesh, but since the part shrinks over time, this is not a feasible and efficient approach, needing tremendous mesh recreation and removal during simulation. As a result, in the current study, the presence of the solid body as a barrier is taken into account by adding a Darcy term for the permeability to the Navier-Stokes and Stokes equations. A penalization technique is then employed to implement it in the weak formulation. To couple the fluid flow model with the biodegradation model, a convection term is added to the ions transport equations, causing the fluid velocity field advect the ions.</p>
+</div>
+<div id="S2.SS6.p2" class="ltx_para">
+<p class="ltx_p">Adding the Darcy term to Eq. <a href="#E16" title="(4.16) ‣ 4.2.3 Stokes equations ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.16</span></a> and considering no other acting force yields to:</p>
+<div id="E25" class="ltx_equation ltx_eqn_div">
+<span><math id="E25.m1" class="ltx_Math" alttext="-\nu\Delta\mathbf{u}+\nabla p+\frac{\nu}{K}\mathbf{u}=0," display="block"><semantics><mrow><mrow><mrow><mrow><mo>-</mo><mrow><mi>ν</mi><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>𝐮</mi></mrow></mrow><mo>+</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>p</mi></mrow><mo>+</mo><mrow><mfrac><mi>ν</mi><mi>K</mi></mfrac><mo>⁢</mo><mi>𝐮</mi></mrow></mrow><mo>=</mo><mn>0</mn></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">-\nu\Delta\mathbf{u}+\nabla p+\frac{\nu}{K}\mathbf{u}=0,</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(4.25)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">where <math id="S2.SS6.p2.m1" class="ltx_Math" alttext="K" display="inline"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> is the permeability function. Similar to Eq. <a href="#E25" title="(4.25) ‣ 4.2.6 Considering the degrading object ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.25</span></a> the effect of the solid part can be added to the Navier-Stokes equation (Eq. <a href="#E3" title="(4.3) ‣ 4.2.1 Navier-Stokes equations ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.3</span></a>) by the Darcy term, leading to the following equation:</p>
+<div id="E26" class="ltx_equation ltx_eqn_div">
+<span><math id="E26.m1" class="ltx_Math" alttext="\frac{{\partial{\mathbf{u}}}}{{\partial t}}-\nu\Delta{\mathbf{u}}+\left({{%
+\mathbf{u}}\cdot\nabla}\right){\mathbf{u}}+\nabla p+\frac{\nu}{K}\mathbf{u}=0." display="block"><semantics><mrow><mrow><mrow><mrow><mfrac><mrow><mo>∂</mo><mo>⁡</mo><mi>𝐮</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><mi>t</mi></mrow></mfrac><mo>-</mo><mrow><mi>ν</mi><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>𝐮</mi></mrow></mrow><mo>+</mo><mrow><mrow><mo>(</mo><mrow><mi>𝐮</mi><mo>⋅</mo><mo>∇</mo></mrow><mo>)</mo></mrow><mo>⁢</mo><mi>𝐮</mi></mrow><mo>+</mo><mrow><mo>∇</mo><mo>⁡</mo><mi>p</mi></mrow><mo>+</mo><mrow><mfrac><mi>ν</mi><mi>K</mi></mfrac><mo>⁢</mo><mi>𝐮</mi></mrow></mrow><mo>=</mo><mn>0</mn></mrow><mo>.</mo></mrow><annotation encoding="application/x-tex">\frac{{\partial{\mathbf{u}}}}{{\partial t}}-\nu\Delta{\mathbf{u}}+\left({{%
+\mathbf{u}}\cdot\nabla}\right){\mathbf{u}}+\nabla p+\frac{\nu}{K}\mathbf{u}=0.</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(4.26)</span>
+              
+              
+            
+</div>
+</div>
+<div id="S2.SS6.p3" class="ltx_para">
+<p class="ltx_p">The Darcy term vanishes in regions with high permeability, i.e., inside the fluid domain, resembling the Stokes equation. Still, when <math id="S2.SS6.p3.m1" class="ltx_Math" alttext="K" display="inline"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> is very small, i.e., inside the solid part, it dominates the flow and acts like a barrier. To avoid numerical perturbation for switching between these 2 regions, a Heaviside function is defined to update <math id="S2.SS6.p3.m2" class="ltx_Math" alttext="K" display="inline"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib187" title="Coupling curvature-dependent and shear stress-stimulated neotissue growth in dynamic bioreactor cultures: a 3d computational model of a complete scaffold" class="ltx_ref">102</a>]</cite>:</p>
+<div id="E27" class="ltx_equation ltx_eqn_div">
+<span><math id="E27.m1" class="ltx_Math" alttext="H(\phi)=\left\{\begin{array}[]{l}0,\quad\phi&lt;-\varepsilon\\
+\frac{1}{2}+\frac{\phi}{2\varepsilon}+\frac{1}{2\pi}\sin\left(\frac{\pi\phi}{%
+\varepsilon}\right),\quad-\varepsilon&lt;\phi&lt;\varepsilon\\
+1,\quad\phi&gt;-\varepsilon\end{array}\right." display="block"><semantics><mrow><mrow><mi>H</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>ϕ</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="left"><mrow><mrow><mn>0</mn><mo rspace="12.5pt">,</mo><mi>ϕ</mi></mrow><mo>&lt;</mo><mrow><mo>-</mo><mi>ε</mi></mrow></mrow></mtd></mtr><mtr><mtd columnalign="left"><mrow><mrow><mrow><mstyle displaystyle="false"><mfrac><mn>1</mn><mn>2</mn></mfrac></mstyle><mo>+</mo><mstyle displaystyle="false"><mfrac><mi>ϕ</mi><mrow><mn>2</mn><mo>⁢</mo><mi>ε</mi></mrow></mfrac></mstyle><mo>+</mo><mrow><mstyle displaystyle="false"><mfrac><mn>1</mn><mrow><mn>2</mn><mo>⁢</mo><mi>π</mi></mrow></mfrac></mstyle><mo>⁢</mo><mrow><mi>sin</mi><mo>⁡</mo><mrow><mo>(</mo><mstyle displaystyle="false"><mfrac><mrow><mi>π</mi><mo>⁢</mo><mi>ϕ</mi></mrow><mi>ε</mi></mfrac></mstyle><mo>)</mo></mrow></mrow></mrow></mrow><mo rspace="12.5pt">,</mo><mrow><mo>-</mo><mi>ε</mi></mrow></mrow><mo>&lt;</mo><mi>ϕ</mi><mo>&lt;</mo><mi>ε</mi></mrow></mtd></mtr><mtr><mtd columnalign="left"><mrow><mrow><mn>1</mn><mo rspace="12.5pt">,</mo><mi>ϕ</mi></mrow><mo>&gt;</mo><mrow><mo>-</mo><mi>ε</mi></mrow></mrow></mtd></mtr></mtable><mi></mi></mrow></mrow><annotation encoding="application/x-tex">H(\phi)=\left\{\begin{array}[]{l}0,\quad\phi&lt;-\varepsilon\\
+\frac{1}{2}+\frac{\phi}{2\varepsilon}+\frac{1}{2\pi}\sin\left(\frac{\pi\phi}{%
+\varepsilon}\right),\quad-\varepsilon&lt;\phi&lt;\varepsilon\\
+1,\quad\phi&gt;-\varepsilon\end{array}\right.</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(4.27)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">in which <math id="S2.SS6.p3.m3" class="ltx_Math" alttext="\phi" display="inline"><semantics><mi>ϕ</mi><annotation encoding="application/x-tex">\phi</annotation></semantics></math> is the level-set signed distance function used to separate the solid and solution parts (Eqs. <a href="Ch3.html#E3" title="(3.3) ‣ 3.2.3 Level-set method ‣ 3.2 Background theory ‣ Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3.3</span></a> and <a href="Ch3.html#E4" title="(3.4) ‣ 3.2.3 Level-set method ‣ 3.2 Background theory ‣ Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3.4</span></a>), and <math id="S2.SS6.p3.m4" class="ltx_Math" alttext="\varepsilon" display="inline"><semantics><mi>ε</mi><annotation encoding="application/x-tex">\varepsilon</annotation></semantics></math> is set to 1.5h, with h being the minimum mesh element size. Then, <math id="S2.SS6.p3.m5" class="ltx_Math" alttext="K" display="inline"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> can be accordingly updated to have a smooth transition between regions with a big difference in permeability:</p>
+<div id="E28" class="ltx_equation ltx_eqn_div">
+<span><math id="E28.m1" class="ltx_Math" alttext="K(\boldsymbol{x})=10^{30}(1-H)+K_{0}H" display="block"><semantics><mrow><mrow><mi>K</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>𝒙</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mrow><msup><mn>10</mn><mn>30</mn></msup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mn>1</mn><mo>-</mo><mi>H</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>+</mo><mrow><msub><mi>K</mi><mn>0</mn></msub><mo>⁢</mo><mi>H</mi></mrow></mrow></mrow><annotation encoding="application/x-tex">K(\boldsymbol{x})=10^{30}(1-H)+K_{0}H</annotation></semantics></math></span>
+              <span class="ltx_tag ltx_tag_equation ltx_align_right">(4.28)</span>
+              
+              
+            
+</div>
+<p class="ltx_p">where <math id="S2.SS6.p3.m6" class="ltx_Math" alttext="K_{0}" display="inline"><semantics><msub><mi>K</mi><mn>0</mn></msub><annotation encoding="application/x-tex">K_{0}</annotation></semantics></math> is the permeability of metals in fluid regions (<math id="S2.SS6.p3.m7" class="ltx_Math" alttext="\sim 10^{-6}" display="inline"><semantics><mrow><mi></mi><mo>∼</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>6</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\sim 10^{-6}</annotation></semantics></math> H/m).</p>
+</div>
+</div>
+</section>
+<section id="S2.SS7" class="ltx_subsection normal">
+<div class="section level3">
+
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection header-section-number">4.2.7</span> Simulation setup</h3>
+
+<section id="S2.SS7.SSSx1" class="ltx_subsubsection normal">
+<div class="section level4">
+
+<h4 class="ltx_title ltx_title_subsubsection">Test case to compare with OpenFOAM</h4>
+
+<div id="S2.SS7.SSSx1.p1" class="ltx_para">
+<p class="ltx_p">In order to perform a verification analysis on the developed CFD model, a case of 3D flow inside a chamber was implemented to compare the simulation results with those of a well-established and known CFD solver. For this reason, the OpenFOAM open-source solver was used, which has been extensively used for fluid dynamics simulations over the last decades <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib205" title="A tensorial approach to computational continuum mechanics using object-oriented techniques" class="ltx_ref">273</a>]</cite>. The simulation was carried out using the simpleFOAM solver, which uses the SIMPLE (Semi-Implicit Method for Pressure Linked Equations) algorithm for coupling and solving the Navier-Stokes equations.</p>
+</div>
+<figure id="F1" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/fluid/image/setup.jpg" id="F1.g1" class="ltx_graphics ltx_centering" width="541" height="209" alt="Fluid flow model construction for comparing the CFD results with the experimental setup: a) a schematic of the experimental setup, b) the CAD geometry, c) the generated mesh containing tetrahedral elements."></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 4.1: </span>Fluid flow model construction for comparing the CFD results with the experimental setup: a) a schematic of the experimental setup, b) the CAD geometry, c) the generated mesh containing tetrahedral elements.</figcaption>
+</figure>
+<div id="S2.SS7.SSSx1.p2" class="ltx_para">
+<p class="ltx_p">The geometry was chosen based on the experiments performed for biodegradation in hydrodynamics conditions. The experimental setup is depicted in Fig. <a href="#F1" title="Figure 4.1 ‣ Test case to compare with OpenFOAM ‣ 4.2.7 Simulation setup ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.1</span></a>-A, where the constructed CAD geometry is shown in Fig. <a href="#F1" title="Figure 4.1 ‣ Test case to compare with OpenFOAM ‣ 4.2.7 Simulation setup ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.1</span></a>-B. The computational mesh, comprising linear tetrahedral elements, was generated using Netgen <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib47" title="NETGEN an advancing front 2d/3d-mesh generator based on abstract rules" class="ltx_ref">233</a>]</cite> in the SALOME platform <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib48" title="Salome platform component model for numerical simulation" class="ltx_ref">217</a>]</cite>. The final mesh used in both FreeFEM and OpenFOAM models is shown in Fig. <a href="#F1" title="Figure 4.1 ‣ Test case to compare with OpenFOAM ‣ 4.2.7 Simulation setup ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.1</span></a>-C, containing 100888 elements.</p>
+</div>
+<div id="S2.SS7.SSSx1.p3" class="ltx_para">
+<p class="ltx_p">The fluid flow direction is from left to right, meaning that the inlet was set on the vertical face of the small pipe on the bottom left side of the chamber, and the outlet was set similarly on the upper right pipe. The rest of the boundaries were set to no-slip boundary conditions. A zero pressure boundary condition was set on the outlet. The inlet velocity was set to <math id="S2.SS7.SSSx1.p3.m1" class="ltx_Math" alttext="1.0\mathrm{mm}/\mathrm{s}" display="inline"><semantics><mrow><mrow><mn>1.0</mn><mo>⁢</mo><mi>mm</mi></mrow><mo>/</mo><mi mathvariant="normal">s</mi></mrow><annotation encoding="application/x-tex">1.0\mathrm{mm}/\mathrm{s}</annotation></semantics></math>, and the parameter <math id="S2.SS7.SSSx1.p3.m2" class="ltx_Math" alttext="\nu" display="inline"><semantics><mi>ν</mi><annotation encoding="application/x-tex">\nu</annotation></semantics></math> was set to <math id="S2.SS7.SSSx1.p3.m3" class="ltx_Math" alttext="0.85\mathrm{mm}^{2}/\mathrm{s}" display="inline"><semantics><mrow><mrow><mn>0.85</mn><mo>⁢</mo><msup><mi>mm</mi><mn>2</mn></msup></mrow><mo>/</mo><mi mathvariant="normal">s</mi></mrow><annotation encoding="application/x-tex">0.85\mathrm{mm}^{2}/\mathrm{s}</annotation></semantics></math>.</p>
+</div>
+</div>
+</section>
+<section id="S2.SS7.SSSx2" class="ltx_subsubsection normal">
+<div class="section level4">
+
+<h4 class="ltx_title ltx_title_subsubsection">Test case to check coupling with degradation model</h4>
+
+<div id="S2.SS7.SSSx2.p1" class="ltx_para">
+<p class="ltx_p">In addition to the test case for verification of the developed CFD code, two more cases were constructed to evaluate the model’s performance in the presence of a barrier, i.e., the degrading object in the coupled biodegradation model. To this end, after coupling the models, a simple 3D geometry of a cylinder with an embedded sphere as the degrading object inside was simulated. The simulation parameters were set similarly to the verification case. The inlet and outlet were assigned to the bases of the cylinder, and the altitude was assigned as the wall boundary condition. Fig. <a href="#F2" title="Figure 4.2 ‣ Test case to check coupling with degradation model ‣ 4.2.7 Simulation setup ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.2</span></a> shows a schematic of the computational setup for this test case as well as a vertical cut of the generated computational mesh containing 640249 elements. The mesh was refined on the interface of the degrading object to increase the numerical accuracy of the biodegradation model.</p>
+</div>
+<figure id="F2" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/fluid/image/coupled_setup.jpg" id="F2.g1" class="ltx_graphics ltx_centering" width="541" height="197" alt="Model construction for checking the coupling of the fluid flow and biodegradation models: a) schematic representation of the domain b) the generated computational mesh."></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 4.2: </span>Model construction for checking the coupling of the fluid flow and biodegradation models: a) schematic representation of the domain b) the generated computational mesh.</figcaption>
+</figure>
+<div id="S2.SS7.SSSx2.p2" class="ltx_para">
+<p class="ltx_p">Additionally, a simple 2D representation of the full chamber model (Fig. <a href="#F1" title="Figure 4.1 ‣ Test case to compare with OpenFOAM ‣ 4.2.7 Simulation setup ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.1</span></a>) was constructed to test the effect of the fluid flow on the degradation behavior of the metallic parts. In this model, a high inlet velocity and a high diffusion coefficient were used to have an exaggerated degradation, showing how the fluid flow would affect the change of morphology of the object. The degrading metallic part was selected to be a small rectangle on the bottom of the chamber. The domain setup is depicted schematically in Fig. <a href="#F3" title="Figure 4.3 ‣ Test case to check coupling with degradation model ‣ 4.2.7 Simulation setup ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.3</span></a>. The computational mesh was generated using the SALOME platform and contained 24946 elements.</p>
+</div>
+<figure id="F3" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/fluid/image/chamber_degrade_setup.jpg" id="F3.g1" class="ltx_graphics ltx_centering" width="432" height="93" alt="Schematic view of the model used for checking the effect of the fluid flow on biodegradation behavior."></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 4.3: </span>Schematic view of the model used for checking the effect of the fluid flow on biodegradation behavior.</figcaption>
+</figure>
+</div>
+</section>
+</div>
+</section>
+</div>
+</section>
+<section id="S3" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">4.3</span> Results</h2>
+
+<div id="S3.p1" class="ltx_para">
+<p class="ltx_p">To verify the robustness of the model predictions, the results of the CFD code developed in FreeFEM were compared both quantitatively and qualitatively with an OpenFOAM model of an identical set-up. The qualitative comparison was made via the streamlines, showing how the flow develops by plotting the trajectory lines of the fluid velocity field inside the desired domain, which is the chamber in this case. Figs. <a href="#F4" title="Figure 4.4 ‣ 4.3 Results ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.4</span></a> and <a href="#F5" title="Figure 4.5 ‣ 4.3 Results ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.5</span></a> show such comparison between the developed model and OpenFOAM. Fig. <a href="#F4" title="Figure 4.4 ‣ 4.3 Results ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.4</span></a> shows the streamlines for both models from a side view, in which the flow enters the chamber from the left inlet pipe and leaves it from the top right outlet. The qualitative comparison shows a good agreement between the predictions of the models.</p>
+</div>
+<figure id="F4" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/fluid/image/streamlines_side.jpg" id="F4.g1" class="ltx_graphics ltx_centering" width="541" height="332" alt="Comparing the results of the developed CFD model (top) with OpenFOAM (bottom) via plotting the streamlines of the fluid velocity field, depicted from the side view. The colors on the trajectory lines show the magnitude of the velocity vector (in "></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 4.4: </span>Comparing the results of the developed CFD model (top) with OpenFOAM (bottom) via plotting the streamlines of the fluid velocity field, depicted from the side view. The colors on the trajectory lines show the magnitude of the velocity vector (in <math id="F4.m1" class="ltx_Math" alttext="\mathrm{mm}/\mathrm{s}" display="inline"><semantics><mrow><mi>mm</mi><mo>/</mo><mi mathvariant="normal">s</mi></mrow><annotation encoding="application/x-tex">\mathrm{mm}/\mathrm{s}</annotation></semantics></math>).</figcaption>
+</figure>
+<div id="S3.p2" class="ltx_para">
+<p class="ltx_p">Similarly, Fig. <a href="#F5" title="Figure 4.5 ‣ 4.3 Results ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.5</span></a> depicts a comparison but from the top view, showing good agreement between the predictions, although the OpenFOAM model (bottom) shows slightly better performance on the boundaries as can be appreciated from the existence of extra streamlines close to the cylinder boundary in the FreeFEM code results.</p>
+</div>
+<figure id="F5" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/fluid/image/streamlines_top.jpg" id="F5.g1" class="ltx_graphics ltx_centering" width="541" height="332" alt="Streamlines of the fluid velocity field plotted from a top view to compare the output of the developed CFD model (top) and OpenFOAM (bottom) with colors showing the magnitude of the velocity vector at each point (in "></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 4.5: </span>Streamlines of the fluid velocity field plotted from a top view to compare the output of the developed CFD model (top) and OpenFOAM (bottom) with colors showing the magnitude of the velocity vector at each point (in <math id="F5.m1" class="ltx_Math" alttext="\mathrm{mm}/\mathrm{s}" display="inline"><semantics><mrow><mi>mm</mi><mo>/</mo><mi mathvariant="normal">s</mi></mrow><annotation encoding="application/x-tex">\mathrm{mm}/\mathrm{s}</annotation></semantics></math>).</figcaption>
+</figure>
+<div id="S3.p3" class="ltx_para">
+<p class="ltx_p">Moreover, a quantitative comparison is possible by comparing the numerical values predicted by the models in various regions of the desired domain, including the regions close to the boundaries. Fig. <a href="#F6" title="Figure 4.6 ‣ 4.3 Results ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.6</span></a> shows the comparison of the fluid velocity field visualization between the developed CFD code and OpenFOAM on a cross-section in the center of the chamber, showing that both models produce the same results quantitatively.</p>
+</div>
+<figure id="F6" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/fluid/image/flow_chamber.jpg" id="F6.g1" class="ltx_graphics ltx_centering" width="541" height="332" alt="comparison between the fluid velocity field predicted by the developed CFD code (top) and OpenFOAM (bottom), depicted on a vertical cross-section in the center of the chamber. Fluid enters the chamber from the left and leaves it from the right. The colors show the magnitude of the velocity vector at each point (in "></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 4.6: </span>comparison between the fluid velocity field predicted by the developed CFD code (top) and OpenFOAM (bottom), depicted on a vertical cross-section in the center of the chamber. Fluid enters the chamber from the left and leaves it from the right. The colors show the magnitude of the velocity vector at each point (in <math id="F6.m1" class="ltx_Math" alttext="\mathrm{mm}/\mathrm{s}" display="inline"><semantics><mrow><mi>mm</mi><mo>/</mo><mi mathvariant="normal">s</mi></mrow><annotation encoding="application/x-tex">\mathrm{mm}/\mathrm{s}</annotation></semantics></math>). The white dashed-line box shows the zoomed-in area of Fig. <a href="#F7" title="Figure 4.7 ‣ 4.3 Results ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.7</span></a>.</figcaption>
+</figure>
+<div id="S3.p4" class="ltx_para">
+<p class="ltx_p">A closer look at the center of Fig. <a href="#F6" title="Figure 4.6 ‣ 4.3 Results ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.6</span></a> is depicted in Fig. <a href="#F7" title="Figure 4.7 ‣ 4.3 Results ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.7</span></a>, where the color bar range is adapted to contain only the visible values. This zoomed-in comparison confirms the good agreement between the CFD model and OpenFOAM results. The employed mesh is relatively coarse in the center (regions far from the inlet and outlet), the effect of which can be seen as non-smooth velocity profiles in Fig. <a href="#F7" title="Figure 4.7 ‣ 4.3 Results ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.7</span></a>. Still, both models handle this coarse mesh effect similarly.</p>
+</div>
+<figure id="F7" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/fluid/image/flow_chamber_zoom.jpg" id="F7.g1" class="ltx_graphics ltx_centering" width="541" height="338" alt="A zoomed-in view of the area depicted as white dashed-line in Fig. "></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 4.7: </span>A zoomed-in view of the area depicted as white dashed-line in Fig. <a href="#F6" title="Figure 4.6 ‣ 4.3 Results ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.6</span></a>, indicating the fluid velocity field for results predicted by the developed CFD code (top) and OpenFOAM (bottom) with colors showing the magnitude of the velocity vector at each point (in <math id="F7.m1" class="ltx_Math" alttext="\mathrm{mm}/\mathrm{s}" display="inline"><semantics><mrow><mi>mm</mi><mo>/</mo><mi mathvariant="normal">s</mi></mrow><annotation encoding="application/x-tex">\mathrm{mm}/\mathrm{s}</annotation></semantics></math>).</figcaption>
+</figure>
+<div id="S3.p5" class="ltx_para">
+<p class="ltx_p">Fig. <a href="#F8" title="Figure 4.8 ‣ 4.3 Results ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.8</span></a> shows the result of a proof-of-concept simulation in which the biodegradation model <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib109" title="Computational modeling of degradation process of biodegradable magnesium biomaterials" class="ltx_ref">31</a>]</cite> (presented in Chapter <a href="Ch3.html" title="Chapter 3 Developing the core computational model ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">3</span></a>) is coupled with the fluid flow model. This was done by solving Eq. <a href="#E26" title="(4.26) ‣ 4.2.6 Considering the degrading object ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.26</span></a> (or Eq. <a href="#E25" title="(4.25) ‣ 4.2.6 Considering the degrading object ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.25</span></a> for simpler cases) and adding a convection term to the equations of the biodegradation model to include the directional effect of fluid flow on the degrading object. The interplay between the fluid flow and the degradation can be seen in Fig. <a href="#F8" title="Figure 4.8 ‣ 4.3 Results ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.8</span></a> with the released ions being advected to the right (the direction of the fluid flow) and the degrading object being slightly more degraded on the left.</p>
+</div>
+<figure id="F8" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/fluid/image/flow_degrading.jpg" id="F8.g1" class="ltx_graphics ltx_centering" width="541" height="405" alt="Biodegradation simulation results in the presence of fluid flow over time, showing the interplay between the fluid flow and biodegradation models. The displayed time is in an arbitrary unit for demonstrating the intervals only. The flow gets detoured due to the presence of an obstacle, and the released ions get advected to the direction of fluid flow (left to right). The colors represent the concentration of Mg ions as they get released to the surrounding environment and subsequently get diffused/advected. The gray surface shows the zero iso-contour of the used level-set function to track the degrading object’s interface, demonstrating the solid part’s change of morphology."></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 4.8: </span>Biodegradation simulation results in the presence of fluid flow over time, showing the interplay between the fluid flow and biodegradation models. The displayed time is in an arbitrary unit for demonstrating the intervals only. The flow gets detoured due to the presence of an obstacle, and the released ions get advected to the direction of fluid flow (left to right). The colors represent the concentration of Mg ions as they get released to the surrounding environment and subsequently get diffused/advected. The gray surface shows the zero iso-contour of the used level-set function to track the degrading object’s interface, demonstrating the solid part’s change of morphology.</figcaption>
+</figure>
+<div id="S3.p6" class="ltx_para">
+<p class="ltx_p">Fig. <a href="#F9" title="Figure 4.9 ‣ 4.3 Results ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.9</span></a> shows the effect of the degrading object on the fluid velocity field, depicted as streamlines passing over the solid part at the end of the performed simulation. The figure demonstrates the fluid flow response to the presence of the changing morphology of the obstacle, obtained from solving the Navier-Stokes equations containing the Darcy term (Eq. <a href="#E26" title="(4.26) ‣ 4.2.6 Considering the degrading object ‣ 4.2 Methods ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.26</span></a>).</p>
+</div>
+<figure id="F9" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/fluid/image/flow_degrading_streamline.jpg" id="F9.g1" class="ltx_graphics ltx_centering" width="541" height="281" alt="Visualization of the fluid velocity field depicted by streamlines passing over a degrading object. Colors show the magnitude of the velocity field (in "></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 4.9: </span>Visualization of the fluid velocity field depicted by streamlines passing over a degrading object. Colors show the magnitude of the velocity field (in <math id="F9.m1" class="ltx_Math" alttext="\mathrm{mm}/\mathrm{s}" display="inline"><semantics><mrow><mi>mm</mi><mo>/</mo><mi mathvariant="normal">s</mi></mrow><annotation encoding="application/x-tex">\mathrm{mm}/\mathrm{s}</annotation></semantics></math>) projected on the streamlines.</figcaption>
+</figure>
+<div id="S3.p7" class="ltx_para">
+<p class="ltx_p">Fig. <a href="#F10" title="Figure 4.10 ‣ 4.3 Results ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.10</span></a> shows the results of the second test case for the coupled biodegradation model, in which the release of metallic ions is depicted over time along with the change of the morphology of the degrading object. The released metallic ions get convected in the direction of the flow field inside the chamber, which was obtained by solving the Navier-Stokes equations.</p>
+</div>
+<figure id="F10" class="ltx_figure"><div class="bml-overflow-wrapper"><img src="chapters/fluid/image/degradation_chamber.jpg" id="F10.g1" class="ltx_graphics ltx_centering" width="541" height="218" alt="Visualization of the results of the biodegradation of an object inside the chamber in hydrodynamics conditions. Colors show the concentration of released metal ions getting convected in the direction of fluid flow. The light gray part shows the degrading object. The numbers (1) to (4) demonstrate the evolution of the simulation over time."></div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 4.10: </span>Visualization of the results of the biodegradation of an object inside the chamber in hydrodynamics conditions. Colors show the concentration of released metal ions getting convected in the direction of fluid flow. The light gray part shows the degrading object. The numbers (1) to (4) demonstrate the evolution of the simulation over time.</figcaption>
+</figure>
+</div>
+</section>
+<section id="S4" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">4.4</span> Discussion</h2>
+
+<div id="S4.p1" class="ltx_para">
+<p class="ltx_p">In this study, a parallel fluid flow model was developed to be coupled with the computational biodegradation model enabling the consideration of the effect of the hydrodynamics conditions in corrosion tests. The most important form of hydrodynamics in tissue engineering is the perfusion phenomenon in bioreactors, which makes the development of such coupled degradation-CFD model even more crucial considering the final application of the biodegradation model. Similar to perfusion bioreactors, the hydrodynamics set-up in biodegradation tests helps removing corrosion products and providing mechanical forces if applicable.</p>
+</div>
+<div id="S4.p2" class="ltx_para">
+<p class="ltx_p">In order to verify the developed CFD model, a test case was prepared to simulate a similar chamber flow model in both the in-house FreeFEM code and the OpenFOAM code, a well-established open-source CFD solver. Qualitative (Figs. <a href="#F4" title="Figure 4.4 ‣ 4.3 Results ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.4</span></a> and <a href="#F5" title="Figure 4.5 ‣ 4.3 Results ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.5</span></a>) and quantitative (Figs. <a href="#F6" title="Figure 4.6 ‣ 4.3 Results ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.6</span></a> and <a href="#F7" title="Figure 4.7 ‣ 4.3 Results ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.7</span></a>) comparison of results show identical predictions for the flow field in both models, demonstrating that the derivation of the weak forms of Navier-Stokes equations as well as their numerical implementation in FreeFEM were performed correctly. This comparison indicates that the developed code can be used instead of a well-known and sophisticated CFD solver for the desired flow regime, which is laminar flow with low Reynolds numbers.</p>
+</div>
+<div id="S4.p3" class="ltx_para">
+<p class="ltx_p">The reason for developing an in-house CFD code instead of using a well-established CFD solver lies in the lack of availability of proper coupling software. Although various efficient solver coupling codes exist and are widely used in similar scenarios (such as the preCISE coupling library <cite class="ltx_cite ltx_citemacro_cite">[<a href="bib.html#bib242" title="preCICE v2: a sustainable and user-friendly coupling library [version 1; peer review: 2 approved]" class="ltx_ref">56</a>]</cite>), at the time of this writing and to the best of the authors’ knowledge, there is no compatible coupling software for FreeFEM, the language in which the computational model of the biodegradation process was implemented. In case of existence, the computational biodegradation model could have been linked with OpenFOAM, SU2, or Code_Saturne in an efficient in-memory way. But, with such an approach not available, the only feasible approach would be coupling the models using disk IO (input-output), meaning that in each time step, the computational model should write the domain data on disk (we should notice that the domain evolves since it is a moving interface problem), and the CFD code reads the data, computes the flow field, and writes it back to the disk so that the biodegradation would read it back. Despite the possibility of employing this approach, the computationally intensive aspects of the models, which is the result of a 3D mesh refined on the corrosion interface leading to normally 2M-4M elements, makes the workflow dramatically inefficient. Working in HPC environments and dealing with a partitioned mesh can make the situation even more complex. This reasoning made it inevitable to develop an in-house CFD code so that it can be seamlessly and efficiently coupled with other models.</p>
+</div>
+<div id="S4.p4" class="ltx_para">
+<p class="ltx_p">In order to couple the flow model with the computational biodegradation model, both models should be modified to include the effect of the other one. For the biodegradation model, the effect of fluid flow was considered as an extra convection term in the set of derived reaction-diffusion equations, which can be implemented using the method of characteristics in FreeFEM. On the other side, the inclusion of the effect of a degrading object can be more tricky in the CFD model. This was done by adding a Darcy term to the Navier-Stokes and Stokes equation, which considers a high permeability for the regions inside the degrading object, preventing fluid from penetrating into those parts. After the degrading part interface shrinks, the Darcy term gets updated automatically since it is formulated based on the level-set function used in the biodegradation model to describe the moving corrosion interface. Figs. <a href="#F8" title="Figure 4.8 ‣ 4.3 Results ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.8</span></a> and <a href="#F9" title="Figure 4.9 ‣ 4.3 Results ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.9</span></a> demonstrate the effect of the presence of the degrading part on the pattern of flow, while Fig.
+<a href="#F10" title="Figure 4.10 ‣ 4.3 Results ‣ Chapter 4 Extending the model: adding fluid flow and convection ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">4.10</span></a> shows the effect of fluid flow on the biodegradation, which is the ions being convected in the direction of the fluid velocity field, leading to a minor directional degradation in which the side facing the flow direction degrades slightly faster.</p>
+</div>
+<div id="S4.p5" class="ltx_para">
+<p class="ltx_p">The performed verification study on the developed CFD code is not enough to call it a fully validated fluid flow model. However, by considering the desired flow regime in biodegradation tests, the verification shows that the coupled model is capable of predicting acceptable and correct results. Nonetheless, dedicated validation tests can be further done to fully validate the developed model as a general CFD code which can be used standalone for simulating laminar flows with low Reynolds numbers.</p>
+</div>
+</div>
+</section>
+<section id="S5" class="ltx_section normal">
+<div class="section level2">
+
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section header-section-number">4.5</span> Conclusion</h2>
+
+<div id="S5.p1" class="ltx_para">
+<p class="ltx_p">In this chapter, a parallel fluid flow model was developed and linked with the biodegradation model, making it possible to simulate the degradation process in hydrodynamics conditions. Proper preconditioners and solvers were selected to improve the parallel efficiency of the developed model in HPC environments. The results obtained from the fluid flow model were compared with the output of a similar simulation performed using OpenFOAM, in which a good agreement was observed, verifying the performance of the developed model for the desired flow regime needed to perform local pH simulations in Chapter <a href="Ch5.html" title="Chapter 5 Extending the model: simulating local pH evolution ‣ Mathematical and computational modeling of metallic biomaterials biodegradation" class="ltx_ref"><span class="ltx_text ltx_ref_tag">5</span></a>.</p>
+</div>
+<div class="ltx_pagination ltx_role_newpage"></div>
+</div>
+</section>
+</div>
+</section>
+</div>
+</div>
+</div>
+<a href="Ch3.html" class="navigation navigation-prev" aria-label="Previous page"><i class="fa fa-angle-left"></i></a><a href="Ch5.html" class="navigation navigation-next" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+</div>
+</div>
+<script src="bookml/gitbook/js/app.min.js"></script>
+<script src="bookml/gitbook/js/jquery.highlight.js"></script>
+<script src="bookml/gitbook/js/plugin-search.js"></script>
+<script src="bookml/gitbook/js/plugin-fontsettings.js"></script>
+<script src="bookml/gitbook/js/plugin-bookdown.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script>
+        MathJax = {
+          startup: {
+            ready() {
+              // do not process equations disabled with \bmlDisableMathJax (code suggested by Davide P. Cervone)
+              class bmlFindMathML extends MathJax._.input.mathml.FindMathML.FindMathML {
+                processMath(set) {
+                  const adaptor = this.adaptor;
+                  for (const node of set.values()) {
+                    if (adaptor.hasClass(node, 'bml_disable_mathjax')) {
+                      set.delete(node);
+                    }
+                  }
+                  return super.processMath(set);
+                }
+              }
+
+              MathJax._.components.global.combineDefaults(MathJax.config, 'mml', {FindMathML: new bmlFindMathML()});
+
+              MathJax.startup.defaultReady();
+
+              // preproces MathML to make MathJax aware of certain LaTeXML and BookML additional info
+              const mmlFilters = MathJax.startup.input[0].mmlFilters;
+
+              // convert the LaTeXML calligraphic (chancery) annotation to a form MathJax understands
+              // since the corresponding Unicode characters render as script (rounded)
+              const script2latin = {
+                '𝒜': 'A', 'ℬ': 'B', '𝒞': 'C', '𝒟': 'D', 'ℰ': 'E', 'ℱ': 'F', '𝒢': 'G',
+                'ℋ': 'H', 'ℐ': 'I', '𝒥': 'J', '𝒦': 'K', 'ℒ': 'L', 'ℳ': 'M', '𝒩': 'N',
+                '𝒪': 'O', '𝒫': 'P', '𝒬': 'Q', 'ℛ': 'R', '𝒮': 'S', '𝒯': 'T', '𝒰': 'U',
+                '𝒱': 'V', '𝒲': 'W', '𝒳': 'X', '𝒴': 'Y', '𝒵': 'Z',
+              };
+
+              mmlFilters.add((args) => {
+                for (const n of args.data.getElementsByClassName('ltx_font_mathcaligraphic')) {
+                  n.classList.add('MJX-tex-calligraphic');
+                  const letter = script2latin[n.textContent];
+                  if (letter !== undefined) { n.textContent = letter; }
+                }
+              });
+
+              // adjust characters based on Unicode variation sequences
+              const replacements = {
+                // MathJax renders the empty set as the U+FE00 variant, so the plain character needs adjusting
+                '∅': { variant: 'variant' },
+                // MathJax renders script characters in rounded style, which is fine for no variation and U+FE00
+                '𝒜\xFE00': { text: 'A', variant: 'tex-calligraphic' },
+                'ℬ\xFE00': { text: 'B', variant: 'tex-calligraphic' },
+                '𝒞\xFE00': { text: 'C', variant: 'tex-calligraphic' },
+                '𝒟\xFE00': { text: 'D', variant: 'tex-calligraphic' },
+                'ℰ\xFE00': { text: 'E', variant: 'tex-calligraphic' },
+                'ℱ\xFE00': { text: 'F', variant: 'tex-calligraphic' },
+                '𝒢\xFE00': { text: 'G', variant: 'tex-calligraphic' },
+                'ℋ\xFE00': { text: 'H', variant: 'tex-calligraphic' },
+                'ℐ\xFE00': { text: 'I', variant: 'tex-calligraphic' },
+                '𝒥\xFE00': { text: 'J', variant: 'tex-calligraphic' },
+                '𝒦\xFE00': { text: 'K', variant: 'tex-calligraphic' },
+                'ℒ\xFE00': { text: 'L', variant: 'tex-calligraphic' },
+                'ℳ\xFE00': { text: 'M', variant: 'tex-calligraphic' },
+                '𝒩\xFE00': { text: 'N', variant: 'tex-calligraphic' },
+                '𝒪\xFE00': { text: 'O', variant: 'tex-calligraphic' },
+                '𝒫\xFE00': { text: 'P', variant: 'tex-calligraphic' },
+                '𝒬\xFE00': { text: 'Q', variant: 'tex-calligraphic' },
+                'ℛ\xFE00': { text: 'R', variant: 'tex-calligraphic' },
+                '𝒮\xFE00': { text: 'S', variant: 'tex-calligraphic' },
+                '𝒯\xFE00': { text: 'T', variant: 'tex-calligraphic' },
+                '𝒰\xFE00': { text: 'U', variant: 'tex-calligraphic' },
+                '𝒱\xFE00': { text: 'V', variant: 'tex-calligraphic' },
+                '𝒲\xFE00': { text: 'W', variant: 'tex-calligraphic' },
+                '𝒳\xFE00': { text: 'X', variant: 'tex-calligraphic' },
+                '𝒴\xFE00': { text: 'Y', variant: 'tex-calligraphic' },
+                '𝒵\xFE00': { text: 'Z', variant: 'tex-calligraphic' }
+              };
+
+              mmlFilters.add((args) => {
+                let nodes = document.evaluate('.//m:mi | .//m:mn | .//m:mo | .//m:ms', args.data,
+                  () => 'http://www.w3.org/1998/Math/MathML', XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE);
+                for (let i = 0; i < nodes.snapshotLength; i++) {
+                  const n = nodes.snapshotItem(i);
+                  const repl = replacements[n.innerHTML];
+                  if (repl !== undefined) {
+                    const variant = repl['variant'];
+                    const text = repl['text'];
+                    if (variant !== undefined) { n.classList.add('MJX-' + variant); n.removeAttribute('mathvariant'); }
+                    if (text !== undefined) { n.innerHTML = text; }
+                  }
+                }
+              });
+            }
+          }
+        };
+      </script>
+<script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js"></script>
+<script type="text/javascript">
+                gitbook.require(["gitbook"], function(gitbook) {
+                gitbook.start({
+                  "fontsettings": {
+                    "theme": "white",
+                    "family": "sans",
+                    "size": 2
+                  },
+                  "download": [ [ "thesis.pdf", "PDF" ], ],
+                  "search": {
+                    "engine": "fuse"
+                  },
+                  "toc": {
+                    "collapse": "none"
+                  }
+                });
+              });
+            </script>
+</body>
+
+</html>
